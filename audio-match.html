@@ -1,49 +1,89 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import { FaFrown, FaStar } from "react-icons/fa";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Match Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: lightgray;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: gray;
+            color: white;
+        }
+        .feedback {
+            font-size: 50px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Match the Sound to the Word</h1>
+    <button class="button" onclick="playSound()">Play Sound</button>
+    <div id="choices"></div>
+    <div id="feedback" class="feedback"></div>
+    
+    <script>
+        const soundData = [
+            { word: "Cat", audio: "sounds/cat-meow.mp3" },
+            { word: "Dog", audio: "sounds/dog-bark.mp3" },
+            { word: "Bird", audio: "sounds/bird-chirp.mp3" },
+            { word: "Cow", audio: "sounds/cow-moo.mp3" },
+            { word: "Sheep", audio: "sounds/sheep-baa.mp3" }
+        ];
 
-const choices = ["Cat", "Dog", "Bird", "Cow", "Sheep"];
-const correctAnswer = "Dog";
-const audioSrc = "/sounds/dog-bark.mp3";
+        let currentIndex = 0;
 
-export default function AudioMatchGame() {
-  const [feedback, setFeedback] = useState(null);
+        function playSound() {
+            new Audio(soundData[currentIndex].audio).play();
+        }
 
-  const playSound = () => {
-    new Audio(audioSrc).play();
-  };
+        function handleChoice(choice) {
+            const feedback = document.getElementById("feedback");
+            if (choice === soundData[currentIndex].word) {
+                feedback.innerHTML = "⭐";
+                setTimeout(nextSound, 1000); // Move to next sound after success
+            } else {
+                feedback.innerHTML = "☹️";
+                setTimeout(() => feedback.innerHTML = "", 1000);
+            }
+        }
 
-  const handleChoice = (choice) => {
-    if (choice === correctAnswer) {
-      setFeedback("correct");
-    } else {
-      setFeedback("wrong");
-      setTimeout(() => setFeedback(null), 1000);
-    }
-  };
+        function nextSound() {
+            currentIndex++;
+            if (currentIndex < soundData.length) {
+                updateChoices();
+                document.getElementById("feedback").innerHTML = "";
+            } else {
+                document.getElementById("choices").innerHTML = "<h2>Game Over! 🎉</h2>";
+            }
+        }
 
-  return (
-    <div className="flex flex-col items-center gap-4 p-4">
-      <h1 className="text-xl font-bold">Match the Sound to the Word</h1>
-      <Button onClick={playSound} className="bg-blue-500 text-white p-2 rounded">Play Sound</Button>
-      <div className="flex gap-4 mt-4">
-        {choices.map((choice) => (
-          <Button key={choice} onClick={() => handleChoice(choice)} className="bg-gray-200 p-2 rounded">
-            {choice}
-          </Button>
-        ))}
-      </div>
-      {feedback === "wrong" && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-          <FaFrown className="text-red-500 text-4xl mt-4" />
-        </motion.div>
-      )}
-      {feedback === "correct" && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <FaStar className="text-yellow-500 text-6xl mt-4" />
-        </motion.div>
-      )}
-    </div>
-  );
-}
+        function updateChoices() {
+            const choicesDiv = document.getElementById("choices");
+            choicesDiv.innerHTML = "";
+            soundData.forEach(item => {
+                const btn = document.createElement("button");
+                btn.innerText = item.word;
+                btn.className = "button";
+                btn.onclick = () => handleChoice(item.word);
+                choicesDiv.appendChild(btn);
+            });
+        }
+
+        window.onload = updateChoices;
+    </script>
+</body>
+</html>
