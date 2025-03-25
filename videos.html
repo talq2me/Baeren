@@ -3,20 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Videos</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Embedded Videos from YouTube and Dropbox</title>
+    <link rel="stylesheet" href="styles.css">  <!-- Link to external CSS file -->
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="videos.html">Videos</a>
-        <a href="audio.html">Audio</a>
-        <a href="tts.html">Text-to-Speech</a>
-    </nav>
 
-    <h1>Embedded Videos</h1>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" 
-            title="YouTube Video" frameborder="0" allowfullscreen>
-    </iframe>
+    <div class="container">
+        <h1>Embedded YouTube and Dropbox Videos</h1>
+
+        <!-- YouTube Video Embed -->
+        <div class="video">
+            <h2>YouTube Video</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" 
+                    title="YouTube video player" frameborder="0" allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Dropbox Video Embed -->
+        <div class="video">
+            <h2>Dropbox Video</h2>
+            <video controls>
+                <source src="https://www.dropbox.com/s/your-video-file.mp4?raw=1" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
 </body>
 </html>
