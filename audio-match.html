@@ -1,0 +1,49 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { FaFrown, FaStar } from "react-icons/fa";
+
+const choices = ["Cat", "Dog", "Bird", "Cow", "Sheep"];
+const correctAnswer = "Dog";
+const audioSrc = "/sounds/dog-bark.mp3";
+
+export default function AudioMatchGame() {
+  const [feedback, setFeedback] = useState(null);
+
+  const playSound = () => {
+    new Audio(audioSrc).play();
+  };
+
+  const handleChoice = (choice) => {
+    if (choice === correctAnswer) {
+      setFeedback("correct");
+    } else {
+      setFeedback("wrong");
+      setTimeout(() => setFeedback(null), 1000);
+    }
+  };
+
+  return (
+    <div className="flex flex-col items-center gap-4 p-4">
+      <h1 className="text-xl font-bold">Match the Sound to the Word</h1>
+      <Button onClick={playSound} className="bg-blue-500 text-white p-2 rounded">Play Sound</Button>
+      <div className="flex gap-4 mt-4">
+        {choices.map((choice) => (
+          <Button key={choice} onClick={() => handleChoice(choice)} className="bg-gray-200 p-2 rounded">
+            {choice}
+          </Button>
+        ))}
+      </div>
+      {feedback === "wrong" && (
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+          <FaFrown className="text-red-500 text-4xl mt-4" />
+        </motion.div>
+      )}
+      {feedback === "correct" && (
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <FaStar className="text-yellow-500 text-6xl mt-4" />
+        </motion.div>
+      )}
+    </div>
+  );
+}
