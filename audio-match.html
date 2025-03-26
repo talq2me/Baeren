@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audio Match Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Match the Sound to the Word!</h1>
@@ -48,3 +48,66 @@
 
         // Function to handle when the user selects a choice
         function handleChoice(choice) {
+            const feedback = document.getElementById("feedback");
+            if (choice === currentSound.word) {
+                feedback.innerHTML = "⭐";
+                correctCount++;
+                document.getElementById("stars").innerHTML += "⭐";
+                if (correctCount < 10) {
+                    setTimeout(nextRound, 1000);
+                } else {
+                    document.getElementById("choices").innerHTML = "<h2>Game Over! 🎉</h2>";
+                }
+            } else {
+                feedback.innerHTML = "☹️";
+                highlightCorrectAnswer();
+                setTimeout(() => {
+                    feedback.innerHTML = "";
+                    nextRound();
+                }, 2000);
+            }
+        }
+
+        // Function to highlight the correct answer when the player gets it wrong
+        function highlightCorrectAnswer() {
+            const buttons = document.querySelectorAll(".button");
+            buttons.forEach(btn => {
+                if (btn.innerText === currentSound.word) {
+                    btn.style.backgroundColor = "lightgreen";
+                    setTimeout(() => btn.style.backgroundColor = "#6ac2ff", 2000);
+                }
+            });
+        }
+
+        // Function to move to the next round
+        function nextRound() {
+            currentSound = getRandomSound();
+            updateChoices();
+            document.getElementById("feedback").innerHTML = "";
+        }
+
+        // Function to update the choices dynamically based on the soundData
+        function updateChoices() {
+            const choicesDiv = document.getElementById("choices");
+            choicesDiv.innerHTML = "";
+            soundData[currentLanguage].forEach(item => {
+                const btn = document.createElement("button");
+                btn.innerText = item.word;
+                btn.className = "button";
+                btn.onclick = () => handleChoice(item.word);
+                choicesDiv.appendChild(btn);
+            });
+        }
+
+        // Function to switch language and load the appropriate word list
+        function switchLanguage(language) {
+            currentLanguage = language;
+            loadData(language); // Load the data for the selected language
+        }
+
+        window.onload = () => {
+            switchLanguage('english'); // Load English words by default
+        };
+    </script>
+</body>
+</html>
