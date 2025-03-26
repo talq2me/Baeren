@@ -1,27 +1,37 @@
 [
     {
-        "correctWord": "Éléphant",
-        "audio": "sounds/elephant-sound.mp3",
-        "choices": ["Éléphant", "Girafe", "Lion", "Zèbre"]
+        "correctWord": "té",
+        "audio": "sounds/té.mp3",
+        "choices": ["té", "te", "ta", "tè"]
     },
     {
-        "correctWord": "Papillon",
-        "audio": "sounds/butterfly-sound.mp3",
-        "choices": ["Chat", "Papillon", "Chien", "Oiseau"]
+        "correctWord": "pi",
+        "audio": "sounds/pi.mp3",
+        "choices": ["pe", "pi", "pa", "pu"]
     },
     {
-        "correctWord": "Loup",
-        "audio": "sounds/wolf-sound.mp3",
-        "choices": ["Loup", "Chien", "Chat", "Vache"]
+        "correctWord": "ly",
+        "audio": "sounds/ly.mp3",
+        "choices": ["lé", "la", "ly", "le"]
     },
     {
-        "correctWord": "Mouton",
-        "audio": "sounds/sheep-sound.mp3",
-        "choices": ["Mouton", "Chèvre", "Vache", "Cheval"]
+        "correctWord": "je",
+        "audio": "sounds/je.mp3",
+        "choices": ["ge", "je", "jé", "gè"]
     },
     {
-        "correctWord": "Vache",
-        "audio": "sounds/cow-sound.mp3",
-        "choices": ["Chien", "Vache", "Chat", "Oiseau"]
+        "correctWord": "wo",
+        "audio": "sounds/wo.mp3",
+        "choices": ["wu", "wa", "we", "wo"]
+    }
+    {
+        "correctWord": "bè",
+        "audio": "sounds/bè.mp3",
+        "choices": ["by", "bé", "be", "bè"]
+    }
+    {
+        "correctWord": "rê",
+        "audio": "sounds/rê.mp3",
+        "choices": ["rê", "ré", "re", "ry"]
     }
 ]

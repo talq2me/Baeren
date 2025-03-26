@@ -1,27 +1,42 @@
 [
     {
-        "correctWord": "Elephant",
-        "audio": "sounds/elephant-sound.mp3",
-        "choices": ["Elephant", "Giraffe", "Lion", "Zebra"]
+        "correctWord": "then",
+        "audio": "sounds/then.mp3",
+        "choices": ["they", "then", "them", "this"]
     },
     {
-        "correctWord": "Butterfly",
-        "audio": "sounds/butterfly-sound.mp3",
-        "choices": ["Cat", "Butterfly", "Dog", "Bird"]
+        "correctWord": "they",
+        "audio": "sounds/they.mp3",
+        "choices": ["then", "them", "this", "they"]
     },
     {
-        "correctWord": "Wolf",
-        "audio": "sounds/wolf-sound.mp3",
-        "choices": ["Wolf", "Dog", "Cat", "Cow"]
+        "correctWord": "that",
+        "audio": "sounds/that.mp3",
+        "choices": ["they", "them", "that", "this"]
     },
     {
-        "correctWord": "Sheep",
-        "audio": "sounds/sheep-sound.mp3",
-        "choices": ["Sheep", "Goat", "Cow", "Horse"]
+        "correctWord": "this",
+        "audio": "sounds/this.mp3",
+        "choices": ["that", "they", "this", "them"]
     },
     {
-        "correctWord": "Cow",
-        "audio": "sounds/cow-sound.mp3",
-        "choices": ["Dog", "Cow", "Cat", "Bird"]
+        "correctWord": "men",
+        "audio": "sounds/men.mp3",
+        "choices": ["min", "men", "man", "mon"]
+    }
+    {
+        "correctWord": "the",
+        "audio": "sounds/the.mp3",
+        "choices": ["the", "tho", "da", "ta"]
+    }
+    {
+        "correctWord": "check",
+        "audio": "sounds/check.mp3",
+        "choices": ["chick", "chuck", "chock", "check"]
+    }
+    {
+        "correctWord": "pack",
+        "audio": "sounds/pack.mp3",
+        "choices": ["pace", "pick", "pack", "pach"]
     }
 ]
