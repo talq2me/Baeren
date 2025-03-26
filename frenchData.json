@@ -1,7 +1,7 @@
 [
     {
         "correctWord": "té",
-        "audio": "sounds/té.mp3",
+        "audio": "sounds/te.mp3",
         "choices": ["té", "te", "ta", "tè"]
     },
     {
@@ -26,12 +26,12 @@
     },
     {
         "correctWord": "bè",
-        "audio": "sounds/bè.mp3",
+        "audio": "sounds/be.mp3",
         "choices": ["by", "bé", "be", "bè"]
     },
     {
         "correctWord": "rê",
-        "audio": "sounds/rê.mp3",
+        "audio": "sounds/re.mp3",
         "choices": ["rê", "ré", "re", "ry"]
     }
 ]
