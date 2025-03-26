@@ -4,181 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audio Match Game</title>
-    <style>
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 20px;
-        margin: 0;
-    }
-    .button {
-        padding: 15px 30px;  /* Larger padding for easier clicking/tapping */
-        margin: 10px;
-        font-size: 20px;  /* Larger text for readability */
-        cursor: pointer;
-        border: none;
-        background-color: lightgray;
-        border-radius: 10px; /* Slightly rounded corners for a friendlier look */
-        transition: background-color 0.3s ease, transform 0.1s ease;
-    }
-    .button:hover {
-        background-color: gray;
-        color: white;
-        transform: scale(1.05);  /* Button slightly grows on hover */
-    }
-    .feedback {
-        font-size: 50px;
-        margin-top: 20px;
-    }
-    .stars {
-        font-size: 30px;
-        margin-top: 10px;
-    }
-    .feedback-container {
-        margin-top: 10px;
-    }
-    .language-buttons {
-        margin-bottom: 20px;
-    }
-
-    /* Responsive styling for mobile */
-    @media (max-width: 600px) {
-        .button {
-            font-size: 18px;  /* Slightly smaller text on small screens */
-            padding: 12px 25px;  /* Reduced padding but still large enough for touch */
-            margin: 8px;
-        }
-        .feedback {
-            font-size: 40px;
-        }
-        .stars {
-            font-size: 24px;
-        }
-    }
-
-    /* Make sure the layout works well on even smaller screens */
-    @media (max-width: 400px) {
-        .button {
-            font-size: 16px;  /* Even smaller font size */
-            padding: 10px 20px;  /* Smallest padding for very small screens */
-        }
-        .feedback {
-            font-size: 35px;
-        }
-        .stars {
-            font-size: 20px;
-        }
-    }
-</style>
-
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Match the Sound to the Word</h1>
-    
-    <!-- Language buttons -->
+    <h1>Match the Sound to the Word!</h1>
     <div class="language-buttons">
-        <button class="button" onclick="loadGame('french')">Français</button>
-        <button class="button" onclick="loadGame('english')">English</button>
+        <button class="button" onclick="switchLanguage('english')">English</button>
+        <button class="button" onclick="switchLanguage('french')">Français</button>
     </div>
-
     <button class="button" onclick="playSound()">Play Sound</button>
     <div id="choices"></div>
-    
-    <!-- Stars tracker line -->
-    <div id="stars" class="stars"></div>
-    
-    <!-- Feedback (star/frowny) line -->
-    <div id="feedback" class="feedback-container">
-        <div id="feedback-text" class="feedback"></div>
-    </div>
+    <div id="stars"></div> <!-- Area for the 10 stars -->
+    <div id="feedback" class="feedback"></div> <!-- Feedback area (star or frowny face) -->
     
     <script>
-        let soundData = [];
+        let currentSound = {};
         let correctCount = 0;
-        let currentQuestion = {};
+        let currentLanguage = 'english'; // Default to English
+        let soundData = {};
 
-        function loadGame(language) {
-            console.log(`Loading ${language} game data...`);
-            fetch(`${language}Data.json`)
-                .then(response => response.json())
-                .then(data => {
-                    console.log(`Loaded data for ${language}:`, data);
-                    soundData = data;
-                    correctCount = 0;
-                    document.getElementById("stars").innerHTML = "";
-                    nextRound();  // Start a new round when the game is loaded
-                })
-                .catch(error => {
-                    console.error("Error loading game data:", error);
-                });
-        }
-
-        function getRandomQuestion() {
-            console.log('Getting random question...');
-            return soundData[Math.floor(Math.random() * soundData.length)];
-        }
-
-        function playSound() {
-            console.log(`Playing sound for: ${currentQuestion.correctWord}`);
-            new Audio(currentQuestion.audio).play();
-        }
-
-        function handleChoice(choice) {
-            const feedback = document.getElementById("feedback-text");
-            console.log(`User selected: ${choice}, Correct answer: ${currentQuestion.correctWord}`);
-            if (choice === currentQuestion.correctWord) {
-                feedback.innerHTML = "⭐";
-                correctCount++;
-                document.getElementById("stars").innerHTML += "⭐";
-                if (correctCount < 10) {
-                    setTimeout(nextRound, 1000);
-                } else {
-                    document.getElementById("choices").innerHTML = "<h2>Game Over! 🎉</h2>";
-                }
-            } else {
-                feedback.innerHTML = "☹️";
-                highlightCorrectAnswer();
-                setTimeout(() => {
-                    feedback.innerHTML = "";
-                    nextRound();
-                }, 2000);
+        // Function to load the word and sound data from the JSON file
+        async function loadData(language) {
+            try {
+                const response = await fetch(`${language}.json`); // Dynamically load the respective language file
+                const data = await response.json();
+                soundData[language] = data;
+                currentSound = getRandomSound();
+                updateChoices();
+            } catch (error) {
+                console.error('Error loading sound data:', error);
             }
         }
 
-        function highlightCorrectAnswer() {
-            const buttons = document.querySelectorAll(".button");
-            buttons.forEach(btn => {
-                if (btn.innerText === currentQuestion.correctWord) {
-                    btn.style.backgroundColor = "lightgreen";
-                    setTimeout(() => btn.style.backgroundColor = "lightgray", 2000);
-                }
-            });
+        // Function to get a random sound from the selected language
+        function getRandomSound() {
+            return soundData[currentLanguage][Math.floor(Math.random() * soundData[currentLanguage].length)];
         }
 
-        function nextRound() {
-            currentQuestion = getRandomQuestion();
-            updateChoices();
-            document.getElementById("feedback-text").innerHTML = "";
+        // Function to play the sound
+        function playSound() {
+            new Audio(currentSound.audio).play();
         }
 
-        function updateChoices() {
-            console.log("Updating choices...");
-            const choicesDiv = document.getElementById("choices");
-            choicesDiv.innerHTML = "";
-            currentQuestion.choices.forEach(choice => {
-                const btn = document.createElement("button");
-                btn.innerText = choice;
-                btn.className = "button";
-                btn.onclick = () => handleChoice(choice);
-                choicesDiv.appendChild(btn);
-            });
-            console.log("Choices updated:", currentQuestion.choices);
-        }
-
-        // Load default game on page load
-        window.onload = () => {
-            loadGame('english');  // Load the English game by default
-        };
-    </script>
-</body>
-</html>
+        // Function to handle when the user selects a choice
+        function handleChoice(choice) {
