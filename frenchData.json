@@ -1,0 +1,27 @@
+[
+    {
+        "correctWord": "Éléphant",
+        "audio": "sounds/elephant-sound.mp3",
+        "choices": ["Éléphant", "Girafe", "Lion", "Zèbre"]
+    },
+    {
+        "correctWord": "Papillon",
+        "audio": "sounds/butterfly-sound.mp3",
+        "choices": ["Chat", "Papillon", "Chien", "Oiseau"]
+    },
+    {
+        "correctWord": "Loup",
+        "audio": "sounds/wolf-sound.mp3",
+        "choices": ["Loup", "Chien", "Chat", "Vache"]
+    },
+    {
+        "correctWord": "Mouton",
+        "audio": "sounds/sheep-sound.mp3",
+        "choices": ["Mouton", "Chèvre", "Vache", "Cheval"]
+    },
+    {
+        "correctWord": "Vache",
+        "audio": "sounds/cow-sound.mp3",
+        "choices": ["Chien", "Vache", "Chat", "Oiseau"]
+    }
+]

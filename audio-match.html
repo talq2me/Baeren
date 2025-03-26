@@ -27,63 +27,125 @@
             font-size: 50px;
             margin-top: 20px;
         }
+        .stars {
+            font-size: 30px;
+            margin-top: 10px;
+        }
+        .feedback-container {
+            margin-top: 10px;
+        }
+        .language-buttons {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
     <h1>Match the Sound to the Word</h1>
+    
+    <!-- Language buttons -->
+    <div class="language-buttons">
+        <button class="button" onclick="loadGame('french')">Français</button>
+        <button class="button" onclick="loadGame('english')">English</button>
+    </div>
+
     <button class="button" onclick="playSound()">Play Sound</button>
     <div id="choices"></div>
-    <div id="feedback" class="feedback"></div>
+    
+    <!-- Stars tracker line -->
+    <div id="stars" class="stars"></div>
+    
+    <!-- Feedback (star/frowny) line -->
+    <div id="feedback" class="feedback-container">
+        <div id="feedback-text" class="feedback"></div>
+    </div>
     
     <script>
-        const soundData = [
-            { word: "Cat", audio: "sounds/cat-meow.mp3" },
-            { word: "Dog", audio: "sounds/dog-bark.mp3" },
-            { word: "Bird", audio: "sounds/bird-chirp.mp3" },
-            { word: "Cow", audio: "sounds/cow-moo.mp3" },
-            { word: "Sheep", audio: "sounds/sheep-baa.mp3" }
-        ];
+        let soundData = [];
+        let correctCount = 0;
+        let currentQuestion = {};
 
-        let currentIndex = 0;
+        function loadGame(language) {
+            console.log(`Loading ${language} game data...`);
+            fetch(`${language}Data.json`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(`Loaded data for ${language}:`, data);
+                    soundData = data;
+                    correctCount = 0;
+                    document.getElementById("stars").innerHTML = "";
+                    nextRound();  // Start a new round when the game is loaded
+                })
+                .catch(error => {
+                    console.error("Error loading game data:", error);
+                });
+        }
+
+        function getRandomQuestion() {
+            console.log('Getting random question...');
+            return soundData[Math.floor(Math.random() * soundData.length)];
+        }
 
         function playSound() {
-            new Audio(soundData[currentIndex].audio).play();
+            console.log(`Playing sound for: ${currentQuestion.correctWord}`);
+            new Audio(currentQuestion.audio).play();
         }
 
         function handleChoice(choice) {
-            const feedback = document.getElementById("feedback");
-            if (choice === soundData[currentIndex].word) {
+            const feedback = document.getElementById("feedback-text");
+            console.log(`User selected: ${choice}, Correct answer: ${currentQuestion.correctWord}`);
+            if (choice === currentQuestion.correctWord) {
                 feedback.innerHTML = "⭐";
-                setTimeout(nextSound, 1000); // Move to next sound after success
+                correctCount++;
+                document.getElementById("stars").innerHTML += "⭐";
+                if (correctCount < 10) {
+                    setTimeout(nextRound, 1000);
+                } else {
+                    document.getElementById("choices").innerHTML = "<h2>Game Over! 🎉</h2>";
+                }
             } else {
                 feedback.innerHTML = "☹️";
-                setTimeout(() => feedback.innerHTML = "", 1000);
+                highlightCorrectAnswer();
+                setTimeout(() => {
+                    feedback.innerHTML = "";
+                    nextRound();
+                }, 2000);
             }
         }
 
-        function nextSound() {
-            currentIndex++;
-            if (currentIndex < soundData.length) {
-                updateChoices();
-                document.getElementById("feedback").innerHTML = "";
-            } else {
-                document.getElementById("choices").innerHTML = "<h2>Game Over! 🎉</h2>";
-            }
-        }
-
-        function updateChoices() {
-            const choicesDiv = document.getElementById("choices");
-            choicesDiv.innerHTML = "";
-            soundData.forEach(item => {
-                const btn = document.createElement("button");
-                btn.innerText = item.word;
-                btn.className = "button";
-                btn.onclick = () => handleChoice(item.word);
-                choicesDiv.appendChild(btn);
+        function highlightCorrectAnswer() {
+            const buttons = document.querySelectorAll(".button");
+            buttons.forEach(btn => {
+                if (btn.innerText === currentQuestion.correctWord) {
+                    btn.style.backgroundColor = "lightgreen";
+                    setTimeout(() => btn.style.backgroundColor = "lightgray", 2000);
+                }
             });
         }
 
-        window.onload = updateChoices;
+        function nextRound() {
+            currentQuestion = getRandomQuestion();
+            updateChoices();
+            document.getElementById("feedback-text").innerHTML = "";
+        }
+
+        function updateChoices() {
+            console.log("Updating choices...");
+            const choicesDiv = document.getElementById("choices");
+            choicesDiv.innerHTML = "";
+            currentQuestion.choices.forEach(choice => {
+                const btn = document.createElement("button");
+                btn.innerText = choice;
+                btn.className = "button";
+                btn.onclick = () => handleChoice(choice);
+                choicesDiv.appendChild(btn);
+            });
+            console.log("Choices updated:", currentQuestion.choices);
+        }
+
+        // Load default game on page load
+        window.onload = () => {
+            loadGame('english');  // Load the English game by default
+        };
     </script>
 </body>
 </html>
