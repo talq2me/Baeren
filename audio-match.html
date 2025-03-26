@@ -5,39 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audio Match Game</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+        margin: 0;
+    }
+    .button {
+        padding: 15px 30px;  /* Larger padding for easier clicking/tapping */
+        margin: 10px;
+        font-size: 20px;  /* Larger text for readability */
+        cursor: pointer;
+        border: none;
+        background-color: lightgray;
+        border-radius: 10px; /* Slightly rounded corners for a friendlier look */
+        transition: background-color 0.3s ease, transform 0.1s ease;
+    }
+    .button:hover {
+        background-color: gray;
+        color: white;
+        transform: scale(1.05);  /* Button slightly grows on hover */
+    }
+    .feedback {
+        font-size: 50px;
+        margin-top: 20px;
+    }
+    .stars {
+        font-size: 30px;
+        margin-top: 10px;
+    }
+    .feedback-container {
+        margin-top: 10px;
+    }
+    .language-buttons {
+        margin-bottom: 20px;
+    }
+
+    /* Responsive styling for mobile */
+    @media (max-width: 600px) {
         .button {
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            background-color: lightgray;
-            border-radius: 5px;
-        }
-        .button:hover {
-            background-color: gray;
-            color: white;
+            font-size: 18px;  /* Slightly smaller text on small screens */
+            padding: 12px 25px;  /* Reduced padding but still large enough for touch */
+            margin: 8px;
         }
         .feedback {
-            font-size: 50px;
-            margin-top: 20px;
+            font-size: 40px;
         }
         .stars {
-            font-size: 30px;
-            margin-top: 10px;
+            font-size: 24px;
         }
-        .feedback-container {
-            margin-top: 10px;
+    }
+
+    /* Make sure the layout works well on even smaller screens */
+    @media (max-width: 400px) {
+        .button {
+            font-size: 16px;  /* Even smaller font size */
+            padding: 10px 20px;  /* Smallest padding for very small screens */
         }
-        .language-buttons {
-            margin-bottom: 20px;
+        .feedback {
+            font-size: 35px;
         }
-    </style>
+        .stars {
+            font-size: 20px;
+        }
+    }
+</style>
+
 </head>
 <body>
     <h1>Match the Sound to the Word</h1>
