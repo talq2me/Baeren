@@ -5,59 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audio Match Game</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Font Awesome for icons -->
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <h1>Match the Sound to the Word</h1>
-            <!-- Back to Home Button -->
-            <button class="back-button" onclick="window.location.href='index.html'">
-                <i class="fas fa-home"></i> Back to Home
-            </button>
-        </div>
-    </header>
-
-    <div id="game-container">
-        <button class="button" onclick="playSound()">
-            <i class="fas fa-play play-icon"></i> Play Sound
-        </button>
-        
-        <div id="choices"></div>
-        <div id="stars-tracked">Stars: <span id="stars">⭐</span></div>
-        <div id="feedback" class="feedback"></div>
+    <h1>Match the Sound to the Word!</h1>
+    <div class="language-buttons">
+        <button class="button" onclick="switchLanguage('english')">English</button>
+        <button class="button" onclick="switchLanguage('french')">Français</button>
     </div>
-
+    <button class="button" onclick="playSound()">Play Sound</button>
+    <div id="choices"></div>
+    <div id="stars"></div> <!-- Area for the 10 stars -->
+    <div id="feedback" class="feedback"></div> <!-- Feedback area (star or frowny face) -->
+    
     <script>
-        let soundData = [];
-        let correctCount = 0;
         let currentSound = {};
+        let correctCount = 0;
+        let currentLanguage = 'english'; // Default to English
+        let soundData = {};
 
-        // Fetch the JSON file based on language selection
-        function loadGameData(language) {
-            fetch(language + "Data.json")
-                .then(response => response.json())
-                .then(data => {
-                    soundData = data;
-                    currentSound = getRandomSound();
-                    updateChoices();
-                })
-                .catch(error => {
-                    console.error("Error loading JSON data:", error);
-                });
+        // Function to load the word and sound data from the JSON file
+        async function loadData(language) {
+            try {
+                const response = await fetch(`${language}Data.json`); // Corrected to use the original file names
+                const data = await response.json();
+                soundData[language] = data;
+                currentSound = getRandomSound();
+                updateChoices();
+            } catch (error) {
+                console.error('Error loading sound data:', error);
+            }
         }
 
+        // Function to get a random sound from the selected language
         function getRandomSound() {
-            return soundData[Math.floor(Math.random() * soundData.length)];
+            return soundData[currentLanguage][Math.floor(Math.random() * soundData[currentLanguage].length)];
         }
 
+        // Function to play the sound
         function playSound() {
             new Audio(currentSound.audio).play();
         }
 
+        // Function to handle when the user selects a choice
         function handleChoice(choice) {
             const feedback = document.getElementById("feedback");
-            if (choice === currentSound.word) {
+            if (choice === currentSound.correctWord) {
                 feedback.innerHTML = "⭐";
                 correctCount++;
                 document.getElementById("stars").innerHTML += "⭐";
@@ -76,37 +68,45 @@
             }
         }
 
+        // Function to highlight the correct answer when the player gets it wrong
         function highlightCorrectAnswer() {
             const buttons = document.querySelectorAll(".button");
             buttons.forEach(btn => {
-                if (btn.innerText === currentSound.word) {
+                if (btn.innerText === currentSound.correctWord) {
                     btn.style.backgroundColor = "lightgreen";
-                    setTimeout(() => btn.style.backgroundColor = "lightgray", 2000);
+                    setTimeout(() => btn.style.backgroundColor = "#6ac2ff", 2000);
                 }
             });
         }
 
+        // Function to move to the next round
         function nextRound() {
             currentSound = getRandomSound();
             updateChoices();
             document.getElementById("feedback").innerHTML = "";
         }
 
+        // Function to update the choices dynamically based on the soundData
         function updateChoices() {
             const choicesDiv = document.getElementById("choices");
             choicesDiv.innerHTML = "";
-            soundData.forEach(item => {
+            currentSound.choices.forEach(choice => {
                 const btn = document.createElement("button");
-                btn.innerText = item.word;
+                btn.innerText = choice;
                 btn.className = "button";
-                btn.onclick = () => handleChoice(item.word);
+                btn.onclick = () => handleChoice(choice);
                 choicesDiv.appendChild(btn);
             });
         }
 
+        // Function to switch language and load the appropriate word list
+        function switchLanguage(language) {
+            currentLanguage = language;
+            loadData(language); // Load the data for the selected language
+        }
+
         window.onload = () => {
-            // Default to English
-            loadGameData('english');
+            switchLanguage('english'); // Load English words by default
         };
     </script>
 </body>
