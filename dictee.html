@@ -33,14 +33,14 @@
     <div id="buttonContainer" class="button-container"></div>
 
     <script>
-        // Function to fetch and process words from the text file
+        // Function to fetch and process lines from the text file
         async function loadWords() {
             try {
-                // Fetch words from the text file
+                // Fetch the text file
                 let response = await fetch('words-fr.txt'); // Ensure words-fr.txt is in the same folder
                 let text = await response.text();
 
-                // Split text by lines (ensuring each button corresponds to one line)
+                // Split text by lines, keeping full lines intact
                 let lines = text.split(/\r?\n/).filter(line => line.trim() !== '');
 
                 // Get the container for buttons
@@ -49,12 +49,12 @@
                 // Create buttons for each line
                 lines.forEach((line, index) => {
                     let button = document.createElement('button');
-                    button.textContent = line; // Display full line on the button
+                    button.textContent = line; // Display full line as button text
 
-                    // Add click event to speak the full line in French
+                    // Add click event to speak the entire line
                     button.addEventListener('click', () => {
                         let utterance = new SpeechSynthesisUtterance(line);
-                        utterance.lang = 'fr-FR'; // Set language to French
+                        utterance.lang = 'fr-FR'; // Read in French
                         window.speechSynthesis.speak(utterance);
                     });
 
