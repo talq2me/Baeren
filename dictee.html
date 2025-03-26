@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Word Reader</title>
+    <title>French Word Reader</title>
     <style>
         .button-container {
             margin: 20px;
@@ -21,34 +21,29 @@
     <h1>French Word Reader</h1>
     <div id="buttonContainer" class="button-container"></div>
 
-    <!-- Include Tesseract.js from CDN -->
-    <script src="https://unpkg.com/tesseract.js@4.0.0/dist/tesseract.min.js"></script>
     <script>
-        // Wait for the page to load
-        document.addEventListener('DOMContentLoaded', async () => {
+        // Function to fetch and process words from the text file
+        async function loadWords() {
             try {
-                // Load and recognize text from the image (French words)
-                const { data: { text } } = await Tesseract.recognize(
-                    'spelling-fr.png',  // Make sure this image contains French words
-                    'fra',  // Set language to French for OCR
-                    { logger: m => console.log(m) }
-                );
+                // Fetch words from the text file
+                let response = await fetch('words-fr.txt'); // Ensure words-fr.txt is in the same folder
+                let text = await response.text();
 
                 // Split the text into words and filter out empty strings
-                const words = text.split(/\s+/).filter(word => word.trim() !== '');
-                
+                let words = text.split(/\s+/).filter(word => word.trim() !== '');
+
                 // Get the container for buttons
-                const container = document.getElementById('buttonContainer');
+                let container = document.getElementById('buttonContainer');
 
                 // Create buttons for each word
                 words.forEach((word, index) => {
-                    const button = document.createElement('button');
-                    button.textContent = index + 1; // Button labeled with number
-                    
+                    let button = document.createElement('button');
+                    button.textContent = index + 1; // Numbered buttons
+
                     // Add click event to speak the word in French
                     button.addEventListener('click', () => {
-                        const utterance = new SpeechSynthesisUtterance(word);
-                        utterance.lang = 'fr-FR';  // Read words in French
+                        let utterance = new SpeechSynthesisUtterance(word);
+                        utterance.lang = 'fr-FR'; // Set language to French
                         window.speechSynthesis.speak(utterance);
                     });
 
@@ -57,10 +52,13 @@
                 });
 
             } catch (error) {
-                console.error('Error processing image:', error);
-                alert('Error processing the image. Please make sure spelling-fr.png exists in the same folder.');
+                console.error('Error loading words:', error);
+                alert('Error loading the words. Please make sure words-fr.txt exists in the same folder.');
             }
-        });
+        }
+
+        // Call function on page load
+        document.addEventListener('DOMContentLoaded', loadWords);
     </script>
 </body>
 </html>
