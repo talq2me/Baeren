@@ -52,7 +52,7 @@ header {
     }
 }
 
-/* General button styling */
+/* Play Sound button styling */
 .button {
     padding: 10px 20px;
     margin: 10px;
@@ -61,11 +61,19 @@ header {
     border: none;
     background-color: lightgray;
     border-radius: 5px;
+    display: inline-flex; /* Ensures the text and icon are aligned */
+    align-items: center; /* Centers the content vertically */
+    gap: 8px;  /* Space between icon and text */
 }
 
 .button:hover {
     background-color: gray;
     color: white;
+}
+
+/* Play icon */
+.play-icon {
+    font-size: 20px;  /* Icon size for the play button */
 }
 
 /* Feedback (star or frown) area */
@@ -84,4 +92,3 @@ header {
 .language-buttons {
     margin: 20px;
 }
-
