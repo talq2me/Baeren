@@ -1,93 +1,70 @@
-/* General body styling */
-body {
-    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun, playful font */
-    background-color: #fffcf9; /* Soft pastel background color */
+/* Styling for the header */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
     text-align: center;
-    padding: 20px;
-    margin: 0;
-    color: #333; /* Dark text for readability */
 }
 
-/* Title styling */
-h1 {
-    font-size: 36px;
-    color: #ff8c00; /* Bright color to grab attention */
-    margin-bottom: 20px;
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Button styling */
+/* Back button styling with icon */
+.back-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 8px;  /* Space between icon and text */
+}
+
+.back-button i {
+    font-size: 20px;  /* Icon size */
+}
+
+.back-button:hover {
+    background-color: #d32f2f;
+}
+
+/* General button styling */
 .button {
-    padding: 20px 40px;  /* Big enough for small fingers */
-    margin: 15px;
-    font-size: 24px;  /* Larger font for easy reading */
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
     cursor: pointer;
     border: none;
-    background-color: #6ac2ff; /* Light blue color for buttons */
-    border-radius: 15px; /* Rounded corners for a softer look */
-    color: white;
-    transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Fun shadow effect */
+    background-color: lightgray;
+    border-radius: 5px;
 }
 
 .button:hover {
-    background-color: #ff8c00;  /* Change to bright orange on hover */
-    transform: scale(1.1); /* Slight grow effect */
+    background-color: gray;
+    color: white;
 }
 
-.button:active {
-    background-color: #ff6600; /* Darker orange when clicked */
-}
-
+/* Feedback (star or frown) area */
 .feedback {
     font-size: 50px;
-    color: #ff8c00; /* Bright color for feedback */
     margin-top: 20px;
-    animation: fadeIn 1s ease-in-out;
 }
 
+/* Stars area */
 .stars {
-    font-size: 40px;
+    font-size: 30px;
     margin-top: 10px;
-    color: #ffcc00; /* Yellow stars */
 }
 
-.feedback-container {
-    margin-top: 30px;
+/* Area for language selection buttons */
+.language-buttons {
+    margin: 20px;
 }
 
-/* Animations for feedback */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Mobile-friendly adjustments */
-@media (max-width: 600px) {
-    .button {
-        font-size: 20px;  /* Smaller font size on mobile */
-        padding: 15px 30px;
-    }
-    .feedback {
-        font-size: 40px;
-    }
-    .stars {
-        font-size: 30px;
-    }
-}
-
-@media (max-width: 400px) {
-    .button {
-        font-size: 18px;
-        padding: 12px 25px;
-    }
-    .feedback {
-        font-size: 35px;
-    }
-    .stars {
-        font-size: 28px;
-    }
-}
