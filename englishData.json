@@ -23,17 +23,17 @@
         "correctWord": "men",
         "audio": "sounds/men.mp3",
         "choices": ["min", "men", "man", "mon"]
-    }
+    },
     {
         "correctWord": "the",
         "audio": "sounds/the.mp3",
         "choices": ["the", "tho", "da", "ta"]
-    }
+    },
     {
         "correctWord": "check",
         "audio": "sounds/check.mp3",
         "choices": ["chick", "chuck", "chock", "check"]
-    }
+    },
     {
         "correctWord": "pack",
         "audio": "sounds/pack.mp3",

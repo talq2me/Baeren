@@ -23,12 +23,12 @@
         "correctWord": "wo",
         "audio": "sounds/wo.mp3",
         "choices": ["wu", "wa", "we", "wo"]
-    }
+    },
     {
         "correctWord": "bè",
         "audio": "sounds/bè.mp3",
         "choices": ["by", "bé", "be", "bè"]
-    }
+    },
     {
         "correctWord": "rê",
         "audio": "sounds/rê.mp3",
