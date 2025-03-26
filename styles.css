@@ -14,25 +14,42 @@ header {
 
 /* Back button styling with icon */
 .back-button {
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 15px 30px; /* Increased padding for larger button */
+    font-size: 24px; /* Larger font size for better readability */
     background-color: #f44336;
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px; /* Slightly rounder corners for better appearance */
     text-align: center;
     display: flex;
     align-items: center;
-    gap: 8px;  /* Space between icon and text */
+    justify-content: center; /* Center content in the button */
+    gap: 10px; /* Larger space between icon and text */
+    min-width: 250px; /* Minimum width to ensure the button is large enough */
+    height: 60px; /* Increase height for easier clicking */
 }
 
 .back-button i {
-    font-size: 20px;  /* Icon size */
+    font-size: 30px;  /* Larger icon size for better visibility */
 }
 
+/* Hover effect */
 .back-button:hover {
     background-color: #d32f2f;
+}
+
+/* Make the button responsive on mobile screens */
+@media screen and (max-width: 768px) {
+    .back-button {
+        font-size: 28px; /* Increase text size for smaller screens */
+        padding: 20px 40px; /* Even larger padding for mobile */
+        height: 70px; /* Larger height for mobile users */
+    }
+
+    .back-button i {
+        font-size: 35px;  /* Larger icon for mobile */
+    }
 }
 
 /* General button styling */
