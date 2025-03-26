@@ -10,8 +10,8 @@
     <button class="button" onclick="location.href='index.html'">⌂ Home</button>
     <h1>Match the Sound to the Word!</h1>
     <div class="language-buttons">
-        <button class="button" onclick="switchLanguage('english')">English</button>
-        <button class="button" onclick="switchLanguage('french')">Français</button>
+        <button id="englishButton" class="button">English</button>
+        <button id="frenchButton" class="button">Français</button>
     </div>
     <button class="button" onclick="playSound()">Play Sound</button>
     <div id="choices"></div>
@@ -105,6 +105,22 @@
             currentLanguage = language;
             loadData(language); // Load the data for the selected language
         }
+	
+	function resetGame() {
+	    correctCount = 0;  // Reset correct answer count
+	    document.getElementById("stars").innerHTML = "";  // Clear stars
+	    document.getElementById("feedback").innerHTML = "";  // Clear feedback
+	}
+        
+        document.getElementById("englishButton").addEventListener("click", () => {
+	    resetGame();
+	    switchLanguage("english");
+	});
+
+	document.getElementById("frenchButton").addEventListener("click", () => {
+	    resetGame();
+	    switchLanguage("french");
+	});
 
         window.onload = () => {
             switchLanguage('english'); // Load English words by default
