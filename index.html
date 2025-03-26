@@ -3,18 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Pages Site</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Baeren-Ed</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="videos.html">Videos</a>
-        <a href="audio.html">Audio</a>
-        <a href="spelling.html">Spelling</a>
-    </nav>
+    <button class="button" onclick="location.href='index.html'">⌂ Home</button>
+    <h1>Welcome to Baeren-Ed!</h1>
+    Your little homework helper.
 
-    <h1>Welcome to My Site</h1>
-    <p>This site showcases embedded videos, audio clips, and text-to-speech functionality.</p>
+    <div>
+        <button id="gr3Button" class="button">Gr. 3</button>
+        <button id="skButton" class="button">SK</button>
+    </div>
+
+
+    <script>
+        // Get the current day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+        let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        let today = new Date().getDay(); // Returns a number from 0-6
+
+        // Event listener for SK button
+        document.getElementById("skButton").addEventListener("click", function() {
+            let pageName = "SK" + days[today] + ".html";  // Dynamically create the page name for SK
+            window.location.href = pageName;  // Redirect to the SK page
+        });
+
+        // Event listener for GR3 button
+        document.getElementById("gr3Button").addEventListener("click", function() {
+            let pageName = "GR3" + days[today] + ".html";  // Dynamically create the page name for GR3
+            window.location.href = pageName;  // Redirect to the GR3 page
+        });
+    </script>
 </body>
 </html>
