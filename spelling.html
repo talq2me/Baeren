@@ -43,6 +43,7 @@
 
                 lines.forEach((line, index) => {
                     let button = document.createElement('button');
+                    button.classList.add('button');
                     button.textContent = index + 1; // Numbered buttons
 
                     button.addEventListener('click', () => {
