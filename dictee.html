@@ -4,32 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dictée</title>
-    <style>
-        .button-container {
-            margin: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        button {
-            width: 50px;
-            height: 50px;
-            margin: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
     <h1>Dictée</h1>
-    <div id="buttonContainer" class="button-container"></div>
+    <div id="buttonContainer" class="columnButtonContainer"></div>
 
     <script>
         async function loadWords() {
@@ -45,6 +25,7 @@
                 lines.forEach((line, index) => {
                     let button = document.createElement('button');
                     button.textContent = index + 1; // Display button number (1, 2, 3...)
+                    button.classList.add('button');
 
                     button.addEventListener('click', () => {
                         let utterance = new SpeechSynthesisUtterance(line);

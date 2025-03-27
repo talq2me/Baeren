@@ -7,14 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button class="button" onclick="location.href='index.html'">⌂ Home</button>
-    <h1>Welcome to Baeren-Ed!</h1>
-    Your little homework helper.
-
     <div>
+        <button id="home" class="button" onclick="location.href='index.html'">⌂ Home</button>
         <button id="gr3Button" class="button">Gr. 3</button>
         <button id="skButton" class="button">SK</button>
     </div>
+    <h1>Welcome to Baeren-Ed!</h1>
+    Your little homework helper.
+    <br>
+    <img src="./images/Baeren-Ed.jpeg" alt="Baeren-Ed logo" width="400" height="400">
+
+
 
 
     <script>
@@ -24,13 +27,13 @@
 
         // Event listener for SK button
         document.getElementById("skButton").addEventListener("click", function() {
-            let pageName = "SK" + days[today] + ".html";  // Dynamically create the page name for SK
+            let pageName = "/homework/SK" + days[today] + ".html";  // Dynamically create the page name for SK
             window.location.href = pageName;  // Redirect to the SK page
         });
 
         // Event listener for GR3 button
         document.getElementById("gr3Button").addEventListener("click", function() {
-            let pageName = "GR3" + days[today] + ".html";  // Dynamically create the page name for GR3
+            let pageName = "/homework/GR3" + days[today] + ".html";  // Dynamically create the page name for GR3
             window.location.href = pageName;  // Redirect to the GR3 page
         });
     </script>

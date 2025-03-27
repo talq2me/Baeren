@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Along</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #feedback {
+            font-size: 20px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Read Along</h1>
+    
+    <p id="text">The cat sat on the mat.</p>
+
+    <button id="readButton">🔊 Read Aloud</button>
+    <button id="speakButton">🎤 Start Pronouncing</button>
+
+    <p id="feedback"></p>
+
+    <script>
+        document.getElementById("readButton").addEventListener("click", function() {
+            let text = document.getElementById("text").innerText;
+            let speech = new SpeechSynthesisUtterance(text);
+            speech.lang = "en-US";
+            speech.rate = 0.6; // Slower speed for better clarity
+            window.speechSynthesis.speak(speech);
+        });
+
+        let recognition; // Declare recognition variable to avoid recreating it every time
+        let isRecognizing = false; // Track whether recognition is in progress
+
+        // Function for fuzzy matching (this will be an improvement over exact matching)
+        function fuzzyMatch(input, target) {
+            const threshold = 0.8; // Threshold for fuzzy match (80% match)
+            // Use simple fuzzy logic for now, you can integrate libraries like fuzzball for complex cases
+            let score = (input.toLowerCase().split(' ').filter(word => target.toLowerCase().includes(word)).length) / target.split(' ').length;
+            return score >= threshold;
+        }
+
+        // Toggle between "Start Pronouncing" and "Stop Pronouncing"
+        document.getElementById("speakButton").addEventListener("click", function() {
+            if (isRecognizing) {
+                // If recognition is already in progress, stop it
+                recognition.stop();
+                this.innerText = "🎤 Start Pronouncing"; // Change button text to Start Pronouncing
+                isRecognizing = false;
+                document.getElementById("feedback").innerText = "Recognition stopped.";
+            } else {
+                // If recognition is not in progress, start it
+                recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+                recognition.lang = "en-US";
+                recognition.continuous = false; // Disable continuous listening (only listen once per session)
+                recognition.interimResults = false; // Don't show interim results
+                recognition.maxAlternatives = 1; // Limit alternatives
+
+                // Set recognition to be ongoing
+                isRecognizing = true;
+
+                recognition.start();
+                this.innerText = "🛑 Stop Pronouncing"; // Change button text to Stop Pronouncing
+
+                recognition.onresult = function(event) {
+                    let spokenText = event.results[event.results.length - 1][0].transcript.toLowerCase();
+                    let correctText = document.getElementById("text").innerText.toLowerCase();
+
+                    let feedback = document.getElementById("feedback");
+
+                    // Use fuzzy match to compare the recognized text to the correct sentence
+                    if (fuzzyMatch(spokenText, correctText)) {
+                        feedback.innerText = "✅ Great job! You pronounced it correctly!";
+                        feedback.style.color = "green";
+                    } else {
+                        feedback.innerText = `❌ Keep practicing! You said: "${spokenText}"\nTry again!`;
+                        feedback.style.color = "red";
+                    }
+                };
+
+                recognition.onerror = function(event) {
+                    alert("Speech recognition error: " + event.error);
+                };
+
+                recognition.onspeechend = function() {
+                    // Stops listening once speech is complete
+                    isRecognizing = false;
+                    document.getElementById("speakButton").innerText = "🎤 Start Pronouncing"; // Change button back
+                };
+
+                recognition.onend = function() {
+                    isRecognizing = false; // Ensure recognition is properly marked as ended
+                    document.getElementById("speakButton").innerText = "🎤 Start Pronouncing"; // Change button back
+                };
+            }
+        });
+    </script>
+</body>
+</html>
