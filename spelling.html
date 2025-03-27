@@ -28,18 +28,22 @@
     </style>
 </head>
 <body>
-    <h1>English Word Reader</h1>
+    <h1>English Spelling</h1>
     <div id="buttonContainer" class="button-container"></div>
 
-    <script>
+      <script>
         let selectedVoice;
 
         function setVoice() {
             const voices = window.speechSynthesis.getVoices();
 
-            // Try to find a high-quality English voice
+            // Prioritize high-quality voices
             selectedVoice = voices.find(voice =>
-                voice.lang.startsWith('en') && voice.name.toLowerCase().includes('natural')
+                voice.name.includes('Google US English Female') // Google's best female voice
+            ) || voices.find(voice =>
+                voice.name.includes('Google UK English Female')
+            ) || voices.find(voice =>
+                voice.name.includes('Microsoft') && voice.lang.startsWith('en')
             ) || voices.find(voice =>
                 voice.lang.startsWith('en') && voice.default
             ) || voices[0]; // Fallback if none found
