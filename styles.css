@@ -15,7 +15,18 @@ h1 {
     margin-bottom: 20px;
 }
 
-
+/* Game text styling */
+.game-text {
+    padding: 20px 40px;  /* Big enough for small fingers */
+    margin: 15px;
+    font-size: 24px;  /* Larger font for easy reading */
+    cursor: none;
+    border: none;
+    background-color: #ff8c00; /* Light blue color for buttons */
+    border-radius: 15px; /* Rounded corners for a softer look */
+    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Fun shadow effect */
+}
 
 /* Button styling */
 .button {
@@ -150,6 +161,5 @@ h1 {
     display: flex;
     justify-content: center; /* Centers the buttons horizontally */
     align-items: center; /* Centers the buttons vertically */
-    flex-direction: column;
     margin-top: 20px;
 }

@@ -8,11 +8,12 @@
 </head>
 <body>
     <h1>Reading Game</h1>
-    
-    <p id="text">The cat sat on the mat.</p>
-    
-    <div id="buttons-container" class="audioTextSubmitContainer">
-        <button id="speakButton" class="button">🎤 Start Pronouncing</button>
+    Read the following out loud:
+    <br>
+    <button id="text" class="game-text">The cat sat on the mat.</button>
+    <br>
+    <div id="buttons-container" class="buttons-container">
+        <button id="speakButton" class="button">🎤 Start Reading</button>
         <button id="playAgain" class="button" style="display: none;" onclick="startGame()">Play Again</button>
     </div>
 
@@ -46,7 +47,7 @@
             document.getElementById("stars").innerHTML = "";
             document.getElementById("feedback").innerHTML = "";
             document.getElementById("playAgain").style.display = "none"; // Hide "Play Again" button
-            document.getElementById("speakButton").style.display = "block"; // Show "Start Pronouncing" button
+            document.getElementById("speakButton").style.display = "block"; // Show "Start Reading" button
             pickRandomLine();
         }
 
@@ -69,7 +70,7 @@
         document.getElementById("speakButton").addEventListener("click", function() {
             if (isRecognizing) {
                 recognition.stop();
-                this.innerText = "🎤 Start Pronouncing"; // Change to start
+                this.innerText = "🎤 Start Reading"; // Change to start
                 isRecognizing = false;
             } else {
                 recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
@@ -79,7 +80,7 @@
                 recognition.maxAlternatives = 1;
 
                 isRecognizing = true;
-                this.innerText = "🛑 Stop Pronouncing"; // Change to stop
+                this.innerText = "🛑 Stop Listening"; // Change to stop
 
                 recognition.start();
 
@@ -121,17 +122,17 @@
                     alert("Sorry, something went wrong with speech recognition.");
                     recognition.stop();
                     isRecognizing = false;
-                    document.getElementById("speakButton").innerText = "🎤 Start Pronouncing";
+                    document.getElementById("speakButton").innerText = "🎤 Start Reading";
                 };
 
                 recognition.onspeechend = function() {
                     isRecognizing = false;
-                    document.getElementById("speakButton").innerText = "🎤 Start Pronouncing";
+                    document.getElementById("speakButton").innerText = "🎤 Start Reading";
                 };
 
                 recognition.onend = function() {
                     isRecognizing = false;
-                    document.getElementById("speakButton").innerText = "🎤 Start Pronouncing";
+                    document.getElementById("speakButton").innerText = "🎤 Start Reading";
                 };
             }
         });
