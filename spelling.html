@@ -39,9 +39,9 @@
 
             // Prioritize high-quality voices
             selectedVoice = voices.find(voice =>
-                voice.name.includes('Google US English Female') // Google's best female voice
+                voice.name.includes('Google US English') // Google's best female voice
             ) || voices.find(voice =>
-                voice.name.includes('Google UK English Female')
+                voice.name.includes('Microsoft Zira - English (United States)')
             ) || voices.find(voice =>
                 voice.name.includes('Microsoft') && voice.lang.startsWith('en')
             ) || voices.find(voice =>
