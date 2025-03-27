@@ -12,8 +12,8 @@
             align-items: flex-start;
         }
         button {
-            width: auto;
-            padding: 10px 20px;
+            width: 50px;
+            height: 50px;
             margin: 5px;
             font-size: 16px;
             cursor: pointer;
@@ -21,7 +21,6 @@
             color: white;
             border: none;
             border-radius: 5px;
-            text-align: left;
         }
         button:hover {
             background-color: #0056b3;
@@ -43,9 +42,9 @@
 
                 let container = document.getElementById('buttonContainer');
 
-                lines.forEach(line => {
+                lines.forEach((line, index) => {
                     let button = document.createElement('button');
-                    button.textContent = line; // Display full line on the button
+                    button.textContent = index + 1; // Display button number (1, 2, 3...)
 
                     button.addEventListener('click', () => {
                         let utterance = new SpeechSynthesisUtterance(line);
