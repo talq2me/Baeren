@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Word Reader</title>
+    <title>Image Word Reader</title>
     <style>
         .button-container {
             margin: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
         }
         button {
             width: 50px;
@@ -17,26 +14,20 @@
             margin: 5px;
             font-size: 16px;
             cursor: pointer;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <h1>English Word Reader</h1>
     <div id="buttonContainer" class="button-container"></div>
 
+    <!-- Include Tesseract.js from CDN -->
+    <script src="https://unpkg.com/tesseract.js@4.0.0/dist/tesseract.min.js"></script>
     <script>
         let selectedVoice;
 
         function setVoice() {
             const voices = window.speechSynthesis.getVoices();
-
+            
             // Try to find a high-quality English voice
             selectedVoice = voices.find(voice =>
                 voice.lang.startsWith('en') && voice.name.toLowerCase().includes('natural')
@@ -48,37 +39,45 @@
         window.speechSynthesis.onvoiceschanged = setVoice;
         setVoice(); // Initial voice selection
 
-        async function loadWords() {
+        // Wait for the page to load
+        document.addEventListener('DOMContentLoaded', async () => {
             try {
-                let response = await fetch('words-en.txt');
-                let text = await response.text();
+                // Load and recognize text from the image
+                const { data: { text } } = await Tesseract.recognize(
+                    'spelling.png',
+                    'eng',
+                    { logger: m => console.log(m) }
+                );
 
-                // Split text based on semicolon (;), keeping full phrases together
-                let lines = text.split(';').map(line => line.trim()).filter(line => line !== "");
+                // Split the text into words and filter out empty strings
+                const words = text.split(/\s+/).filter(word => word.trim() !== '');
 
-                let container = document.getElementById('buttonContainer');
+                // Get the container for buttons
+                const container = document.getElementById('buttonContainer');
 
-                lines.forEach((line, index) => {
-                    let button = document.createElement('button');
-                    button.textContent = index + 1; // Numbered buttons
+                // Create buttons for each word
+                words.forEach((word, index) => {
+                    const button = document.createElement('button');
+                    // Set button text to number only (index + 1)
+                    button.textContent = index + 1;
 
+                    // Add click event to speak the word
                     button.addEventListener('click', () => {
-                        let utterance = new SpeechSynthesisUtterance(line);
+                        const utterance = new SpeechSynthesisUtterance(word);
                         utterance.voice = selectedVoice;
                         utterance.lang = 'en-US';
                         window.speechSynthesis.speak(utterance);
                     });
 
+                    // Add button to container
                     container.appendChild(button);
                 });
 
             } catch (error) {
-                console.error('Error loading words:', error);
-                alert('Error loading words. Ensure "words-en.txt" exists and is formatted correctly.');
+                console.error('Error processing image:', error);
+                alert('Error processing the image. Please make sure spelling.png exists in the same folder.');
             }
-        }
-
-        document.addEventListener('DOMContentLoaded', loadWords);
+        });
     </script>
 </body>
 </html>
