@@ -38,8 +38,8 @@
                 let response = await fetch('words-fr.txt');
                 let text = await response.text();
 
-                // Normalize new lines and ensure full lines are read
-                let lines = text.split(/\r?\n/).filter(line => line.trim() !== "");
+                // Split based on semicolon (;) while keeping each full phrase intact
+                let lines = text.split(';').map(line => line.trim()).filter(line => line !== "");
 
                 let container = document.getElementById('buttonContainer');
 

@@ -1,6 +1,6 @@
-l'abeille
-le sommeil
-la bouteille
-l'orteille
-une Oreille
-le soleil
+l'abeille;
+le sommeil;
+la bouteille;
+l'orteille;
+une oreille;
+le soleil;
