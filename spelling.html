@@ -23,6 +23,22 @@
     <!-- Include Tesseract.js from CDN -->
     <script src="https://unpkg.com/tesseract.js@4.0.0/dist/tesseract.min.js"></script>
     <script>
+        let selectedVoice;
+
+        function setVoice() {
+            const voices = window.speechSynthesis.getVoices();
+            
+            // Try to find a high-quality English voice
+            selectedVoice = voices.find(voice =>
+                voice.lang.startsWith('en') && voice.name.toLowerCase().includes('natural')
+            ) || voices.find(voice =>
+                voice.lang.startsWith('en') && voice.default
+            ) || voices[0]; // Fallback if none found
+        }
+
+        window.speechSynthesis.onvoiceschanged = setVoice;
+        setVoice(); // Initial voice selection
+
         // Wait for the page to load
         document.addEventListener('DOMContentLoaded', async () => {
             try {
@@ -35,7 +51,7 @@
 
                 // Split the text into words and filter out empty strings
                 const words = text.split(/\s+/).filter(word => word.trim() !== '');
-                
+
                 // Get the container for buttons
                 const container = document.getElementById('buttonContainer');
 
@@ -44,10 +60,11 @@
                     const button = document.createElement('button');
                     // Set button text to number only (index + 1)
                     button.textContent = index + 1;
-                    
+
                     // Add click event to speak the word
                     button.addEventListener('click', () => {
                         const utterance = new SpeechSynthesisUtterance(word);
+                        utterance.voice = selectedVoice;
                         utterance.lang = 'en-US';
                         window.speechSynthesis.speak(utterance);
                     });
