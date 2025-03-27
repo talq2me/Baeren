@@ -8,8 +8,8 @@
         .button-container {
             margin: 20px;
             display: flex;
-            flex-direction: column; /* Stack buttons vertically */
-            align-items: flex-start; /* Align buttons to the left */
+            flex-direction: column;
+            align-items: flex-start;
         }
         button {
             width: auto;
@@ -35,39 +35,33 @@
     <script>
         async function loadWords() {
             try {
-                // Fetch the text file
                 let response = await fetch('words-fr.txt');
                 let text = await response.text();
 
-                // Ensure each line remains intact (fixing the issue)
-                let lines = text.split(/\r?\n/).map(line => line.trim()).filter(line => line.length > 0);
+                // Normalize new lines and ensure full lines are read
+                let lines = text.split(/\r?\n/).filter(line => line.trim() !== "");
 
-                // Get the container for buttons
                 let container = document.getElementById('buttonContainer');
 
-                // Create buttons for each full line
                 lines.forEach(line => {
                     let button = document.createElement('button');
-                    button.textContent = line; // Set button text to the full line
+                    button.textContent = line; // Display full line on the button
 
-                    // Click event to read the entire line aloud
                     button.addEventListener('click', () => {
                         let utterance = new SpeechSynthesisUtterance(line);
                         utterance.lang = 'fr-FR'; // Set language to French
                         window.speechSynthesis.speak(utterance);
                     });
 
-                    // Add button to container
                     container.appendChild(button);
                 });
 
             } catch (error) {
                 console.error('Error loading words:', error);
-                alert('Error loading words. Ensure "words-fr.txt" is in the same folder.');
+                alert('Error loading words. Ensure "words-fr.txt" exists and is formatted correctly.');
             }
         }
 
-        // Load words on page load
         document.addEventListener('DOMContentLoaded', loadWords);
     </script>
 </body>
