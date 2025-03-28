@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var videoData = {};
 
     // Load video data from JSON file
-    fetch("../../videoLinks.json")
+    fetch("/Baeren/videoLinks.json")
         .then(response => response.json())
         .then(data => {
             videoData = data;
