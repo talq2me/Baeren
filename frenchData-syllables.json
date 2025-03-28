@@ -5,9 +5,24 @@
         "choices": ["té", "te", "ta", "tè"]
     },
     {
+        "correctWord": "pi",
+        "audio": "sounds/pi.mp3",
+        "choices": ["pe", "pi", "pa", "pu"]
+    },
+    {
+        "correctWord": "ly",
+        "audio": "sounds/ly.mp3",
+        "choices": ["lé", "la", "ly", "le"]
+    },
+    {
         "correctWord": "je",
         "audio": "sounds/je.mp3",
         "choices": ["ge", "je", "jé", "gè"]
+    },
+    {
+        "correctWord": "wo",
+        "audio": "sounds/wo.mp3",
+        "choices": ["wu", "wa", "we", "wo"]
     },
     {
         "correctWord": "bè",
@@ -19,5 +34,4 @@
         "audio": "sounds/re.mp3",
         "choices": ["rê", "ré", "re", "ry"]
     }
-    
 ]

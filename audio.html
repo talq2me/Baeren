@@ -3,21 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Audio Match Game</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="videos.html">Videos</a>
-        <a href="audio.html">Audio</a>
-        <a href="tts.html">Text-to-Speech</a>
-    </nav>
+    <button class="button" onclick="location.href='index.html'">⌂ Home</button>
+    <h1>Match the Sound to the Word!</h1>
+    
+    <div class="buttons-container">
+        <button id="englishButton" class="button">English</button>
+        <button id="frenchButton" class="button">Français</button>
+    </div>
 
-    <h1>Audio Clips</h1>
-    <audio controls>
-        <source src="assets/example.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+    <button id="playSoundButton" class="button">Play Sound</button>
+    
+    <div id="choices"></div>
+    <div id="stars"></div> <!-- Area for the 10 stars -->
+    <div id="feedback" class="feedback"></div> <!-- Feedback area (star or frowny face) -->
+
+    <script>
+        let currentSoundWord = "";
+        let correctCount = 0;
+        let currentLanguage = "english"; // Default to English
+        let soundData = {};
+
+        // Function to load the word and sound data from the JSON file
+        async function loadData(language) {
+            try {
+                const response = await fetch(`${language}Data.json`);
+                soundData[language] = await response.json();
+                console.log(`Loaded ${language} data:`, soundData[language]);
+
+                nextRound(); // Start the first round with the new data
+            } catch (error) {
+                console.error("Error loading sound data:", error);
+            }
+        }
+
+        // Function to get a random word from the current language data
+        function getRandomSound() {
+            const randomIndex = Math.floor(Math.random() * soundData[currentLanguage].length);
+            return soundData[currentLanguage][randomIndex];
+        }
+
+        // Function to play the sound using Text-to-Speech
+        function playSound() {
+            if (currentSoundWord) {
+                // Use SpeechSynthesis API to read the word aloud
+                const utterance = new SpeechSynthesisUtterance(currentSoundWord);
+                utterance.lang = "fr-FR"; // Set language to French for French words
+
+                // Try to find a French voice (may be available depending on system/browser)
+                let voices = speechSynthesis.getVoices();
+                let frenchVoice = voices.find(voice => voice.lang === "fr-FR");
+
+                if (frenchVoice) {
+                    utterance.voice = frenchVoice; // Set the French voice
+                } else {
+                    console.warn("French voice not found, using default voice.");
+                }
+
+                speechSynthesis.speak(utterance);
+            } else {
+                console.error("No valid sound found for:", currentSoundWord);
+            }
+        }
+
+        // Function to handle when the user selects a choice
+        function handleChoice(choice) {
+            const feedback = document.getElementById("feedback");
+            if (choice === currentSoundWord) {
+                feedback.innerHTML = "⭐";
+                correctCount++;
+                document.getElementById("stars").innerHTML += "⭐";
+                if (correctCount < 10) {
+                    setTimeout(nextRound, 1000);
+                } else {
+                    document.getElementById("choices").innerHTML = "<h2>Game Over! 🎉</h2>";
+                }
+            } else {
+                feedback.innerHTML = "☹️";
+                highlightCorrectAnswer();
+                setTimeout(() => {
+                    feedback.innerHTML = "";
+                    nextRound();
+                }, 2000);
+            }
+        }
+
+        // Function to highlight the correct answer when the player gets it wrong
+        function highlightCorrectAnswer() {
+            const buttons = document.querySelectorAll(".button");
+            buttons.forEach(btn => {
+                if (btn.innerText === currentSoundWord) {
+                    btn.style.backgroundColor = "lightgreen";
+                    setTimeout(() => btn.style.backgroundColor = "#6ac2ff", 2000);
+                }
+            });
+        }
+
+        // Function to move to the next round
+        function nextRound() {
+            const roundData = getRandomSound();
+            currentSoundWord = roundData.correctWord;
+            updateChoices(roundData.choices);
+            document.getElementById("feedback").innerHTML = "";
+        }
+
+        // Function to update the choices dynamically based on the words in the JSON file
+        function updateChoices(choices) {
+            const choicesDiv = document.getElementById("choices");
+            choicesDiv.innerHTML = "";
+
+            // Shuffle the choices array to randomize the buttons' order
+            choices = choices.sort(() => Math.random() - 0.5);
+
+            // Create buttons for each choice
+            choices.forEach(choice => {
+                const btn = document.createElement("button");
+                btn.innerText = choice;
+                btn.className = "button";
+                btn.onclick = () => handleChoice(choice);
+                choicesDiv.appendChild(btn);
+            });
+        }
+
+        // Function to switch language and load the appropriate word list
+        function switchLanguage(language) {
+            currentLanguage = language;
+            resetGame();
+            loadData(language);
+        }
+
+        function resetGame() {
+            correctCount = 0;
+            document.getElementById("stars").innerHTML = "";
+            document.getElementById("feedback").innerHTML = "";
+        }
+
+        document.getElementById("englishButton").addEventListener("click", () => switchLanguage("english"));
+        document.getElementById("frenchButton").addEventListener("click", () => switchLanguage("french"));
+        document.getElementById("playSoundButton").addEventListener("click", playSound);
+
+        window.onload = () => switchLanguage("english"); // Load English words by default
+    </script>
 </body>
 </html>

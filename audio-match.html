@@ -31,7 +31,9 @@
                 const data = await response.json();
                 soundData[language] = data;
                 currentSound = getRandomSound();
-                updateChoices();
+                
+                const choices = currentSound.choices; // Get the choices for this word
+                updateChoices(choices); // Pass the choices array to updateChoices
             } catch (error) {
                 console.error('Error loading sound data:', error);
             }
@@ -82,16 +84,36 @@
 
         // Function to move to the next round
         function nextRound() {
-            currentSound = getRandomSound();
-            updateChoices();
-            document.getElementById("feedback").innerHTML = "";
+            currentSound = getRandomSound(); // Get a random sound for the next round
+            const choices = currentSound.choices; // Get the choices for the current sound
+            updateChoices(choices); // Pass the choices to updateChoices to display new buttons
+            document.getElementById("feedback").innerHTML = ""; // Clear feedback
         }
 
-        // Function to update the choices dynamically based on the soundData
+   /*     // Function to update the choices dynamically based on the soundData
         function updateChoices() {
             const choicesDiv = document.getElementById("choices");
             choicesDiv.innerHTML = "";
             currentSound.choices.forEach(choice => {
+                const btn = document.createElement("button");
+                btn.innerText = choice;
+                btn.className = "button";
+                btn.onclick = () => handleChoice(choice);
+                choicesDiv.appendChild(btn);
+            });
+        }
+*/
+        
+        // Function to update the choices dynamically based on the words in the JSON file
+        function updateChoices(choices) {
+            const choicesDiv = document.getElementById("choices");
+            choicesDiv.innerHTML = "";
+
+            // Shuffle the choices array to randomize the buttons' order
+            choices = choices.sort(() => Math.random() - 0.5);
+
+            // Create buttons for each choice
+            choices.forEach(choice => {
                 const btn = document.createElement("button");
                 btn.innerText = choice;
                 btn.className = "button";
