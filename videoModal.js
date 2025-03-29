@@ -14,21 +14,31 @@ document.addEventListener("DOMContentLoaded", function () {
     var player;
     var videoData = {};
 
-    // Load video data from JSON file
-    fetch("https://talq2me.github.io/Baeren/videoLinks.json")
+    // Load video data from frenchBookVideoLinks.json
+    fetch("https://talq2me.github.io/Baeren/frenchBookVideoLinks.json")
         .then(response => response.json())
         .then(data => {
             videoData = data;
 
-            // Find all buttons with data-video-button attribute
-            document.querySelectorAll("[data-video-button]").forEach(button => {
-                var buttonId = button.getAttribute("data-video-button");
-                
-                if (videoData[buttonId]) {
-                    button.textContent = buttonId; // Set button text to match ID
+            // Find all buttons with data-video-button="frenchBookVideo"
+            document.querySelectorAll("[data-video-button='frenchBookVideo']").forEach((button) => {
+                if (videoData && Object.keys(videoData).length > 0) {
+                    // Get a random key (button text) from the videoData object
+                    const randomKey = getRandomKey(videoData);
+
+                    // Set the button text to the random key (button label)
+                    button.textContent = randomKey || "Loading...";
+
+                    // Get the corresponding video ID for the random key
+                    const videoId = videoData[randomKey];
+
+                    // Add click event to open the video modal
                     button.addEventListener("click", function () {
-                        openVideoModal(videoData[buttonId]);
+                        openVideoModal(videoId);
                     });
+
+                    // Remove the selected key from the videoData object to ensure a unique video for each button
+                    delete videoData[randomKey];
                 } else {
                     button.textContent = "Video Not Found";
                     button.disabled = true;
@@ -39,7 +49,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.openVideoModal = function (videoId) {
         modal.style.display = "flex";
-        iframe.src = "https://www.youtube.com/embed/" + videoId + "?enablejsapi=1&autoplay=1&rel=0";
+        //cases for specific videos that have a start and end because they are in a larger video
+        if (videoId === "J-q7npqaYoI") {
+            iframe.src = "https://www.youtube.com/embed/J-q7npqaYoI?start=163&end=240&autoplay=1&rel=0"; 
+        } else {
+            iframe.src = "https://www.youtube.com/embed/" + videoId + "?enablejsapi=1&autoplay=1&rel=0";
+        }
+
         createYouTubePlayer();
     };
 
@@ -62,6 +78,12 @@ document.addEventListener("DOMContentLoaded", function () {
         if (event.data === 0) { // Video ended
             closeModal();
         }
+    }
+
+    // Function to get a random key from an object
+    function getRandomKey(obj) {
+        const keys = Object.keys(obj);
+        return keys[Math.floor(Math.random() * keys.length)];
     }
 
     // Load YouTube API Script if not already loaded
