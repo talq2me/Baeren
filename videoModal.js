@@ -12,44 +12,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var iframe = document.getElementById("youtubePlayer");
     var player;
-    var videoData = {};
+    var frenchVideoData = {};
+    var otherVideoData = {};
 
-    // Load video data from frenchBookVideoLinks.json
+    // Load frenchBookVideoLinks.json
     fetch("https://talq2me.github.io/Baeren/frenchBookVideoLinks.json")
         .then(response => response.json())
         .then(data => {
-            videoData = data;
+            frenchVideoData = data;
+            initializeButtons();
+        })
+        .catch(error => console.error("Error loading French book video data:", error));
 
-            // Find all buttons with data-video-button="frenchBookVideo"
-            document.querySelectorAll("[data-video-button='frenchBookVideo']").forEach((button) => {
-                if (videoData && Object.keys(videoData).length > 0) {
-                    // Get a random key (button text) from the videoData object
-                    const randomKey = getRandomKey(videoData);
+    // Load videoLinks.json
+    fetch("https://talq2me.github.io/Baeren/videoLinks.json")
+        .then(response => response.json())
+        .then(data => {
+            otherVideoData = data;
+            initializeButtons();
+        })
+        .catch(error => console.error("Error loading general video data:", error));
 
-                    // Set the button text to the random key (button label)
+    function initializeButtons() {
+        document.querySelectorAll("[data-video-button]").forEach((button) => {
+            const buttonType = button.getAttribute("data-video-button");
+
+            if (buttonType === "frenchBookVideo") {
+                // Handle French book videos (random selection)
+                if (frenchVideoData && Object.keys(frenchVideoData).length > 0) {
+                    const randomKey = getRandomKey(frenchVideoData);
                     button.textContent = randomKey || "Loading...";
+                    const videoId = frenchVideoData[randomKey];
 
-                    // Get the corresponding video ID for the random key
-                    const videoId = videoData[randomKey];
-
-                    // Add click event to open the video modal
                     button.addEventListener("click", function () {
                         openVideoModal(videoId);
                     });
 
-                    // Remove the selected key from the videoData object to ensure a unique video for each button
-                    delete videoData[randomKey];
+                    delete frenchVideoData[randomKey]; // Ensure uniqueness
                 } else {
                     button.textContent = "Video Not Found";
                     button.disabled = true;
                 }
-            });
-        })
-        .catch(error => console.error("Error loading video data:", error));
+            } else {
+                // Handle general video links
+                if (otherVideoData[buttonType]) {
+                    button.addEventListener("click", function () {
+                        openVideoModal(otherVideoData[buttonType]);
+                    });
+                } else {
+                    button.textContent = "Video Not Found";
+                    button.disabled = true;
+                }
+            }
+        });
+    }
 
     window.openVideoModal = function (videoId) {
         modal.style.display = "flex";
-        //cases for specific videos that have a start and end because they are in a larger video
         if (videoId === "J-q7npqaYoI") {
             iframe.src = "https://www.youtube.com/embed/J-q7npqaYoI?start=163&end=240&autoplay=1&rel=0"; 
         } else {
@@ -80,13 +99,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Function to get a random key from an object
     function getRandomKey(obj) {
         const keys = Object.keys(obj);
-        return keys[Math.floor(Math.random() * keys.length)];
+        return keys.length > 0 ? keys[Math.floor(Math.random() * keys.length)] : null;
     }
 
-    // Load YouTube API Script if not already loaded
+    // Load YouTube API if not already loaded
     if (!document.getElementById("youtubeAPI")) {
         var tag = document.createElement('script');
         tag.id = "youtubeAPI";
