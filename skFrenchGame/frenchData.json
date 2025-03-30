@@ -1,22 +1,22 @@
 [
     {
         "correctWord": "té",
-        "audio": "sounds/te.mp3",
+        "audio": "../sounds/te.mp3",
         "choices": ["té", "te", "ta", "tè"]
     },
     {
         "correctWord": "je",
-        "audio": "sounds/je.mp3",
+        "audio": "../sounds/je.mp3",
         "choices": ["ge", "je", "jé", "gè"]
     },
     {
         "correctWord": "bè",
-        "audio": "sounds/be.mp3",
+        "audio": "../sounds/be.mp3",
         "choices": ["by", "bé", "be", "bè"]
     },
     {
         "correctWord": "rê",
-        "audio": "sounds/re.mp3",
+        "audio": "../sounds/re.mp3",
         "choices": ["rê", "ré", "re", "ry"]
     }
     
