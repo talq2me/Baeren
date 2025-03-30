@@ -41,7 +41,18 @@ h1 {
     transition: background-color 0.3s, transform 0.2s;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Fun shadow effect */
 }
-
+.buttontight {
+    padding: 20px 40px;  /* Big enough for small fingers */
+    margin: 2px;
+    font-size: 24px;  /* Larger font for easy reading */
+    cursor: pointer;
+    border: none;
+    background-color: #6ac2ff; /* Light blue color for buttons */
+    border-radius: 15px; /* Rounded corners for a softer look */
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Fun shadow effect */
+}
 .button:hover {
     background-color: #ff8c00;  /* Change to bright orange on hover */
     transform: scale(1.1); /* Slight grow effect */
@@ -68,6 +79,18 @@ h1 {
     margin-top: 30px;
 }
 
+
+/* Pastel green submit button */
+#submit-btn {
+    background-color: #81C784; /* Pastel green */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#submit-btn:hover {
+    background-color: #69a06c; /* Slightly darker green for hover */
+}
 
 /* Animations for feedback */
 @keyframes fadeIn {
@@ -199,4 +222,40 @@ h1 {
 iframe {
     width: 100%;
     height: 400px;
+}
+
+
+
+/* duological game */
+
+#sentence-container {
+    font-size: 24px;  /* Larger font for easy reading */
+    min-height: 40px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+}
+
+.word-button {
+    padding: 5px 10px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.selected-word {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+#word-bank, #user-answer {
+    margin: 20px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+#play-again {
+    display: block;
+    margin: 0 auto; /* This will center the button horizontally */
+    text-align: center; /* Optional: This centers the text inside the button */
 }
