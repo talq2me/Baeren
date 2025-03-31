@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SK</title>
+    <title>GR3</title>
     <link rel="stylesheet" href="../styles.css">
     <script src="../videoModal.js" defer></script>
 </head>
@@ -18,19 +18,39 @@
         <button id="spelling" class="button" onclick="location.href='../engSpelling/spelling.html'">Spelling</button>
         <br>
         <button id="dictee" class="button" onclick="location.href='../dictee/dictee.html'">Dictée</button>
+        <br>
+        
+        <button id="translate" class="button" onclick="location.href='../translate/translate.html'">Translate & French Reading</button>
         
         <button id="readalong" class="button" onclick="location.href='https://readalong.google.com/'">Read Along</button>
         <button id="duolingo" class="button" onclick="location.href='https://www.duolingo.com/learn'">Duolingo</button>
         <br>
     </div>
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/ImAhDUiKbac?si=ZL6U5Yv1kHZWuLlE?rel=0&modestbranding=1&autohide=1" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/EjXOvxnsTWs?si=OyQ-ouvBSpaJeVfL?rel=0&modestbranding=1&autohide=1" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/XJUClhFLxns?si=4Ty_3NUH3Wlu_O_e?rel=0&modestbranding=1&autohide=1" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <br>
-    <iframe src="https://readalong.google.com" width="800" height="600"></iframe>
+    <div>
+    <!--iframe sites (like google classroom)-->
+    <button class="button" onclick="loadIframe('https://classroom.google.com/u/1/c/NjkwODgwNjg3NDIx')">French Google Classroom</button>
+    <button class="button" onclick="loadIframe('https://classroom.google.com/u/1/c/NzA5MDk2MDA2ODY3')">English Google Classroom</button>
+
+    <script>
+        function loadIframe(url) {
+            window.location.href = `../iframePage/iframePage.html?url=${encodeURIComponent(url)}`;
+        }
+    </script>
+    </div>
+
+    Videos:
+    <div class="video">
+        <!-- Video Modal random videos 
+             supported random vids:
+               - randNoviceKungFuVid
+               - randIntermediateKungFuVid
+               - randAdvancedKungFuVid
+        -->
+        <button class="button" data-video-button="StaffForm">Loading...</button>
+        <button class="button" data-video-button="randIntermediateKungFuVid">Loading...</button>
+        <button class="button" data-video-button="TrollMarch">Loading...</button>
+    </div>
 
 </body>
 </html>

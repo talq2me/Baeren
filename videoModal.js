@@ -14,16 +14,25 @@ document.addEventListener("DOMContentLoaded", function () {
     var player;
     var frenchVideoData = {};
     var otherVideoData = {};
+    var novKungFuVideoData = {};
+    var intKungFuVideoData = {};
+    var advKungFuVideoData = {};
 
-    // Load both JSON files before initializing buttons
+    // Load JSON files before initializing buttons
     Promise.all([
-        fetch("https://talq2me.github.io/Baeren/frenchBookVideoLinks.json").then(response => response.json()).catch(() => ({})),
-        fetch("https://talq2me.github.io/Baeren/videoLinks.json").then(response => response.json()).catch(() => ({}))
+        fetch("../frenchBookVideoLinks.json").then(response => response.json()).catch(() => ({})),
+        fetch("../videoLinks.json").then(response => response.json()).catch(() => ({})),
+        fetch("../noviceKungFuVideos.json").then(response => response.json()).catch(() => ({})),
+        fetch("../intermediateKungFuVideos.json").then(response => response.json()).catch(() => ({})),
+        fetch("../advancedKungFuVideos.json").then(response => response.json()).catch(() => ({}))
     ])
-    .then(([frenchData, generalData]) => {
+    .then(([frenchData, generalData, novKF, intKF, advKF]) => {
         frenchVideoData = frenchData;
         otherVideoData = generalData;
-        initializeButtons(); // Now both files are loaded before running this
+        novKungFuVideoData = novKF;
+        intKungFuVideoData = intKF;
+        advKungFuVideoData = advKF;
+        initializeButtons();
     })
     .catch(error => console.error("Error loading video data:", error));
 
@@ -31,35 +40,34 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll("[data-video-button]").forEach((button) => {
             const buttonType = button.getAttribute("data-video-button");
 
-            if (buttonType === "frenchBookVideo") {
-                // Handle random French book videos
-                if (Object.keys(frenchVideoData).length > 0) {
-                    const randomKey = getRandomKey(frenchVideoData);
-                    button.textContent = randomKey || "Loading...";
-                    const videoId = frenchVideoData[randomKey];
+            let videoId = null;
+            let videoName = buttonType; // Default name is buttonType
 
-                    button.onclick = function () {
-                        openVideoModal(videoId);
-                    };
+            if (buttonType === "randFrenchBook") {
+                videoName = getRandomKey(frenchVideoData);
+                videoId = frenchVideoData[videoName];
+            } else if (buttonType === "randNoviceKungFuVid") {
+                videoName = getRandomKey(novKungFuVideoData);
+                videoId = novKungFuVideoData[videoName];
+            } else if (buttonType === "randIntermediateKungFuVid") {
+                videoName = getRandomKey(intKungFuVideoData);
+                videoId = intKungFuVideoData[videoName];
+            } else if (buttonType === "randAdvancedKungFuVid") {
+                videoName = getRandomKey(advKungFuVideoData);
+                videoId = advKungFuVideoData[videoName];
+            } else if (otherVideoData.hasOwnProperty(buttonType)) {
+                videoName = buttonType; // Use exact match from videoLinks.json
+                videoId = otherVideoData[buttonType];
+            }
 
-                    delete frenchVideoData[randomKey]; // Ensure uniqueness
-                } else {
-                    button.textContent = "No Videos Available";
-                    button.disabled = true;
-                }
+            if (videoId) {
+                button.textContent = videoName; // Display video name instead of buttonType
+                button.onclick = function () {
+                    openVideoModal(videoId);
+                };
             } else {
-                // Handle specific video button cases from videoLinks.json
-                if (otherVideoData.hasOwnProperty(buttonType)) {
-                    button.textContent = buttonType; // Show button label
-                    const videoId = otherVideoData[buttonType];
-
-                    button.onclick = function () {
-                        openVideoModal(videoId);
-                    };
-                } else {
-                    button.textContent = "Video Not Found";
-                    button.disabled = true;
-                }
+                button.textContent = "Video Not Found";
+                button.disabled = true;
             }
         });
     }
@@ -89,8 +97,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function getRandomKey(obj) {
-        const keys = Object.keys(obj);
+    function getRandomKey(data) {
+        const keys = Object.keys(data);
         return keys.length > 0 ? keys[Math.floor(Math.random() * keys.length)] : null;
     }
 
