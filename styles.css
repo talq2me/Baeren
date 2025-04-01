@@ -40,6 +40,8 @@ h1 {
     color: white;
     transition: background-color 0.3s, transform 0.2s;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Fun shadow effect */
+    display: inline-block;  /* Helps keep buttons aligned */
+    text-align: center;     /* Centers text inside button */
 }
 .buttontight {
     padding: 20px 40px;  /* Big enough for small fingers */
@@ -184,6 +186,8 @@ h1 {
     display: flex;
     justify-content: center; /* Centers the buttons horizontally */
     align-items: center; /* Centers the buttons vertically */
+    flex-wrap: wrap;          /* Wrap buttons nicely if too many */
+    gap: 10px;                /* Adds spacing between buttons */
     margin-top: 20px;
 }
 
