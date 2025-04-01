@@ -269,35 +269,45 @@ iframe {
 #checklist {
     list-style: none;
     padding: 0;
+    width: 100%;
+    max-width: 500px; /* Adjust based on your preference */
 }
 
 #checklist li {
     display: flex;
-    align-items: center;  /* Aligns checkbox, text, and button */
-    font-size: 28px;      /* Larger text */
-    margin: 15px 0;       /* Spacing between items */
-    gap: 15px;            /* Space between elements */
+    justify-content: space-between; /* Makes the button stay to the right */
+    align-items: center; /* Ensures everything is vertically aligned */
+    font-size: 28px;
+    margin: 15px 0;
+    gap: 10px;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between checkbox and text */
+    flex-grow: 1; /* Ensures the text takes up space and keeps button aligned */
 }
 
 input[type="checkbox"] {
     transform: scale(1.8); /* Makes checkboxes larger */
-    margin-right: 10px;    /* Space between checkbox and text */
 }
 
 .read-btn {
-    font-size: 24px;      /* Larger play button */
-    padding: 10px 15px;   /* Bigger button for touch screens */
+    font-size: 24px;
+    padding: 10px 15px;
     border: none;
-    background-color: #6ac2ff; /* Light blue button */
-    border-radius: 10px;  /* Rounded corners */
+    background-color: #6ac2ff;
+    border-radius: 10px;
     cursor: pointer;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 .read-btn:hover {
-    background-color: #ff8c00; /* Change to orange on hover */
+    background-color: #ff8c00;
     transform: scale(1.1);
 }
+
 
 .chore-text {
     flex-grow: 1; /* Allows text to expand while keeping button aligned */

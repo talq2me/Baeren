@@ -35,12 +35,37 @@
     <h1>My Chores</h1>
     <div id="chores" class="div-container">
         <ul id="checklist">
-            <li class="weekday-only"><input type="checkbox" id="item1">Unpack bag</li> <button class="read-btn weekday-only" onclick="readText('Unpack bag')">🔊</button>
-            <li class="weekday-only"><input type="checkbox" id="item2">Pack lunch</li> <button class="read-btn weekday-only" onclick="readText('Pack lunch')">🔊</button>
-            <li class="sunday-monday"><input type="checkbox" id="item2">Laundry</li> <button class="read-btn sunday-monday" onclick="readText('Laundry')">🔊</button>
-            <li><input type="checkbox" id="item3">Pijamas</li> <button class="read-btn" onclick="readText('Pijamas')">🔊</button>
+            <li class="weekday-only">
+                <label>
+                    <input type="checkbox" id="item1">
+                    <span class="chore-text">Unpack bag</span>
+                </label>
+                <button class="read-btn weekday-only" onclick="readText('Unpack bag')">🔊</button>
+            </li>
+            <li class="weekday-only">
+                <label>
+                    <input type="checkbox" id="item2">
+                    <span class="chore-text">Pack lunch</span>
+                </label>
+                <button class="read-btn weekday-only" onclick="readText('Pack lunch')">🔊</button>
+            </li>
+            <li class="sunday-monday">
+                <label>
+                    <input type="checkbox" id="item3">
+                    <span class="chore-text">Laundry</span>
+                </label>
+                <button class="read-btn sunday-monday" onclick="readText('Laundry')">🔊</button>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox" id="item4">
+                    <span class="chore-text">Pajamas</span>
+                </label>
+                <button class="read-btn" onclick="readText('Pajamas')">🔊</button>
+            </li>
         </ul>
     </div>
+    
 
 </body>
 </html>
