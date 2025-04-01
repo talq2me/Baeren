@@ -278,3 +278,13 @@ input[type="checkbox"] {
     transform: scale(1.5);
     margin-right: 10px;
 }
+
+
+
+
+.div-container {
+    display: flex;
+    justify-content: center;  /* Centers horizontally */
+    flex-wrap: wrap;          /* Wrap buttons nicely if too many */
+    gap: 10px;                /* Adds spacing between buttons */
+}
