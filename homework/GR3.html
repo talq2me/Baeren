@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GR3</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../videoModal.js" defer></script>
+    <script src="../common.js" defer></script>
+</head>
+<body>
+    <button class="button" onclick="goBack()">&lt; Back</button>
+    <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
+    <h1>Welcome to Grade 3!</h1>
+    Your homework:
+
+    <div>
+        <br>
+        <button id="spelling" class="button weekday-only" onclick="location.href='../engSpelling/spelling-selfcheck.html'">Spelling - Self Check</button>
+        <button id="spelling-main" class="button weekday-only" onclick="location.href='../engSpelling/spelling.html'">Spelling</button>
+        <br>
+        <button id="dictee" class="button tuesday-monday" onclick="location.href='../dictee/dictee.html'">Dictée</button>
+        <br>
+        <button id="translate" class="button day-wednesday" onclick="location.href='../translate/translate.html'">Translate & French Reading</button>
+        <button id="duological" class="button day-thursday" onclick="location.href='../duological/duologicalGame.html'">Duo Game</button>
+        <br>
+    </div>
+
+    Videos:
+    <div class="video">
+        <button class="button" data-video-button="StaffForm">Loading...</button>
+        <button class="button" data-video-button="randIntermediateKungFuVid">Loading...</button>
+        <button class="button" data-video-button="TrollMarch">Loading...</button>
+        <button class="button" data-video-button="Restart22">Loading...</button>
+    </div>
+    
+    <div>
+        <!-- Iframe sites (like Google Classroom) -->
+        <button class="button day-friday" onclick="openNewWindow('https://classroom.google.com/c/NjkwODgwNjg3NDIx')">French Google Classroom</button>
+        <button class="button day-friday" onclick="openNewWindow('https://classroom.google.com/c/NzA5MDk2MDA2ODY3')">English Google Classroom</button>
+        <button class="button sunday-tuesday" onclick="openNewWindow('https://readalong.google.com')">Google Read Along</button>
+    </div>
+    
+    <div id="chores">
+        <h1>My Chores</h1>
+        <ul id="checklist">
+            <li class="weekday-only"><input type="checkbox" id="item1"> Unpack bag</li>
+            <li class="weekday-only"><input type="checkbox" id="item2"> Pack Lunch</li>
+            <li><input type="checkbox" id="item3"> Pijamas</li>
+        </ul>
+    </div>
+
+    <script>
+        function loadIframe(url) {
+            window.location.href = `../iframePage/iframePage.html?url=${encodeURIComponent(url)}`;
+        }
+
+        function openNewWindow(url) {
+            window.open(url, "_blank", "width=1000,height=1200");
+        }
+
+        function showControlsForDay() {
+            let days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+            let today = days[new Date().getDay()];
+
+            // Show/hide based on specific days
+            document.querySelectorAll(`[class*="day-"]`).forEach(el => {
+                if (el.classList.contains(`day-${today}`)) {
+                    el.style.display = "block";
+                } else {
+                    el.style.display = "none";
+                }
+            });
+
+            // Show only on weekdays (Monday-Friday)
+            if (["monday", "tuesday", "wednesday", "thursday", "friday"].includes(today)) {
+                document.querySelectorAll(".weekday-only").forEach(el => el.style.display = "block");
+            } else {
+                document.querySelectorAll(".weekday-only").forEach(el => el.style.display = "none");
+            }
+
+            // Show on Tuesday-Monday (every day except Monday)
+            if (today !== "monday") {
+                document.querySelectorAll(".tuesday-monday").forEach(el => el.style.display = "block");
+            } else {
+                document.querySelectorAll(".tuesday-monday").forEach(el => el.style.display = "none");
+            }
+
+            // Show only on Sundays and Tuesdays
+            if (["sunday", "tuesday"].includes(today)) {
+                document.querySelectorAll(".sunday-tuesday").forEach(el => el.style.display = "block");
+            } else {
+                document.querySelectorAll(".sunday-tuesday").forEach(el => el.style.display = "none");
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", showControlsForDay);
+    </script>
+</body>
+</html>
