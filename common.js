@@ -76,6 +76,12 @@
         function readText(text) {
             let speech = new SpeechSynthesisUtterance(text);
             speech.lang = "en-US"; // You can change this for other languages (e.g., "fr-FR" for French)
-            speech.rate = 1; // Adjust speed (1 is normal, 0.5 is slow, 2 is fast)
+            
+            // Adjust the rate (speed) of the speech (1 is normal speed, 0.5 is slower)
+            utterance.rate = 0.5;  // Set it to a value less than 1 for slower speech
+
+            // Optionally, you can adjust the pitch and volume as well
+            utterance.pitch = 1;   // Normal pitch, range from 0 to 2
+            utterance.volume = 1;  // Volume, range from 0 to 1
             window.speechSynthesis.speak(speech);
         }
