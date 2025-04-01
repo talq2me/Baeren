@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SK</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../videoModal.js" defer></script>
+    <script src="../common.js" defer></script>
+</head>
+<body>
+    <button class="button" onclick="goBack()">&lt; Back</button>
+    <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
+    <h1>Welcome to SK!</h1>
+    Your homework:
+    <div class="div-container">
+        <button class="button" onclick="location.href='../skFrenchGame/skFrenchGame.html'">French Game</button>
+        <button class="button" onclick="location.href='../skSightWordsGame/skSightWordsGame.html'">Sight Word Game</button>
+        <button class="button" onclick="location.href='../readAlongGame/readalong-game.html'">Read Along Game</button>
+    </div>
+
+    <div class="video div-container">
+        <!-- Video Modal -->
+        <button class="button" data-video-button="Val">Loading...</button>
+        <button class="button" data-video-button="SamSamedi">Loading...</button>
+        <button class="button" data-video-button="randFrenchBook">Loading...</button>
+    </div>
+    <div class="video div-container">
+        <button class="button" data-video-button="randNoviceKungFuVid">Loading...</button>      
+        <button class="button" data-video-button="SingleStepForm">Loading...</button>
+    </div>
+    <div class="div-container">
+        <img src="https://media.giphy.com/media/mGWBjz74fn404BWUl4/giphy.gif?cid=ecf05e476pxqqc6cbon5ir86ggdqlsxc76d3ms0nhqklyspt&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Funny Cat GIF"> X 10
+    </div>
+    <div id="chores" class="div-container">
+        <h1>My Chores</h1>
+        <ul id="checklist">
+            <li class="weekday-only"><input type="checkbox" id="item1">Unpack bag</li>
+            <li class="weekday-only"><input type="checkbox" id="item2">Pack lunch</li>
+            <li class="sunday-monday"><input type="checkbox" id="item2">Laundry</li>
+            <li><input type="checkbox" id="item3">Pijamas</li>
+        </ul>
+    </div>
+
+</body>
+</html>
