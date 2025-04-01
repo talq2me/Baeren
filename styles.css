@@ -132,10 +132,6 @@ h1 {
 }
 
 
-
-
-
-
 /*for spelling buttons and text fields*/
 .audioTextSubmitContainer {
     margin: 10px;
@@ -266,31 +262,33 @@ iframe {
 
 
 
-#checklist {
-    list-style: none;
-    padding: 0;
-    width: 100%;
-    max-width: 500px;
-}
-
 #checklist li {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: center;  /* Ensures everything is vertically centered */
+    justify-content: flex-start;
     font-size: 28px;
     margin: 15px 0;
-    gap: 15px;
+    gap: 10px; /* Slightly reduced gap */
 }
 
 input[type="checkbox"] {
     transform: scale(2); /* Make checkboxes larger */
+    margin-right: 10px; /* Ensures even spacing */
+    vertical-align: middle;
 }
 
 .chore-text {
-    flex-grow: 1; /* Allows text to take up available space */
     font-size: 28px;
+    cursor: pointer;
+    transition: color 0.3s;
+    white-space: nowrap; /* Ensures text stays inline */
 }
 
+.chore-text:hover {
+    color: #ff8c00;
+}
+
+/* Button styling (for visual consistency) */
 .read-btn {
     font-size: 24px;
     padding: 10px;
@@ -299,6 +297,8 @@ input[type="checkbox"] {
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    margin-left: 10px;
 }
 
 .read-btn:hover {
@@ -306,9 +306,9 @@ input[type="checkbox"] {
     transform: scale(1.1);
 }
 
-
-.chore-text {
-    flex-grow: 1; /* Allows text to expand while keeping button aligned */
+.weekday-only, .sunday-monday {
+    display: flex;
+    width: 100%;
 }
 
 
