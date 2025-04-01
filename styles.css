@@ -259,3 +259,18 @@ iframe {
     margin: 0 auto; /* This will center the button horizontally */
     text-align: center; /* Optional: This centers the text inside the button */
 }
+
+
+
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    margin: 10px 0;
+}
+input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-right: 10px;
+}

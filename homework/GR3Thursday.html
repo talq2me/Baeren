@@ -6,8 +6,10 @@
     <title>GR3</title>
     <link rel="stylesheet" href="../styles.css">
     <script src="../videoModal.js" defer></script>
+    <script src="../common.js" defer></script>
 </head>
 <body>
+    <button class="button" onclick="goBack()">&lt; Back</button>
     <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
     <h1>Welcome to Grade 3!</h1>
     Your homework:
@@ -22,21 +24,10 @@
         
         <button id="translate" class="button" onclick="location.href='../translate/translate.html'">Translate & French Reading</button>
         
-        <button id="readalong" class="button" onclick="location.href='https://readalong.google.com/'">Read Along</button>
-        <button id="duolingo" class="button" onclick="location.href='https://www.duolingo.com/learn'">Duolingo</button>
+        <!--button id="readalong" class="button" onclick="location.href='https://readalong.google.com/'">Read Along</button-->
+        <!--button id="duolingo" class="button" onclick="location.href='https://www.duolingo.com/learn'">Duolingo</button-->
+        <button id="duological" class="button" onclick="location.href='../duological/duologicalGame.html'">Duo Game</button>
         <br>
-    </div>
-
-    <div>
-    <!--iframe sites (like google classroom)-->
-    <button class="button" onclick="loadIframe('https://classroom.google.com/u/1/c/NjkwODgwNjg3NDIx')">French Google Classroom</button>
-    <button class="button" onclick="loadIframe('https://classroom.google.com/u/1/c/NzA5MDk2MDA2ODY3')">English Google Classroom</button>
-
-    <script>
-        function loadIframe(url) {
-            window.location.href = `../iframePage/iframePage.html?url=${encodeURIComponent(url)}`;
-        }
-    </script>
     </div>
 
     Videos:
@@ -50,6 +41,41 @@
         <button class="button" data-video-button="StaffForm">Loading...</button>
         <button class="button" data-video-button="randIntermediateKungFuVid">Loading...</button>
         <button class="button" data-video-button="TrollMarch">Loading...</button>
+        <button class="button" data-video-button="Restart22">Loading...</button>
+    </div>
+    <div>
+        
+        <!--iframe sites (like google classroom)-->
+        <button class="button" onclick="loadIframe('https://docs.google.com/presentation/d/1a4VE3VfCnnBO34KzSvvPtpfvATFrsGv6cDU8No7QXhM/edit?slide=id.g342de3a3c58_1_0#slide=id.g342de3a3c58_1_0')">Practice Presentation</button>
+        
+        <br>
+        <button class="button" onclick="openNewWindow('https://classroom.google.com/c/NjkwODgwNjg3NDIx')">French Google Classroom</button>
+        <button class="button" onclick="openNewWindow('https://classroom.google.com/c/NzA5MDk2MDA2ODY3')">English Google Classroom</button>
+        <button class="button" onclick="openNewWindow('https://readalong.google.com')">Google Read Along</button>
+        
+        <script>
+            function loadIframe(url) {
+                window.location.href = `../iframePage/iframePage.html?url=${encodeURIComponent(url)}`;
+            }
+        
+            function openNewWindow(url) {
+                window.open(url, "_blank", "width=1000,height=1200");
+            }
+        </script>
+    </div>
+    <div>
+        <h1>My Chores</h1>
+        <ul id="checklist">
+            <li><input type="checkbox" id="item1"> Unpack bag</li>
+            <li><input type="checkbox" id="item2"> Pack Lunch</li>
+            <li><input type="checkbox" id="item3"> Pijamas</li>
+        </ul>
+        
+        <div>
+            <!--pushups-->
+            <img src="https://media.giphy.com/media/mGWBjz74fn404BWUl4/giphy.gif?cid=ecf05e476pxqqc6cbon5ir86ggdqlsxc76d3ms0nhqklyspt&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Description of GIF" width="300">
+        </div>
+
     </div>
 
 </body>
