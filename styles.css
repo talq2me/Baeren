@@ -35,6 +35,7 @@ h1 {
     font-size: 24px;  /* Larger font for easy reading */
     cursor: pointer;
     border: none;
+    width: auto; /* Auto width for buttons */
     background-color: #6ac2ff; /* Light blue color for buttons */
     border-radius: 15px; /* Rounded corners for a softer look */
     color: white;

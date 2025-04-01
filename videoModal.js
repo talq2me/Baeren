@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var novKungFuVideoData = {};
     var intKungFuVideoData = {};
     var advKungFuVideoData = {};
+    var displayedVideos = new Set(); // Tracks all displayed videos (random + chosen)
 
     // Load JSON files before initializing buttons
     Promise.all([
@@ -44,16 +45,16 @@ document.addEventListener("DOMContentLoaded", function () {
             let videoName = buttonType; // Default name is buttonType
 
             if (buttonType === "randFrenchBook") {
-                videoName = getRandomKey(frenchVideoData);
+                videoName = getUniqueRandomKey(frenchVideoData);
                 videoId = frenchVideoData[videoName];
             } else if (buttonType === "randNoviceKungFuVid") {
-                videoName = getRandomKey(novKungFuVideoData);
+                videoName = getUniqueRandomKey(novKungFuVideoData);
                 videoId = novKungFuVideoData[videoName];
             } else if (buttonType === "randIntermediateKungFuVid") {
-                videoName = getRandomKey(intKungFuVideoData);
+                videoName = getUniqueRandomKey(intKungFuVideoData);
                 videoId = intKungFuVideoData[videoName];
             } else if (buttonType === "randAdvancedKungFuVid") {
-                videoName = getRandomKey(advKungFuVideoData);
+                videoName = getUniqueRandomKey(advKungFuVideoData);
                 videoId = advKungFuVideoData[videoName];
             } else if (otherVideoData.hasOwnProperty(buttonType)) {
                 videoName = buttonType; // Use exact match from videoLinks.json
@@ -61,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             if (videoId) {
+                displayedVideos.add(videoId); // Mark as displayed
                 button.textContent = videoName; // Display video name instead of buttonType
                 button.onclick = function () {
                     openVideoModal(videoId);
@@ -95,6 +97,12 @@ document.addEventListener("DOMContentLoaded", function () {
         if (event.data === 0) { // Video ended
             closeModal();
         }
+    }
+
+    function getUniqueRandomKey(data) {
+        const availableKeys = Object.keys(data).filter(key => !displayedVideos.has(data[key]));
+        if (availableKeys.length === 0) return getRandomKey(data); // If all are used, allow repeat
+        return availableKeys[Math.floor(Math.random() * availableKeys.length)];
     }
 
     function getRandomKey(data) {
