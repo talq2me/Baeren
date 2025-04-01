@@ -266,19 +266,42 @@ iframe {
 
 
 
-
-ul {
+#checklist {
     list-style: none;
     padding: 0;
 }
-li {
-    margin: 10px 0;
-}
-input[type="checkbox"] {
-    transform: scale(1.5);
-    margin-right: 10px;
+
+#checklist li {
+    display: flex;
+    align-items: center;  /* Aligns checkbox, text, and button */
+    font-size: 28px;      /* Larger text */
+    margin: 15px 0;       /* Spacing between items */
+    gap: 15px;            /* Space between elements */
 }
 
+input[type="checkbox"] {
+    transform: scale(1.8); /* Makes checkboxes larger */
+    margin-right: 10px;    /* Space between checkbox and text */
+}
+
+.read-btn {
+    font-size: 24px;      /* Larger play button */
+    padding: 10px 15px;   /* Bigger button for touch screens */
+    border: none;
+    background-color: #6ac2ff; /* Light blue button */
+    border-radius: 10px;  /* Rounded corners */
+    cursor: pointer;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.read-btn:hover {
+    background-color: #ff8c00; /* Change to orange on hover */
+    transform: scale(1.1);
+}
+
+.chore-text {
+    flex-grow: 1; /* Allows text to expand while keeping button aligned */
+}
 
 
 
