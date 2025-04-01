@@ -30,6 +30,9 @@
     <div class="video">
         <button class="button" data-video-button="StaffForm">Loading...</button>
         <button class="button" data-video-button="randIntermediateKungFuVid">Loading...</button>
+        <br>
+        <img src="https://media.giphy.com/media/mGWBjz74fn404BWUl4/giphy.gif?cid=ecf05e476pxqqc6cbon5ir86ggdqlsxc76d3ms0nhqklyspt&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Funny Cat GIF">
+        <br>
         <button class="button" data-video-button="TrollMarch">Loading...</button>
         <button class="button" data-video-button="Restart22">Loading...</button>
     </div>
@@ -44,9 +47,10 @@
     <div id="chores">
         <h1>My Chores</h1>
         <ul id="checklist">
-            <li class="weekday-only"><input type="checkbox" id="item1"> Unpack bag</li>
-            <li class="weekday-only"><input type="checkbox" id="item2"> Pack Lunch</li>
-            <li><input type="checkbox" id="item3"> Pijamas</li>
+            <li class="weekday-only"><input type="checkbox" id="item1">Unpack bag</li>
+            <li class="weekday-only"><input type="checkbox" id="item2">Pack Lunch</li>
+            <li class="sunday-monday"><input type="checkbox" id="item2">Laundry</li>
+            <li><input type="checkbox" id="item3">Pijamas</li>
         </ul>
     </div>
 
@@ -91,6 +95,13 @@
                 document.querySelectorAll(".sunday-tuesday").forEach(el => el.style.display = "block");
             } else {
                 document.querySelectorAll(".sunday-tuesday").forEach(el => el.style.display = "none");
+            }
+
+            // Show only on Sundays and Mondays
+            if (["sunday", "monday"].includes(today)) {
+                document.querySelectorAll(".sunday-monday").forEach(el => el.style.display = "block");
+            } else {
+                document.querySelectorAll(".sunday-monday").forEach(el => el.style.display = "none");
             }
         }
 
