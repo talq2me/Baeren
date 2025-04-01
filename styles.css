@@ -284,7 +284,9 @@ input[type="checkbox"] {
 
 .div-container {
     display: flex;
-    justify-content: center;  /* Centers horizontally */
-    flex-wrap: wrap;          /* Wrap buttons nicely if too many */
-    gap: 10px;                /* Adds spacing between buttons */
+    justify-content: center; /* Centers buttons horizontally */
+    flex-wrap: wrap; /* Ensures buttons wrap properly */
+    gap: 10px; /* Adds spacing between buttons */
+    align-items: center; /* Ensures vertical alignment */
+    text-align: center; /* Helps with inline elements */
 }
