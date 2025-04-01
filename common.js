@@ -72,3 +72,10 @@
         }
 
         document.addEventListener("DOMContentLoaded", showControlsForDay);
+
+        function readText(text) {
+            let speech = new SpeechSynthesisUtterance(text);
+            speech.lang = "en-US"; // You can change this for other languages (e.g., "fr-FR" for French)
+            speech.rate = 1; // Adjust speed (1 is normal, 0.5 is slow, 2 is fast)
+            window.speechSynthesis.speak(speech);
+        }
