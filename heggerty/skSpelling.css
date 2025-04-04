@@ -1,0 +1,69 @@
+body {
+    font-family: Comic Sans MS, sans-serif;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+h1 {
+    font-size: 2em;
+    color: #333;
+}
+
+#starCount {
+    font-size: 24px;
+    margin: 10px;
+}
+
+.big-button {
+    padding: 20px 40px;
+    margin: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    background-color: #4CAF50;
+    border-radius: 15px;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.big-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+#wordBank button {
+    margin: 10px;
+}
+
+#spelledWord {
+    font-size: 32px;
+    margin: 20px;
+    min-height: 40px;
+}
+
+#messageContainer {
+    font-size: 28px;
+    margin: 20px;
+    color: #333;
+}
+
+/* Style the big-button class */
+.bigblue-button {
+    padding: 20px 40px;
+    margin: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    background-color: #6ac2ff;
+    border-radius: 15px;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Add hover effect for buttons */
+.bigblue-button:hover {
+    background-color: #ff8c00;
+    transform: scale(1.05);
+}

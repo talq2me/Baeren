@@ -1,0 +1,47 @@
+[
+    {
+        "word": "champ",
+        "choices": ["ch", "am", "p", "um", "sh"],
+        "pronunciation": {
+            "beginning": ["../sounds/en/ch.wav"],
+            "middle":  ["../sounds/en/a.wav","../sounds/en/m.wav"],
+            "ending":  ["../sounds/en/p.wav"]
+          }
+    },
+    {
+        "word": "ship",
+        "souchoicesnds": ["sh", "i", "p", "k", "sh"],
+        "pronunciation": {
+            "beginning": ["../sounds/en/sh.wav"],
+            "middle":  ["../sounds/en/ih.wav"],
+            "ending":  ["../sounds/en/p.wav"]
+          }
+    },
+    {
+        "word": "flat",
+        "choices": ["fl", "a", "t", "k", "e"],
+        "pronunciation": {
+            "beginning": ["../sounds/en/f.wav","../sounds/en/l.wav"],
+            "middle":  ["../sounds/en/a.wav"],
+            "ending":  ["../sounds/en/t.wav"]
+          }
+    },
+    {
+        "word": "stamp",
+        "choices": ["st", "am", "p", "sh", "t"],
+        "pronunciation": {
+            "beginning": ["../sounds/en/s.wav","../sounds/en/t.wav"],
+            "middle":  ["../sounds/en/a.wav","../sounds/en/m.wav"],
+            "ending":  ["../sounds/en/p.wav"]
+          }
+    },
+    {
+        "word": "crash",
+        "choices": ["cr", "a", "sh", "ch", "ck"],
+        "pronunciation": {
+            "beginning": ["../sounds/en/k.wav","../sounds/en/er.wav"],
+            "middle":  ["../sounds/en/a.wav"],
+            "ending":  ["../sounds/en/sh.wav"]
+          }
+    }
+]

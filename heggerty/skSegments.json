@@ -1,0 +1,23 @@
+[
+    {
+      "word": "cat",
+      "sounds": ["k", "a", "t"]
+    },
+    {
+      "word": "dog",
+      "sounds": ["d", "o", "g"]
+    },
+    {
+      "word": "ship",
+      "sounds": ["sh", "i", "p"]
+    },
+    {
+      "word": "bat",
+      "sounds": ["b", "a", "t"]
+    },
+    {
+      "word": "plan",
+      "sounds": ["pl", "a", "n"]
+    }
+  ]
+  

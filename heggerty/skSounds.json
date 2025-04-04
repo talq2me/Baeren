@@ -1,0 +1,26 @@
+[
+  {
+    "word": "cat",
+    "sounds": {
+      "beginning": "k",
+      "middle": "a",
+      "ending": "t"
+    }
+  },
+  {
+    "word": "dog",
+    "sounds": {
+      "beginning": "d",
+      "middle": "o",
+      "ending": "g"
+    }
+  },
+  {
+    "word": "ship",
+    "sounds": {
+      "beginning": "sh",
+      "middle": "i",
+      "ending": "p"
+    }
+  }
+]
