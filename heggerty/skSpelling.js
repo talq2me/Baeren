@@ -18,33 +18,34 @@ function nextWord() {
         document.getElementById("promptContainer").innerHTML = '';
         document.getElementById("spelledWord").innerHTML = '';
         document.getElementById("submitBtn").style.display = 'none';
-        document.getElementById("replayBtn").style.display = 'none';  // Hide replay button after game over
+        document.getElementById("replayBtn").style.display = 'none';
         return;
     }
 
-    // Get a random word from the data
     current = data[Math.floor(Math.random() * data.length)];
     document.getElementById("spelledWord").innerHTML = '';
     document.getElementById("messageContainer").innerHTML = '';
     document.getElementById("submitBtn").style.display = 'inline-block';
-    document.getElementById("replayBtn").style.display = 'inline-block';  // Show replay button
+    document.getElementById("replayBtn").style.display = 'inline-block';
 
-    // Read out the entire word by breaking it down into sounds
     speakWord(current.word, current.pronunciation);
 
-    // Display word bank for spelling the word
+    // 🔀 Shuffle the choices before displaying
+    const shuffledChoices = [...current.choices].sort(() => Math.random() - 0.5);
+
     const bankDiv = document.getElementById("wordBank");
     bankDiv.innerHTML = '';
-    current.sounds.forEach(sound => {
+    shuffledChoices.forEach(choice => {
         const btn = document.createElement("button");
-        btn.textContent = sound;
+        btn.textContent = choice;
         btn.className = "bigblue-button";
         btn.addEventListener("click", () => {
-            document.getElementById("spelledWord").textContent += sound;
+            document.getElementById("spelledWord").textContent += choice;
         });
         bankDiv.appendChild(btn);
     });
 }
+
 
 function checkAnswer() {
     const attempt = document.getElementById("spelledWord").textContent.trim().toLowerCase();
@@ -65,28 +66,58 @@ function restartGame() {
 }
 
 function speakWord(word, pronunciation) {
-    // Announce the instruction: "Spell the word:"
-    const instruction = new SpeechSynthesisUtterance(`Spell the word:${word}`);
-    instruction.lang = 'en-US';
-    instruction.rate = 0.6; // Slow down the speech for clarity
-    speechSynthesis.speak(instruction);
-    
+    // Cancel any ongoing TTS or queued speech
+    speechSynthesis.cancel();
 
-    // Loop through each pronunciation sound and add a small delay between them
-    pronunciation.forEach((pronunciation, index) => {
-        const soundUtterance = new SpeechSynthesisUtterance(pronunciation);
-        soundUtterance.lang = 'en-US';
-        soundUtterance.rate = 0.5; // Slow down the speech for clarity
+    // Wait until speechSynthesis is ready
+    const waitForVoices = setInterval(() => {
+        if (speechSynthesis.getVoices().length !== 0) {
+            clearInterval(waitForVoices);
 
-        // Add a small delay between sounds for natural flow
+            const instruction = new SpeechSynthesisUtterance(`Spell the word: ${word}`);
+            instruction.lang = 'en-US';
+            instruction.rate = 1;
+
+            instruction.onend = () => {
+                playPronunciationClips(pronunciation);
+            };
+
+            speechSynthesis.speak(instruction);
+        }
+    }, 100);
+}
+
+function playPronunciationClips(pronunciation) {
+    const playPart = (clipPaths, onComplete, rate = 1.8) => {
+        let index = 0;
+        const playNext = () => {
+            if (index >= clipPaths.length) {
+                if (onComplete) onComplete();
+                return;
+            }
+            const audio = new Audio(clipPaths[index]);
+            audio.playbackRate = rate;
+            audio.onended = () => {
+                index++;
+                playNext();
+            };
+            audio.play();
+        };
+        playNext();
+    };
+
+    // Chain playback: beginning → (short delay) → middle → (short delay) → end
+    playPart(pronunciation.beginning, () => {
         setTimeout(() => {
-            speechSynthesis.speak(soundUtterance);
-        }, index * 100); // Delay each sound by 1 second (adjust if needed)
+            playPart(pronunciation.middle, () => {
+                setTimeout(() => {
+                    playPart(pronunciation.ending);
+                }, 300); // short delay before ending
+            });
+        }, 300); // short delay before middle
     });
 }
 
-// Function to replay the sounds with phonetic pronunciation
 function replaySounds() {
-    // Make sure we pass 'pronunciation' and not 'sounds'
-    speakWord(current.word, current.pronunciation);  // Replay the current word's breakdown with pronunciation
+    speakWord(current.word, current.pronunciation);
 }
