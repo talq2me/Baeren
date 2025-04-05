@@ -16,7 +16,7 @@
     },
     {
         "correctWord": "ê",
-        "audio": "../sounds/en/en.wav",
+        "audio": "../sounds/en/eh.wav",
         "choices": ["ê", "é", "e", "y"]
     }
     
