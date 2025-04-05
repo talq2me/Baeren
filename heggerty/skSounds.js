@@ -1,87 +1,168 @@
-// Initialize an empty array for words
-let words = [];
+let data;
+let current = null;
+let stars = 0;
+let selectedPart = ''; // Tracks the selected part (beginning, middle, or end)
 
-// Fetch the data from the 'skSounds.json' file
-fetch('skSounds.json')
-  .then(response => response.json())
-  .then(data => {
-    words = data; // Store the data from the JSON file in the words array
-    // Start the game once the JSON data is loaded
-    startGame();
-  })
-  .catch(error => {
-    console.error('Error loading the skSounds.json file:', error);
-  });
+document.addEventListener("DOMContentLoaded", async () => {
+    const response = await fetch("skSpellingData.json");
+    data = await response.json();
+    nextWord();
 
-// TTS function
-function speak(text) {
-  const utterance = new SpeechSynthesisUtterance(text);
-  window.speechSynthesis.speak(utterance);
-}
+    document.getElementById("submitBtn").addEventListener("click", checkAnswer);
+    document.getElementById("replayBtn").addEventListener("click", replaySounds);  // Replay button event
+});
 
-// Function to select a random word and sound
-function getRandomWord() {
-  const randomIndex = Math.floor(Math.random() * words.length);
-  return words[randomIndex];
-}
-
-// Function to generate the sound choices (beginning, middle, or ending)
-function getSoundChoices(word, soundType) {
-  const choices = [];
-  choices.push(word.sounds[soundType]);
-
-  // Add random incorrect options
-  while (choices.length < 4) {
-    const randomWord = getRandomWord();
-    const randomSound = randomWord.sounds[soundType];
-    if (!choices.includes(randomSound)) {
-      choices.push(randomSound);
+function nextWord() {
+    if (stars >= 10) {
+        document.getElementById("messageContainer").innerHTML = `<h2>🎉 Game Over! You got 10 stars! 🎉</h2><button class="big-button" onclick="restartGame()">Play Again</button>`;
+        document.getElementById("wordBank").innerHTML = '';
+        document.getElementById("promptContainer").innerHTML = '';
+        document.getElementById("spelledWord").innerHTML = '';
+        document.getElementById("submitBtn").style.display = 'none';
+        document.getElementById("replayBtn").style.display = 'none';
+        return;
     }
-  }
 
-  // Shuffle choices
-  return choices.sort(() => Math.random() - 0.5);
+    current = data[Math.floor(Math.random() * data.length)];
+    document.getElementById("spelledWord").innerHTML = '';
+    document.getElementById("messageContainer").innerHTML = '';
+    document.getElementById("submitBtn").style.display = 'inline-block';
+    document.getElementById("replayBtn").style.display = 'inline-block';
+
+    
+    // Randomly select a part of the word (beginning, middle, or end)
+    const parts = ['beginning', 'middle', 'ending'];
+    selectedPart = parts[Math.floor(Math.random() * parts.length)];
+
+    speakWord(current.word, current.pronunciation);
+
+    // 🔀 Shuffle the choices before displaying
+    const shuffledChoices = [...current.choices].sort(() => Math.random() - 0.5);
+
+    const bankDiv = document.getElementById("wordBank");
+    bankDiv.innerHTML = '';
+    shuffledChoices.forEach(choice => {
+        const btn = document.createElement("button");
+        btn.textContent = choice;
+        btn.className = "bigblue-button";
+        btn.addEventListener("click", () => {
+            document.getElementById("spelledWord").textContent += choice;
+        });
+        // Call checkUserChoice when a button is clicked
+        btn.addEventListener("click", () => {
+            checkUserChoice(choice);  // Check if the choice is correct
+        });
+        
+        bankDiv.appendChild(btn);
+    });
 }
 
-// Function to initialize the game
-function startGame() {
-  if (words.length === 0) return; // Ensure words are loaded before starting the game
+function checkUserChoice(choice) {
+    let correctSound = '';
+    let isCorrect = false;
 
-  const randomWord = getRandomWord();
-  const soundTypes = ['beginning', 'middle', 'ending'];
-  const soundType = soundTypes[Math.floor(Math.random() * 3)];
+    if (selectedPart === 'beginning') {
+        // Check if the choice matches the beginning part of the word
+        correctSound = current.word.slice(0, choice.length);  // Get the beginning part of the word
+        isCorrect = choice.toLowerCase() === correctSound.toLowerCase();
+    } else if (selectedPart === 'middle') {
+        // Check if the choice matches the middle part of the word
+        const middleIndex = Math.floor(current.word.length / 2);
+        let middlePart = current.word.slice(middleIndex, middleIndex + choice.length);
+        
+        // Ensure it's not at the beginning or end of the word
+        const isNotBeginning = !current.word.startsWith(choice);
+        const isNotEnding = !current.word.endsWith(choice);
 
-  // Display the word and instruction
-  document.getElementById('word').textContent = randomWord.word;
-  document.getElementById('instruction').textContent = `Please choose the ${soundType} sound`;
+        isCorrect = isNotBeginning && isNotEnding && choice.toLowerCase() === middlePart.toLowerCase();
+    } else if (selectedPart === 'ending') {
+        // Check if the choice matches the ending part of the word
+        correctSound = current.word.slice(-choice.length);  // Get the ending part of the word
+        isCorrect = choice.toLowerCase() === correctSound.toLowerCase();
+    }
 
-  // Read the word using TTS
-  speak(randomWord.word);
-
-  // Display the choices for the sound
-  const choices = getSoundChoices(randomWord, soundType);
-  const choicesContainer = document.getElementById('choices');
-  choicesContainer.innerHTML = ''; // Clear previous choices
-
-  choices.forEach(choice => {
-    const button = document.createElement('button');
-    button.textContent = choice;
-    button.onclick = () => checkAnswer(choice, randomWord.sounds[soundType], soundType);
-    choicesContainer.appendChild(button);
-  });
+    // Provide feedback based on the check
+    if (isCorrect) {
+        stars++;
+        document.getElementById("starCount").textContent = `⭐ ${stars} / 10`;
+        document.getElementById("messageContainer").innerHTML = "<span style='color:green;'>✅ Correct!</span>";
+    } else {
+        document.getElementById("messageContainer").innerHTML = `<span style='color:red;'>❌ Try again! The correct sound was <b>${correctSound}</b></span>`;
+    }
+    setTimeout(nextWord, 1500);
 }
 
-// Function to check if the chosen answer is correct
-function checkAnswer(selectedChoice, correctSound, soundType) {
-  const result = selectedChoice === correctSound ? 'Correct!' : 'Wrong, try again!';
-  alert(result);
-
-  // Move to the next round after a short delay
-  setTimeout(startGame, 1000);
+function checkAnswer() {
+    const attempt = document.getElementById("spelledWord").textContent.trim().toLowerCase();
+    if (attempt === current.word.toLowerCase()) {
+        stars++;
+        document.getElementById("starCount").textContent = `⭐ ${stars} / 10`;
+        document.getElementById("messageContainer").innerHTML = "<span style='color:green;'>✅ Correct!</span>";
+    } else {
+        document.getElementById("messageContainer").innerHTML = `<span style='color:red;'>❌ Try again! The correct word was <b>${current.word}</b></span>`;
+    }
+    setTimeout(nextWord, 1500);
 }
 
-// Start the game when the page loads
-document.getElementById('nextButton').addEventListener('click', startGame);
+function restartGame() {
+    stars = 0;
+    document.getElementById("starCount").textContent = `⭐ ${stars} / 10`;
+    nextWord();
+}
 
-// Start the first round
-startGame();
+function speakWord(word, pronunciation) {
+    // Cancel any ongoing TTS or queued speech
+    speechSynthesis.cancel();
+
+    // Wait until speechSynthesis is ready
+    const waitForVoices = setInterval(() => {
+        if (speechSynthesis.getVoices().length !== 0) {
+            clearInterval(waitForVoices);
+
+            const instruction = new SpeechSynthesisUtterance(`Find the ${selectedPart} sound in the word ${word}`);
+            instruction.lang = 'en-US';
+            instruction.rate = 1;
+
+            instruction.onend = () => {
+                playPronunciationClips(pronunciation);
+            };
+
+            speechSynthesis.speak(instruction);
+        }
+    }, 100);
+}
+
+function playPronunciationClips(pronunciation) {
+    const playPart = (clipPaths, onComplete, rate = 1.8) => {
+        let index = 0;
+        const playNext = () => {
+            if (index >= clipPaths.length) {
+                if (onComplete) onComplete();
+                return;
+            }
+            const audio = new Audio(clipPaths[index]);
+            audio.playbackRate = rate;
+            audio.onended = () => {
+                index++;
+                playNext();
+            };
+            audio.play();
+        };
+        playNext();
+    };
+
+    // Chain playback: beginning → (short delay) → middle → (short delay) → end
+    playPart(pronunciation.beginning, () => {
+        setTimeout(() => {
+            playPart(pronunciation.middle, () => {
+                setTimeout(() => {
+                    playPart(pronunciation.ending);
+                }, 300); // short delay before ending
+            });
+        }, 300); // short delay before middle
+    });
+}
+
+function replaySounds() {
+    speakWord(current.word, current.pronunciation);
+}

@@ -766,7 +766,7 @@
       },
       {
         "word": "skid",
-        "choices": ["s", "k", "i", "d", "b"],
+        "choices": ["sk", "i", "d", "b"],
         "pronunciation": {
           "beginning": ["../sounds/en/s.wav", "../sounds/en/k.wav"],
           "middle": ["../sounds/en/ih.wav"],
@@ -775,7 +775,7 @@
       },
       {
         "word": "sled",
-        "choices": ["s", "l", "e", "d", "m"],
+        "choices": ["sl", "e", "d", "m"],
         "pronunciation": {
           "beginning": ["../sounds/en/s.wav", "../sounds/en/l.wav"],
           "middle": ["../sounds/en/eh.wav"],
@@ -793,7 +793,7 @@
       },
       {
         "word": "smog",
-        "choices": ["s", "m", "o", "g", "b"],
+        "choices": ["sm", "o", "g", "b"],
         "pronunciation": {
           "beginning": ["../sounds/en/s.wav", "../sounds/en/m.wav"],
           "middle": ["../sounds/en/aw.wav"],
@@ -811,7 +811,7 @@
       },
       {
         "word": "sled",
-        "choices": ["s", "l", "e", "d", "t"],
+        "choices": ["sl", "e", "d", "t"],
         "pronunciation": {
           "beginning": ["../sounds/en/s.wav", "../sounds/en/l.wav"],
           "middle": ["../sounds/en/eh.wav"],
@@ -820,7 +820,7 @@
       },
       {
         "word": "spit",
-        "choices": ["s", "p", "i", "t", "m"],
+        "choices": ["sp", "i", "t", "m"],
         "pronunciation": {
           "beginning": ["../sounds/en/s.wav", "../sounds/en/p.wav"],
           "middle": ["../sounds/en/ih.wav"],
@@ -829,7 +829,7 @@
       },
       {
         "word": "crab",
-        "choices": ["c", "r", "a", "b", "t"],
+        "choices": ["cr", "a", "b", "t"],
         "pronunciation": {
           "beginning": ["../sounds/en/k.wav", "../sounds/en/r.wav"],
           "middle": ["../sounds/en/a.wav"],
@@ -838,7 +838,7 @@
       },
       {
         "word": "skin",
-        "choices": ["s", "k", "i", "n", "r"],
+        "choices": ["sk", "i", "n", "r"],
         "pronunciation": {
           "beginning": ["../sounds/en/s.wav", "../sounds/en/k.wav"],
           "middle": ["../sounds/en/ih.wav"],
@@ -847,7 +847,7 @@
       },
       {
         "word": "flag",
-        "choices": ["f", "l", "a", "g", "d"],
+        "choices": ["fl", "a", "g", "d"],
         "pronunciation": {
           "beginning": ["../sounds/en/f.wav", "../sounds/en/l.wav"],
           "middle": ["../sounds/en/a.wav"],
