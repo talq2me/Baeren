@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
             starsContainer.appendChild(star);
         }
 
-        if (stars >= 10) {
+        if (stars >= 5) {
             endGame();
         }
     }
