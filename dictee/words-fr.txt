@@ -1,6 +1,6 @@
-une fille;
-la chenille;
-une famille;
-s'habiller;
-la vanille;
-la grenouille;
+un agneau;
+l'oignon;
+un champignon;
+le peigne;
+l'araignée;
+la montagne;
