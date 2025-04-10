@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const feedback = document.getElementById("feedback");
     const starsContainer = document.getElementById("stars");
     const resetBtn = document.getElementById("reset-btn"); // Reset button element
+    const deleteBtn = document.getElementById("delete-btn");
+
+
 
     let sentences = [];
     let correctAnswer = [];
@@ -125,4 +128,12 @@ document.addEventListener("DOMContentLoaded", function () {
     resetBtn.addEventListener("click", function() {
         resetAnswerArea(); // Clear current answer and re-enable buttons
     });
+
+    
+    deleteBtn.addEventListener("click", function() {
+    if (userAnswer.length > 0) {
+        userAnswer.pop(); // Remove last word from the array
+        userAnswerContainer.removeChild(userAnswerContainer.lastChild); // Remove last word from display
+    }
+   });
 });

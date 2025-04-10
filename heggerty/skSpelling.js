@@ -59,6 +59,14 @@ function checkAnswer() {
     setTimeout(nextWord, 1500);
 }
 
+
+const deleteBtn = document.getElementById("delete-btn");
+deleteBtn.addEventListener("click", () => {
+    const spelled = document.getElementById("spelledWord").textContent;
+    document.getElementById("spelledWord").textContent = spelled.slice(0, -1);
+});
+
+
 function restartGame() {
     stars = 0;
     document.getElementById("starCount").textContent = `⭐ ${stars} / 10`;

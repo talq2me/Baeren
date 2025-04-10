@@ -1,0 +1,43 @@
+[
+    {
+        "correctWord": "c",
+        "audio": "../sounds/en/k.wav",
+        "choices": ["s", "c", "f", "l"]
+    },
+    {
+        "correctWord": "e",
+        "audio": "../sounds/en/eh.wav",
+        "choices": ["a", "y", "i", "e"]
+    },
+    {
+        "correctWord": "f",
+        "audio": "../sounds/en/f.wav",
+        "choices": ["f", "g", "h", "z"]
+    },
+    {
+        "correctWord": "g",
+        "audio": "../sounds/en/g.wav",
+        "choices": ["j", "h", "g", "y"]
+    },
+    {
+        "correctWord": "h",
+        "audio": "../sounds/en/h.wav",
+        "choices": ["j", "h", "g", "y"]
+    },
+    {
+        "correctWord": "i",
+        "audio": "../sounds/en/ih.wav",
+        "choices": ["e", "i", "u", "y"]
+    },
+    {
+        "correctWord": "j",
+        "audio": "../sounds/en/j.wav",
+        "choices": ["j", "h", "g", "y"]
+    },
+    {
+        "correctWord": "y",
+        "audio": "../sounds/en/y.wav",
+        "choices": ["u", "h", "i", "y"]
+    }
+    
+]
