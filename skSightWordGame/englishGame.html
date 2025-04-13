@@ -39,7 +39,18 @@
         // Function to play the correct word using TTS
         function playSound() {
             const utterance = new SpeechSynthesisUtterance(currentWordData.correctWord);
+            
+            utterance.lang = "en-US"; // You can change this for other languages (e.g., "fr-FR" for French)
+            
+            // Adjust the rate (speed) of the speech (1 is normal speed, 0.5 is slower)
+            utterance.rate = 0.5;  // Set it to a value less than 1 for slower speech
+
+            // Optionally, you can adjust the pitch and volume as well
+            utterance.pitch = 1;   // Normal pitch, range from 0 to 2
+            utterance.volume = 1;  // Volume, range from 0 to 1
+            
             speechSynthesis.speak(utterance);
+            //common.readText(currentWordData.correctWord);
         }
 
         // Function to handle when the user selects a choice
