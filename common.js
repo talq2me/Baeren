@@ -75,12 +75,12 @@
 
         document.addEventListener("DOMContentLoaded", showControlsForDay);
 
-        function readText(text) {
+        function readText(text, lang = "en-US") {
             let utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = "en-US"; // Language setting
-            utterance.rate = 0.5;     // Slower speech
-            utterance.pitch = 1;      // Normal pitch
-            utterance.volume = 1;     // Full volume
+            utterance.lang = lang;        // Use passed-in language or default to "en-US"
+            utterance.rate = 0.5;         // Slower speech
+            utterance.pitch = 1;          // Normal pitch
+            utterance.volume = 1;         // Full volume
         
             window.speechSynthesis.speak(utterance);
         }
