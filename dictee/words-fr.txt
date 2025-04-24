@@ -1,6 +1,6 @@
-un agneau;
-l'oignon;
-un champignon;
-le peigne;
-l'araignée;
-la montagne;
+une photo;
+la phrase;
+la pharmacie;
+le phoque;
+un téléphone;
+l'alphabet;
