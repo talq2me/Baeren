@@ -4,22 +4,24 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.className = "modal";
     modal.innerHTML = `
         <div class="modal-content">
-            <button class="close-btn" onclick="closeModal()">×</button>
+            <button class="close-btn" id="closeModalBtn" disabled>×</button>
             <iframe id="youtubePlayer" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     `;
     document.body.appendChild(modal);
 
     var iframe = document.getElementById("youtubePlayer");
+    var closeBtn = document.getElementById("closeModalBtn");
     var player;
     var frenchVideoData = {};
     var otherVideoData = {};
     var novKungFuVideoData = {};
     var intKungFuVideoData = {};
     var advKungFuVideoData = {};
-    var displayedVideos = new Set(); // Tracks all displayed videos (random + chosen)
+    var displayedVideos = new Set();
+    var videoEnded = false; // Track if video has ended
 
-    // Load JSON files before initializing buttons
+    // Load JSON files
     Promise.all([
         fetch("../frenchBookVideoLinks.json").then(response => response.json()).catch(() => ({})),
         fetch("../videoLinks.json").then(response => response.json()).catch(() => ({})),
@@ -42,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const buttonType = button.getAttribute("data-video-button");
 
             let videoId = null;
-            let videoName = buttonType; // Default name is buttonType
+            let videoName = buttonType;
 
             if (buttonType === "randFrenchBook") {
                 videoName = getUniqueRandomKey(frenchVideoData);
@@ -57,13 +59,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 videoName = getUniqueRandomKey(advKungFuVideoData);
                 videoId = advKungFuVideoData[videoName];
             } else if (otherVideoData.hasOwnProperty(buttonType)) {
-                videoName = buttonType; // Use exact match from videoLinks.json
+                videoName = buttonType;
                 videoId = otherVideoData[buttonType];
             }
 
             if (videoId) {
-                displayedVideos.add(videoId); // Mark as displayed
-                button.textContent = videoName; // Display video name instead of buttonType
+                displayedVideos.add(videoId);
+                button.textContent = videoName;
                 button.onclick = function () {
                     openVideoModal(videoId);
                 };
@@ -75,33 +77,71 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function openVideoModal(videoId) {
+        videoEnded = false;
+        closeBtn.disabled = true; // Disable close button until video ends
         modal.style.display = "flex";
         iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&rel=0`;
         createYouTubePlayer();
     }
 
     function closeModal() {
-        modal.style.display = "none";
-        iframe.src = ""; // Stop video when closing
-    }
-
-    function createYouTubePlayer() {
-        if (!player) {
-            player = new YT.Player('youtubePlayer', {
-                events: { 'onStateChange': onPlayerStateChange }
-            });
+        if (videoEnded) { // Only allow closing if video has ended
+            modal.style.display = "none";
+            iframe.src = "";
+            player = null; // Reset player
+            videoEnded = false;
+            closeBtn.disabled = true;
         }
     }
 
+    function createYouTubePlayer() {
+        if (!window.YT || !window.YT.Player) {
+            console.warn("YouTube API not loaded yet, retrying...");
+            setTimeout(createYouTubePlayer, 500);
+            return;
+        }
+
+        if (!player) {
+            player = new YT.Player('youtubePlayer', {
+                events: {
+                    'onStateChange': onPlayerStateChange,
+                    'onError': (event) => console.error("YouTube Player Error:", event.data)
+                }
+            });
+        }
+
+        // Fallback polling for Android
+        checkVideoState();
+    }
+
     function onPlayerStateChange(event) {
-        if (event.data === 0) { // Video ended
+        console.log("Player state:", event.data); // Debug state changes
+        if (event.data === YT.PlayerState.ENDED) {
+            videoEnded = true;
+            closeBtn.disabled = false; // Enable close button
+            closeModal(); // Auto-close modal
+        }
+    }
+
+    function checkVideoState() {
+        if (!player || !player.getPlayerState) return;
+
+        const state = player.getPlayerState();
+        if (state === YT.PlayerState.ENDED && !videoEnded) {
+            videoEnded = true;
+            closeBtn.disabled = false;
             closeModal();
+        }
+
+        // Continue polling until video ends or modal closes
+        if (modal.style.display === "flex") {
+            setTimeout(checkVideoState, 1000);
         }
     }
 
     function getUniqueRandomKey(data) {
         const availableKeys = Object.keys(data).filter(key => !displayedVideos.has(data[key]));
-        if (availableKeys.length === 0) return getRandomKey(data); // If all are used, allow repeat
+        if (availableKeys.length === 0) return getRandomKey(data);
         return availableKeys[Math.floor(Math.random() * availableKeys.length)];
     }
 
@@ -110,11 +150,16 @@ document.addEventListener("DOMContentLoaded", function () {
         return keys.length > 0 ? keys[Math.floor(Math.random() * keys.length)] : null;
     }
 
-    // Load YouTube API if not already loaded
+    // Attach close button event listener programmatically
+    closeBtn.addEventListener('click', closeModal);
+    closeBtn.addEventListener('touchend', closeModal); // Explicit touch support
+
+    // Load YouTube API
     if (!document.getElementById("youtubeAPI")) {
         var tag = document.createElement('script');
         tag.id = "youtubeAPI";
         tag.src = "https://www.youtube.com/iframe_api";
         document.body.appendChild(tag);
     }
+
 });

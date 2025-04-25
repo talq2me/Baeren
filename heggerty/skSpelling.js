@@ -8,7 +8,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     nextWord();
 
     document.getElementById("submitBtn").addEventListener("click", checkAnswer);
-    document.getElementById("replayBtn").addEventListener("click", replaySounds);  // Replay button event
+    document.getElementById("replayBtn").addEventListener("click", replaySounds);
+    document.getElementById("delete-btn").addEventListener("click", () => {
+        const spelled = document.getElementById("spelledWord").textContent;
+        document.getElementById("spelledWord").textContent = spelled.slice(0, -1);
+    });
 });
 
 function nextWord() {
@@ -16,14 +20,14 @@ function nextWord() {
         document.getElementById("messageContainer").innerHTML = `<h2>🎉 Game Over! You got 10 stars! 🎉</h2><button class="big-button" onclick="restartGame()">Play Again</button>`;
         document.getElementById("wordBank").innerHTML = '';
         document.getElementById("promptContainer").innerHTML = '';
-        document.getElementById("spelledWord").innerHTML = '';
+        document.getElementById("spelledWord").textContent = '';
         document.getElementById("submitBtn").style.display = 'none';
         document.getElementById("replayBtn").style.display = 'none';
         return;
     }
 
     current = data[Math.floor(Math.random() * data.length)];
-    document.getElementById("spelledWord").innerHTML = '';
+    document.getElementById("spelledWord").textContent = '';
     document.getElementById("messageContainer").innerHTML = '';
     document.getElementById("submitBtn").style.display = 'inline-block';
     document.getElementById("replayBtn").style.display = 'inline-block';
@@ -46,7 +50,6 @@ function nextWord() {
     });
 }
 
-
 function checkAnswer() {
     const attempt = document.getElementById("spelledWord").textContent.trim().toLowerCase();
     if (attempt === current.word.toLowerCase()) {
@@ -58,14 +61,6 @@ function checkAnswer() {
     }
     setTimeout(nextWord, 1500);
 }
-
-
-const deleteBtn = document.getElementById("delete-btn");
-deleteBtn.addEventListener("click", () => {
-    const spelled = document.getElementById("spelledWord").textContent;
-    document.getElementById("spelledWord").textContent = spelled.slice(0, -1);
-});
-
 
 function restartGame() {
     stars = 0;
