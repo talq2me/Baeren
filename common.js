@@ -1,9 +1,15 @@
         // Function to go back to the previous page
         function goBack() {
+            const previousPage = sessionStorage.getItem('previousPage');
+        
             if (document.referrer) {
-                window.location.href = document.referrer; // Takes you back to the referring page
+                window.location.href = document.referrer;
+            } else if (previousPage) {
+                window.location.href = previousPage;
+            } else if (window.history.length > 1) {
+                window.history.back();
             } else {
-                window.history.back(); // Fallback method
+                window.location.href = '/'; // Fallback to homepage or a default
             }
         }
 

@@ -1,7 +1,35 @@
 let data;
 let current = null;
 let stars = 0;
-let selectedPart = ''; // Tracks the selected part (beginning, middle, or end)
+let selectedPart = ''; // Tracks the selected part (beginning, middle, or ending)
+
+const icons = {
+    beginning: `
+      <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.5" y="0.5" width="29" height="29" rx="2" ry="2" fill="white" stroke="#cccccc" stroke-width="1"/>
+        <rect x="2" y="2" width="7" height="26" fill="#6ac2ff" rx="1" ry="1"/>
+        <line x1="10" y1="1" x2="10" y2="29" stroke="#cccccc" stroke-width="1"/>
+        <line x1="20" y1="1" x2="20" y2="29" stroke="#cccccc" stroke-width="1"/>
+      </svg>
+    `,
+    middle: `
+      <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.5" y="0.5" width="29" height="29" rx="2" ry="2" fill="white" stroke="#cccccc" stroke-width="1"/>
+        <rect x="11" y="2" width="8" height="26" fill="#6ac2ff" rx="1" ry="1"/>
+        <line x1="10" y1="1" x2="10" y2="29" stroke="#cccccc" stroke-width="1"/>
+        <line x1="20" y1="1" x2="20" y2="29" stroke="#cccccc" stroke-width="1"/>
+      </svg>
+    `,
+    ending: `
+      <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.5" y="0.5" width="29" height="29" rx="2" ry="2" fill="white" stroke="#cccccc" stroke-width="1"/>
+        <rect x="21" y="2" width="7" height="26" fill="#6ac2ff" rx="1" ry="1"/>
+        <line x1="10" y1="1" x2="10" y2="29" stroke="#cccccc" stroke-width="1"/>
+        <line x1="20" y1="1" x2="20" y2="29" stroke="#cccccc" stroke-width="1"/>
+      </svg>
+    `
+};
+
 
 document.addEventListener("DOMContentLoaded", async () => {
     const response = await fetch("skSpellingData.json");
@@ -20,6 +48,7 @@ function nextWord() {
         document.getElementById("spelledWord").innerHTML = '';
         document.getElementById("submitBtn").style.display = 'none';
         document.getElementById("replayBtn").style.display = 'none';
+        document.getElementById('iconContainer').innerHTML = '';
         return;
     }
 
@@ -33,6 +62,10 @@ function nextWord() {
     // Randomly select a part of the word (beginning, middle, or end)
     const parts = ['beginning', 'middle', 'ending'];
     selectedPart = parts[Math.floor(Math.random() * parts.length)];
+
+
+    // Inject the correct SVG into the page
+    document.getElementById('iconContainer').innerHTML = icons[selectedPart];
 
     speakWord(current.word, current.pronunciation);
 
