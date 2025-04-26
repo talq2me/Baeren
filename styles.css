@@ -95,6 +95,25 @@ h1 {
     background-color: #69a06c; /* Slightly darker green for hover */
 }
 
+.big-button {
+    padding: 20px 40px;
+    margin: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    background-color: #4CAF50;
+    border-radius: 15px;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#messageContainer {
+    font-size: 28px;
+    margin: 20px;
+    color: #333;
+}
+
 /* Animations for feedback */
 @keyframes fadeIn {
     from {

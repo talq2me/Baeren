@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Math Game</title>
+  <link rel="stylesheet" href="../styles.css"> <!-- assuming your other games have a style.css -->
+  <script src="mathGame.js"></script>
+</head>
+<body>
+    <button class="button" onclick="goBack()">&lt; Back</button>
+    <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
+    <h1>Math Game</h1>
+    <div id="starCount">⭐ 0 / 10</div>
+    <div id="messageContainer">
+        <div id="questionContainer" ></div>
+    </div>
+    <div id="answerBank"></div>
+    <div id="gameOver" style="display: none;">
+      <h2>Game Over!</h2>
+      <button id="replayBtn" class="big-button" style="display:none;">&#9654; Play</button>
+    </div>
+  </div>
+
+</body>
+</html>
