@@ -29,7 +29,7 @@
                     button.textContent = index + 1; // Display button number (1, 2, 3...)
                     button.classList.add('button');
 
-                    button.addEventListener('click', readText(line, 'fr-FR') );
+                    button.addEventListener('click', () => readText(line, 'fr-FR'));
 
                     container.appendChild(button);
                 });
