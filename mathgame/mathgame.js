@@ -2,6 +2,8 @@ let questions = [];
 let currentQuestion = null;
 let stars = 0;
 
+
+
 // Load questions from JSON
 fetch('gr3math.json')
   .then(response => response.json())
@@ -16,8 +18,7 @@ fetch('gr3math.json')
 function startGame() {
   stars = 0;
   updateStarCount();
-  document.getElementById('gameOver').style.display = 'none';
-  document.getElementById('replayBtn').style.display = 'none';
+  document.getElementById("gameOver").innerHTML = '';
   document.getElementById('answerBank').style.display = 'block';
   loadNewQuestion();
 }
@@ -59,11 +60,9 @@ function updateStarCount() {
 function endGame() {
   document.getElementById('questionContainer').innerText = '';
   document.getElementById('answerBank').style.display = 'none';
-  document.getElementById('gameOver').style.display = 'block';
-  document.getElementById('replayBtn').style.display = 'inline-block';
+  document.getElementById("gameOver").innerHTML = `<h2>🎉 Game Over! You got 10 stars! 🎉</h2><button class="big-button" onclick="startGame()">Play Again</button>`;
 }
 
-document.getElementById('replayBtn').addEventListener('click', startGame);
 
 // Go back function (assuming you had it in other games)
 function goBack() {
