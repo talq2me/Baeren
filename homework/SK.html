@@ -7,14 +7,34 @@
     <link rel="stylesheet" href="../styles.css">
     <script src="../videoModal.js" defer></script>
     <script src="../common.js" defer></script>
+    <script src="../codeGenerator/unlockCodePiece.js"></script>
 </head>
 <body>
     <button class="button" onclick="goBack()">&lt; Back</button>
     <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
     <h1>Welcome to SK!</h1>
     Your homework:
+
+    <!-- Modal Setup -->
+    <div id="iframeModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:1000;">
+        <div style="position:relative; width:90%; height:90%; margin:auto; top:5%; background:white; border-radius:10px; overflow:hidden;">
+            <button onclick="closeModal()" style="position:absolute; top:10px; right:10px; font-size:24px;">✖️</button>
+            <iframe id="iframeContent" src="" style="width:100%; height:100%; border:0;"></iframe>
+        </div>
+    </div>
+
+    <script>
+    function openModalPage(url) {
+        document.getElementById('iframeContent').src = url;
+        document.getElementById('iframeModal').style.display = "block";
+    }
+    function closeModal() {
+        document.getElementById('iframeModal').style.display = "none";
+    }
+    </script>
+
     <div class="div-container">
-        <button class="button" onclick="location.href='../skFrenchGame/frenchGame.html'">French Game</button>
+        <button class="button task-button"  data-reveal-code="true" data-kid="kid1" data-kid="kid1" data-target-page="../skFrenchGame/frenchGame.html">French Game</button>
         <button class="button" onclick="location.href='../skSightWordGame/englishGame.html'">Sight Word Game</button>
         <button class="button" onclick="location.href='../heggerty/skSpelling.html'">Spelling Game</button>
         <button class="button" onclick="location.href='../heggerty/skSounds.html'">Sounds Game</button>
@@ -26,9 +46,9 @@
     <div class="video div-container">
         <!-- Video Modal -->
          
-        <button class="button" data-video-button="Heggerty9">Loading...</button>
-        <button class="button" data-video-button="Heggerty10">Loading...</button>
-        <button class="button" data-video-button="Heggerty11">Loading...</button>
+        <button class="button" data-video-button="Heggerty12">Loading...</button>
+        <button class="button" data-video-button="Heggerty13">Loading...</button>
+        <button class="button" data-video-button="Heggerty14">Loading...</button>
         <button class="button" data-video-button="randFrenchBook">Loading...</button>
         <button class="button" data-video-button="randFrenchBook">Loading...</button>
         <button class="button" data-video-button="randFrenchBook">Loading...</button>
@@ -50,23 +70,27 @@
                 <span class="chore-text" onclick="readText('English printing')">English printing 🔊</span>
             </li>
             <li class="weekday-only">
-                <input type="checkbox" id="item1">
+                <input type="checkbox" id="item2">
                 <span class="chore-text" onclick="readText('Read english book to parent')">Read english book 🔊</span>
             </li>
+            <!--li class="weekday-only">
+                <input type="checkbox" id="item3">
+                <span class="chore-text task-button" onclick="readText('Unpack bag')" data-kid="kid1">Unpack bag 🔊</span>
+            </li-->
             <li class="weekday-only">
-                <input type="checkbox" id="item1">
+                <input type="checkbox" class="chore-checkbox" data-kid="kid1" id="item3">
                 <span class="chore-text" onclick="readText('Unpack bag')">Unpack bag 🔊</span>
             </li>
             <li class="weekday-only">
-                <input type="checkbox" id="item2">
+                <input type="checkbox" id="item4">
                 <span class="chore-text" onclick="readText('Pack lunch')">Pack lunch 🔊</span>
             </li>
             <li class="sunday-monday">
-                <input type="checkbox" id="item3">
+                <input type="checkbox" id="item5">
                 <span class="chore-text" onclick="readText('Laundry')">Laundry 🔊</span>
             </li>
             <li>
-                <input type="checkbox" id="item4">
+                <input type="checkbox" id="item6">
                 <span class="chore-text" onclick="readText('Pajamas')">Pajamas 🔊</span>
             </li>
         </ul>
