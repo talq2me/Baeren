@@ -1,6 +1,6 @@
-une photo;
-la phrase;
-la pharmacie;
-le phoque;
-un téléphone;
-l'alphabet;
+le pompier;
+tomber;
+la colombe;
+la trombonne;
+le nombre;
+compter;
