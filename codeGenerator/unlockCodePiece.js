@@ -121,13 +121,10 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.task-button').forEach(element => {
         element.addEventListener('click', () => {
             console.log("Task button clicked"); // Debugging log
-            const kid = element.getAttribute('data-kid');
+
             const page = element.getAttribute('data-target-page');
 
-            if (kid) {
-                console.log(`Unlocking next piece for ${kid}`);  // Debugging log
-                unlockNextPiece(kid);
-            }
+        
             if (page) {
                 console.log(`Opening page: ${page}`); // Debugging log
                 openModalPage(page);

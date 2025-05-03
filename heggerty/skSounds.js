@@ -49,6 +49,11 @@ function nextWord() {
         document.getElementById("submitBtn").style.display = 'none';
         document.getElementById("replayBtn").style.display = 'none';
         document.getElementById('iconContainer').innerHTML = '';
+        const kid = element.getAttribute('data-kid');
+        if (kid) {
+            console.log(`Unlocking next piece for ${kid}`);  // Debugging log
+            unlockNextPiece(kid);
+        }
         return;
     }
 
