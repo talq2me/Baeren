@@ -42,16 +42,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 function nextWord() {
     if (stars >= 10) {
-        document.getElementById("messageContainer").innerHTML = `<h2>🎉 Game Over! You got 10 stars! 🎉</h2><button class="big-button" onclick="restartGame()">Play Again</button>`;
+        document.getElementById("messageContainer").innerHTML = '<h2>🎉 Game Over! You got 10 stars! 🎉</h2><button class="big-button" onclick="restartGame()">Play Again</button>';
         document.getElementById("wordBank").innerHTML = '';
         document.getElementById("promptContainer").innerHTML = '';
         document.getElementById("spelledWord").innerHTML = '';
         document.getElementById("submitBtn").style.display = 'none';
         document.getElementById("replayBtn").style.display = 'none';
         document.getElementById('iconContainer').innerHTML = '';
-        const kid = element.getAttribute('data-kid');
+        
+        // Get the starCount element with the data-kid attribute
+        const starCountElement = document.getElementById('kid');
+        const kid = starCountElement.getAttribute('data-kid');
+        
         if (kid) {
-            console.log(`Unlocking next piece for ${kid}`);  // Debugging log
+            console.log(`Unlocking next piece for ${kid}`); // Debugging log
             unlockNextPiece(kid);
         }
         return;
