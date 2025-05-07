@@ -1,6 +1,6 @@
-le pompier;
-tomber;
-la colombe;
-la trombonne;
-le nombre;
-compter;
+impatient;
+important;
+grimper;
+simple;
+un timbre;
+impossible;
