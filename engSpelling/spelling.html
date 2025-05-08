@@ -13,65 +13,68 @@
     <h1>English Spelling</h1>
     <div id="buttonContainer" ></div>
 
-      <script>
+    <script>
         let selectedVoice;
-
+    
         function setVoice() {
             const voices = window.speechSynthesis.getVoices();
-
-            // Prioritize high-quality voices
             selectedVoice = voices.find(voice =>
-                voice.name.includes('Google US English') // Google's best female voice
+                voice.name.includes('Google US English')
             ) || voices.find(voice =>
                 voice.name.includes('Google UK English Female')
             ) || voices.find(voice =>
                 voice.name.includes('Microsoft') && voice.lang.startsWith('en')
             ) || voices.find(voice =>
                 voice.lang.startsWith('en') && voice.default
-            ) || voices[0]; // Fallback if none found
+            ) || voices[0];
         }
-
+    
         window.speechSynthesis.onvoiceschanged = setVoice;
-        setVoice(); // Initial voice selection
-
+        setVoice();
+    
         async function loadWords() {
             try {
                 let response = await fetch('words-en.txt');
                 let text = await response.text();
-
-                // Split text based on semicolon (;), keeping full phrases together
+    
                 let lines = text.split(';').map(line => line.trim()).filter(line => line !== "");
-
+    
                 let container = document.getElementById('buttonContainer');
-
+    
                 lines.forEach((line, index) => {
+                    const [word, sentence] = line.split(',').map(part => part.trim());
+    
                     let button = document.createElement('button');
                     button.classList.add('button');
-                    button.textContent = index + 1; // Numbered buttons
-
+                    button.textContent = index + 1;
+    
                     button.addEventListener('click', () => {
-                        let utterance = new SpeechSynthesisUtterance(line);
-                        utterance.voice = selectedVoice;
-                        utterance.lang = 'en-US';
-                        
-                        // Adjust the rate (speed) of the speech (1 is normal speed, 0.5 is slower)
-                        utterance.rate = 0.6;  // Set it to a value less than 1 for slower speech
-
-                        // Optionally, you can adjust the pitch and volume as well
-                        utterance.pitch = 1;   // Normal pitch, range from 0 to 2
-                        utterance.volume = 1;  // Volume, range from 0 to 1
-                        window.speechSynthesis.speak(utterance);
+                        window.speechSynthesis.cancel(); // Cancel ongoing speech if any
+    
+                        let speakWord = new SpeechSynthesisUtterance(word);
+                        let speakSentence = new SpeechSynthesisUtterance(sentence);
+    
+                        [speakWord, speakSentence].forEach(utterance => {
+                            utterance.voice = selectedVoice;
+                            utterance.lang = 'en-US';
+                            utterance.rate = 0.6;
+                            utterance.pitch = 1;
+                            utterance.volume = 1;
+                        });
+    
+                        window.speechSynthesis.speak(speakWord);
+                        window.speechSynthesis.speak(speakSentence);
                     });
-
+    
                     container.appendChild(button);
                 });
-
+    
             } catch (error) {
                 console.error('Error loading words:', error);
                 alert('Error loading words. Ensure "words-en.txt" exists and is formatted correctly.');
             }
         }
-
+    
         document.addEventListener('DOMContentLoaded', loadWords);
     </script>
 </body>
