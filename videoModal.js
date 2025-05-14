@@ -4,20 +4,19 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.className = "modal";
     modal.innerHTML = `
         <div class="modal-content">
-            <button class="close-btn" id="closeModalBtn" disabled>×</button>
             <iframe id="youtubePlayer" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     `;
     document.body.appendChild(modal);
 
     var iframe = document.getElementById("youtubePlayer");
-    var closeBtn = document.getElementById("closeModalBtn");
     var player;
     var frenchVideoData = {};
     var otherVideoData = {};
     var novKungFuVideoData = {};
     var intKungFuVideoData = {};
     var advKungFuVideoData = {};
+    var heggertyVideoData = {};
     var displayedVideos = new Set();
     var videoEnded = false; // Track if video has ended
 
@@ -27,14 +26,16 @@ document.addEventListener("DOMContentLoaded", function () {
         fetch("../videoLinks.json").then(response => response.json()).catch(() => ({})),
         fetch("../noviceKungFuVideos.json").then(response => response.json()).catch(() => ({})),
         fetch("../intermediateKungFuVideos.json").then(response => response.json()).catch(() => ({})),
-        fetch("../advancedKungFuVideos.json").then(response => response.json()).catch(() => ({}))
+        fetch("../advancedKungFuVideos.json").then(response => response.json()).catch(() => ({})),
+        fetch("../heggertyVideos.json").then(response => response.json()).catch(() => ({}))
     ])
-    .then(([frenchData, generalData, novKF, intKF, advKF]) => {
+    .then(([frenchData, generalData, novKF, intKF, advKF, hegg]) => {
         frenchVideoData = frenchData;
         otherVideoData = generalData;
         novKungFuVideoData = novKF;
         intKungFuVideoData = intKF;
         advKungFuVideoData = advKF;
+        heggertyVideoData = hegg;
         initializeButtons();
     })
     .catch(error => console.error("Error loading video data:", error));
@@ -42,43 +43,65 @@ document.addEventListener("DOMContentLoaded", function () {
     function initializeButtons() {
         document.querySelectorAll("[data-video-button]").forEach((button) => {
             const buttonType = button.getAttribute("data-video-button");
+            const jsonFile = button.getAttribute("data-json-file");
+            const selectionMode = button.getAttribute("data-selection-mode");
+            const today = new Date().toISOString().slice(0, 10); // Get today's date in YYYY-MM-DD format
+            const storageKey = `dailyVideo_${buttonType}`;
+            const lastDateKey = `lastDate_${buttonType}`;
 
-            let videoId = null;
-            let videoName = buttonType;
-
-            if (buttonType === "randFrenchBook") {
-                videoName = getUniqueRandomKey(frenchVideoData);
-                videoId = frenchVideoData[videoName];
-            } else if (buttonType === "randNoviceKungFuVid") {
-                videoName = getUniqueRandomKey(novKungFuVideoData);
-                videoId = novKungFuVideoData[videoName];
-            } else if (buttonType === "randIntermediateKungFuVid") {
-                videoName = getUniqueRandomKey(intKungFuVideoData);
-                videoId = intKungFuVideoData[videoName];
-            } else if (buttonType === "randAdvancedKungFuVid") {
-                videoName = getUniqueRandomKey(advKungFuVideoData);
-                videoId = advKungFuVideoData[videoName];
-            } else if (otherVideoData.hasOwnProperty(buttonType)) {
-                videoName = buttonType;
-                videoId = otherVideoData[buttonType];
-            }
-
-            if (videoId) {
-                displayedVideos.add(videoId);
-                button.textContent = videoName;
-                button.onclick = function () {
-                    openVideoModal(videoId);
-                };
-            } else {
-                button.textContent = "Video Not Found";
+            if (!jsonFile || !selectionMode) {
+                button.textContent = "Invalid Configuration";
                 button.disabled = true;
+                return;
             }
+
+            fetch(jsonFile)
+                .then(response => response.json())
+                .then(dataSet => {
+                    let videoName, videoId;
+
+                    if (selectionMode === "exact") {
+                        videoId = dataSet[buttonType];
+                        videoName = buttonType;
+                    } else if (selectionMode === "random") {
+                        videoName = getUniqueRandomKey(dataSet);
+                        videoId = dataSet[videoName];
+                    } else if (selectionMode === "sequential") {
+                        const keys = Object.keys(dataSet);
+                        const lastDate = localStorage.getItem(lastDateKey);
+                        let currentIndex = parseInt(localStorage.getItem(storageKey) || "0", 10);
+
+                        // If the date has changed, move to the next video
+                        if (lastDate !== today) {
+                            currentIndex = (currentIndex + 1) % keys.length; // Loop back to the start if at the end
+                            localStorage.setItem(storageKey, currentIndex);
+                            localStorage.setItem(lastDateKey, today);
+                        }
+
+                        videoName = keys[currentIndex];
+                        videoId = dataSet[videoName];
+                    }
+
+                    if (videoId) {
+                        button.textContent = videoName || buttonType;
+                        button.onclick = function () {
+                            openVideoModal(videoId);
+                        };
+                    } else {
+                        button.textContent = "Video Not Found";
+                        button.disabled = true;
+                    }
+                })
+                .catch(error => {
+                    console.error(`Error loading JSON file ${jsonFile}:`, error);
+                    button.textContent = "Error Loading Video";
+                    button.disabled = true;
+                });
         });
     }
 
     function openVideoModal(videoId) {
         videoEnded = false;
-        closeBtn.disabled = true; // Disable close button until video ends
         modal.style.display = "flex";
         iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&rel=0`;
         createYouTubePlayer();
@@ -90,7 +113,6 @@ document.addEventListener("DOMContentLoaded", function () {
             iframe.src = "";
             player = null; // Reset player
             videoEnded = false;
-            closeBtn.disabled = true;
         }
     }
 
@@ -118,7 +140,6 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Player state:", event.data); // Debug state changes
         if (event.data === YT.PlayerState.ENDED) {
             videoEnded = true;
-            closeBtn.disabled = false; // Enable close button
             closeModal(); // Auto-close modal
         }
     }
@@ -129,7 +150,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const state = player.getPlayerState();
         if (state === YT.PlayerState.ENDED && !videoEnded) {
             videoEnded = true;
-            closeBtn.disabled = false;
             closeModal();
         }
 
@@ -150,9 +170,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return keys.length > 0 ? keys[Math.floor(Math.random() * keys.length)] : null;
     }
 
-    // Attach close button event listener programmatically
-    closeBtn.addEventListener('click', closeModal);
-    closeBtn.addEventListener('touchend', closeModal); // Explicit touch support
 
     // Load YouTube API
     if (!document.getElementById("youtubeAPI")) {
@@ -160,6 +177,34 @@ document.addEventListener("DOMContentLoaded", function () {
         tag.id = "youtubeAPI";
         tag.src = "https://www.youtube.com/iframe_api";
         document.body.appendChild(tag);
+    }
+
+    // filter keys that start with "Heggerty"
+    const heggertyKeys = Object.keys(heggertyVideoData).filter(key => key.startsWith("Heggerty"));
+
+    const totalVideos = heggertyKeys.length;
+
+    const today = new Date().toISOString().slice(0, 10);
+    const lastDate = localStorage.getItem("heggertyLastDate");
+    let currentIndex = parseInt(localStorage.getItem("heggertyIndex") || "0", 10);
+
+    // advance to the next video if the date has changed
+    if (today !== lastDate) {
+        currentIndex = (currentIndex + 1) % totalVideos;
+        localStorage.setItem("heggertyIndex", currentIndex);
+        localStorage.setItem("heggertyLastDate", today);
+    }
+
+    const videoKey = heggertyKeys[currentIndex];
+    const videoId = heggertyVideoData[videoKey];
+
+
+    const button = document.querySelector("#heggertyVideoBtn");
+    if (button) {
+        button.textContent = videoKey; // shows "Heggerty23", etc.
+        button.addEventListener("click", () => {
+            openVideoModal(videoId); // replace with your actual video player logic
+        });
     }
 
 });

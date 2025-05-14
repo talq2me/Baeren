@@ -1,21 +1,21 @@
 [
     {
-        "correctWord": "é",
+        "word": "é",
         "audio": "../sounds/en/ay.wav",
         "choices": ["é", "e", "a", "è"]
     },
     {
-        "correctWord": "e",
+        "word": "e",
         "audio": "../sounds/en/e.wav",
         "choices": ["e", "e", "é", "è"]
     },
     {
-        "correctWord": "è",
+        "word": "è",
         "audio": "../sounds/en/eh.wav",
         "choices": ["y", "é", "e", "è"]
     },
     {
-        "correctWord": "ê",
+        "word": "ê",
         "audio": "../sounds/en/eh.wav",
         "choices": ["ê", "é", "e", "y"]
     }

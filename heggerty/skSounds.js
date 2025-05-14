@@ -1,7 +1,8 @@
 let data;
 let current = null;
 let stars = 0;
-let selectedPart = ''; // Tracks the selected part (beginning, middle, or ending)
+let gameOver = false;
+let selectedPart = ''; // Variable to store the selected part of the word ()
 
 const icons = {
     beginning: `
@@ -41,23 +42,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 function nextWord() {
-    if (stars >= 10) {
-        document.getElementById("messageContainer").innerHTML = '<h2>🎉 Game Over! You got 10 stars! 🎉</h2><button class="big-button" onclick="restartGame()">Play Again</button>';
-        document.getElementById("wordBank").innerHTML = '';
-        document.getElementById("promptContainer").innerHTML = '';
-        document.getElementById("spelledWord").innerHTML = '';
-        document.getElementById("submitBtn").style.display = 'none';
-        document.getElementById("replayBtn").style.display = 'none';
-        document.getElementById('iconContainer').innerHTML = '';
-        
-        // Get the starCount element with the data-kid attribute
-        const starCountElement = document.getElementById('kid');
-        const kid = starCountElement.getAttribute('data-kid');
-        
-        if (kid) {
-            console.log(`Unlocking next piece for ${kid}`); // Debugging log
-            unlockNextPiece(kid);
-        }
+    if (gameOver) return;
+
+    if (stars >= 1) {
+        showGameOverScreen();
+        gameOver = true;
         return;
     }
 
@@ -146,11 +135,32 @@ function checkAnswer() {
     setTimeout(nextWord, 1500);
 }
 
+function showGameOverScreen() {
+    const messageDiv = document.getElementById("messageContainer");
+    messageDiv.innerHTML = '<h2>🎉 Game Over! You got 10 stars! 🎉</h2><button class="big-button" onclick="restartGame()">Play Again</button>';
+    document.getElementById("wordBank").innerHTML = '';
+    document.getElementById("spelledWord").innerHTML = '';
+    document.getElementById("submitBtn").style.display = 'none';
+    document.getElementById("replayBtn").style.display = 'none';
+    document.getElementById("iconContainer").innerHTML = '';
+    // Send a message to the parent window when the game is completed
+    window.parent.postMessage({ type: "gameCompleted" }, "*");
+
+//    const kidElement = document.getElementById('kid');
+//    const kid = kidElement.getAttribute('data-kid');
+//    if (kid) {
+//        console.log(`Unlocking next piece for ${kid}`);
+//        unlockNextPiece(kid);
+ //   }
+}
+
 function restartGame() {
     stars = 0;
+    gameOver = false;
     document.getElementById("starCount").textContent = `⭐ ${stars} / 10`;
     nextWord();
 }
+
 
 function speakWord(word, pronunciation) {
     // Cancel any ongoing TTS or queued speech

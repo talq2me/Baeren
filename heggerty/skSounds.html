@@ -6,12 +6,8 @@
     
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="skSpelling.css">
-    <script src="skSounds.js"></script>
-    <script src="../common.js"></script>
 </head>
 <body>
-    <button class="button" onclick="goBack()">&lt; Back</button>
-    <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
     <h1>Spell the Word!</h1>    
     <div id="kid" data-kid="kid1"></div>
     <div id="starCount">⭐ 0 / 10</div>
@@ -23,5 +19,10 @@
     <div id="spelledWord"></div>
     <button id="submitBtn" class="big-button">Submit</button>
     <div id="messageContainer"></div>
+
+    <!-- This need to be here to ensure html fully loads before we try to run scripts that access the html elements -->
+    <script src="../codeGenerator/unlockCodePiece.js"></script>
+    <script src="skSounds.js"></script>
+    <script src="../common.js"></script>
 </body>
 </html>

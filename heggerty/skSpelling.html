@@ -7,17 +7,11 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="skSpelling.css">
     
-    <script src="skSpelling.js"></script>
-    <script src="../common.js"></script>
-    <script>
-        // Save current page as the previous page for the next one
-        sessionStorage.setItem('previousPage', window.location.href);
-    </script>
+    
 </head>
 <body>
-    <button class="button" onclick="goBack()">&lt; Back</button>
-    <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
     <h1>Spell the Word!</h1>
+    <div id="kid" data-kid="kid1"></div>
     <div id="starCount">⭐ 0 / 10</div>
     <div id="promptContainer">
         <button id="replayBtn" class="big-button" style="display:none;">&#9654; Play</button>
@@ -27,5 +21,11 @@
     <button id="submitBtn" class="big-button">Submit</button>
     <button id="delete-btn" class="button" >⌫ Delete</button>
     <div id="messageContainer"></div>
+
+    
+    <!-- This need to be here to ensure html fully loads before we try to run scripts that access the html elements -->
+    <script src="../codeGenerator/unlockCodePiece.js"></script>
+    <script src="skSpelling.js"></script>
+    <script src="../common.js"></script>
 </body>
 </html>

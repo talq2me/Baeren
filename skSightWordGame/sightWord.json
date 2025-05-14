@@ -1,0 +1,1294 @@
+[
+    {
+      "word": "a",
+      "choices": ["an", "at", "in", "on"]
+    },
+    {
+      "word": "and",
+      "choices": ["end", "add", "band", "sand"]
+    },
+    {
+      "word": "big",
+      "choices": ["bag", "dig", "pig", "bug"]
+    },
+    {
+      "word": "can",
+      "choices": ["cat", "cap", "man", "ran"]
+    },
+    {
+      "word": "come",
+      "choices": ["some", "home", "game", "gum"]
+    },
+    {
+      "word": "for",
+      "choices": ["far", "form", "four", "fort"]
+    },
+    {
+      "word": "help",
+      "choices": ["hop", "held", "hemp", "yelp"]
+    },
+    {
+      "word": "here",
+      "choices": ["her", "hare", "hire", "hero"]
+    },
+    {
+      "word": "I",
+      "choices": ["in", "if", "is", "it"]
+    },
+    {
+      "word": "is",
+      "choices": ["his", "it", "as", "us"]
+    },
+    {
+      "word": "jump",
+      "choices": ["lump", "bump", "pump", "dump"]
+    },
+    {
+      "word": "make",
+      "choices": ["take", "lake", "bake", "wake"]
+    },
+    {
+      "word": "not",
+      "choices": ["dot", "hot", "lot", "net"]
+    },
+    {
+      "word": "one",
+      "choices": ["none", "bone", "cone", "gone"]
+    },
+    {
+      "word": "play",
+      "choices": ["plan", "stay", "pray", "clay"]
+    },
+    {
+      "word": "run",
+      "choices": ["fun", "bun", "rug", "rub"]
+    },
+    {
+      "word": "see",
+      "choices": ["bee", "seed", "seek", "seem"]
+    },
+    {
+      "word": "the",
+      "choices": ["then", "them", "they", "that"]
+    },
+    {
+      "word": "to",
+      "choices": ["do", "go", "so", "no"]
+    },
+    {
+      "word": "we",
+      "choices": ["me", "he", "be", "she"]
+    },
+    {
+      "word": "you",
+      "choices": ["your", "young", "yup", "use"]
+    },
+    {
+      "word": "go",
+      "choices": ["got", "get", "give", "guy"]
+    },
+    {
+      "word": "it",
+      "choices": ["if", "in", "is", "at"]
+    },
+    {
+      "word": "me",
+      "choices": ["my", "may", "mean", "men"]
+    },
+    {
+      "word": "up",
+      "choices": ["cup", "pup", "map", "tap"]
+    },
+    {
+      "word": "about",
+      "choices": ["shout", "doubt", "sprout", "scout"]
+    },
+    {
+      "word": "after",
+      "choices": ["faster", "master", "chapter", "actor"]
+    },
+    {
+      "word": "again",
+      "choices": ["gain", "begin", "against", "brain"]
+    },
+    {
+      "word": "any",
+      "choices": ["many", "penny", "funny", "tiny"]
+    },
+    {
+      "word": "ask",
+      "choices": ["mask", "task", "flask", "risk"]
+    },
+    {
+      "word": "because",
+      "choices": ["pause", "cause", "house", "blouse"]
+    },
+    {
+      "word": "before",
+      "choices": ["store", "shore", "explore", "score"]
+    },
+    {
+      "word": "best",
+      "choices": ["rest", "nest", "chest", "pest"]
+    },
+    {
+      "word": "both",
+      "choices": ["cloth", "moth", "sloth", "broth"]
+    },
+    {
+      "word": "could",
+      "choices": ["would", "should", "cloud", "count"]
+    },
+    {
+      "word": "does",
+      "choices": ["goes", "toes", "dress", "dust"]
+    },
+    {
+      "word": "every",
+      "choices": ["very", "heavy", "berry", "merry"]
+    },
+    {
+      "word": "first",
+      "choices": ["thirst", "burst", "worst", "shirt"]
+    },
+    {
+      "word": "found",
+      "choices": ["round", "sound", "bound", "pound"]
+    },
+    {
+      "word": "great",
+      "choices": ["gate", "crate", "treat", "grape"]
+    },
+    {
+      "word": "know",
+      "choices": ["snow", "grow", "throw", "glow"]
+    },
+    {
+      "word": "little",
+      "choices": ["brittle", "middle", "fiddle", "riddle"]
+    },
+    {
+      "word": "long",
+      "choices": ["song", "strong", "belong", "wrong"]
+    },
+    {
+      "word": "many",
+      "choices": ["penny", "tiny", "funny", "bunny"]
+    },
+    {
+      "word": "more",
+      "choices": ["store", "shore", "explore", "score"]
+    },
+    {
+      "word": "over",
+      "choices": ["cover", "hover", "lover", "mover"]
+    },
+    {
+      "word": "small",
+      "choices": ["stall", "tall", "call", "wall"]
+    },
+    {
+      "word": "their",
+      "choices": ["they", "where", "stare", "scare"]
+    },
+    {
+      "word": "these",
+      "choices": ["those", "three", "theme", "cheese"]
+    },
+    {
+      "word": "very",
+      "choices": ["every", "berry", "cherry", "merry"]
+    },
+    {
+      "word": "walk",
+      "choices": ["talk", "chalk", "stalk", "balk"]
+    },
+    {
+      "word": "write",
+      "choices": ["white", "quite", "might", "kite"]
+    },
+    {
+      "word": "then",
+      "choices": ["them", "than", "that", "this"]
+    },
+    {
+      "word": "they",
+      "choices": ["the", "they're", "there", "thou"]
+    },
+    {
+      "word": "that",
+      "choices": ["this", "than", "these", "those"]
+    },
+    {
+      "word": "this",
+      "choices": ["these", "there", "that", "thin"]
+    },
+    {
+      "word": "come",
+      "choices": ["some", "home", "game", "gum"]
+    },
+    {
+      "word": "play",
+      "choices": ["day", "may", "say", "stay"]
+    },
+    {
+      "word": "run",
+      "choices": ["fun", "sun", "bun", "gun"]
+    },
+    {
+      "word": "see",
+      "choices": ["bee", "knee", "tree", "key"]
+    },
+    {
+      "word": "big",
+      "choices": ["dig", "fig", "wig", "jig"]
+    },
+    {
+      "word": "make",
+      "choices": ["lake", "take", "bake", "rake"]
+    },
+    {
+      "word": "red",
+      "choices": ["bed", "led", "fed", "wed"]
+    },
+    {
+      "word": "look",
+      "choices": ["book", "cook", "hook", "took"]
+    },
+    {
+      "word": "blue",
+      "choices": ["clue", "glue", "true", "stew"]
+    },
+    {
+      "word": "help",
+      "choices": ["yelp", "kelp", "pulp", "gulp"]
+    },
+    {
+      "word": "jump",
+      "choices": ["bump", "lump", "hump", "pump"]
+    },
+    {
+      "word": "away",
+      "choices": ["gray", "clay", "tray", "bay"]
+    },
+    {
+      "word": "down",
+      "choices": ["brown", "crown", "town", "frown"]
+    },
+    {
+      "word": "yellow",
+      "choices": ["mellow", "pillow", "shallow", "bellow"]
+    },
+    {
+      "word": "ride",
+      "choices": ["hide", "wide", "slide", "bride"]
+    },
+    {
+      "word": "like",
+      "choices": ["bike", "hike", "spike", "strike"]
+    },
+    {
+      "word": "funny",
+      "choices": ["bunny", "sunny", "money", "runny"]
+    },
+    {
+      "word": "find",
+      "choices": ["kind", "mind", "wind", "blind"]
+    },
+    {
+      "word": "pretty",
+      "choices": ["gritty", "witty", "city", "ditty"]
+    },
+    {
+      "word": "good",
+      "choices": ["wood", "hood", "stood", "could"]
+    },
+    {
+      "word": "me",
+      "choices": ["he", "we", "be", "she"]
+    },
+    {
+      "word": "you",
+      "choices": ["zoo", "boo", "shoe", "do"]
+    },
+    {
+      "word": "not",
+      "choices": ["got", "hot", "pot", "dot"]
+    },
+    {
+      "word": "it",
+      "choices": ["bit", "kit", "lit", "sit"]
+    },
+    {
+      "word": "can",
+      "choices": ["man", "pan", "tan", "fan"]
+    },
+    {
+      "word": "my",
+      "choices": ["by", "cry", "fly", "try"]
+    },
+    {
+      "word": "we",
+      "choices": ["me", "be", "she", "he"]
+    },
+    {
+      "word": "said",
+      "choices": ["paid", "laid", "maid", "raid"]
+    },
+    {
+      "word": "she",
+      "choices": ["bee", "knee", "see", "tree"]
+    },
+    {
+      "word": "go",
+      "choices": ["so", "no", "low", "show"]
+    },
+    {
+      "word": "up",
+      "choices": ["cup", "pup", "yup", "sup"]
+    },
+    {
+      "word": "is",
+      "choices": ["his", "this", "kiss", "miss"]
+    },
+    {
+      "word": "am",
+      "choices": ["ham", "ram", "clam", "slam"]
+    },
+    {
+      "word": "yes",
+      "choices": ["mess", "guess", "dress", "less"]
+    },
+    {
+      "word": "no",
+      "choices": ["go", "so", "toe", "low"]
+    },
+    {
+      "word": "do",
+      "choices": ["to", "zoo", "who", "too"]
+    },
+    {
+      "word": "be",
+      "choices": ["we", "me", "he", "she"]
+    },
+    {
+      "word": "on",
+      "choices": ["gone", "don", "con", "ton"]
+    },
+    {
+      "word": "all",
+      "choices": ["ball", "call", "tall", "fall"]
+    },
+    {
+      "word": "are",
+      "choices": ["bar", "car", "far", "star"]
+    },
+    {
+      "word": "get",
+      "choices": ["pet", "bet", "net", "wet"]
+    },
+    {
+      "word": "new",
+      "choices": ["few", "stew", "blew", "chew"]
+    },
+    {
+      "word": "now",
+      "choices": ["how", "cow", "plow", "wow"]
+    },
+    {
+      "word": "eat",
+      "choices": ["seat", "neat", "heat", "treat"]
+    },
+    {
+      "word": "ask",
+      "choices": ["task", "mask", "flask", "bask"]
+    },
+    {
+      "word": "take",
+      "choices": ["cake", "rake", "lake", "fake"]
+    },
+    {
+      "word": "give",
+      "choices": ["live", "hive", "dive", "five"]
+    },
+    {
+      "word": "brown",
+      "choices": ["clown", "crown", "frown", "town"]
+    },
+    {
+      "word": "black",
+      "choices": ["back", "snack", "track", "crack"]
+    },
+    {
+      "word": "white",
+      "choices": ["kite", "bite", "sight", "write"]
+    },
+    {
+      "word": "must",
+      "choices": ["rust", "dust", "trust", "bust"]
+    },
+    {
+      "word": "soon",
+      "choices": ["moon", "noon", "spoon", "loon"]
+    },
+    {
+      "word": "came",
+      "choices": ["same", "name", "tame", "blame"]
+    },
+    {
+      "word": "into",
+      "choices": ["onto", "unto", "pseudo", "info"]
+    },
+    {
+      "word": "over",
+      "choices": ["clover", "rover", "hover", "cover"]
+    },
+    {
+      "word": "after",
+      "choices": ["laughter", "chapter", "rafters", "crafter"]
+    },
+    {
+      "word": "where",
+      "choices": ["there", "share", "care", "dare"]
+    },
+    {
+      "word": "went",
+      "choices": ["bent", "tent", "sent", "rent"]
+    },
+    {
+      "word": "our",
+      "choices": ["hour", "flower", "power", "sour"]
+    },
+    {
+      "word": "out",
+      "choices": ["shout", "pout", "scout", "doubt"]
+    },{
+      "word": "was",
+      "choices": ["buzz", "fuzz", "does", "jazz"]
+    },
+    {
+      "word": "had",
+      "choices": ["bad", "dad", "mad", "pad"]
+    },
+    {
+      "word": "an",
+      "choices": ["man", "pan", "fan", "tan"]
+    },
+    {
+      "word": "by",
+      "choices": ["cry", "fly", "try", "sky"]
+    },
+    {
+      "word": "her",
+      "choices": ["fur", "purr", "sir", "blur"]
+    },
+    {
+      "word": "him",
+      "choices": ["rim", "slim", "dim", "grim"]
+    },
+    {
+      "word": "his",
+      "choices": ["miss", "kiss", "this", "list"]
+    },
+    {
+      "word": "let",
+      "choices": ["net", "pet", "jet", "vet"]
+    },
+    {
+      "word": "man",
+      "choices": ["can", "ran", "tan", "van"]
+    },
+    {
+      "word": "off",
+      "choices": ["cough", "loft", "soft", "moss"]
+    },
+    {
+      "word": "old",
+      "choices": ["cold", "gold", "bold", "told"]
+    },
+    {
+      "word": "open",
+      "choices": ["hopin", "token", "broken", "awoken"]
+    },
+    {
+      "word": "put",
+      "choices": ["cut", "hut", "shut", "gut"]
+    },
+    {
+      "word": "round",
+      "choices": ["sound", "pound", "found", "bound"]
+    },
+    {
+      "word": "some",
+      "choices": ["gum", "drum", "sum", "thumb"]
+    },
+    {
+      "word": "stop",
+      "choices": ["hop", "pop", "top", "mop"]
+    },
+    {
+      "word": "thank",
+      "choices": ["bank", "tank", "rank", "crank"]
+    },
+    {
+      "word": "them",
+      "choices": ["gem", "stem", "phlegm", "helm"]
+    },
+    {
+      "word": "then",
+      "choices": ["when", "pen", "den", "ten"]
+    },
+    {
+      "word": "walk",
+      "choices": ["talk", "chalk", "stalk", "balk"]
+    },
+    {
+      "word": "well",
+      "choices": ["bell", "fell", "tell", "sell"]
+    },
+    {
+      "word": "will",
+      "choices": ["hill", "fill", "chill", "drill"]
+    },
+    {
+      "word": "with",
+      "choices": ["myth", "smith", "pith", "kith"]
+    },
+    {
+      "word": "yes",
+      "choices": ["guess", "mess", "press", "dress"]
+    },
+    {
+      "word": "name",
+      "choices": ["game", "same", "tame", "flame"]
+    },
+    {
+      "word": "live",
+      "choices": ["give", "five", "dive", "drive"]
+    },
+    {
+      "word": "home",
+      "choices": ["dome", "roam", "foam", "gnome"]
+    },
+    {
+      "word": "every",
+      "choices": ["very", "cherry", "berry", "ferry"]
+    },
+    {
+      "word": "could",
+      "choices": ["should", "would", "wood", "stood"]
+    },
+    {
+      "word": "were",
+      "choices": ["fur", "purr", "blur", "cure"]
+    },
+    {
+      "word": "ask",
+      "choices": ["mask", "task", "flask", "bask"]
+    },
+    {
+      "word": "back",
+      "choices": ["pack", "snack", "lack", "track"]
+    },
+    {
+      "word": "bring",
+      "choices": ["ring", "sting", "king", "thing"]
+    },
+    {
+      "word": "call",
+      "choices": ["tall", "ball", "fall", "mall"]
+    },
+    {
+      "word": "clean",
+      "choices": ["mean", "seen", "green", "queen"]
+    },
+    {
+      "word": "cut",
+      "choices": ["hut", "shut", "gut", "nut"]
+    },
+    {
+      "word": "done",
+      "choices": ["none", "sun", "ton", "run"]
+    },
+    {
+      "word": "draw",
+      "choices": ["claw", "flaw", "saw", "paw"]
+    },
+    {
+      "word": "drink",
+      "choices": ["sink", "wink", "think", "link"]
+    },
+    {
+      "word": "fall",
+      "choices": ["mall", "tall", "call", "hall"]
+    },
+    {
+      "word": "full",
+      "choices": ["pull", "dull", "bull", "null"]
+    },
+    {
+      "word": "got",
+      "choices": ["hot", "lot", "pot", "not"]
+    },
+    {
+      "word": "grow",
+      "choices": ["show", "snow", "throw", "glow"]
+    },
+    {
+      "word": "hold",
+      "choices": ["cold", "gold", "bold", "fold"]
+    },
+    {
+      "word": "if",
+      "choices": ["sniff", "cliff", "stiff", "whiff"]
+    },
+    {
+      "word": "kind",
+      "choices": ["find", "blind", "mind", "grind"]
+    },
+    {
+      "word": "laugh",
+      "choices": ["graph", "calf", "staff", "half"]
+    },
+    {
+      "word": "light",
+      "choices": ["night", "tight", "flight", "bright"]
+    },
+    {
+      "word": "long",
+      "choices": ["song", "wrong", "strong", "gong"]
+    },
+    {
+      "word": "much",
+      "choices": ["touch", "such", "hutch", "clutch"]
+    },
+    {
+      "word": "never",
+      "choices": ["clever", "forever", "whenever", "however"]
+    },
+    {
+      "word": "only",
+      "choices": ["lonely", "slowly", "holy", "folly"]
+    },
+    {
+      "word": "own",
+      "choices": ["loan", "cone", "bone", "tone"]
+    },
+    {
+      "word": "pick",
+      "choices": ["brick", "stick", "kick", "lick"]
+    },
+    {
+      "word": "read",
+      "choices": ["lead", "bead", "head", "fed"]
+    },
+    {
+      "word": "show",
+      "choices": ["glow", "snow", "throw", "know"]
+    },
+    {
+      "word": "sing",
+      "choices": ["wing", "thing", "king", "sting"]
+    },
+    {
+      "word": "sit",
+      "choices": ["bit", "kit", "lit", "hit"]
+    },
+    {
+      "word": "think",
+      "choices": ["link", "wink", "sink", "blink"]
+    },
+    {
+      "word": "try",
+      "choices": ["cry", "fly", "sky", "spy"]
+    },
+    {
+      "word": "again",
+      "choices": ["plain", "rain", "train", "main"]
+    },
+    {
+      "word": "always",
+      "choices": ["hallways", "sideways", "nowadays", "runways"]
+    },
+    {
+      "word": "best",
+      "choices": ["rest", "nest", "test", "guest"]
+    },
+    {
+      "word": "both",
+      "choices": ["moth", "sloth", "growth", "froth"]
+    },
+    {
+      "word": "buy",
+      "choices": ["guy", "cry", "sky", "my"]
+    },
+    {
+      "word": "cold",
+      "choices": ["told", "gold", "bold", "fold"]
+    },
+    {
+      "word": "does",
+      "choices": ["buzz", "fuzz", "was", "plus"]
+    },
+    {
+      "word": "fast",
+      "choices": ["last", "past", "cast", "mast"]
+    },
+    {
+      "word": "five",
+      "choices": ["hive", "dive", "live", "strive"]
+    },
+    {
+      "word": "found",
+      "choices": ["ground", "pound", "sound", "bound"]
+    },
+    {
+      "word": "gave",
+      "choices": ["save", "wave", "brave", "cave"]
+    },
+    {
+      "word": "goes",
+      "choices": ["toes", "rose", "nose", "close"]
+    },
+    {
+      "word": "green",
+      "choices": ["queen", "seen", "bean", "screen"]
+    },
+    {
+      "word": "its",
+      "choices": ["bits", "hits", "sits", "fits"]
+    },
+    {
+      "word": "keep",
+      "choices": ["deep", "sleep", "sheep", "leap"]
+    },
+    {
+      "word": "left",
+      "choices": ["deft", "theft", "cleft", "lift"]
+    },
+    {
+      "word": "made",
+      "choices": ["shade", "blade", "trade", "fade"]
+    },
+    {
+      "word": "much",
+      "choices": ["touch", "such", "hutch", "clutch"]
+    },
+    {
+      "word": "only",
+      "choices": ["lonely", "slowly", "holy", "wholly"]
+    },
+    {
+      "word": "right",
+      "choices": ["night", "light", "tight", "fight"]
+    },
+    {
+      "word": "sing",
+      "choices": ["wing", "ring", "king", "thing"]
+    },
+    {
+      "word": "sit",
+      "choices": ["bit", "fit", "lit", "kit"]
+    },
+    {
+      "word": "six",
+      "choices": ["mix", "fix", "kicks", "sticks"]
+    },
+    {
+      "word": "small",
+      "choices": ["tall", "fall", "hall", "wall"]
+    },
+    {
+      "word": "ten",
+      "choices": ["hen", "pen", "den", "men"]
+    },
+    {
+      "word": "these",
+      "choices": ["please", "cheese", "breeze", "seize"]
+    },
+    {
+      "word": "those",
+      "choices": ["close", "rose", "nose", "chose"]
+    },
+    {
+      "word": "today",
+      "choices": ["play", "stay", "way", "clay"]
+    },
+    {
+      "word": "under",
+      "choices": ["wonder", "blunder", "plunder", "thunder"]
+    },
+    {
+      "word": "walk",
+      "choices": ["chalk", "talk", "stalk", "hawk"]
+    }, 
+    {
+      "word": "after",
+      "choices": ["laughter", "craft her", "rafter", "chapter"]
+    },
+    {
+      "word": "again",
+      "choices": ["rain", "train", "main", "plain"]
+    },
+    {
+      "word": "an",
+      "choices": ["can", "fan", "man", "pan"]
+    },
+    {
+      "word": "any",
+      "choices": ["many", "bunny", "sunny", "funny"]
+    },
+    {
+      "word": "as",
+      "choices": ["has", "was", "has", "jazz"]
+    },
+    {
+      "word": "ask",
+      "choices": ["mask", "task", "flask", "bask"]
+    },
+    {
+      "word": "by",
+      "choices": ["my", "fly", "sky", "cry"]
+    },
+    {
+      "word": "could",
+      "choices": ["would", "should", "good", "wood"]
+    },
+    {
+      "word": "every",
+      "choices": ["heavy", "bevy", "chevy", "levy"]
+    },
+    {
+      "word": "fly",
+      "choices": ["my", "cry", "sky", "why"]
+    },
+    {
+      "word": "from",
+      "choices": ["some", "come", "home", "comb"]
+    },
+    {
+      "word": "give",
+      "choices": ["live", "give", "shrive", "hive"]
+    },
+    {
+      "word": "going",
+      "choices": ["showing", "glowing", "throwing", "knowing"]
+    },
+    {
+      "word": "had",
+      "choices": ["mad", "sad", "bad", "rad"]
+    },
+    {
+      "word": "has",
+      "choices": ["was", "has", "jazz", "has"]
+    },
+    {
+      "word": "her",
+      "choices": ["sir", "fur", "stir", "spur"]
+    },
+    {
+      "word": "him",
+      "choices": ["dim", "rim", "slim", "brim"]
+    },
+    {
+      "word": "his",
+      "choices": ["this", "kiss", "miss", "bliss"]
+    },
+    {
+      "word": "how",
+      "choices": ["now", "cow", "wow", "plow"]
+    },
+    {
+      "word": "just",
+      "choices": ["rust", "bust", "dust", "trust"]
+    },
+    {
+      "word": "know",
+      "choices": ["snow", "glow", "throw", "show"]
+    },
+    {
+      "word": "let",
+      "choices": ["set", "bet", "net", "pet"]
+    },
+    {
+      "word": "live",
+      "choices": ["give", "shrive", "hive", "rive"]
+    },
+    {
+      "word": "may",
+      "choices": ["bay", "day", "say", "way"]
+    },
+    {
+      "word": "of",
+      "choices": ["love", "shove", "above", "glove"]
+    },
+    {
+      "word": "old",
+      "choices": ["cold", "gold", "bold", "fold"]
+    },
+    {
+      "word": "once",
+      "choices": ["buns", "dunce", "months", "hunts"]
+    },
+    {
+      "word": "open",
+      "choices": ["hopin", "mopin", "ropin", "sopin"]
+    },
+    {
+      "word": "over",
+      "choices": ["lover", "clover", "hover", "rover"]
+    },
+    {
+      "word": "put",
+      "choices": ["but", "cut", "hut", "nut"]
+    },
+    {
+      "word": "round",
+      "choices": ["found", "bound", "sound", "ground"]
+    },
+    {
+      "word": "some",
+      "choices": ["come", "home", "comb", "dome"]
+    },
+    {
+      "word": "stop",
+      "choices": ["top", "pop", "mop", "shop"]
+    },
+    {
+      "word": "take",
+      "choices": ["bake", "cake", "lake", "rake"]
+    },
+    {
+      "word": "thank",
+      "choices": ["bank", "rank", "tank", "plank"]
+    },
+    {
+      "word": "them",
+      "choices": ["gem", "hem", "stem", "rem"]
+    },
+    {
+      "word": "then",
+      "choices": ["when", "men", "ten", "den"]
+    },
+    {
+      "word": "think",
+      "choices": ["link", "wink", "sink", "blink"]
+    },
+    {
+      "word": "walk",
+      "choices": ["talk", "chalk", "stalk", "balk"]
+    },
+    {
+      "word": "were",
+      "choices": ["were", "where", "wear", "there"]
+    },
+    {
+      "word": "when",
+      "choices": ["then", "men", "ten", "den"]
+    },
+    {
+      "word": "what",
+      "choices": ["hat", "bat", "rat", "mat"]
+    },
+    {
+      "word": "white",
+      "choices": ["kite", "bite", "site", "rite"]
+    },
+    {
+      "word": "who",
+      "choices": ["do", "go", "no", "so"]
+    },
+    {
+      "word": "will",
+      "choices": ["fill", "hill", "pill", "still"]
+    },
+    {
+      "word": "with",
+      "choices": ["myth", "fifth", "smith", "lith"]
+    },
+    {
+      "word": "yes",
+      "choices": ["mess", "guess", "press", "dress"]
+    },
+    {
+      "word": "you",
+      "choices": ["too", "do", "go", "no"]
+    },
+    {
+      "word": "your",
+      "choices": ["more", "bore", "store", "floor"]
+    },
+    {
+      "word": "a",
+      "choices": ["ma", "pa", "fa", "la"]
+    },
+    {
+      "word": "about",
+      "choices": ["shout", "doubt", "clout", "spout"]
+    },
+    {
+      "word": "add",
+      "choices": ["sad", "mad", "rad", "bad"]
+    },
+    {
+      "word": "after",
+      "choices": ["laughter", "rafter", "chapter", "faster"]
+    },
+    {
+      "word": "again",
+      "choices": ["train", "plain", "rain", "main"]
+    },
+    {
+      "word": "all",
+      "choices": ["fall", "ball", "mall", "call"]
+    },
+    {
+      "word": "am",
+      "choices": ["ham", "ram", "clam", "jam"]
+    },
+    {
+      "word": "an",
+      "choices": ["can", "man", "fan", "pan"]
+    },
+    {
+      "word": "and",
+      "choices": ["sand", "band", "land", "hand"]
+    },
+    {
+      "word": "away",
+      "choices": ["say", "play", "day", "bay"]
+    },
+    {
+      "word": "be",
+      "choices": ["see", "me", "tree", "free"]
+    },
+    {
+      "word": "because",
+      "choices": ["was", "has", "has", "does"]
+    },
+    {
+      "word": "been",
+      "choices": ["seen", "green", "queen", "mean"]
+    },
+    {
+      "word": "before",
+      "choices": ["more", "store", "bore", "floor"]
+    },
+    {
+      "word": "best",
+      "choices": ["nest", "rest", "test", "west"]
+    },
+    {
+      "word": "big",
+      "choices": ["fig", "dig", "wig", "jig"]
+    },
+    {
+      "word": "can",
+      "choices": ["man", "pan", "fan", "ran"]
+    },
+    {
+      "word": "come",
+      "choices": ["home", "some", "game", "gum"]
+    },
+    {
+      "word": "could",
+      "choices": ["would", "should", "wood", "good"]
+    },
+    {
+      "word": "day",
+      "choices": ["say", "way", "bay", "lay"]
+    },
+    {
+      "word": "down",
+      "choices": ["town", "frown", "clown", "crown"]
+    },
+    {
+      "word": "eat",
+      "choices": ["beat", "seat", "feet", "meet"]
+    },
+    {
+      "word": "eight",
+      "choices": ["weight", "straight", "late", "bait"]
+    },
+    {
+      "word": "even",
+      "choices": ["heaven", "seven", "given", "leaven"]
+    },
+    {
+      "word": "fast",
+      "choices": ["last", "cast", "past", "mast"]
+    },
+    {
+      "word": "find",
+      "choices": ["bind", "kind", "wind", "mind"]
+    },
+    {
+      "word": "for",
+      "choices": ["more", "store", "bore", "floor"]
+    },
+    {
+      "word": "from",
+      "choices": ["some", "come", "home", "comb"]
+    },
+    {
+      "word": "get",
+      "choices": ["bet", "net", "let", "set"]
+    },
+    {
+      "word": "give",
+      "choices": ["live", "shrive", "hive", "give"]
+    },
+    {
+      "word": "go",
+      "choices": ["no", "so", "do", "to"]
+    },
+    {
+      "word": "good",
+      "choices": ["would", "should", "could", "wood"]
+    },
+    {
+      "word": "have",
+      "choices": ["save", "wave", "cave", "brave"]
+    },
+    {
+      "word": "he",
+      "choices": ["see", "bee", "tree", "me"]
+    },
+    {
+      "word": "help",
+      "choices": ["yelp", "kelp", "pelt", "melt"]
+    },
+    {
+      "word": "here",
+      "choices": ["dear", "near", "fear", "tear"]
+    },
+    {
+      "word": "how",
+      "choices": ["now", "cow", "wow", "plow"]
+    },
+    {
+      "word": "I",
+      "choices": ["my", "by", "fly", "sky"]
+    },
+    {
+      "word": "in",
+      "choices": ["bin", "pin", "sin", "win"]
+    },
+    {
+      "word": "is",
+      "choices": ["his", "this", "miss", "kiss"]
+    },
+    {
+      "word": "it",
+      "choices": ["bit", "hit", "sit", "fit"]
+    },
+    {
+      "word": "jump",
+      "choices": ["bump", "pump", "lump", "dump"]
+    },
+    {
+      "word": "little",
+      "choices": ["fiddle", "middle", "piddle", "widdle"]
+    },
+    {
+      "word": "look",
+      "choices": ["book", "cook", "hook", "took"]
+    },
+    {
+      "word": "make",
+      "choices": ["bake", "cake", "lake", "rake"]
+    },
+    {
+      "word": "me",
+      "choices": ["see", "bee", "tree", "free"]
+    },
+    {
+      "word": "my",
+      "choices": ["by", "fly", "sky", "cry"]
+    },
+    {
+      "word": "not",
+      "choices": ["hot", "pot", "dot", "lot"]
+    },
+    {
+      "word": "one",
+      "choices": ["stone", "cone", "loan", "tone"]
+    },
+    {
+      "word": "play",
+      "choices": ["say", "way", "bay", "day"]
+    },
+    {
+      "word": "red",
+      "choices": ["bed", "led", "shed", "spread"]
+    },
+    {
+      "word": "run",
+      "choices": ["fun", "sun", "bun", "gun"]
+    },
+    {
+      "word": "said",
+      "choices": ["bed", "led", "spread", "shed"]
+    },
+    {
+      "word": "see",
+      "choices": ["bee", "tree", "free", "me"]
+    },
+    {
+      "word": "she",
+      "choices": ["see", "tree", "free", "me"]
+    },
+    {
+      "word": "the",
+      "choices": ["bee", "see", "tree", "me"]
+    },
+    {
+      "word": "to",
+      "choices": ["do", "go", "no", "so"]
+    },
+    {
+      "word": "two",
+      "choices": ["do", "go", "no", "so"]
+    },
+    {
+      "word": "up",
+      "choices": ["cup", "pup", "tup", "sup"]
+    },
+    {
+      "word": "we",
+      "choices": ["see", "bee", "tree", "me"]
+    },
+    {
+      "word": "where",
+      "choices": ["there", "here", "care", "share"]
+    },
+    {
+      "word": "yellow",
+      "choices": ["fellow", "mellow", "hello", "bellow"]
+    },
+    {
+      "word": "you",
+      "choices": ["too", "do", "go", "no"]
+    },
+    {
+      "word": "all",
+      "choices": ["ball", "call", "fall", "mall"]
+    },
+    {
+      "word": "and",
+      "choices": ["sand", "hand", "land", "stand"]
+    },
+    {
+      "word": "away",
+      "choices": ["say", "play", "stay", "day"]
+    },
+    {
+      "word": "big",
+      "choices": ["dig", "fig", "wig", "jig"]
+    },
+    {
+      "word": "blue",
+      "choices": ["glue", "true", "clue", "you"]
+    }
+  ]
+  

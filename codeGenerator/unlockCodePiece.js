@@ -1,3 +1,14 @@
+function getQueryParams() {
+    const params = {};
+    window.location.search.slice(1).split("&").forEach(pair => {
+        const [key, value] = pair.split("=");
+        if (key && value) params[key] = decodeURIComponent(value);
+    });
+    return params;
+}
+
+
+
 // generateCode.js (or dailyCodeGenerator.js)
 function generateCode(seed) {
     let hash = 0;
@@ -24,16 +35,13 @@ function getTodayCodes() {
 
 
 // unlockCodePiece.js
-function unlockNextPiece(kidId) {
-    const today = new Date().toISOString().slice(0, 10); // "YYYY-MM-DD"
-    const storageKey = `progress_${kidId}_${today}`; // Daily unique
-    const codes = getTodayCodes();  // Get today's fresh codes
-    const fullCode = codes[kidId];  // e.g., today's 15-digit code
-    const flaggedTasks = document.querySelectorAll(`[data-reveal-code="true"][data-kid="${kidId}"]`);
-    const totalTasks = flaggedTasks.length;
-    
+function unlockNextPiece(kidId, totalTasks) {
+    const today = new Date().toISOString().slice(0, 10);
+    const storageKey = `progress_${kidId}_${today}`;
+    const codes = getTodayCodes();
+    const fullCode = codes[kidId];
+
     if (!fullCode) {
-        console.error(`No code found for ${kidId}`);
         showCodePopup("Error: No code for this kid.");
         return;
     }
@@ -41,93 +49,42 @@ function unlockNextPiece(kidId) {
     let progress = parseInt(localStorage.getItem(storageKey) || "0", 10);
 
     if (progress >= totalTasks) {
-        showCodePopup("You unlocked the full code: " + fullCode);
         return;
     }
 
-    let pieceSize = 1;
-    if (progress === totalTasks - 1) {
-        pieceSize = 15 - (totalTasks - 1); // Last task gets rest
-    }
-
-    const start = progress;
-    const end = start + pieceSize;
+    const pieceSize = Math.ceil(fullCode.length / totalTasks);
+    const start = progress * pieceSize;
+    const end = Math.min(start + pieceSize, fullCode.length);
     const codePiece = fullCode.slice(start, end);
 
-    showCodePopup("Your code piece: " + codePiece);
 
     localStorage.setItem(storageKey, (progress + 1).toString());
 }
 
-
-// Popup message function for feedback
-function showCodePopup(message) {
-    // Create overlay
-    const overlay = document.createElement("div");
-    overlay.style.position = "fixed";
-    overlay.style.top = "0";
-    overlay.style.left = "0";
-    overlay.style.width = "100%";
-    overlay.style.height = "100%";
-    overlay.style.backgroundColor = "rgba(0, 0, 0, 0.6)";
-    overlay.style.zIndex = "9998";
-    document.body.appendChild(overlay);
-
-    // Create modal
-    const modal = document.createElement("div");
-    modal.style.position = "fixed";
-    modal.style.top = "50%";
-    modal.style.left = "50%";
-    modal.style.transform = "translate(-50%, -50%)";
-    modal.style.backgroundColor = "#fff";
-    modal.style.color = "#000";
-    modal.style.padding = "20px 30px";
-    modal.style.borderRadius = "10px";
-    modal.style.boxShadow = "0 4px 8px rgba(0,0,0,0.2)";
-    modal.style.zIndex = "9999";
-    modal.style.textAlign = "center";
-
-    // Message
-    const msg = document.createElement("div");
-    msg.innerText = message;
-    msg.style.marginBottom = "20px";
-    modal.appendChild(msg);
-
-    // Close button
-    const closeBtn = document.createElement("button");
-    closeBtn.innerText = "✖ Close";
-    closeBtn.style.padding = "8px 16px";
-    closeBtn.style.cursor = "pointer";
-    closeBtn.style.backgroundColor = "#333";
-    closeBtn.style.color = "#fff";
-    closeBtn.style.border = "none";
-    closeBtn.style.borderRadius = "5px";
-    closeBtn.onclick = function () {
-        document.body.removeChild(modal);
-        document.body.removeChild(overlay);
-    };
-    modal.appendChild(closeBtn);
-
-    document.body.appendChild(modal);
-}
 
 
 
 
 document.addEventListener('DOMContentLoaded', function () {
     console.log("DOMContentLoaded fired");
+    const query = getQueryParams();
+    const kidId = query.kid;
+    const totalTasks = parseInt(query.totalTasks || "0", 10);
 
+    if (kidId && totalTasks > 0) {
+        unlockNextPiece(kidId, totalTasks);
+    }
+/* 
     // Handle task button click
     document.querySelectorAll('.task-button').forEach(element => {
         element.addEventListener('click', () => {
-            console.log("Task button clicked"); // Debugging log
-
             const page = element.getAttribute('data-target-page');
-
-        
-            if (page) {
-                console.log(`Opening page: ${page}`); // Debugging log
-                openModalPage(page);
+            const kidId = element.getAttribute('data-kid');
+    
+            if (page && kidId) {
+                const totalTasks = document.querySelectorAll(`[data-reveal-code="true"][data-kid="${kidId}"]`).length;
+                const url = `${page}?kid=${kidId}&totalTasks=${totalTasks}`;
+                openModalPage(url);
             }
         });
     });
@@ -144,5 +101,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         });
-    });
+    }); */
 });
+

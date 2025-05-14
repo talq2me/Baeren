@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeu d'association audio</title>
     <link rel="stylesheet" href="../styles.css">
-    <script src="../common.js" defer></script>
 </head>
 <body>
-    <button class="button" onclick="goBack()">&lt; Back</button>
-    <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
     <h1>Match the Sound to the Text!</h1>
-    <button id="playButton" class="button" onclick="playSound()">Play Sound</button>
+    <div id="kid" data-kid="kid1"></div>
+    <button id="playButton" class="button">Play Sound</button>
     <div id="choices"></div>
     <div id="stars"></div>
     <div id="feedback" class="feedback"></div>
+
     
+    <!-- This need to be here to ensure html fully loads before we try to run scripts that access the html elements -->
+    <script src="../codeGenerator/unlockCodePiece.js"></script>
+    <!--script src="../common.js"></script-->
+    
+    <!--below should go in skLetterSounds.js and be referenced above-->
     <script>
         let correctCount = 0;
         let soundData = {};
@@ -26,6 +30,8 @@
                 const response = await fetch("skLetterSounds.json");
                 soundData = await response.json();
                 nextRound();
+                document.getElementById("playButton").addEventListener("click", playSound);
+
             } catch (error) {
                 console.error("Error loading audio:", error);
             }
@@ -36,7 +42,7 @@
         }
 
         function playSound() {
-            if (correctCount >= 10) {
+            if (correctCount >= 1) {
                 resetGame();
             } else {
                 new Audio(currentSound.audio).play();
@@ -52,8 +58,7 @@
                 if (correctCount < 10) {
                     setTimeout(nextRound, 1000);
                 } else {
-                    document.getElementById("choices").innerHTML = "<h2>Game Over! 🎉</h2>";
-                    document.getElementById("playButton").innerText = "Play Again";
+                    showGameOverScreen();
                 }
             } else {
                 feedback.innerHTML = "☹️";
@@ -63,6 +68,21 @@
                     nextRound();
                 }, 2000);
             }
+        }
+
+        function showGameOverScreen() {
+            const messageDiv = document.getElementById("messageContainer");
+            document.getElementById("choices").innerHTML = "<h2>Game Over! 🎉</h2>";
+            document.getElementById("playButton").innerText = "Play Again";
+
+            const submitBtn = document.getElementById("submitBtn");
+            if (submitBtn) submitBtn.style.display = 'none';
+
+            const replayBtn = document.getElementById("replayBtn");
+            if (replayBtn) replayBtn.style.display = 'none';
+
+            // Notify the parent window that the game is completed
+            window.parent.postMessage({ type: "gameCompleted" }, "*");
         }
 
         function highlightCorrectAnswer() {

@@ -49,11 +49,13 @@
                 feedback.innerHTML = "⭐";
                 correctCount++;
                 document.getElementById("stars").innerHTML += "⭐";
-                if (correctCount < 10) {
+                if (correctCount < 1) {
                     setTimeout(nextRound, 1000);
                 } else {
                     document.getElementById("choices").innerHTML = "<h2>Game Over! 🎉</h2>";
                     document.getElementById("playButton").innerText = "Play Again";
+                    // Send a message to the parent window when the game is completed
+                    window.parent.postMessage({ type: "gameCompleted" }, "*");
                 }
             } else {
                 feedback.innerHTML = "☹️";

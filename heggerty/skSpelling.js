@@ -15,14 +15,34 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 });
 
+function showGameOverScreen() {
+    const messageDiv = document.getElementById("messageContainer");
+    messageDiv.innerHTML = '<h2>🎉 Game Over! You got 10 stars! 🎉</h2><button class="big-button" onclick="restartGame()">Play Again</button>';
+    document.getElementById("wordBank").innerHTML = '';
+    document.getElementById("promptContainer").innerHTML = '';
+    document.getElementById("spelledWord").textContent = '';
+
+    // Send a message to the parent window when the game is completed
+    window.parent.postMessage({ type: "gameCompleted" }, "*");
+
+    const submitBtn = document.getElementById("submitBtn");
+    if (submitBtn) submitBtn.style.display = 'none';
+
+    const replayBtn = document.getElementById("replayBtn");
+    if (replayBtn) replayBtn.style.display = 'none';
+
+   // const kidElement = document.getElementById('kid');
+  //  const kid = kidElement?.getAttribute('data-kid');
+  //  if (kid) {
+  //      console.log(`Unlocking next piece for ${kid}`);
+ //       unlockNextPiece(kid);
+//    }
+}
+
+
 function nextWord() {
-    if (stars >= 10) {
-        document.getElementById("messageContainer").innerHTML = `<h2>🎉 Game Over! You got 10 stars! 🎉</h2><button class="big-button" onclick="restartGame()">Play Again</button>`;
-        document.getElementById("wordBank").innerHTML = '';
-        document.getElementById("promptContainer").innerHTML = '';
-        document.getElementById("spelledWord").textContent = '';
-        document.getElementById("submitBtn").style.display = 'none';
-        document.getElementById("replayBtn").style.display = 'none';
+    if (stars >= 1) {
+        showGameOverScreen();
         return;
     }
 
