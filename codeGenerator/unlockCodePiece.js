@@ -111,7 +111,7 @@ function updateCodeDisplay() {
     if (!codeDisplay) return;
     const kid = codeDisplay.getAttribute("data-kid");
     if (!kid) {
-        codeDisplay.textContent = "Your Secret Code: ****-****-****-****";
+        codeDisplay.textContent = "Your Secret Code: ****";
         return;
     }
     const today = new Date().toISOString().slice(0, 10);
@@ -122,23 +122,16 @@ function updateCodeDisplay() {
     const fullCode = codes[kid];
     const totalTasks = countVisibleRevealCodeElements();
 
-    console.log("updateCodeDisplay: kid=", kid, "codes=", codes);
-
     if (!fullCode || isNaN(progress) || progress === 0 || !totalTasks) {
-        codeDisplay.textContent = "Your Secret Code: ****-****-****-****";
+        codeDisplay.textContent = "Your Secret Code: " + "•".repeat(totalTasks);
     } else {
-        // Show revealed code pieces
-        const pieceSize = Math.ceil(fullCode.length / totalTasks);
         let revealed = "";
         for (let i = 0; i < totalTasks; i++) {
             if (i < progress) {
-                const start = i * pieceSize;
-                const end = Math.min(start + pieceSize, fullCode.length);
-                revealed += fullCode.slice(start, end);
+                revealed += fullCode[i] || "•";
             } else {
-                revealed += "****";
+                revealed += "•";
             }
-            if (i < totalTasks - 1) revealed += "-";
         }
         codeDisplay.textContent = "Your Secret Code: " + revealed;
     }
