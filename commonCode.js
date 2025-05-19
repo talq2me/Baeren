@@ -1,6 +1,12 @@
 
         function openNewWindow(url) {
-            window.open(url, "_blank", "width=1000,height=1200");
+            const w = window.screen.availWidth;
+            const h = window.screen.availHeight;
+            window.open(
+                url,
+                "_blank",
+                `width=${w},height=${h},left=0,top=0`
+            );
         }
 
         function showControlsForDay() {
@@ -57,7 +63,19 @@
             window.speechSynthesis.speak(utterance);
         }
 
-
+document.addEventListener("DOMContentLoaded", function () {
+    const checkboxes = document.querySelectorAll("input[type='checkbox']");
+    
+    // Load saved state from localStorage
+    checkboxes.forEach(checkbox => {
+        const isChecked = localStorage.getItem(checkbox.id) === "true";
+        checkbox.checked = isChecked;
+        
+        checkbox.addEventListener("change", () => {
+            localStorage.setItem(checkbox.id, checkbox.checked);
+        });
+    });
+});
 
 document.addEventListener("DOMContentLoaded", function () {
     
