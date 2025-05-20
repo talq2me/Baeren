@@ -31,9 +31,16 @@
 
             // Show on Tuesday-Monday (every day except Monday)
             if (today !== "monday") {
-                document.querySelectorAll(".tuesday-monday").forEach(el => el.style.display = "block");
+                document.querySelectorAll(".notmonday").forEach(el => el.style.display = "block");
             } else {
-                document.querySelectorAll(".tuesday-monday").forEach(el => el.style.display = "none");
+                document.querySelectorAll(".notmonday").forEach(el => el.style.display = "none");
+            }
+
+            // Show on Tuesday-Monday (every day except Monday)
+            if (today !== "friday") {
+                document.querySelectorAll(".notfriday").forEach(el => el.style.display = "block");
+            } else {
+                document.querySelectorAll(".notfriday").forEach(el => el.style.display = "none");
             }
 
             // Show only on Sundays and Tuesdays
@@ -80,6 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     
     // Add click event listeners to task buttons
+    const taskButtons = document.querySelectorAll('.task-button');
     taskButtons.forEach((button) => {
         const gameUrl = button.getAttribute("data-target-page");
 

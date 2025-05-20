@@ -5,25 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GR3</title>
     <link rel="stylesheet" href="../styles.css">
-    <script src="../videoModal.js" defer></script>
-    <script src="../common.js" defer></script>
+    <link rel="stylesheet" href="../ytplayer/ytplayer.css">
+    <!--script src="../videoModal.js" defer></script-->
+    <script src="../ytplayer/youTubePlayer.js" defer></script>
+    <script src="../commonCode.js" defer></script>
     <script src="../codeGenerator/unlockCodePiece.js"></script>
 </head>
 <body>
     <button class="button" onclick="goBack()">&lt; Back</button>
     <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
     <h1>Welcome to Grade 3!</h1>
-    Your homework:
+    <div id="codeDisplay" data-kid="kid2" style="font-size: 24px; margin-top: 20px; color: #333;">Progress: </div>
+        <h1>Your homework:</h1>
     
     <!-- Modal Setup -->
     <div id="iframeModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:1000;">
-        <div style="position:relative; width:100%; height:100%; margin:auto; top:0%; background:white; border-radius:10px; overflow:hidden;">
-            <button id="closebutton" onclick="closeModal()" style="position:absolute; top:10px; right:10px; font-size:24px;">✖️</button>
-            <iframe id="iframeContent" src="" style="width:100%; height:100%; border:0;"></iframe>
-        </div>
+        <iframe id="iframeContent" src="" style="width:100%; height:100%; border:0;"></iframe>
     </div>
 
-    <script>
+    <!--script>
     function openModalPage(url) {
         document.getElementById('iframeContent').src = url;
         document.getElementById('iframeModal').style.display = "block";
@@ -42,52 +42,50 @@
             closeModal();
         }
     });
-    </script>
+    </script-->
 
     
 
 
 
-    <div class="div-container" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-        <button class="button weekday-only" style="width: auto; padding: 20px 40px; " onclick="location.href='../engSpelling/spelling-selfcheck.html'">
-            Spelling - Self Check
-        </button>
-        <button class="button weekday-only" style="width: auto; padding: 20px 40px; " onclick="location.href='../engSpelling/spelling.html'">
-            Spelling
-        </button>
+    <div class="div-container">
+        <button class="button task-button weekday-only" data-reveal-code="true" data-target-page="../engSpelling/spelling.html">Spelling</button>
+        <button class="button task-button " data-reveal-code="true" data-target-page="../dictee/dictee.html">Dictée</button>
+        <button class="button task-button sunday-tuesday" data-reveal-code="true" onclick="openNewWindow('https://readalong.google.com')">Google Read Along</button>
+        <button class="button task-button" data-reveal-code="true" onclick="openNewWindow('https://www.duolingo.com/learn')">Duo Lingo</button>
+    
+    
     </div>
     
-    <div class="div-container">
-        <button class="button tuesday-monday" onclick="location.href='../dictee/dictee.html'">Dictée</button>
-    </div>
     
     <div class="div-container">
-        <button class="button" onclick="location.href='../translate/translate.html'">Translate & French Reading</button>
-        <button class="button" onclick="location.href='../duological/duologicalGame.html'">Duo Game</button>
+        <button class="button task-button" data-reveal-code="true" data-target-page="../translate/translate.html">Translate & French Reading</button>
+        <button class="button" data-target-page="../duological/duologicalGame.html">Duo Game</button>
+    
     </div>
 
     Videos:
     <div class="video div-container">
         <!-- Button that opens the video modal in an iframe -->
-        <button class="button" onclick="openVideo('../videos/Plants-Review.mp4')">Plants Review</button>
-        <button class="button" data-video-button="StaffForm">Loading...</button>
-        <button class="button" data-video-button="randIntermediateKungFuVid">Loading...</button>
+         <button class="button task-button video-button" data-reveal-code="true" data-json-file="../intermediateKungFuVideos.json" data-selection-mode="sequential">KungFu Video</button>
+         <button class="button task-button video-button" data-reveal-code="true" data-json-file="../intermediateKungFuVideos.json" data-selection-mode="exact">StaffForm</button>
+         <button class="button task-button video-button" data-reveal-code="true" data-json-file="../videoLinks.json" data-selection-mode="exact">AngleFish</button>
+         
     </div>
     <div class="div-container">
         <img src="https://media.giphy.com/media/mGWBjz74fn404BWUl4/giphy.gif?cid=ecf05e476pxqqc6cbon5ir86ggdqlsxc76d3ms0nhqklyspt&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Funny Cat GIF"> X 22 reg, X 5 knuc
     </div>
-    <div class="video div-container">
-        <button class="button" data-video-button="AngleFish">Loading...</button>
-    </div>
+   
     
     <div class="div-container">
-        <button class="button" onclick="loadIframe('https://docs.google.com/document/d/1HIUag7VInH_Z54Fikt7V_v_NCLNfDQFZLfeAcEnh2u0/edit?usp=sharing')">Boulangerie Project</button>
+        
         <!-- Iframe sites (like Google Classroom) -->
-        <button class="button day-friday" onclick="openNewWindow('https://classroom.google.com/c/NjkwODgwNjg3NDIx')">French Google Classroom</button>
-        <button class="button day-friday" onclick="openNewWindow('https://classroom.google.com/c/NzA5MDk2MDA2ODY3')">English Google Classroom</button>
-        <button class="button sunday-tuesday" onclick="openNewWindow('https://readalong.google.com')">Google Read Along</button>
-        <button class="button" onclick="openNewWindow('https://www.duolingo.com/learn')">Duo Lingo</button>
-    </div>
+        <button class="button notfriday" onclick="openNewWindow('https://classroom.google.com/c/NjkwODgwNjg3NDIx')">French Google Classroom</button>
+        <button class="button notfriday" onclick="openNewWindow('https://classroom.google.com/c/NzA5MDk2MDA2ODY3')">English Google Classroom</button>
+        <!--required task on fridays-->
+        <button class="button task-button day-friday" data-reveal-code="true" onclick="openNewWindow('https://classroom.google.com/c/NjkwODgwNjg3NDIx')">French Google Classroom</button>
+        <button class="button task-button day-friday" data-reveal-code="true" onclick="openNewWindow('https://classroom.google.com/c/NzA5MDk2MDA2ODY3')">English Google Classroom</button>
+       </div>
     
     <h1>My Chores</h1>
     <div id="chores" class="div-container">

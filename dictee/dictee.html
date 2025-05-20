@@ -5,38 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dictée</title>
     <link rel="stylesheet" href="../styles.css">
-    <script src="../common.js" defer></script>
+    <!--script src="../common.js" defer></script-->
 </head>
 <body>
-    <button class="button" onclick="goBack()">&lt; Back</button>
+    <button class="button" onclick="location.href='../homework/Gr3.html'">&lt; Back</button>
     <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
     <h1>Dictée</h1>
-    <div id="buttonContainer" class="buttons-container"></div>
+    <div id="buttonContainer" ></div>
 
     <script>
+        function readText(text, lang) {
+            window.speechSynthesis.cancel();
+            let utter = new SpeechSynthesisUtterance(text);
+            utter.lang = lang || 'fr-FR';
+            utter.rate = 0.8;
+            utter.pitch = 1;
+            utter.volume = 1;
+            window.speechSynthesis.speak(utter);
+            return utter;
+        }
+
         async function loadWords() {
             try {
                 let response = await fetch('words-fr.txt');
                 let text = await response.text();
 
-                // Split based on semicolon (;) while keeping each full phrase intact
                 let lines = text.split(';').map(line => line.trim()).filter(line => line !== "");
 
                 let container = document.getElementById('buttonContainer');
 
                 lines.forEach((line, index) => {
+                    // Create a wrapper div for each line
+                    let lineDiv = document.createElement('div');
+                    lineDiv.style.marginBottom = "12px";
+
                     let button = document.createElement('button');
-                    button.textContent = index + 1; // Display button number (1, 2, 3...)
+                    button.textContent = index + 1;
                     button.classList.add('button');
 
-                    button.addEventListener('click', () => readText(line, 'fr-FR'));
+                    let checkButton = document.createElement('button');
+                    checkButton.textContent = "Check";
+                    checkButton.classList.add('button');
+                    checkButton.style.display = "none";
 
-                    container.appendChild(button);
+                    let revealSpan = document.createElement('span');
+                    revealSpan.style.marginLeft = "10px";
+                    revealSpan.style.fontWeight = "bold";
+                    revealSpan.style.fontSize = "24px";
+
+                    button.addEventListener('click', () => {
+                        window.speechSynthesis.cancel();
+                        checkButton.style.display = "none";
+                        revealSpan.textContent = "";
+
+                        let utter = new SpeechSynthesisUtterance(line);
+                        utter.lang = 'fr-FR';
+                        utter.rate = 0.8;
+                        utter.pitch = 1;
+                        utter.volume = 1;
+
+                        utter.onend = () => {
+                            setTimeout(() => {
+                                checkButton.style.display = "inline-block";
+                            }, 3000);
+                        };
+
+                        window.speechSynthesis.speak(utter);
+                    });
+
+                    checkButton.addEventListener('click', () => {
+                        revealSpan.textContent = line;
+                    });
+
+                    lineDiv.appendChild(button);
+                    lineDiv.appendChild(checkButton);
+                    lineDiv.appendChild(revealSpan);
+                    container.appendChild(lineDiv);
                 });
 
             } catch (error) {
                 console.error('Error loading words:', error);
-                alert('Error loading words. Ensure "words-fr.txt" exists and is formatted correctly.');
+                alert('Error loading words. Ensure \"words-fr.txt\" exists and is formatted correctly.');
             }
         }
 

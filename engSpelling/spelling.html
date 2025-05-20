@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baeren-Ed</title>
     <link rel="stylesheet" href="../styles.css">
-    <script src="../common.js" defer></script>
+    <!--script src="../common.js" defer></script-->
 </head>
 <body>
-    <button class="button" onclick="goBack()">&lt; Back</button>
+    <button class="button" onclick="location.href='../homework/Gr3.html'">&lt; Back</button>
     <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
     <h1>English Spelling</h1>
     <div id="buttonContainer" ></div>
 
     <script>
         let selectedVoice;
-    
+
         function setVoice() {
             const voices = window.speechSynthesis.getVoices();
             selectedVoice = voices.find(voice =>
@@ -28,53 +28,85 @@
                 voice.lang.startsWith('en') && voice.default
             ) || voices[0];
         }
-    
+
         window.speechSynthesis.onvoiceschanged = setVoice;
         setVoice();
-    
+
         async function loadWords() {
             try {
                 let response = await fetch('words-en.txt');
                 let text = await response.text();
-    
+
                 let lines = text.split(';').map(line => line.trim()).filter(line => line !== "");
-    
+
                 let container = document.getElementById('buttonContainer');
-    
+
                 lines.forEach((line, index) => {
                     const [word, sentence] = line.split(',').map(part => part.trim());
-    
+
+                    // Create a wrapper div for each line
+                    let lineDiv = document.createElement('div');
+                    lineDiv.style.marginBottom = "12px";
+
                     let button = document.createElement('button');
                     button.classList.add('button');
                     button.textContent = index + 1;
-    
+
+                    let checkButton = document.createElement('button');
+                    checkButton.textContent = "Check";
+                    checkButton.classList.add('button');
+                    checkButton.style.display = "none";
+
+                    let revealSpan = document.createElement('span');
+                    revealSpan.style.marginLeft = "10px";
+                    revealSpan.style.fontWeight = "bold";
+                    revealSpan.style.fontSize = "24px"; // Make revealed word bigger
+
                     button.addEventListener('click', () => {
                         window.speechSynthesis.cancel(); // Cancel ongoing speech if any
-    
+
                         let speakWord = new SpeechSynthesisUtterance(word);
                         let speakSentence = new SpeechSynthesisUtterance(sentence);
-    
+
                         [speakWord, speakSentence].forEach(utterance => {
                             utterance.voice = selectedVoice;
                             utterance.lang = 'en-US';
-                            utterance.rate = 0.6;
+                            utterance.rate = 0.8;
                             utterance.pitch = 1;
                             utterance.volume = 1;
                         });
-    
+
+                        // Hide and reset check/reveal
+                        checkButton.style.display = "none";
+                        revealSpan.textContent = "";
+
+                        // When the sentence finishes, wait 3 seconds, then show Check button
+                        speakSentence.onend = () => {
+                            setTimeout(() => {
+                                checkButton.style.display = "inline-block";
+                            }, 3000);
+                        };
+
                         window.speechSynthesis.speak(speakWord);
                         window.speechSynthesis.speak(speakSentence);
                     });
-    
-                    container.appendChild(button);
+
+                    checkButton.addEventListener('click', () => {
+                        revealSpan.textContent = word;
+                    });
+
+                    lineDiv.appendChild(button);
+                    lineDiv.appendChild(checkButton);
+                    lineDiv.appendChild(revealSpan);
+                    container.appendChild(lineDiv);
                 });
-    
+
             } catch (error) {
                 console.error('Error loading words:', error);
                 alert('Error loading words. Ensure "words-en.txt" exists and is formatted correctly.');
             }
         }
-    
+
         document.addEventListener('DOMContentLoaded', loadWords);
     </script>
 </body>

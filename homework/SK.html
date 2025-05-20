@@ -16,7 +16,7 @@
     <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
     <h1>Welcome to SK!</h1>
     <div id="codeDisplay" data-kid="kid1" style="font-size: 24px; margin-top: 20px; color: #333;">Progress: </div>
-    Your homework:
+    <h1>Your homework:</h1>
 
     <!-- Modal Setup -->
     <div id="iframeModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:1000;">
@@ -48,8 +48,9 @@
         <button class="button task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../heggerty/skSpellingData.json&title=Sound Parts Game&useAudioFiles=true&useTTS=true">Sound Parts Game</button>
         <button class="button task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../skSightWordGame/sightWord.json&title=Sight Word Game&useAudioFiles=false&useTTS=true">Sight Word Game</button>
         
-        <button class="button" onclick="location.href='../readAlongGame/readalong-game.html'">Read Along Game</button>
+        <!--button class="button" onclick="location.href='../readAlongGame/readalong-game.html'">Read Along Game</button-->
         <button class="button task-button"  data-reveal-code="true" onclick="openNewWindow('https://readalong.google.com')">Google Read Along</button>
+        <button class="button task-button day-friday"  data-reveal-code="true" onclick="openNewWindow('https://classroom.google.com/c/NTI0MDY0MjM3OTg5')">Google Classroom</button>
     </div>
 
     <div class="video div-container">
@@ -60,14 +61,15 @@
         <button class="button task-button video-button" data-reveal-code="true" data-json-file="../noviceKungFuVideos.json" data-selection-mode="exact">Single Step Form</button>
     </div>
  
-    <div class="div-container">    
-        <button class="button day-friday" onclick="openNewWindow('https://classroom.google.com/c/NTI0MDY0MjM3OTg5')">Google Classroom</button>
-        <img src="https://media.giphy.com/media/mGWBjz74fn404BWUl4/giphy.gif?cid=ecf05e476pxqqc6cbon5ir86ggdqlsxc76d3ms0nhqklyspt&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Funny Cat GIF"> X 10
-    </div>
-    <h1>My Chores</h1>
+ 
     <div id="chores" class="div-container">
         <ul id="checklist">
-            
+            <li class="weekday-only">
+                <input type="checkbox" class="chore-checkbox" data-reveal-code="true" data-kid="kid1" id="item0">
+                <span class="chore-text" onclick="readText('Ten pushups')" data-kid="kid1">Ten pushups 🔊</span>
+                <br>
+                <img src="https://media.giphy.com/media/mGWBjz74fn404BWUl4/giphy.gif?cid=ecf05e476pxqqc6cbon5ir86ggdqlsxc76d3ms0nhqklyspt&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Funny Cat GIF"> X 10
+            </li>            
             <li class="weekday-only">
                 <input type="checkbox" class="chore-checkbox" data-reveal-code="true" data-kid="kid1" id="item1">
                 <span class="chore-text" onclick="readText('English printing')">English printing 🔊</span>
@@ -76,10 +78,11 @@
                 <input type="checkbox" class="chore-checkbox" data-reveal-code="true" data-kid="kid1" id="item2">
                 <span class="chore-text" onclick="readText('Read english book to parent')">Read english book 🔊</span>
             </li>
-            <!--li class="weekday-only">
-                <input type="checkbox" id="item3">
-                <span class="chore-text task-button" onclick="readText('Unpack bag')" data-kid="kid1">Unpack bag 🔊</span>
-            </li-->
+        </ul>
+    </div>
+    <h1>My Chores</h1>
+    <div id="chores" class="div-container">
+        <ul id="checklist">
             <li class="weekday-only">
                 <input type="checkbox" class="chore-checkbox" data-reveal-code="true" data-kid="kid1" id="item3">
                 <span class="chore-text" onclick="readText('Unpack bag')">Unpack bag 🔊</span>
