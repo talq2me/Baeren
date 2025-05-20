@@ -71,6 +71,7 @@
         }
 
 document.addEventListener("DOMContentLoaded", function () {
+
     const checkboxes = document.querySelectorAll("input[type='checkbox']");
     
     // Load saved state from localStorage
@@ -92,13 +93,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const gameUrl = button.getAttribute("data-target-page");
 
         button.addEventListener("click", function () {
-            launchGameInModal(gameUrl, kidId);
+            launchGameInModal(gameUrl);
         });
     });
 });
 
           // Function to launch the game in the modal
-            function launchGameInModal(gameUrl, kidId) {
+            function launchGameInModal(gameUrl) {
                 const iframe = document.getElementById("iframeContent");
                 const modal = document.getElementById("iframeModal");
         

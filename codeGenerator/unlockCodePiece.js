@@ -31,6 +31,7 @@ function getTodayCodes(codeLength) {
 }
 
 function countVisibleRevealCodeElements() {
+    showControlsForDay();// Call the function to show/hide controls based on the day of the week
     return Array.from(document.querySelectorAll('[data-reveal-code="true"]'))
         .filter(el => el.offsetParent !== null)
         .length;

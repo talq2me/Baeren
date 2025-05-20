@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.appendChild(tag);
     }
 
-    // Attach to all video buttons
+    // Initialize video buttons
     document.querySelectorAll(".video-button").forEach((button, btnIndex) => {
         const jsonFile = button.getAttribute("data-json-file");
         const selectionMode = button.getAttribute("data-selection-mode");
@@ -96,33 +96,35 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(resp => resp.json())
             .then(videoData => {
                 const keys = Object.keys(videoData);
-                // Set button label to current video name for sequential mode
                 let videoKey;
+
+                // Determine the video key based on the selection mode
                 if (selectionMode === "sequential") {
                     videoKey = getNextVideoKey(keys, "ytseq_btn" + btnIndex);
-                } else {
-                    videoKey = keys[0];
+                } else if (selectionMode === "exact") {
+                    videoKey = button.textContent.trim(); // Use the button's text as the key
+                } else if (selectionMode === "random") {
+                    videoKey = keys[Math.floor(Math.random() * keys.length)]; // Pick a random key
                 }
+
+                // Get the video ID from the JSON data
+                const videoId = videoData[videoKey];
+
+                // Set the button text to the video name (formatted for readability)
                 button.textContent = videoKey.replace(/([A-Z])/g, ' $1').trim();
 
+                // Add click event to launch the video modal
                 button.addEventListener("click", function () {
-                    // Recompute videoKey in case day changed
+                    // Recompute videoKey in case day changed (for sequential mode)
                     let key = videoKey;
                     if (selectionMode === "sequential") {
                         key = getNextVideoKey(keys, "ytseq_btn" + btnIndex);
                     }
                     const videoId = videoData[key];
 
-                    // Unlock code piece when video opens
-                    //const codeDisplay = document.getElementById("codeDisplay");
-                    //const kid = codeDisplay ? codeDisplay.getAttribute("data-kid") : null;
-                    //if (kid && typeof unlockNextPiece === "function") {
-                    //    unlockNextPiece(kid, "btn" + btnIndex);
-                    //}
-
-                    // Now launch the video modal
+                    // Launch the YouTube modal
                     launchYouTubeModal(videoId, function () {
-                        // (optional: you can still do something on close if you want)
+                        // Optional: Add logic to execute when the modal closes
                     });
                 });
             })

@@ -72,9 +72,7 @@
          <button class="button task-button video-button" data-reveal-code="true" data-json-file="../videoLinks.json" data-selection-mode="exact">AngleFish</button>
          
     </div>
-    <div class="div-container">
-        <img src="https://media.giphy.com/media/mGWBjz74fn404BWUl4/giphy.gif?cid=ecf05e476pxqqc6cbon5ir86ggdqlsxc76d3ms0nhqklyspt&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Funny Cat GIF"> X 22 reg, X 5 knuc
-    </div>
+
    
     
     <div class="div-container">
@@ -87,27 +85,37 @@
         <button class="button task-button day-friday" data-reveal-code="true" onclick="openNewWindow('https://classroom.google.com/c/NzA5MDk2MDA2ODY3')">English Google Classroom</button>
        </div>
     
+       <div id="homework" class="div-container">
+        <ul id="checklist">          
+            <li class="weekday-only">
+                <input type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item0">
+                <span class="chore-text" onclick="readText('Play Piano')">Piano 🔊</span>
+            </li>
+            <li class="weekday-only">
+                <input type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item1">
+                <span class="chore-text" onclick="readText('22 regular pushups, 5 knuckle pushups')" >Pushes 22 reg & 5 knuc 🔊</span>
+                <br>
+                <img src="https://media.giphy.com/media/mGWBjz74fn404BWUl4/giphy.gif?cid=ecf05e476pxqqc6cbon5ir86ggdqlsxc76d3ms0nhqklyspt&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Funny Cat GIF"> 
+            </li>  
+        </ul>
+    </div>   
     <h1>My Chores</h1>
     <div id="chores" class="div-container">
         <ul id="checklist">
             <li class="weekday-only">
-                <input type="checkbox" id="item1">
+                <input type="checkbox" data-reveal-code="true" id="item1">
                 <span class="chore-text" onclick="readText('Unpack bag')">Unpack bag 🔊</span>
             </li>
             <li class="weekday-only">
-                <input type="checkbox" id="item2">
+                <input type="checkbox" data-reveal-code="true" id="item2">
                 <span class="chore-text" onclick="readText('Pack lunch')">Pack lunch 🔊</span>
             </li>
-            <li class="weekday-only">
-                <input type="checkbox" id="item2">
-                <span class="chore-text" onclick="readText('Read your sister a book')">Read sister a book 🔊</span>
-            </li>
             <li class="sunday-monday">
-                <input type="checkbox" id="item3">
+                <input type="checkbox" data-reveal-code="true" id="item3">
                 <span class="chore-text" onclick="readText('Laundry')">Laundry 🔊</span>
             </li>
             <li>
-                <input type="checkbox" id="item4">
+                <input type="checkbox" data-reveal-code="true" id="item4">
                 <span class="chore-text" onclick="readText('Pajamas')">Pajamas 🔊</span>
             </li>
         </ul>
