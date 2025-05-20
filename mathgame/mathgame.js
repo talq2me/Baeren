@@ -1,70 +1,158 @@
-let questions = [];
-let currentQuestion = null;
-let stars = 0;
+let gameData = [];
+let currentIndex = 0;
+let correctCount = 0;
+let maxQuestions = 1;
 
 
 
-// Load questions from JSON
-fetch('gr3math.json')
-  .then(response => response.json())
-  .then(data => {
-    questions = data;
-    startGame();
-  })
-  .catch(error => {
-    console.error('Error loading questions:', error);
-  });
+// Load the game data and initialize the game
+async function loadGame() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const jsonFile = urlParams.get("jsonFile");
+    const gameTitle = urlParams.get("title");
 
-function startGame() {
-  stars = 0;
-  updateStarCount();
-  document.getElementById("gameOver").innerHTML = '';
-  document.getElementById('answerBank').style.display = 'block';
-  loadNewQuestion();
-}
+    console.log("Loading JSON file:", jsonFile); // Debugging
 
-function loadNewQuestion() {
-  currentQuestion = questions[Math.floor(Math.random() * questions.length)];
-  document.getElementById('questionContainer').innerText = currentQuestion.question;
-  
-  const answerBank = document.getElementById('answerBank');
-  answerBank.innerHTML = '';
-
-  currentQuestion.choices.forEach(choice => {
-    const button = document.createElement('button');
-    button.className = 'big-button'; // reuse your nice big buttons
-    button.innerText = choice;
-    button.onclick = () => checkAnswer(choice);
-    answerBank.appendChild(button);
-  });
-}
-
-function checkAnswer(selectedAnswer) {
-  if (selectedAnswer === currentQuestion.correctAnswer) {
-    stars++;
-    updateStarCount();
-    if (stars >= 10) {
-      endGame();
-    } else {
-      loadNewQuestion();
-    }
-  } else {
-    alert("Try again!");
+    if (!jsonFile || !gameTitle) {
+      console.error("Missing required parameters: jsonFile or title");
+      const messageContainer = document.getElementById("messageContainer");
+      if (messageContainer) {
+          messageContainer.innerText = "Error: Missing game data. Please start the game from the correct page.";
+      }
+      return; // Stop execution if parameters are missing
   }
+
+    console.log("Loading JSON file:", jsonFile);
+    // Set the game title
+    const gameTitleElement = document.getElementById("gameTitle");
+    if (gameTitleElement) {
+        gameTitleElement.innerText = gameTitle;
+    }
+
+    // Hide Submit and Delete buttons for games that don't use them
+    if (gameTitle === "Algebra Game" || gameTitle === "Fraction Game" || 
+        gameTitle === "Math Game" || gameTitle === "Mixed Math Game" ||
+        gameTitle === "Word Problems Game") {
+        document.getElementById("submitBtn").style.display = "none";
+        document.getElementById("delete-btn").style.display = "none";
+    }
+
+    try {
+        const response = await fetch(jsonFile);
+        gameData = await response.json();
+
+        // Load the current index from localStorage
+        const today = new Date().toISOString().slice(0, 10);
+        const storageKey = `mathgame_index_${today}`;
+        currentIndex = parseInt(localStorage.getItem(storageKey) || "0", 10);
+
+        // Start the game
+        showQuestion();
+    } catch (error) {
+      console.error("Error loading game data:", error);
+      const messageContainer = document.getElementById("messageContainer");
+      if (messageContainer) {
+          messageContainer.innerText = "Error loading game data.";
+      }
+    }
 }
 
-function updateStarCount() {
-  document.getElementById('starCount').innerText = `⭐ ${stars} / 10`;
+// Display the current question and choices
+function showQuestion() {
+    if (gameData.length === 0) {
+        console.error("No game data available.");
+        return;
+    }
+
+    // Wrap around to the first question if we've reached the end
+    if (currentIndex >= gameData.length) {
+        currentIndex = 0;
+    }
+
+    const currentItem = gameData[currentIndex];
+    const promptContainer = document.getElementById("promptContainer");
+    const choicesDiv = document.getElementById("choices");
+    const messageContainer = document.getElementById("messageContainer");
+
+    // Clear previous content
+    promptContainer.innerText = currentItem.question;
+    choicesDiv.innerHTML = "";
+    messageContainer.innerText = "";
+
+    // Display choices as buttons
+    currentItem.choices.forEach(choice => {
+        const btn = document.createElement("button");
+        btn.innerText = choice;
+        btn.className = "button";
+        btn.onclick = () => handleChoice(choice, currentItem.correctAnswer);
+        choicesDiv.appendChild(btn);
+    });
 }
+
+// Handle the user's choice
+function handleChoice(choice, correctAnswer) {
+    const messageContainer = document.getElementById("messageContainer");
+
+    if (choice === correctAnswer) {
+        messageContainer.innerHTML = "⭐ Correct!";
+        correctCount++;
+        updateStarCount();
+        
+
+        // Move to the next question
+        currentIndex++;
+        saveProgress();
+
+        if (correctCount < maxQuestions) {
+          setTimeout(showQuestion, 1000); // Show the next question after 1 second
+        } else {
+            endGame();
+        }
+
+        
+    } else {
+        messageContainer.innerHTML = `☹️ Incorrect! The correct answer is: ${correctAnswer}`;
+        setTimeout(() => {
+            messageContainer.innerHTML = "";
+            currentIndex++;
+            saveProgress();
+            showQuestion();
+        }, 2000); // Show the next question after 2 seconds
+    }
+}
+
+// Update the star count display
+function updateStarCount() {
+    const starCount = document.getElementById("starCount");
+    starCount.innerText = `⭐ ${correctCount} / 10`;
+}
+
+// Save the user's progress to localStorage
+function saveProgress() {
+    const today = new Date().toISOString().slice(0, 10);
+    const storageKey = `mathgame_index_${today}`;
+    localStorage.setItem(storageKey, currentIndex);
+}
+
 
 function endGame() {
-  document.getElementById('questionContainer').innerText = '';
-  document.getElementById('answerBank').style.display = 'none';
-  document.getElementById("gameOver").innerHTML = `<h2>🎉 Game Over! You got 10 stars! 🎉</h2><button class="big-button" onclick="startGame()">Play Again</button>`;
+  const choicesDiv = document.getElementById("choices");
+  const playButton = document.getElementById("playButton");
+  const messageContainer = document.getElementById("messageContainer");
+
+  if (choicesDiv) {
+      choicesDiv.innerHTML = "<h2>Game Over! 🎉</h2>";
+  }
+  if (playButton) {
+      playButton.innerText = "Play Again";
+  }
+  if (messageContainer) {
+      messageContainer.innerHTML = "Congratulations! You've completed the game!";
+  }
+
+  // Notify parent window that the game is completed
+  window.parent.postMessage({ type: "gameCompleted" }, "*");
 }
 
-
-// Go back function (assuming you had it in other games)
-function goBack() {
-  window.history.back();
-}
+// Initialize the game on page load
+window.onload = loadGame;

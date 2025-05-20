@@ -1,6 +1,6 @@
-impatient;
-important;
-grimper;
-simple;
-un timbre;
-impossible;
+loin;
+un coin;
+besoin;
+moin;
+le point;
+le foin;

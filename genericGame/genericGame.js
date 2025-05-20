@@ -4,6 +4,8 @@ let currentItem = {};
 let useTTS = false;
 let useAudioFiles = false;
 let userInput = []; // Store user input for spelling games
+let maxQuestions = 1;
+
 
 // Load game data and initialize the game
 async function loadGame() {
@@ -116,7 +118,7 @@ function handleChoice(choice) {
             feedback.innerHTML = "⭐ Correct!";
             correctCount++;
             updateStarCount();
-            if (correctCount < 1) {
+            if (correctCount < maxQuestions) {
                 setTimeout(nextRound, 1000); // Proceed to the next round after 1 second
             } else {
                 endGame();
@@ -145,7 +147,7 @@ function handleSubmit() {
         feedback.innerHTML = "⭐ Correct!";
         correctCount++;
         updateStarCount();
-        if (correctCount < 1) {
+        if (correctCount < maxQuestions) {
             setTimeout(nextRound, 1000);
         } else {
             endGame();

@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const kidId = button.getAttribute("data-kid");
         
                 button.addEventListener("click", function () {
-                    launchGameInModal(gameUrl, kidId);
+                    launchGameInModal(gameUrl);
                 });
             });
         
