@@ -1,7 +1,7 @@
 let gameData = [];
 let currentIndex = 0;
 let correctCount = 0;
-let maxQuestions = 1;
+let maxQuestions = 2;
 
 
 
@@ -12,6 +12,8 @@ async function loadGame() {
     const gameTitle = urlParams.get("title");
 
     console.log("Loading JSON file:", jsonFile); // Debugging
+
+    updateStarCount(); //draw the 0/maxQuestions stars
 
     if (!jsonFile || !gameTitle) {
       console.error("Missing required parameters: jsonFile or title");
@@ -30,9 +32,9 @@ async function loadGame() {
     }
 
     // Hide Submit and Delete buttons for games that don't use them
-    if (gameTitle === "Algebra Game" || gameTitle === "Fraction Game" || 
-        gameTitle === "Math Game" || gameTitle === "Mixed Math Game" ||
-        gameTitle === "Word Problems Game") {
+    if (gameTitle === "Algebra Game" || gameTitle === "Fractions Game" || 
+        gameTitle === "General Math Game" || gameTitle === "Mixed Math Game" ||
+        gameTitle === "Word Problems Math Game") {
         document.getElementById("submitBtn").style.display = "none";
         document.getElementById("delete-btn").style.display = "none";
     }
@@ -124,7 +126,7 @@ function handleChoice(choice, correctAnswer) {
 // Update the star count display
 function updateStarCount() {
     const starCount = document.getElementById("starCount");
-    starCount.innerText = `⭐ ${correctCount} / 10`;
+    starCount.innerText = `⭐ ${correctCount} / ${maxQuestions}`;
 }
 
 // Save the user's progress to localStorage

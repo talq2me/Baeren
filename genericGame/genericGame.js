@@ -4,7 +4,7 @@ let currentItem = {};
 let useTTS = false;
 let useAudioFiles = false;
 let userInput = []; // Store user input for spelling games
-let maxQuestions = 1;
+let maxQuestions = 10;
 
 
 // Load game data and initialize the game
@@ -16,6 +16,7 @@ async function loadGame() {
     useAudioFiles = urlParams.get("useAudioFiles") === "true";
 
     console.log("Loading JSON file:", jsonFile); // Debugging
+    updateStarCount(); // Draw the 0/maxQuestions stars
 
     if (!jsonFile || !gameTitle) {
         console.error("Missing required parameters: jsonFile or title");
@@ -360,7 +361,7 @@ function updateChoices(choices) {
 
 function updateStarCount() {
     const starCount = document.getElementById("starCount");
-    starCount.innerText = `⭐ ${correctCount} / 10`;
+    starCount.innerText = `⭐ ${correctCount} / ${maxQuestions}`;
 }
 
 function resetGame() {

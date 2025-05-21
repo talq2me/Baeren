@@ -7,7 +7,7 @@
     {
         "word": "e",
         "audio": "../sounds/en/e.wav",
-        "choices": ["e", "e", "é", "è"]
+        "choices": ["e", "u", "é", "è"]
     },
     {
         "word": "è",
@@ -18,6 +18,46 @@
         "word": "ê",
         "audio": "../sounds/en/eh.wav",
         "choices": ["ê", "é", "e", "y"]
+    },
+    {
+        "word": "be",
+        "audio": "../sounds/be.mp3",
+        "choices": ["be", "bé", "ba", "bè"]
+    },
+    {
+        "word": "je",
+        "audio": "../sounds/je.mp3",
+        "choices": ["ja", "je", "gé", "jè"]
+    },
+    {
+        "word": "a",
+        "audio": "../sounds/en/a.wav",
+        "choices": ["a", "é", "e", "è"]
+    },
+    {
+        "word": "ly",
+        "audio": "../sounds/ly.mp3",
+        "choices": ["le", "lé", "ly", "lè"]
+    },
+    {
+        "word": "pi",
+        "audio": "../sounds/pi.mp3",
+        "choices": ["pe", "pa", "pé", "pi"]
+    },
+    {
+        "word": "re",
+        "audio": "../sounds/re.mp3",
+        "choices": ["re", "ré", "ra", "rè"]
+    },
+    {
+        "word": "wo",
+        "audio": "../sounds/wo.mp3",
+        "choices": ["wo", "wu", "wa", "we"]
+    },
+    {
+        "word": "te",
+        "audio": "../sounds/te.mp3",
+        "choices": ["ta", "té", "te", "tè"]
     }
     
 ]
