@@ -8,7 +8,7 @@
     <script src="../common.js" defer></script>
 </head>
 <body>
-    <button class="button" onclick="goBack()">&lt; Back</button>
+    <button class="button" onclick="closeModalAndGoBack()">&lt; Back</button>
     <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
     <h1>Reading Game</h1>
     Read the following out loud:
@@ -142,6 +142,11 @@
 
         // Load lines when the page loads
         window.onload = loadLines;
+
+        
+        function closeModalAndGoBack() {
+            window.parent.postMessage({ type: "gameCompleted" }, "*")
+        }
     </script>
 </body>
 </html>

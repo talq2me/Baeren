@@ -162,5 +162,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         setTimeout(handleModalClose, 2000); // Close the modal after 2 seconds
                     }
                 }
+                if (event.data && event.data.type === "closeModal") {
+                    const modal = document.getElementById("iframeModal");
+                    if (modal.style.display === "block") {
+                        console.log("Closing Modal Fast");
+                        setTimeout(handleModalClose, 0); // Close the modal immediately
+                    }
+                }
             });
-        

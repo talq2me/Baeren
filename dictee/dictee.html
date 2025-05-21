@@ -8,7 +8,7 @@
     <!--script src="../common.js" defer></script-->
 </head>
 <body>
-    <button class="button" onclick="location.href='../homework/Gr3.html'">&lt; Back</button>
+    <button class="button" onclick="closeModalAndGoBack()">&lt; Back</button>
     <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
     <h1>Dictée</h1>
     <div id="buttonContainer" ></div>
@@ -90,6 +90,10 @@
         }
 
         document.addEventListener('DOMContentLoaded', loadWords);
+
+        function closeModalAndGoBack() {
+            window.parent.postMessage({ type: "closeModal" }, "*")
+        }
     </script>
 </body>
 </html>
