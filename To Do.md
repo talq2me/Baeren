@@ -3,43 +3,16 @@
 - more read aloud sentences
 - math game for both
 - Gr 3 verb conjugation game (avoir, etre, er verbs, ir verbs, aller) Pick the correct ending for: ils saut (ent, ant, ez, ons)
+- french reading comprehension game: given french  sentence at grade 3 level, pick from one of the 3 english sentences that matches (where these are designed to trick you)
+
 - more french book links
-- make french random book only load new on new day
+- french spelling game: spell bobo, cica, mopu, etc
+- french reading game: val va vite and you get choices: va l va vi te with some others.
 
-
-- last game auto plays sounds and don't need submit button, more like this
-- consolidate star section
-- make each task give part of a special code that I can gen daily and compare to what kids get.
-
-
-
-
-- all games in modal can remove the back and home buttons since modal can be closed.
-- modal can be made larger.
-
-englishGame.html: must press Play Sound button. 
-   - choices on screen
-   - no text area for spelling chosen word
-   - star area at bottom NOT with 1/10
-skSpelling.html: Auto play sound & play button.
-   - choices buttons
-   - area for spelling chosen text
-   - submit and Delete button.
-   - star area at top 1/10
-skSounds.html: Auto play sound and play button.
-   - same format as skSpelling.html except Submit button not necessary because only accepts 1 answer.
-
-   
-skLetterSounds.html: must press Play SOund button.
-   - choices on screen
-   - no text area for chosen word
-   - star area at bottom NOT with 1/10
-
-frenchGame.html: must press Play SOund button.
-   - choices on screen
-   - no text area for chosen word
-   - star area at bottom NOT with 1/10
-
+more videos:
+- alphablocks
+- nessy reading strategy
+- go hairy phonics
 
 
 

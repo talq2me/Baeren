@@ -98,6 +98,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+ document.addEventListener('DOMContentLoaded', () => {
+    const today = new Date().toISOString().slice(0, 10);
+    const storedDate = localStorage.getItem('lastCheckboxReset');
+
+    if (storedDate !== today) {
+        // It's a new day — reset checkboxes
+        document.querySelectorAll('.chore-checkbox').forEach(checkbox => {
+            checkbox.checked = false;
+        });
+
+        // Update the stored date
+        localStorage.setItem('lastCheckboxReset', today);
+    }
+});
+        
+
           // Function to launch the game in the modal
             function launchGameInModal(gameUrl) {
                 const iframe = document.getElementById("iframeContent");
