@@ -45,7 +45,7 @@
         "choices": ["pe", "pa", "pé", "pi"]
     },
     {
-        "word": "re",
+        "word": "rè",
         "audio": "../sounds/re.mp3",
         "choices": ["re", "ré", "ra", "rè"]
     },
@@ -55,7 +55,7 @@
         "choices": ["wo", "wu", "wa", "we"]
     },
     {
-        "word": "te",
+        "word": "té",
         "audio": "../sounds/te.mp3",
         "choices": ["ta", "té", "te", "tè"]
     }
