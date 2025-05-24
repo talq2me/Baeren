@@ -67,10 +67,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     controls: 1,
                     rel: 0,
                     modestbranding: 1,
-                    fs: 1
+                    fs: 1,
+                    host: "https://www.youtube-nocookie.com"
                 }
             });
         }
+        
         createPlayer();
     }
 
