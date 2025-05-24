@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Load YouTube API if not present
     if (!window.YT) {
         let tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
+        tag.src = "https://www.youtube-nocookie.com/iframe_api";
         document.body.appendChild(tag);
     }
 
