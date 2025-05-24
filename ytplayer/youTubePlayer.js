@@ -67,8 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     controls: 1,
                     rel: 0,
                     modestbranding: 1,
-                    fs: 1,
-                    host: "https://www.youtube-nocookie.com"
+                    fs: 1
                 }
             });
         }
@@ -79,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Load YouTube API if not present
     if (!window.YT) {
         let tag = document.createElement('script');
-        tag.src = "https://www.youtube-nocookie.com/iframe_api";
+        tag.src = "https://www.youtube.com/iframe_api";
         document.body.appendChild(tag);
     }
 
