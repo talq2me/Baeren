@@ -1,4 +1,14 @@
+function reward(timeInMins) {
+    const rewardTime = timeInMins * 60 * 1000; // Convert minutes to milliseconds
+  if (typeof fully !== "undefined") {
+    fully.startApplication("com.netflix.mediaclient"); // 🚀 Launch Netflix app
+    setTimeout(() => {
+      fully.startURL();      // 🔁 Go back to your site after 30 min
+    }, rewardTime);
+  }
+}
 
+        
         function openNewWindow(url) {
             const w = window.screen.availWidth;
             const h = window.screen.availHeight;
