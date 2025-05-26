@@ -96,13 +96,18 @@ document.addEventListener('DOMContentLoaded', function() {
         document.addEventListener("DOMContentLoaded", showControlsForDay);
 
         function readText(text, lang = "en-US") {
-            let utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = lang;        // Use passed-in language or default to "en-US"
-            utterance.rate = 0.5;         // Slower speech
-            utterance.pitch = 1;          // Normal pitch
-            utterance.volume = 1;         // Full volume
-        
-            window.speechSynthesis.speak(utterance);
+            if (typeof fully !== "undefined" && typeof fully.textToSpeech === "function") {
+                // Use Fully Kiosk Browser TTS
+                fully.textToSpeech(text, lang);
+            } else {
+                // Use browser TTS
+                let utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = lang;
+                utterance.rate = 0.5;
+                utterance.pitch = 1;
+                utterance.volume = 1;
+                window.speechSynthesis.speak(utterance);
+            }
         }
 
 document.addEventListener("DOMContentLoaded", function () {

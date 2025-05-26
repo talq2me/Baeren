@@ -63,32 +63,41 @@
                     revealSpan.style.fontSize = "24px"; // Make revealed word bigger
 
                     button.addEventListener('click', () => {
-                        window.speechSynthesis.cancel(); // Cancel ongoing speech if any
-
-                        let speakWord = new SpeechSynthesisUtterance(word);
-                        let speakSentence = new SpeechSynthesisUtterance(sentence);
-
-                        [speakWord, speakSentence].forEach(utterance => {
-                            utterance.voice = selectedVoice;
-                            utterance.lang = 'en-US';
-                            utterance.rate = 0.8;
-                            utterance.pitch = 1;
-                            utterance.volume = 1;
-                        });
-
-                        // Hide and reset check/reveal
                         checkButton.style.display = "none";
                         revealSpan.textContent = "";
 
-                        // When the sentence finishes, wait 3 seconds, then show Check button
-                        speakSentence.onend = () => {
+                        // Use Fully Kiosk TTS if available
+                        if (typeof fully !== "undefined" && typeof fully.textToSpeech === "function") {
+                            fully.textToSpeech(word, "en-US");
                             setTimeout(() => {
-                                checkButton.style.display = "inline-block";
-                            }, 3000);
-                        };
+                                fully.textToSpeech(sentence, "en-US");
+                                setTimeout(() => {
+                                    checkButton.style.display = "inline-block";
+                                }, 3000 + Math.max(1500, sentence.length * 60)); // estimate sentence duration
+                            }, 1200); // small delay between word and sentence
+                        } else {
+                            window.speechSynthesis.cancel(); // Cancel ongoing speech if any
 
-                        window.speechSynthesis.speak(speakWord);
-                        window.speechSynthesis.speak(speakSentence);
+                            let speakWord = new SpeechSynthesisUtterance(word);
+                            let speakSentence = new SpeechSynthesisUtterance(sentence);
+
+                            [speakWord, speakSentence].forEach(utterance => {
+                                utterance.voice = selectedVoice;
+                                utterance.lang = 'en-US';
+                                utterance.rate = 0.8;
+                                utterance.pitch = 1;
+                                utterance.volume = 1;
+                            });
+
+                            speakSentence.onend = () => {
+                                setTimeout(() => {
+                                    checkButton.style.display = "inline-block";
+                                }, 3000);
+                            };
+
+                            window.speechSynthesis.speak(speakWord);
+                            window.speechSynthesis.speak(speakSentence);
+                        }
                     });
 
                     checkButton.addEventListener('click', () => {
