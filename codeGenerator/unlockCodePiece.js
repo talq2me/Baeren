@@ -37,18 +37,36 @@ function countVisibleRevealCodeElements() {
         .length;
 }
 
+function countVisibleBonusTasks() {
+    return Array.from(document.querySelectorAll('[data-reveal-code="true"].bonus-task'))
+        .filter(el => el.offsetParent !== null)
+        .length;
+}
+
 function unlockNextPiece(kidId, buttonKey) {
     const today = new Date().toISOString().slice(0, 10);
     const unlockKey = `unlocked_${buttonKey}_${kidId}_${today}`;
     if (localStorage.getItem(unlockKey)) return; // Already unlocked today
 
     const storageKey = `progress_${kidId}_${today}`;
+    const bonusStorageKey = `bonus_${kidId}_${today}`;
     const totalTasks = countVisibleRevealCodeElements();
+    const totalBonusTasks = countVisibleBonusTasks();
     let progress = parseInt(localStorage.getItem(storageKey) || "0", 10);
+    let bonusProgress = parseInt(localStorage.getItem(bonusStorageKey) || "0", 10);
 
-    if (progress >= totalTasks) return;
+    // Determine if this is a bonus task
+    const el = document.querySelector(`[data-reveal-code="true"][data-kid="${kidId}"][data-key="${buttonKey}"], [data-reveal-code="true"][data-key="${buttonKey}"]`);
+    const isBonus = el && el.classList.contains('bonus-task');
 
-    localStorage.setItem(storageKey, (progress + 1).toString());
+    if (isBonus) {
+        if (bonusProgress >= totalBonusTasks) return;
+        localStorage.setItem(bonusStorageKey, (bonusProgress + 1).toString());
+    } else {
+        if (progress >= totalTasks) return;
+        localStorage.setItem(storageKey, (progress + 1).toString());
+    }
+
     localStorage.setItem(unlockKey, "1");
     updateCodeDisplay();
 }
@@ -76,17 +94,45 @@ function resetAllProgressIfRequested() {
 
 function updateCodeDisplay() {
     const codeDisplay = document.getElementById("codeDisplay");
+    const rewardBtn = document.getElementById("rewardBtn");
     if (!codeDisplay) return;
     const kid = codeDisplay.getAttribute("data-kid");
     if (!kid) {
         codeDisplay.textContent = "Progress: 0/0";
+        if (rewardBtn) rewardBtn.style.display = "none";
         return;
     }
     const today = new Date().toISOString().slice(0, 10);
     const storageKey = `progress_${kid}_${today}`;
+    const bonusStorageKey = `bonus_${kid}_${today}`;
+    const rewardUsedKey = `rewardUsed_${kid}_${today}`;
+    const overrideKey = `override_${kid}_${today}`;
     let progress = parseInt(localStorage.getItem(storageKey) || "0", 10);
+    let bonusProgress = parseInt(localStorage.getItem(bonusStorageKey) || "0", 10);
+    let rewardUsed = parseInt(localStorage.getItem(rewardUsedKey) || "0", 10);
+    let overrideMinutes = parseInt(localStorage.getItem(overrideKey) || "0", 10);
     const totalTasks = countVisibleRevealCodeElements();
-    codeDisplay.textContent = `Progress: ${progress}/${totalTasks}`;
+    const totalBonusTasks = countVisibleBonusTasks();
+    const rewardMinutes = (progress + bonusProgress) * 5 + overrideMinutes - rewardUsed;
+
+    codeDisplay.textContent =
+        `Progress: ${progress}/${totalTasks}  ~  Rewards: ${Math.max(rewardMinutes,0)} mins`;
+
+    // Show/hide reward button and set its action
+    if (rewardBtn) {
+        if (rewardMinutes > 0) {
+            rewardBtn.style.display = "";
+            rewardBtn.textContent = `Reward (${rewardMinutes} min${rewardMinutes > 1 ? "s" : ""})`;
+            rewardBtn.onclick = function() {
+                // Deduct all available reward minutes
+                localStorage.setItem(rewardUsedKey, (rewardUsed + rewardMinutes).toString());
+                updateCodeDisplay();
+                reward(rewardMinutes); // <-- Call the reward function from commonCode.js
+            };
+        } else {
+            rewardBtn.style.display = "none";
+        }
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function () {

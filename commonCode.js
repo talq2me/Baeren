@@ -8,6 +8,31 @@ function reward(timeInMins) {
   }
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    const overrideBtn = document.getElementById('overrideBtn');
+    const kid = document.getElementById("codeDisplay")?.getAttribute("data-kid") || "kid1"; // fallback if not set
+    overrideBtn.addEventListener('click', function() {
+        const pin = prompt("Parent PIN:");
+        const correctPin = "1981"; // <-- Change this to your secret PIN!
+        if (pin !== correctPin) {
+            alert("Sorry, that's not the right PIN.");
+            return;
+        }
+        let mins = prompt("How many extra minutes would you like to grant?");
+        mins = parseInt(mins, 10);
+        if (isNaN(mins) || mins <= 0) {
+            alert("Please enter a valid number of minutes.");
+            return;
+        }
+        // Store override minutes for today
+        const today = new Date().toISOString().slice(0, 10);
+        const overrideKey = `override_${kid}_${today}`;
+        let current = parseInt(localStorage.getItem(overrideKey) || "0", 10);
+        localStorage.setItem(overrideKey, (current + mins).toString());
+        alert(`Granted ${mins} extra minutes!`);
+        updateCodeDisplay();
+    });
+});
         
         function openNewWindow(url) {
             const w = window.screen.availWidth;

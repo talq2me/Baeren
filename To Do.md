@@ -15,23 +15,7 @@ more videos:
 - go hairy phonics
 
 
-
-removed videos:
-"Heggerty1": "TjW8jX2pyKw",
-    "Heggerty2": "evacR1WQ9tI",
-    "Heggerty3": "LhOlVuD9o6A", 
-    "Heggerty4": "k3aoJLmdFLo",
-    "Heggerty5": "D2J1eAA6Zyg",
-    "Heggerty6": "G7N9nMZiEl0", 
-    "Heggerty7": "1kJTPHgYGAU", 
-    "Heggerty8": "bR8aHatl_nw",
-    "Heggerty9": "_kdMCuXd0kg",
-    "Heggerty10": "D7TdhmuBKUA",
-    "Heggerty11": "V3xyyWeFgSE",
-    "Heggerty12": "mvtzPxJsJ64",
-    "Heggerty13": "cr1SUrbJIpA",    
-    "Heggerty14": "9G8APWhXc28",
-    "Heggerty15": "at7uSJSM1jk",
-    "Heggerty16": "J2gUcALMvhw",
-    "Heggerty17": "wiyzHIoBxdQ",    
-    "Heggerty18": "iO5-9c11Nqg",
+Rewards: 
+ - homework every 1 thing is 5 mins?
+ - bonus: every 1 thing is 10 mins. Can only be completed once homework is completed.
+ - Pin to get 15/30/45/60/120 mins
