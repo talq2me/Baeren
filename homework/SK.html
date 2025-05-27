@@ -85,8 +85,13 @@
     </div>    
   <button onclick="speak()">Speak</button>
   <button onclick="speakFrench()">Speak French</button>
+  <button onclick="speakFrench2()">Speak French 2</button>
+  <button onclick="toastfully()">Show TTS Locale</button>
 
   <script>
+    function toastfully(){
+        fully.toast("Current TTS locale: " + fully.getTtsLocale(), 1);
+    }
     function speak() {
       if (typeof fully !== "undefined" && fully.textToSpeech) {
         fully.textToSpeech("Hello, this is a test message.");
@@ -97,9 +102,18 @@
     function speakFrench() {
       if (typeof fully !== "undefined" && fully.textToSpeech) {
         
-        fully.toast("Current TTS locale: " + fully.getTtsLocale());
 
         fully.textToSpeech("Bonjour, ceci est un message de test.");
+
+      } else {
+        alert("TTS not available: Are you running in Fully Kiosk Browser?");
+      }
+    }
+    function speakFrench2() {
+      if (typeof fully !== "undefined" && fully.textToSpeech) {
+        
+
+        fully.textToSpeech("Bonjour, ceci est un message de test.", "fr");
 
       } else {
         alert("TTS not available: Are you running in Fully Kiosk Browser?");
