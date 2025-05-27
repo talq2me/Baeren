@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
         function readText(text, lang = "en-US") {
             if (typeof fully !== "undefined" && typeof fully.textToSpeech === "function") {
                 // Use Fully Kiosk Browser TTS
-                fully.textToSpeech(text, lang);
+                fully.textToSpeech(text);
             } else {
                 // Use browser TTS
                 let utterance = new SpeechSynthesisUtterance(text);
