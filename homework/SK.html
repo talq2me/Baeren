@@ -97,8 +97,9 @@
     function speakFrench() {
       if (typeof fully !== "undefined" && fully.textToSpeech) {
         
-        alert("Current TTS locale: " + fully.getTtsLocale());
-        fully.textToSpeech("Bonjour, ceci est un message de test.", "fr-CA");
+        fully.toast("Current TTS locale: " + fully.getTtsLocale());
+
+        fully.textToSpeech("Bonjour, ceci est un message de test.");
 
       } else {
         alert("TTS not available: Are you running in Fully Kiosk Browser?");
