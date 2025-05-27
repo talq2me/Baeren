@@ -45,7 +45,13 @@ async function loadGame() {
 }
 function readText(text, lang = "en-US", onEnd = null) {
     if (typeof fully !== "undefined" && typeof fully.textToSpeech === "function") {
-        fully.textToSpeech(text, "en");
+        if (lang === "en-US") {
+            lang = "en"; // Fully Kiosk uses "en" for English
+        }    
+        else if (lang === "fr-FR") {
+            lang = "fr"; // Fully Kiosk uses "fr" for French
+        }
+        fully.textToSpeech(text, lang);
         // Fully Kiosk does not support a callback, so estimate duration
         if (typeof onEnd === "function") {
             // Estimate: 150ms per character, min 1s, max 6s
@@ -53,9 +59,11 @@ function readText(text, lang = "en-US", onEnd = null) {
             setTimeout(onEnd, duration);
         }
     } else {
+        //cancel any previous speech synthesis
+        window.speechSynthesis.cancel();
         let utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = lang;
-        utterance.rate = 0.5;
+        utterance.rate = 0.6;
         utterance.pitch = 1;
         utterance.volume = 1;
         if (typeof onEnd === "function") {

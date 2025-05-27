@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dictation</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <button class="button" onclick="history.back()">&lt; Back</button>
+    <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
+    <h1>Dictation</h1>
+    <div id="buttonContainer"></div>
+
+    <script>
+    // Helper: get URL parameters
+    function getParam(name, def = "") {
+        const url = new URL(window.location.href);
+        return url.searchParams.get(name) || def;
+    }
+
+    // General TTS function with callback
+    function readText(text, lang = "en-US", onEnd = null) {
+        if (typeof fully !== "undefined" && typeof fully.textToSpeech === "function") {
+            // Fully Kiosk uses "en" for English, "fr" for French, etc.
+            if (lang === "en-US") lang = "en";
+            if (lang === "fr-FR") lang = "fr";
+            fully.textToSpeech(text, lang);
+            if (typeof onEnd === "function") {
+                // Estimate: 150ms per character, min 1s, max 6s
+                const duration = Math.min(Math.max(text.length * 150, 1000), 6000);
+                setTimeout(onEnd, duration);
+            }
+        } else {
+            window.speechSynthesis.cancel();
+            let utter = new SpeechSynthesisUtterance(text);
+            utter.lang = lang;
+            utter.rate = 0.8;
+            utter.pitch = 1;
+            utter.volume = 1;
+            if (typeof onEnd === "function") utter.onend = onEnd;
+            window.speechSynthesis.speak(utter);
+        }
+    }
+
+    // Main logic
+    async function loadWords() {
+        const jsonFile = getParam("jsonFile");
+        const lang = getParam("lang", "en-US");
+
+        if (!jsonFile) {
+            alert("No jsonFile parameter provided!");
+            return;
+        }
+
+        try {
+            const response = await fetch(jsonFile);
+            const words = await response.json(); // Expecting [{ "word": "...", "sentence": "..." }, ...]
+            const container = document.getElementById('buttonContainer');
+
+            words.forEach((item, index) => {
+                const { word, sentence } = item;
+
+                const lineDiv = document.createElement('div');
+                lineDiv.style.marginBottom = "12px";
+
+                const button = document.createElement('button');
+                button.textContent = index + 1;
+                button.classList.add('button');
+
+                const checkButton = document.createElement('button');
+                checkButton.textContent = "Check";
+                checkButton.classList.add('button');
+                checkButton.style.display = "none";
+
+                const revealSpan = document.createElement('span');
+                revealSpan.style.marginLeft = "10px";
+                revealSpan.style.fontWeight = "bold";
+                revealSpan.style.fontSize = "24px";
+
+                button.onclick = function() {
+                    checkButton.style.display = "none";
+                    revealSpan.textContent = "";
+
+                    readText(word, lang, () => {
+                        setTimeout(() => {
+                            readText(sentence, lang, () => {
+                                setTimeout(() => {
+                                    checkButton.style.display = "inline-block";
+                                }, 1000);
+                            });
+                        }, 1000); // 1 second pause between word and sentence
+                    });
+                };
+
+                checkButton.onclick = function() {
+                    revealSpan.textContent = word;
+                };
+
+                lineDiv.appendChild(button);
+                lineDiv.appendChild(checkButton);
+                lineDiv.appendChild(revealSpan);
+                container.appendChild(lineDiv);
+            });
+        } catch (error) {
+            console.error('Error loading words:', error);
+            alert('Error loading words. Ensure the JSON file exists and is formatted correctly.');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadWords);
+    </script>
+</body>
+</html>
