@@ -40,6 +40,20 @@ async function loadGame() {
         document.getElementById("messageContainer").innerText = "Error loading game data.";
     }
 }
+function readText(text, lang = "en-US") {
+            if (typeof fully !== "undefined" && typeof fully.textToSpeech === "function") {
+                // Use Fully Kiosk Browser TTS
+                fully.textToSpeech(text);
+            } else {
+                // Use browser TTS
+                let utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = lang;
+                utterance.rate = 0.5;
+                utterance.pitch = 1;
+                utterance.volume = 1;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
 
 function playSound() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -238,10 +252,12 @@ function nextRound() {
         messageContainer.innerText = `Find the word "${word}".`;
 
         // Use TTS to say "Find the word <word>"
-        const instruction = new SpeechSynthesisUtterance(`Find the word ${word}.`);
-        instruction.lang = 'en-US';
-        instruction.rate = 1;
-        speechSynthesis.speak(instruction);
+       // const instruction = new SpeechSynthesisUtterance(`Find the word ${word}.`);
+       // instruction.lang = 'en-US';
+       // instruction.rate = 1;
+       // speechSynthesis.speak(instruction);
+        
+        readText(`Find the word ${word}.`); // Use TTS to read the instruction
     } else if (gameTitle === "Spelling Game") {
         // Special logic for Spelling Game
         const messageContainer = document.getElementById("messageContainer");

@@ -20,7 +20,7 @@
         "choices": ["ê", "é", "e", "y"]
     },
     {
-        "word": "be",
+        "word": "bè",
         "audio": "../sounds/be.mp3",
         "choices": ["be", "bé", "ba", "bè"]
     },
