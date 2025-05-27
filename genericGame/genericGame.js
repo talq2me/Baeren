@@ -43,6 +43,27 @@ async function loadGame() {
         document.getElementById("messageContainer").innerText = "Error loading game data.";
     }
 }
+function readText(text, lang = "en-US", onEnd = null) {
+    if (typeof fully !== "undefined" && typeof fully.textToSpeech === "function") {
+        fully.textToSpeech(text, "en");
+        // Fully Kiosk does not support a callback, so estimate duration
+        if (typeof onEnd === "function") {
+            // Estimate: 150ms per character, min 1s, max 6s
+            const duration = Math.min(Math.max(text.length * 150, 1000), 6000);
+            setTimeout(onEnd, duration);
+        }
+    } else {
+        let utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = lang;
+        utterance.rate = 0.5;
+        utterance.pitch = 1;
+        utterance.volume = 1;
+        if (typeof onEnd === "function") {
+            utterance.onend = onEnd;
+        }
+        window.speechSynthesis.speak(utterance);
+    }
+}
 
 function playSound() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -64,28 +85,21 @@ function playSound() {
         const word = currentItem.word;
 
         // Use TTS to repeat the instruction
-        const instruction = new SpeechSynthesisUtterance(`Find the word ${word}.`);
-        instruction.lang = 'en-US';
-        instruction.rate = 1;
-        speechSynthesis.speak(instruction);
+        readText(`Find the word ${word}.`); // Use TTS to read the instruction
+
     } else if (gameTitle === "Spelling Game") {
         const word = currentItem.word;
 
         // Use TTS to say "Spell the word <word>"
-        const instruction = new SpeechSynthesisUtterance(`Spell the word ${word}.`);
-        instruction.lang = 'en-US';
-        instruction.rate = 1;
-        instruction.onend = () => {
-            setTimeout(() => playWordSlowly(currentItem.pronunciation), 500); // Add a short pause before playing the sounds
-        };
-        speechSynthesis.speak(instruction);
+        readText(`Spell the word ${word}.`, 'en-US', () => {
+            setTimeout(() => playWordSlowly(currentItem.pronunciation), 500);
+        });
     } else if (useAudioFiles && currentItem.audio) {
         // Play the audio file specified in the current item
         new Audio(currentItem.audio).play();
     } else if (useTTS && currentItem.word) {
         // Use TTS to speak the word
-        const utterance = new SpeechSynthesisUtterance(currentItem.word);
-        speechSynthesis.speak(utterance);
+        speakText(currentItem.word);
     } else {
         console.error("No audio or TTS data available for the current item.");
     }
@@ -240,11 +254,7 @@ function nextRound() {
         // Display the instruction
         messageContainer.innerText = `Find the word "${word}".`;
 
-        // Use TTS to say "Find the word <word>"
-        const instruction = new SpeechSynthesisUtterance(`Find the word ${word}.`);
-        instruction.lang = 'en-US';
-        instruction.rate = 1;
-        speechSynthesis.speak(instruction);
+        readText(`Find the word ${word}.`); // Use TTS to read the instruction
     } else if (gameTitle === "Spelling Game") {
         // Special logic for Spelling Game
         const messageContainer = document.getElementById("messageContainer");
@@ -254,13 +264,9 @@ function nextRound() {
         messageContainer.innerText = `Spell the word "${word}".`;
 
         // Use TTS to say "Spell the word <word>"
-        const instruction = new SpeechSynthesisUtterance(`Spell the word ${word}.`);
-        instruction.lang = 'en-US';
-        instruction.rate = 1;
-        instruction.onend = () => {
-            setTimeout(() => playWordSlowly(currentItem.pronunciation), 500); // Add a short pause
-        };
-        speechSynthesis.speak(instruction);
+        readText(`Spell the word ${word}.`, 'en-US', () => {
+            setTimeout(() => playWordSlowly(currentItem.pronunciation), 500);
+        });
     } else {
         // For other games, play the instructions using playSound
         playSound();

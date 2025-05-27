@@ -1,0 +1,148 @@
+[
+    {
+        "word": "b",
+        "audio": "../sounds/en/b.wav",
+        "choices": ["b", "c", "f", "l"]
+    },
+    {
+        "word": "d",
+        "audio": "../sounds/en/d.wav",
+        "choices": ["b", "c", "d", "l"]
+    },
+    {
+        "word": "ch",
+        "audio": "../sounds/en/ch.wav",
+        "choices": ["bl", "ch", "sh", "ck"]
+    },
+    {
+        "word": "c",
+        "audio": "../sounds/en/k.wav",
+        "choices": ["s", "c", "f", "l"]
+    },
+    {
+        "word": "e",
+        "audio": "../sounds/en/eh.wav",
+        "choices": ["a", "y", "i", "e"]
+    },
+    {
+        "word": "er",
+        "audio": "../sounds/en/er.wav",
+        "choices": ["or", "er", "ir", "ar"]
+    },
+    {
+        "word": "f",
+        "audio": "../sounds/en/f.wav",
+        "choices": ["f", "g", "h", "z"]
+    },
+    {
+        "word": "g",
+        "audio": "../sounds/en/g.wav",
+        "choices": ["j", "h", "g", "y"]
+    },
+    {
+        "word": "h",
+        "audio": "../sounds/en/h.wav",
+        "choices": ["j", "h", "g", "y"]
+    },
+    {
+        "word": "i",
+        "audio": "../sounds/en/ih.wav",
+        "choices": ["e", "i", "u", "y"]
+    },
+    {
+        "word": "j",
+        "audio": "../sounds/en/j.wav",
+        "choices": ["j", "h", "g", "y"]
+    },
+    {
+        "word": "y",
+        "audio": "../sounds/en/y.wav",
+        "choices": ["u", "h", "i", "y"]
+    },
+    {
+        "word": "k",
+        "audio": "../sounds/en/k.wav",
+        "choices": ["c", "k", "g", "h"]
+    },
+    {
+        "word": "l",
+        "audio": "../sounds/en/l.wav",
+        "choices": ["l", "r", "h", "j"]
+    },
+    {
+        "word": "m",
+        "audio": "../sounds/en/m.wav",
+        "choices": ["m", "n", "b", "p"]
+    },
+    {
+        "word": "n",
+        "audio": "../sounds/en/n.wav",
+        "choices": ["k", "n", "b", "p"]
+    },
+    {
+        "word": "o",
+        "audio": "../sounds/en/o.wav",
+        "choices": ["o", "u", "a", "e"]
+    },
+    {
+        "word": "p",
+        "audio": "../sounds/en/p.wav",
+        "choices": ["p", "b", "d", "t"]
+    },
+    {
+        "word": "qu",
+        "audio": "../sounds/en/qu.wav",
+        "choices": ["qu", "gu", "ku", "nu"]
+    },
+    {
+        "word": "r",
+        "audio": "../sounds/en/r.wav",
+        "choices": ["b", "t", "s", "r"]
+    },
+    {
+        "word": "s",
+        "audio": "../sounds/en/s.wav",
+        "choices": ["s", "z", "c", "f"]
+    },
+    {
+        "word": "t",
+        "audio": "../sounds/en/t.wav",
+        "choices": ["t", "d", "b", "p"]
+    },
+    {
+        "word": "u",
+        "audio": "../sounds/en/uh.wav",
+        "choices": ["u", "o", "a", "e"]
+    },
+    {
+        "word": "v",
+        "audio": "../sounds/en/v.wav",
+        "choices": ["v", "w", "f", "z"]
+    },
+    {
+        "word": "w",
+        "audio": "../sounds/en/w.wav",
+        "choices": ["v", "w", "f", "z"]
+    },
+    {
+        "word": "x",
+        "audio": "../sounds/en/x.wav",
+        "choices": ["x", "z", "s", "c"]
+    },
+    {
+        "word": "y",
+        "audio": "../sounds/en/y.wav",
+        "choices": ["y", "i", "u", "e"]
+    },
+    {
+        "word": "sh",
+        "audio": "../sounds/en/sh.wav",
+        "choices": ["sh", "ch", "fl", "cl"]
+    },
+    {
+        "word": "th",
+        "audio": "../sounds/en/th.wav",
+        "choices": ["bu", "ch", "fl", "th"]
+    }
+    
+]

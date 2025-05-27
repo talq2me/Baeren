@@ -1,0 +1,1031 @@
+{
+    "sentences": [
+        {
+            "english": "I like to eat apples.",
+            "correctWords": ["J'aime", "manger", "des", "pommes"],
+            "extraWords": ["jouer", "avec", "les", "bananes", "regarder"]
+        },
+        {
+            "english": "She has a red car.",
+            "correctWords": ["Elle", "a", "une", "voiture", "rouge"],
+            "extraWords": ["un", "garçon", "petite", "bleue", "grande"]
+        },
+        {
+            "english": "We are going to the store.",
+            "correctWords": ["Nous", "allons", "au", "magasin"],
+            "extraWords": ["maison", "école", "bureau", "parc", "cinéma"]
+        },
+        {
+            "english": "He is my friend.",
+            "correctWords": ["Il", "est", "mon", "ami"],
+            "extraWords": ["ma", "mère", "père", "frère", "sœur"]
+        },
+        {
+            "english": "They are playing soccer.",
+            "correctWords": ["Ils", "jouent", "au", "football"],
+            "extraWords": ["basketball", "tennis", "hockey", "baseball"]
+        },
+        {
+            "english": "We love to read books.",
+            "correctWords": ["Nous", "aimons", "lire", "des", "livres"],
+            "extraWords": ["regarder", "la", "télévision", "écouter"]
+        },
+        {
+            "english": "The sun is shining.",
+            "correctWords": ["Le", "soleil", "brille"],
+            "extraWords": ["lune", "étoile", "nuageux", "pluie", "vent"]
+        },
+        {
+            "english": "I want to go to the park.",
+            "correctWords": ["Je", "veux", "aller", "au", "parc"],
+            "extraWords": ["cinéma", "restaurant", "école", "jardin", "magasin"]
+        },
+        {
+            "english": "She likes to dance.",
+            "correctWords": ["Elle", "aime", "danser"],
+            "extraWords": ["chanter", "jouer", "marcher", "nager"]
+        },
+        {
+            "english": "The dog is big.",
+            "correctWords": ["Le", "chien", "est", "grand"],
+            "extraWords": ["chat", "petit", "noir", "jaune"]
+        },
+        {
+            "english": "We eat breakfast in the morning.",
+            "correctWords": ["Nous", "mangeons", "le", "petit-déjeuner", "le", "matin"],
+            "extraWords": ["soir", "déjeuner", "dîner", "chaud"]
+        },
+        {
+            "english": "He wears a blue shirt.",
+            "correctWords": ["Il", "porte", "une", "chemise", "bleue"],
+            "extraWords": ["rouge", "pantalon", "grande", "chaussettes"]
+        },
+        {
+            "english": "I have two brothers.",
+            "correctWords": ["J'ai", "deux", "frères"],
+            "extraWords": ["sœurs", "trois", "amis", "grands"]
+        },
+        {
+            "english": "The cat sleeps on the chair.",
+            "correctWords": ["Le", "chat", "dort", "sur", "la", "chaise"],
+            "extraWords": ["table", "lit", "fenêtre", "livre"]
+        },
+        {
+            "english": "She drinks cold water.",
+            "correctWords": ["Elle", "boit", "de", "l'eau", "froide"],
+            "extraWords": ["chaude", "lait", "jus", "chocolat"]
+        },
+        {
+            "english": "They play in the garden.",
+            "correctWords": ["Ils", "jouent", "dans", "le", "jardin"],
+            "extraWords": ["maison", "parc", "chambre", "école"]
+        },
+        {
+            "english": "I put on my shoes.",
+            "correctWords": ["Je", "mets", "mes", "chaussures"],
+            "extraWords": ["chapeau", "bottes", "pantalon", "écharpe"]
+        },
+        {
+            "english": "The teacher writes on the board.",
+            "correctWords": ["Le", "professeur", "écrit", "sur", "le", "tableau"],
+            "extraWords": ["livre", "fenêtre", "mur", "bureau"]
+        },
+        {
+            "english": "We are watching a movie.",
+            "correctWords": ["Nous", "regardons", "un", "film"],
+            "extraWords": ["série", "livre", "dessin", "téléphone"]
+        },
+        {
+            "english": "My sister has a pink dress.",
+            "correctWords": ["Ma", "sœur", "a", "une", "robe", "rose"],
+            "extraWords": ["pantalon", "rouge", "noire", "bleue"]
+        },
+        {
+            "english": "The baby is sleeping.",
+            "correctWords": ["Le", "bébé", "dort"],
+            "extraWords": ["pleure", "mange", "rit", "chante"]
+        },
+        {
+            "english": "He likes chocolate ice cream.",
+            "correctWords": ["Il", "aime", "la", "glace", "au", "chocolat"],
+            "extraWords": ["vanille", "fraise", "chaud", "pizza"]
+        },
+        {
+            "english": "I have a new backpack.",
+            "correctWords": ["J'ai", "un", "nouveau", "sac", "à", "dos"],
+            "extraWords": ["livre", "bottes", "pantalon", "chapeau"]
+        },
+        {
+            "english": "The birds sing in the trees.",
+            "correctWords": ["Les", "oiseaux", "chantent", "dans", "les", "arbres"],
+            "extraWords": ["fleurs", "ciel", "fenêtre", "jardin"]
+        },
+        {
+            "english": "My dad works at the bank.",
+            "correctWords": ["Mon", "père", "travaille", "à", "la", "banque"],
+            "extraWords": ["école", "hôpital", "restaurant", "magasin"]
+        },
+        {
+            "english": "She wears a warm coat in winter.",
+            "correctWords": ["Elle", "porte", "un", "manteau", "chaud", "en", "hiver"],
+            "extraWords": ["été", "jupe", "chapeau", "pantalon"]
+        }, {
+            "english": "The cat is sleeping on the bed.",
+            "correctWords": ["Le", "chat", "dort", "sur", "le", "lit"],
+            "extraWords": ["chien", "manger", "jouer", "coucher"]
+        },
+        {
+            "english": "I like to play outside in the garden.",
+            "correctWords": ["J'aime", "jouer", "dehors", "dans", "le", "jardin"],
+            "extraWords": ["lire", "école", "maison", "balade"]
+        },
+        {
+            "english": "My brother is reading a book.",
+            "correctWords": ["Mon", "frère", "lit", "un", "livre"],
+            "extraWords": ["soeur", "jouer", "manger", "écrire"]
+        },
+        {
+            "english": "She is writing a letter to her friend.",
+            "correctWords": ["Elle", "écrit", "une", "lettre", "à", "son", "ami"],
+            "extraWords": ["lire", "jouer", "regarder", "dessiner"]
+        },
+        {
+            "english": "We are going to the beach tomorrow.",
+            "correctWords": ["Nous", "allons", "à", "la", "plage", "demain"],
+            "extraWords": ["maison", "école", "parc", "voiture"]
+        },
+        {
+            "english": "The dog is chasing the ball.",
+            "correctWords": ["Le", "chien", "poursuit", "la", "balle"],
+            "extraWords": ["chat", "jouer", "ballon", "marcher"]
+        },
+        {
+            "english": "He is drawing a picture of a tree.",
+            "correctWords": ["Il", "dessine", "un", "dessin", "d'un", "arbre"],
+            "extraWords": ["peindre", "manger", "regarder", "ballon"]
+        },
+        {
+            "english": "I am eating lunch with my friends.",
+            "correctWords": ["Je", "déjeune", "avec", "mes", "amis"],
+            "extraWords": ["dîner", "travailler", "s'amuser", "marcher"]
+        },
+        {
+            "english": "They are riding their bikes in the park.",
+            "correctWords": ["Ils", "font", "du", "vélo", "dans", "le", "parc"],
+            "extraWords": ["marcher", "nager", "écrire", "jouer"]
+        },
+        {
+            "english": "The children are playing soccer in the yard.",
+            "correctWords": ["Les", "enfants", "jouent", "au", "football", "dans", "la", "cour"],
+            "extraWords": ["tennis", "basketball", "rugby", "hockey"]
+        },
+        {
+            "english": "We are going to watch a movie tonight.",
+            "correctWords": ["Nous", "allons", "regarder", "un", "film", "ce", "soir"],
+            "extraWords": ["écrire", "lire", "marcher", "manger"]
+        },
+        {
+            "english": "I like to listen to music while I study.",
+            "correctWords": ["J'aime", "écouter", "de", "la", "musique", "pendant", "que", "j'étudie"],
+            "extraWords": ["jouer", "danser", "étudier", "regarder"]
+        },
+        {
+            "english": "The teacher is explaining the lesson.",
+            "correctWords": ["Le", "professeur", "explique", "la", "leçon"],
+            "extraWords": ["apprendre", "lire", "travailler", "dormir"]
+        },
+        {
+            "english": "My sister is baking cookies.",
+            "correctWords": ["Ma", "sœur", "fait", "cuire", "des", "biscuits"],
+            "extraWords": ["manger", "cuisiner", "lire", "écrire"]
+        },
+        {
+            "english": "They are painting a big house on the wall.",
+            "correctWords": ["Ils", "peignent", "une", "grande", "maison", "sur", "le", "mur"],
+            "extraWords": ["dessiner", "lire", "parler", "jouer"]
+        },
+        {
+            "english": "I am going to the library to read.",
+            "correctWords": ["Je", "vais", "à", "la", "bibliothèque", "pour", "lire"],
+            "extraWords": ["écrire", "manger", "nager", "regarder"]
+        },
+        {
+            "english": "The bird is flying in the sky.",
+            "correctWords": ["L'oiseau", "vole", "dans", "le", "ciel"],
+            "extraWords": ["chat", "chien", "arbre", "voiture"]
+        },
+        {
+            "english": "We are having a picnic at the park.",
+            "correctWords": ["Nous", "faisons", "un", "pique-nique", "au", "parc"],
+            "extraWords": ["jouer", "marcher", "lire", "manger"]
+        },
+        {
+            "english": "My father is fixing the car.",
+            "correctWords": ["Mon", "père", "répare", "la", "voiture"],
+            "extraWords": ["maman", "chien", "chat", "école"]
+        },
+        {
+            "english": "She is wearing a red dress.",
+            "correctWords": ["Elle", "porte", "une", "robe", "rouge"],
+            "extraWords": ["bleue", "noire", "blanche", "grande"]
+        },
+        {
+            "english": "I am cleaning my room.",
+            "correctWords": ["Je", "nettoie", "ma", "chambre"],
+            "extraWords": ["jouer", "manger", "travailler", "lire"]
+        },
+        {
+            "english": "We are learning French in school.",
+            "correctWords": ["Nous", "apprenons", "le", "français", "à", "l'école"],
+            "extraWords": ["mathématiques", "anglais", "histoire", "musique"]
+        },
+        {
+            "english": "The baby is crawling on the floor.",
+            "correctWords": ["Le", "bébé", "rampe", "sur", "le", "sol"],
+            "extraWords": ["marcher", "jouer", "lire", "manger"]
+        },
+        {
+            "english": "My grandmother is knitting a scarf.",
+            "correctWords": ["Ma", "grand-mère", "tricote", "un", "foulard"],
+            "extraWords": ["écrire", "lire", "manger", "danser"]
+        },
+        {
+            "english": "The sun is shining brightly today.",
+            "correctWords": ["Le", "soleil", "brille", "fort", "aujourd'hui"],
+            "extraWords": ["pluie", "nuageux", "vent", "étoile"]
+        },{
+            "english": "I am going to visit my friend this weekend.",
+            "correctWords": ["Je", "vais", "visiter", "mon", "ami", "ce", "week-end"],
+            "extraWords": ["manger", "jouer", "lire", "travailler"]
+        },
+        {
+            "english": "The children are playing in the playground.",
+            "correctWords": ["Les", "enfants", "jouent", "dans", "le", "terrain", "de", "jeux"],
+            "extraWords": ["école", "maison", "parc", "voiture"]
+        },
+        {
+            "english": "My mother is making dinner in the kitchen.",
+            "correctWords": ["Ma", "maman", "prépare", "le", "dîner", "dans", "la", "cuisine"],
+            "extraWords": ["lire", "manger", "étudier", "travailler"]
+        },
+        {
+            "english": "We are going to the zoo tomorrow.",
+            "correctWords": ["Nous", "allons", "au", "zoo", "demain"],
+            "extraWords": ["parc", "école", "plage", "cinéma"]
+        },
+        {
+            "english": "She is reading a book in the living room.",
+            "correctWords": ["Elle", "lit", "un", "livre", "dans", "le", "salon"],
+            "extraWords": ["cuisine", "chambre", "bureau", "voiture"]
+        },
+        {
+            "english": "They are swimming in the pool.",
+            "correctWords": ["Ils", "nagent", "dans", "la", "piscine"],
+            "extraWords": ["marcher", "jouer", "courir", "danser"]
+        },
+        {
+            "english": "I am studying for my French exam.",
+            "correctWords": ["Je", "étudie", "pour", "mon", "examen", "de", "français"],
+            "extraWords": ["manger", "jouer", "lire", "parler"]
+        },
+        {
+            "english": "The dog is barking loudly outside.",
+            "correctWords": ["Le", "chien", "aboie", "fort", "dehors"],
+            "extraWords": ["chat", "voiture", "manger", "dormir"]
+        },
+        {
+            "english": "My friend and I are playing tennis.",
+            "correctWords": ["Mon", "ami", "et", "moi", "jouons", "au", "tennis"],
+            "extraWords": ["football", "basketball", "rugby", "vélo"]
+        },
+        {
+            "english": "We are having a party on Saturday.",
+            "correctWords": ["Nous", "faisons", "une", "fête", "samedi"],
+            "extraWords": ["école", "travail", "manger", "regarder"]
+        },
+        {
+            "english": "The teacher is explaining the rules of the game.",
+            "correctWords": ["Le", "professeur", "explique", "les", "règles", "du", "jeu"],
+            "extraWords": ["écouter", "étudier", "jouer", "parler"]
+        },
+        {
+            "english": "I am going to the park with my sister.",
+            "correctWords": ["Je", "vais", "au", "parc", "avec", "ma", "sœur"],
+            "extraWords": ["école", "restaurant", "cinéma", "plage"]
+        },
+        {
+            "english": "The birds are singing in the trees.",
+            "correctWords": ["Les", "oiseaux", "chantent", "dans", "les", "arbres"],
+            "extraWords": ["chat", "chien", "voiture", "manger"]
+        },
+        {
+            "english": "He is cooking dinner for the family.",
+            "correctWords": ["Il", "cuisine", "le", "dîner", "pour", "la", "famille"],
+            "extraWords": ["manger", "écrire", "lire", "étudier"]
+        },
+        {
+            "english": "We are going to the beach for a picnic.",
+            "correctWords": ["Nous", "allons", "à", "la", "plage", "pour", "un", "pique-nique"],
+            "extraWords": ["pluie", "soleil", "vent", "lune"]
+        },
+        {
+            "english": "I am drawing a picture of a house.",
+            "correctWords": ["Je", "dessine", "un", "dessin", "d'une", "maison"],
+            "extraWords": ["livre", "chat", "arbre", "voiture"]
+        },
+        {
+            "english": "The flowers are blooming in the garden.",
+            "correctWords": ["Les", "fleurs", "éclatent", "dans", "le", "jardin"],
+            "extraWords": ["arbre", "herbe", "rocher", "fleurs"]
+        },
+        {
+            "english": "My dad is fixing the broken fence.",
+            "correctWords": ["Mon", "papa", "répare", "la", "clôture", "cassée"],
+            "extraWords": ["chat", "chien", "maison", "voiture"]
+        },
+        {
+            "english": "We are playing chess together.",
+            "correctWords": ["Nous", "jouons", "aux", "échecs", "ensemble"],
+            "extraWords": ["soccer", "basketball", "football", "tennis"]
+        },
+        {
+            "english": "She is wearing a beautiful dress.",
+            "correctWords": ["Elle", "porte", "une", "belle", "robe"],
+            "extraWords": ["pantalon", "jupe", "chaussures", "blouson"]
+        },
+        {
+            "english": "They are building a sandcastle at the beach.",
+            "correctWords": ["Ils", "construisent", "un", "château", "de", "sable", "à", "la", "plage"],
+            "extraWords": ["maison", "voiture", "chien", "chat"]
+        },
+        {
+            "english": "I am going to buy some groceries.",
+            "correctWords": ["Je", "vais", "acheter", "des", "courses"],
+            "extraWords": ["lire", "étudier", "manger", "regarder"]
+        },
+        {
+            "english": "My cousin is visiting us for the weekend.",
+            "correctWords": ["Mon", "cousin", "nous", "rend", "visite", "pour", "le", "week-end"],
+            "extraWords": ["manger", "jouer", "regarder", "travailler"]
+        }, {
+            "english": "I am going to the store to buy some bread.",
+            "correctWords": ["Je", "vais", "au", "magasin", "acheter", "du", "pain"],
+            "extraWords": ["fromage", "lait", "beurre", "bananes"]
+        },
+        {
+            "english": "The cat is sleeping on the couch.",
+            "correctWords": ["Le", "chat", "dort", "sur", "le", "canapé"],
+            "extraWords": ["chien", "arbre", "lit", "bureau"]
+        },
+        {
+            "english": "She is drinking a glass of water.",
+            "correctWords": ["Elle", "boit", "un", "verre", "d'eau"],
+            "extraWords": ["jus", "soda", "café", "lait"]
+        },
+        {
+            "english": "We are reading a book about history.",
+            "correctWords": ["Nous", "lisons", "un", "livre", "sur", "l'histoire"],
+            "extraWords": ["mathématiques", "sciences", "littérature", "géographie"]
+        },
+        {
+            "english": "They are walking to school together.",
+            "correctWords": ["Ils", "marchent", "à", "l'école", "ensemble"],
+            "extraWords": ["à", "la", "plage", "au", "magasin"]
+        },
+        {
+            "english": "I am writing a letter to my grandmother.",
+            "correctWords": ["Je", "écris", "une", "lettre", "à", "ma", "grand-mère"],
+            "extraWords": ["livre", "maman", "papa", "sœur"]
+        },
+        {
+            "english": "My brother is playing the guitar.",
+            "correctWords": ["Mon", "frère", "joue", "de", "la", "guitare"],
+            "extraWords": ["piano", "violon", "batterie", "flûte"]
+        },
+        {
+            "english": "The children are learning to swim.",
+            "correctWords": ["Les", "enfants", "apprennent", "à", "nager"],
+            "extraWords": ["lire", "écrire", "jouer", "parler"]
+        },
+        {
+            "english": "She is making a cake for her birthday.",
+            "correctWords": ["Elle", "fait", "un", "gâteau", "pour", "son", "anniversaire"],
+            "extraWords": ["soupe", "salade", "sandwich", "pâtisserie"]
+        },
+        {
+            "english": "I need to clean my room today.",
+            "correctWords": ["J'ai", "besoin", "de", "nettoyer", "ma", "chambre", "aujourd'hui"],
+            "extraWords": ["écrire", "jouer", "manger", "danser"]
+        },
+        {
+            "english": "We are visiting our grandparents this summer.",
+            "correctWords": ["Nous", "rendons", "visite", "à", "nos", "grands-parents", "cet", "été"],
+            "extraWords": ["hiver", "automne", "printemps", "vacances"]
+        },
+        {
+            "english": "The teacher is explaining the lesson to the students.",
+            "correctWords": ["Le", "professeur", "explique", "la", "leçon", "aux", "étudiants"],
+            "extraWords": ["livre", "bureau", "école", "écrire"]
+        },
+        {
+            "english": "I want to go to the park with my friends.",
+            "correctWords": ["Je", "veux", "aller", "au", "parc", "avec", "mes", "amis"],
+            "extraWords": ["magasin", "cinéma", "restaurant", "école"]
+        },
+        {
+            "english": "He is cleaning the garage this morning.",
+            "correctWords": ["Il", "nettoie", "le", "garage", "ce", "matin"],
+            "extraWords": ["salon", "chambre", "cuisine", "bureau"]
+        },
+        {
+            "english": "We are having lunch in the park today.",
+            "correctWords": ["Nous", "déjeunons", "au", "parc", "aujourd'hui"],
+            "extraWords": ["restaurant", "maison", "plage", "école"]
+        },
+        {
+            "english": "They are playing video games in the living room.",
+            "correctWords": ["Ils", "jouent", "à", "des", "jeux", "vidéo", "dans", "le", "salon"],
+            "extraWords": ["basketball", "tennis", "football", "rugby"]
+        },
+        {
+            "english": "I am taking the bus to work.",
+            "correctWords": ["Je", "prends", "le", "bus", "pour", "le", "travail"],
+            "extraWords": ["voiture", "vélo", "métro", "marche"]
+        },
+        {
+            "english": "We are watching a movie at the cinema.",
+            "correctWords": ["Nous", "regardons", "un", "film", "au", "cinéma"],
+            "extraWords": ["télévision", "téléphone", "ordinateur", "tablette"]
+        },
+        {
+            "english": "She is talking to her friends on the phone.",
+            "correctWords": ["Elle", "parle", "à", "ses", "amis", "au", "téléphone"],
+            "extraWords": ["écrire", "écouter", "manger", "jouer"]
+        },
+        {
+            "english": "I am buying groceries for the week.",
+            "correctWords": ["Je", "achète", "des", "courses", "pour", "la", "semaine"],
+            "extraWords": ["pain", "fromage", "beurre", "lait"]
+        },
+        {
+            "english": "They are going on a trip to Paris.",
+            "correctWords": ["Ils", "vont", "en", "voyage", "à", "Paris"],
+            "extraWords": ["Londres", "Rome", "Madrid", "New", "York"]
+        },
+        {
+            "english": "I am playing soccer with my friends.",
+            "correctWords": ["Je", "joue", "au", "football", "avec", "mes", "amis"],
+            "extraWords": ["tennis", "basketball", "rugby", "hockey"]
+        },
+        {
+            "english": "My parents are going to the restaurant tonight.",
+            "correctWords": ["Mes", "parents", "vont", "au", "restaurant", "ce", "soir"],
+            "extraWords": ["magasin", "plage", "école", "cinéma"]
+        },{
+            "english": "I am learning how to ride a bike.",
+            "correctWords": ["J'apprends", "à", "faire", "du", "vélo"],
+            "extraWords": ["moto", "vélo", "marche", "course"]
+        },
+        {
+            "english": "The dog is playing with a ball.",
+            "correctWords": ["Le", "chien", "joue", "avec", "une", "balle"],
+            "extraWords": ["chat", "jouet", "ballon", "cage"]
+        },
+        {
+            "english": "She is going to the library to study.",
+            "correctWords": ["Elle", "va", "à", "la", "bibliothèque", "pour", "étudier"],
+            "extraWords": ["école", "magasin", "restaurant", "cinéma"]
+        },
+        {
+            "english": "I am cooking dinner for my family.",
+            "correctWords": ["Je", "cuisine", "le", "dîner", "pour", "ma", "famille"],
+            "extraWords": ["petit", "déjeuner", "déjeuner", "salade"]
+        },
+        {
+            "english": "We are watching a soccer game on TV.",
+            "correctWords": ["Nous", "regardons", "un", "match", "de", "football", "à", "la", "télévision"],
+            "extraWords": ["film", "émission", "jeu", "concours"]
+        },
+        {
+            "english": "They are traveling to the mountains for vacation.",
+            "correctWords": ["Ils", "voyagent", "aux", "montagnes", "pour", "les", "vacances"],
+            "extraWords": ["plage", "camping", "parc", "piscine"]
+        },
+        {
+            "english": "The baby is playing with her toys.",
+            "correctWords": ["Le", "bébé", "joue", "avec", "ses", "jouets"],
+            "extraWords": ["ballon", "circuit", "puzzle", "poupée"]
+        },
+        {
+            "english": "I am going to the bakery to buy some croissants.",
+            "correctWords": ["Je", "vais", "à", "la", "boulangerie", "acheter", "des", "croissants"],
+            "extraWords": ["pain", "fromage", "pâtisserie", "gâteaux"]
+        },
+        {
+            "english": "She is going to the doctor for a checkup.",
+            "correctWords": ["Elle", "va", "chez", "le", "médecin", "pour", "un", "bilan", "de", "santé"],
+            "extraWords": ["dentiste", "hôpital", "pharmacie", "centre"]
+        },
+        {
+            "english": "We are playing a board game together.",
+            "correctWords": ["Nous", "jouons", "à", "un", "jeu", "de", "société", "ensemble"],
+            "extraWords": ["jeu", "vidéo", "échecs", "cartes"]
+        },
+        {
+            "english": "I need to clean the windows today.",
+            "correctWords": ["Je", "dois", "nettoyer", "les", "fenêtres", "aujourd'hui"],
+            "extraWords": ["sol", "plafond", "murs", "porte"]
+        },
+        {
+            "english": "He is playing basketball with his friends.",
+            "correctWords": ["Il", "joue", "au", "basketball", "avec", "ses", "amis"],
+            "extraWords": ["tennis", "football", "rugby", "volleyball"]
+        },
+        {
+            "english": "The flowers are blooming in the garden.",
+            "correctWords": ["Les", "fleurs", "éclosent", "dans", "le", "jardin"],
+            "extraWords": ["arbre", "plante", "potager", "herbe"]
+        },
+        {
+            "english": "We are going to the zoo this weekend.",
+            "correctWords": ["Nous", "allons", "au", "zoo", "ce", "week-end"],
+            "extraWords": ["musée", "parc", "cinéma", "plage"]
+        },
+        {
+            "english": "They are having a party at their house.",
+            "correctWords": ["Ils", "ont", "une", "fête", "chez", "eux"],
+            "extraWords": ["dîner", "réunion", "concours", "rencontre"]
+        },
+        {
+            "english": "I am taking a walk in the park.",
+            "correctWords": ["Je", "me", "promène", "dans", "le", "parc"],
+            "extraWords": ["maison", "école", "magasin", "forêt"]
+        },
+        {
+            "english": "We are making sandwiches for lunch.",
+            "correctWords": ["Nous", "faisons", "des", "sandwiches", "pour", "le", "déjeuner"],
+            "extraWords": ["salade", "casse-croûte", "gâteaux", "souper"]
+        },
+        {
+            "english": "I am learning to play the piano.",
+            "correctWords": ["J'apprends", "à", "jouer", "du", "piano"],
+            "extraWords": ["violon", "guitare", "batterie", "flûte"]
+        },
+        {
+            "english": "The birds are singing in the trees.",
+            "correctWords": ["Les", "oiseaux", "chantent", "dans", "les", "arbres"],
+            "extraWords": ["chat", "chien", "mouton", "cheval"]
+        },
+        {
+            "english": "She is helping her mother in the kitchen.",
+            "correctWords": ["Elle", "aide", "sa", "mère", "dans", "la", "cuisine"],
+            "extraWords": ["salon", "chambre", "garage", "bureau"]
+        },
+        {
+            "english": "We are building a snowman in the yard.",
+            "correctWords": ["Nous", "construisons", "un", "bonhomme", "de", "neige", "dans", "le", "jardin"],
+            "extraWords": ["arbre", "maison", "voiture", "plage"]
+        },
+        {
+            "english": "I am looking for my keys.",
+            "correctWords": ["Je", "cherche", "mes", "clés"],
+            "extraWords": ["chaussures", "sac", "portable", "manteau"]
+        },
+        {
+            "english": "They are listening to music on the radio.",
+            "correctWords": ["Ils", "écoutent", "de", "la", "musique", "à", "la", "radio"],
+            "extraWords": ["télévision", "ordinateur", "téléphone", "disque"]
+        },{
+            "english": "I am drawing a picture of a dog.",
+            "correctWords": ["Je", "dessine", "une", "image", "d'un", "chien"],
+            "extraWords": ["chat", "oiseau", "poisson", "cheval"]
+        },
+        {
+            "english": "We are going to the pool to swim.",
+            "correctWords": ["Nous", "allons", "à", "la", "piscine", "nager"],
+            "extraWords": ["plage", "lac", "rivière", "mer"]
+        },
+        {
+            "english": "She is wearing a red dress.",
+            "correctWords": ["Elle", "porte", "une", "robe", "rouge"],
+            "extraWords": ["chemise", "pantalon", "jupe", "veste"]
+        },
+        {
+            "english": "The children are playing in the playground.",
+            "correctWords": ["Les", "enfants", "jouent", "dans", "le", "terrain", "de", "jeu"],
+            "extraWords": ["école", "jardin", "parc", "maison"]
+        },
+        {
+            "english": "I am reading a book in the library.",
+            "correctWords": ["Je", "lis", "un", "livre", "à", "la", "bibliothèque"],
+            "extraWords": ["magasin", "école", "restaurant", "parc"]
+        },
+        {
+            "english": "They are playing cards at the table.",
+            "correctWords": ["Ils", "jouent", "aux", "cartes", "à", "la", "table"],
+            "extraWords": ["échecs", "dominos", "jeu", "puzzle"]
+        },
+        {
+            "english": "I am baking cookies in the oven.",
+            "correctWords": ["Je", "fais", "des", "biscuits", "dans", "le", "four"],
+            "extraWords": ["gâteau", "tarte", "pain", "pâtisserie"]
+        },
+        {
+            "english": "We are taking a walk in the park.",
+            "correctWords": ["Nous", "nous", "promenons", "dans", "le", "parc"],
+            "extraWords": ["maison", "école", "magasin", "forêt"]
+        },
+        {
+            "english": "He is playing the guitar in the living room.",
+            "correctWords": ["Il", "joue", "de", "la", "guitare", "dans", "le", "salon"],
+            "extraWords": ["violon", "piano", "batterie", "flûte"]
+        },
+        {
+            "english": "We are going to the cinema to watch a movie.",
+            "correctWords": ["Nous", "allons", "au", "cinéma", "regarder", "un", "film"],
+            "extraWords": ["télévision", "restaurant", "parc", "plage"]
+        },
+        {
+            "english": "I am painting the walls of my room.",
+            "correctWords": ["Je", "peins", "les", "murs", "de", "ma", "chambre"],
+            "extraWords": ["porte", "fenêtre", "plafond", "plancher"]
+        },
+        {
+            "english": "They are playing volleyball at the beach.",
+            "correctWords": ["Ils", "jouent", "au", "volley-ball", "à", "la", "plage"],
+            "extraWords": ["basketball", "football", "rugby", "tennis"]
+        },
+        {
+            "english": "I am going to the store to buy some bread.",
+            "correctWords": ["Je", "vais", "au", "magasin", "acheter", "du", "pain"],
+            "extraWords": ["fromage", "légumes", "fruits", "viande"]
+        },
+        {
+            "english": "She is playing with her cat.",
+            "correctWords": ["Elle", "joue", "avec", "son", "chat"],
+            "extraWords": ["chien", "oiseau", "poisson", "hamster"]
+        },
+        {
+            "english": "We are having a barbecue in the backyard.",
+            "correctWords": ["Nous", "faisons", "un", "barbecue", "dans", "le", "jardin"],
+            "extraWords": ["fête", "dîner", "déjeuner", "réunion"]
+        },
+        {
+            "english": "The teacher is giving a lesson to the class.",
+            "correctWords": ["Le", "professeur", "donne", "une", "leçon", "à", "la", "classe"],
+            "extraWords": ["étudiant", "élève", "collège", "école"]
+        },
+        {
+            "english": "I am writing a letter to my friend.",
+            "correctWords": ["J'écris", "une", "lettre", "à", "mon", "ami"],
+            "extraWords": ["message", "email", "carte", "note"]
+        },
+        {
+            "english": "They are singing songs in the choir.",
+            "correctWords": ["Ils", "chantent", "des", "chansons", "dans", "le", "chœur"],
+            "extraWords": ["groupe", "orchestre", "musique", "concert"]
+        },
+        {
+            "english": "We are visiting the museum tomorrow.",
+            "correctWords": ["Nous", "visitons", "le", "musée", "demain"],
+            "extraWords": ["cinéma", "parc", "bibliothèque", "restaurant"]
+        },
+        {
+            "english": "I am cleaning my room this afternoon.",
+            "correctWords": ["Je", "nettoie", "ma", "chambre", "cet", "après-midi"],
+            "extraWords": ["salon", "bureau", "cuisine", "salle"]
+        },
+        {
+            "english": "The dog is barking loudly in the yard.",
+            "correctWords": ["Le", "chien", "aboie", "fort", "dans", "le", "jardin"],
+            "extraWords": ["chat", "oiseau", "cheval", "poisson"]
+        },
+        {
+            "english": "They are waiting for the bus at the station.",
+            "correctWords": ["Ils", "attendent", "le", "bus", "à", "la", "station"],
+            "extraWords": ["train", "métro", "avion", "voiture"]
+        }, {
+            "english": "We are going to eat lunch at the restaurant.",
+            "correctWords": ["Nous", "allons", "manger", "le", "déjeuner", "au", "restaurant"],
+            "extraWords": ["dîner", "petit-déjeuner", "goûter", "soupe"]
+        },
+        {
+            "english": "She is wearing a blue jacket.",
+            "correctWords": ["Elle", "porte", "une", "veste", "bleue"],
+            "extraWords": ["robe", "chemise", "pantalon", "jupe"]
+        },
+        {
+            "english": "I like to play soccer with my friends.",
+            "correctWords": ["J'aime", "jouer", "au", "football", "avec", "mes", "amis"],
+            "extraWords": ["basketball", "tennis", "rugby", "volley-ball"]
+        },
+        {
+            "english": "He is studying for the test.",
+            "correctWords": ["Il", "étudie", "pour", "le", "test"],
+            "extraWords": ["examen", "contrôle", "quiz", "devoir"]
+        },
+        {
+            "english": "They are swimming in the lake.",
+            "correctWords": ["Ils", "nagent", "dans", "le", "lac"],
+            "extraWords": ["océan", "rivière", "piscine", "mer"]
+        },
+        {
+            "english": "The teacher is explaining the lesson.",
+            "correctWords": ["Le", "professeur", "explique", "la", "leçon"],
+            "extraWords": ["cours", "chapitre", "exercice", "question"]
+        },
+        {
+            "english": "We are making a cake for the party.",
+            "correctWords": ["Nous", "faisons", "un", "gâteau", "pour", "la", "fête"],
+            "extraWords": ["tarte", "biscuit", "pain", "salade"]
+        },
+        {
+            "english": "I am drawing a picture of the mountain.",
+            "correctWords": ["Je", "dessine", "une", "image", "de", "la", "montagne"],
+            "extraWords": ["plage", "rivière", "forêt", "désert"]
+        },
+        {
+            "english": "They are reading a book in the garden.",
+            "correctWords": ["Ils", "lisent", "un", "livre", "dans", "le", "jardin"],
+            "extraWords": ["salon", "bibliothèque", "parc", "café"]
+        },
+        {
+            "english": "She is playing the piano in the living room.",
+            "correctWords": ["Elle", "joue", "du", "piano", "dans", "le", "salon"],
+            "extraWords": ["guitare", "violon", "batterie", "flûte"]
+        },
+        {
+            "english": "I am going to buy some apples at the market.",
+            "correctWords": ["Je", "vais", "acheter", "des", "pommes", "au", "marché"],
+            "extraWords": ["bananes", "poires", "oranges", "raisins"]
+        },
+        {
+            "english": "The bird is flying in the sky.",
+            "correctWords": ["L'oiseau", "vole", "dans", "le", "ciel"],
+            "extraWords": ["nuage", "étoile", "lune", "soleil"]
+        },
+        {
+            "english": "We are cleaning the house today.",
+            "correctWords": ["Nous", "nettoyons", "la", "maison", "aujourd'hui"],
+            "extraWords": ["salon", "cuisine", "salle", "garage"]
+        },
+        {
+            "english": "I am reading a magazine in the living room.",
+            "correctWords": ["Je", "lis", "un", "magazine", "dans", "le", "salon"],
+            "extraWords": ["livre", "journal", "lettre", "email"]
+        },
+        {
+            "english": "They are building a sandcastle on the beach.",
+            "correctWords": ["Ils", "construisent", "un", "château", "de", "sable", "sur", "la", "plage"],
+            "extraWords": ["maison", "pont", "barrage", "moulin"]
+        },
+        {
+            "english": "I am listening to music in my room.",
+            "correctWords": ["J'écoute", "de", "la", "musique", "dans", "ma", "chambre"],
+            "extraWords": ["radio", "télévision", "film", "livre"]
+        },
+        {
+            "english": "She is cooking dinner in the kitchen.",
+            "correctWords": ["Elle", "cuisine", "le", "dîner", "dans", "la", "cuisine"],
+            "extraWords": ["déjeuner", "petit-déjeuner", "goûter", "désert"]
+        },
+        {
+            "english": "We are visiting the zoo tomorrow.",
+            "correctWords": ["Nous", "visitons", "le", "zoo", "demain"],
+            "extraWords": ["musée", "parc", "cinéma", "bibliothèque"]
+        },
+        {
+            "english": "I am playing video games with my brother.",
+            "correctWords": ["Je", "joue", "à", "des", "jeux", "vidéo", "avec", "mon", "frère"],
+            "extraWords": ["télévision", "ordinateur", "film", "puzzle"]
+        },
+        {
+            "english": "He is painting a picture of the ocean.",
+            "correctWords": ["Il", "peint", "une", "image", "de", "l'océan"],
+            "extraWords": ["rivière", "lac", "plage", "montagne"]
+        },
+        {
+            "english": "They are dancing at the party.",
+            "correctWords": ["Ils", "dansent", "à", "la", "fête"],
+            "extraWords": ["marchent", "courent", "chante", "jouent"]
+        },
+        {
+            "english": "I am working on my homework in the office.",
+            "correctWords": ["Je", "travaille", "sur", "mes", "devoirs", "dans", "le", "bureau"],
+            "extraWords": ["chambre", "salon", "cuisine", "parc"]
+        },{
+            "english": "He is playing basketball with his friends.",
+            "correctWords": ["Il", "joue", "au", "basketball", "avec", "ses", "amis"],
+            "extraWords": ["football", "tennis", "volleyball", "hockey"]
+        },
+        {
+            "english": "She is making a sandwich in the kitchen.",
+            "correctWords": ["Elle", "fait", "un", "sandwich", "dans", "la", "cuisine"],
+            "extraWords": ["salade", "pâtes", "soupe", "omelette"]
+        },
+        {
+            "english": "We are going to visit the museum tomorrow.",
+            "correctWords": ["Nous", "allons", "visiter", "le", "musée", "demain"],
+            "extraWords": ["parc", "cinéma", "zoo", "bibliothèque"]
+        },
+        {
+            "english": "I like to drink hot chocolate in the winter.",
+            "correctWords": ["J'aime", "boire", "du", "chocolat", "chaud", "en", "hiver"],
+            "extraWords": ["thé", "café", "jus", "eau"]
+        },
+        {
+            "english": "They are going to the park to play.",
+            "correctWords": ["Ils", "vont", "au", "parc", "pour", "jouer"],
+            "extraWords": ["école", "maison", "restaurant", "cinéma"]
+        },
+        {
+            "english": "She is singing a song in front of the class.",
+            "correctWords": ["Elle", "chante", "une", "chanson", "devant", "la", "classe"],
+            "extraWords": ["musique", "danse", "poème", "jeu"]
+        },
+        {
+            "english": "I am reading a newspaper in the morning.",
+            "correctWords": ["Je", "lis", "un", "journal", "le", "matin"],
+            "extraWords": ["magazine", "livre", "lettre", "email"]
+        },
+        {
+            "english": "He is running in the park with his dog.",
+            "correctWords": ["Il", "court", "dans", "le", "parc", "avec", "son", "chien"],
+            "extraWords": ["chat", "oiseau", "poisson", "hamster"]
+        },
+        {
+            "english": "We are watching a movie at the theater.",
+            "correctWords": ["Nous", "regardons", "un", "film", "au", "cinéma"],
+            "extraWords": ["télévision", "dessin", "série", "documentaire"]
+        },
+        {
+            "english": "The children are playing in the garden.",
+            "correctWords": ["Les", "enfants", "jouent", "dans", "le", "jardin"],
+            "extraWords": ["salon", "chambre", "cuisine", "parc"]
+        },
+        {
+            "english": "I am writing a letter to my friend.",
+            "correctWords": ["J'écris", "une", "lettre", "à", "mon", "ami"],
+            "extraWords": ["email", "message", "carte", "poème"]
+        },
+        {
+            "english": "She is eating pizza at the restaurant.",
+            "correctWords": ["Elle", "mange", "de", "la", "pizza", "au", "restaurant"],
+            "extraWords": ["pâtes", "salade", "sandwich", "soupe"]
+        },
+        {
+            "english": "We are going to the beach in the summer.",
+            "correctWords": ["Nous", "allons", "à", "la", "plage", "en", "été"],
+            "extraWords": ["hiver", "automne", "printemps", "vacances"]
+        },
+        {
+            "english": "I am looking at the stars in the night sky.",
+            "correctWords": ["Je", "regarde", "les", "étoiles", "dans", "le", "ciel", "nocturne"],
+            "extraWords": ["soleil", "lune", "nuages", "pluie"]
+        },
+        {
+            "english": "They are riding bikes in the park.",
+            "correctWords": ["Ils", "font", "du", "vélo", "dans", "le", "parc"],
+            "extraWords": ["vélo", "cheval", "moto", "planche"]
+        },
+        {
+            "english": "She is cooking soup for lunch.",
+            "correctWords": ["Elle", "cuisine", "de", "la", "soupe", "pour", "le", "déjeuner"],
+            "extraWords": ["pâtes", "riz", "sandwich", "salade"]
+        },
+        {
+            "english": "We are playing cards with our grandparents.",
+            "correctWords": ["Nous", "jouons", "aux", "cartes", "avec", "nos", "grands-parents"],
+            "extraWords": ["dominos", "échecs", "puzzles", "jeu"]
+        },
+        {
+            "english": "He is fixing the car in the garage.",
+            "correctWords": ["Il", "répare", "la", "voiture", "dans", "le", "garage"],
+            "extraWords": ["maison", "salon", "jardin", "bureau"]
+        },
+        {
+            "english": "She is studying English in her room.",
+            "correctWords": ["Elle", "étudie", "l'anglais", "dans", "sa", "chambre"],
+            "extraWords": ["français", "mathématiques", "histoire", "science"]
+        },
+        {
+            "english": "They are watching TV in the living room.",
+            "correctWords": ["Ils", "regardent", "la", "télévision", "dans", "le", "salon"],
+            "extraWords": ["ordinateur", "téléphone", "radio", "film"]
+        },
+        {
+            "english": "I am taking a walk in the park.",
+            "correctWords": ["Je", "me", "promène", "dans", "le", "parc"],
+            "extraWords": ["forêt", "plage", "jardin", "centre commercial"]
+        },
+        {
+            "english": "He is playing the guitar in the music room.",
+            "correctWords": ["Il", "joue", "de", "la", "guitare", "dans", "la", "salle", "de", "musique"],
+            "extraWords": ["piano", "batterie", "violon", "flûte"]
+        },{
+            "english": "She is reading a book in the library.",
+            "correctWords": ["Elle", "lit", "un", "livre", "à", "la", "bibliothèque"],
+            "extraWords": ["magazine", "journal", "lettre", "carte"]
+        },
+        {
+            "english": "We are having dinner at the restaurant.",
+            "correctWords": ["Nous", "dînons", "au", "restaurant"],
+            "extraWords": ["déjeuner", "petit-déjeuner", "goûter", "repas"]
+        },
+        {
+            "english": "They are playing video games in the living room.",
+            "correctWords": ["Ils", "jouent", "aux", "jeux", "vidéo", "dans", "le", "salon"],
+            "extraWords": ["ordinateurs", "cartes", "dominos", "puzzles"]
+        },
+        {
+            "english": "I am taking a bus to school.",
+            "correctWords": ["Je", "prends", "un", "autobus", "pour", "l'école"],
+            "extraWords": ["métro", "vélo", "taxi", "voiture"]
+        },
+        {
+            "english": "We are going to buy bread at the bakery.",
+            "correctWords": ["Nous", "allons", "acheter", "du", "pain", "à", "la", "boulangerie"],
+            "extraWords": ["fromage", "viande", "soupe", "salade"]
+        },
+        {
+            "english": "The teacher is explaining the lesson.",
+            "correctWords": ["Le", "professeur", "explique", "la", "leçon"],
+            "extraWords": ["élève", "cours", "examen", "devoir"]
+        },
+        {
+            "english": "She is wearing a red dress.",
+            "correctWords": ["Elle", "porte", "une", "robe", "rouge"],
+            "extraWords": ["jupe", "chemise", "pantalon", "manteau"]
+        },
+        {
+            "english": "He is working in the office.",
+            "correctWords": ["Il", "travaille", "dans", "le", "bureau"],
+            "extraWords": ["école", "restaurant", "magasin", "maison"]
+        },
+        {
+            "english": "We are going to the cinema to watch a movie.",
+            "correctWords": ["Nous", "allons", "au", "cinéma", "pour", "regarder", "un", "film"],
+            "extraWords": ["télévision", "théâtre", "salle", "spectacle"]
+        },
+        {
+            "english": "She is drawing a picture with colored pencils.",
+            "correctWords": ["Elle", "dessine", "un", "dessin", "avec", "des", "crayons", "de", "couleur"],
+            "extraWords": ["peinture", "papier", "stylo", "gomme"]
+        },
+        {
+            "english": "They are singing a song together.",
+            "correctWords": ["Ils", "chantent", "une", "chanson", "ensemble"],
+            "extraWords": ["danse", "poème", "musique", "jeu"]
+        },
+        {
+            "english": "I like to play chess with my grandfather.",
+            "correctWords": ["J'aime", "jouer", "aux", "échecs", "avec", "mon", "grand-père"],
+            "extraWords": ["dominos", "cartes", "puzzles", "jeu"]
+        },
+        {
+            "english": "We are visiting our cousins this weekend.",
+            "correctWords": ["Nous", "visitons", "nos", "cousins", "ce", "week-end"],
+            "extraWords": ["amis", "parents", "voisins", "grands-parents"]
+        },
+        {
+            "english": "She is making a cake for her birthday.",
+            "correctWords": ["Elle", "fait", "un", "gâteau", "pour", "son", "anniversaire"],
+            "extraWords": ["biscuit", "pâtisserie", "pizza", "pain"]
+        },
+        {
+            "english": "He is reading a story to his little sister.",
+            "correctWords": ["Il", "lit", "une", "histoire", "à", "sa", "petite", "sœur"],
+            "extraWords": ["lettre", "article", "message", "poème"]
+        },
+        {
+            "english": "We are walking to the park on this beautiful day.",
+            "correctWords": ["Nous", "marchons", "au", "parc", "en", "ce", "beau", "jour"],
+            "extraWords": ["école", "magasin", "maison", "restaurant"]
+        },
+        {
+            "english": "I am eating a sandwich with cheese and ham.",
+            "correctWords": ["Je", "mange", "un", "sandwich", "au", "fromage", "et", "au", "jambon"],
+            "extraWords": ["salade", "soupe", "riz", "pâtes"]
+        },
+        {
+            "english": "She is riding her bike in the park.",
+            "correctWords": ["Elle", "fait", "du", "vélo", "dans", "le", "parc"],
+            "extraWords": ["moto", "cheval", "planche", "skate"]
+        },
+        {
+            "english": "They are listening to music in the living room.",
+            "correctWords": ["Ils", "écoutent", "de", "la", "musique", "dans", "le", "salon"],
+            "extraWords": ["radio", "télévision", "téléphone", "ordinateur"]
+        },
+        {
+            "english": "We are cooking dinner together.",
+            "correctWords": ["Nous", "cuisinons", "le", "dîner", "ensemble"],
+            "extraWords": ["déjeuner", "petit-déjeuner", "goûter", "repas"]
+        },
+        {
+            "english": "I am writing in my notebook.",
+            "correctWords": ["J'écris", "dans", "mon", "cahier"],
+            "extraWords": ["livre", "papier", "feuille", "lettre"]
+        }
+    ]
+}
