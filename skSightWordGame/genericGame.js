@@ -95,8 +95,9 @@ function playSound() {
         new Audio(currentItem.audio).play();
     } else if (useTTS && currentItem.word) {
         // Use TTS to speak the word
-        const utterance = new SpeechSynthesisUtterance(currentItem.word);
-        speechSynthesis.speak(utterance);
+        speakText(currentItem.word);
+        //const utterance = new SpeechSynthesisUtterance(currentItem.word);
+        //speechSynthesis.speak(utterance);
     } else {
         console.error("No audio or TTS data available for the current item.");
     }
