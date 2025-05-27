@@ -84,11 +84,19 @@
         </ul>
     </div>    
   <button onclick="speak()">Speak</button>
+  <button onclick="speakFrench()">Speak French</button>
 
   <script>
     function speak() {
       if (typeof fully !== "undefined" && fully.textToSpeech) {
         fully.textToSpeech("Hello, this is a test message.");
+      } else {
+        alert("TTS not available: Are you running in Fully Kiosk Browser?");
+      }
+    }
+    function speakFrench() {
+      if (typeof fully !== "undefined" && fully.textToSpeech) {
+        fully.textToSpeech("Bonjour, ceci est un message de test.", "fr-FR");
       } else {
         alert("TTS not available: Are you running in Fully Kiosk Browser?");
       }
