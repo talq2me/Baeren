@@ -31,7 +31,10 @@
         <button class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/sightWord.json&title=Sight Word Game&useAudioFiles=false&useTTS=true">Sight Word Game</button>
         
         <!--button class="button" onclick="location.href='../readAlongGame/readalong-game.html'">Read Along Game</button-->
-        <button class="button required"  data-reveal-code="true" onclick="openNewWindow('https://readalong.google.com')">Google Read Along</button>
+        <button class="button required" data-reveal-code="true"
+            onclick="if (typeof fully !== 'undefined' && fully.startApplication) { fully.startApplication('com.google.android.apps.seekh'); } else { openNewWindow('https://readalong.google.com'); }">
+            Google Read Along
+        </button>
         <button class="button required day-friday"  data-reveal-code="true" onclick="openNewWindow('https://classroom.google.com/c/NTI0MDY0MjM3OTg5')">Google Classroom</button>
     </div>
 
