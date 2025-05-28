@@ -55,7 +55,7 @@ function readText(text, lang = "en-US", onEnd = null) {
         // Fully Kiosk does not support a callback, so estimate duration
         if (typeof onEnd === "function") {
             // Estimate: 150ms per character, min 1s, max 6s
-            const duration = Math.min(Math.max(text.length * 150, 1000), 6000);
+            const duration = Math.min(Math.max(text.length * 150, 200), 1500);
             setTimeout(onEnd, duration);
         }
     } else {
