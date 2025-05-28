@@ -247,13 +247,9 @@ function nextRound() {
         showSoundPartIcon(selectedPart);
 
         // Use TTS to say the instruction
-        const instruction = new SpeechSynthesisUtterance(`Find the ${selectedPart} sound in the word ${word}.`);
-        instruction.lang = 'en-US';
-        instruction.rate = 1;
-        instruction.onend = () => {
-            setTimeout(() => playWordSlowly(currentItem.pronunciation), 500); // Add a short pause
-        };
-        speechSynthesis.speak(instruction);
+        readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en-US', () => {
+            setTimeout(() => playWordSlowly(currentItem.pronunciation), 500);
+        });
     } else if (gameTitle === "Sight Word Game") {
         // Special logic for Sight Word Game
         const messageContainer = document.getElementById("messageContainer");
