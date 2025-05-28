@@ -82,13 +82,9 @@ function playSound() {
         const selectedPart = currentItem.selectedPart;
 
         // Use TTS to repeat the instruction
-        const instruction = new SpeechSynthesisUtterance(`Find the ${selectedPart} sound in the word ${word}:`);
-        instruction.lang = 'en-US';
-        instruction.rate = 1;
-        instruction.onend = () => {
-            setTimeout(() => playWordSlowly(currentItem.pronunciation), 500); // Add a short pause before playing the sounds
-        };
-        speechSynthesis.speak(instruction);
+        readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en-US', () => {
+            setTimeout(() => playWordSlowly(currentItem.pronunciation), 250);
+        });
     } else if (gameTitle === "Sight Word Game") {
         const word = currentItem.word;
 
@@ -248,7 +244,7 @@ function nextRound() {
 
         // Use TTS to say the instruction
         readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en-US', () => {
-            setTimeout(() => playWordSlowly(currentItem.pronunciation), 500);
+            setTimeout(() => playWordSlowly(currentItem.pronunciation), 250);
         });
     } else if (gameTitle === "Sight Word Game") {
         // Special logic for Sight Word Game
