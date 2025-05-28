@@ -37,7 +37,10 @@
 
         <!--button class="button required task-button weekday-only" data-reveal-code="true" data-target-page="../engSpelling/engSpelling.html">Spelling</button>
         <button class="button required task-button " data-reveal-code="true" data-target-page="../dictee/dictee.html">Dictée</button-->
-        <button class="button required sunday-tuesday" data-reveal-code="true" onclick="openNewWindow('https://readalong.google.com')">Google Read Along</button>
+        <button class="button required" data-reveal-code="true"
+            onclick="if (typeof fully !== 'undefined' && fully.startApplication) { fully.startApplication('com.google.android.apps.seekh'); } else { openNewWindow('https://readalong.google.com'); }">
+            Google Read Along
+        </button>
         <button class="button required " data-reveal-code="true" onclick="openNewWindow('https://www.duolingo.com/learn')">Duo Lingo</button>
     </div>
     
@@ -114,6 +117,8 @@
         </ul>
     </div>  
     
+    
+  <button class="button" onclick="window.location.href='fully://launcher'">Apps</button>
     
     <h1>My Bonus Work</h1>
     <div id="bonusWork" class="div-container">
