@@ -3,9 +3,25 @@ function reward(timeInMins) {
   if (typeof fully !== "undefined") {
     fully.startApplication("com.netflix.mediaclient"); // 🚀 Launch Netflix app
     setTimeout(() => {
-      fully.startURL();      // 🔁 Go back to your site after 30 min
+      fully.startURL();      // 🔁 Go back to your site after timeInMins min
     }, rewardTime);
   }
+}
+
+function exitFullyKiosk(){
+    if (typeof fully !== "undefined") {
+        const correctPIN = "1981"; // Change to your secret PIN
+        const userPIN = prompt("Enter Parent PIN:");
+
+        if (userPIN !== correctPIN) {
+            alert("Sorry, that's not the right PIN.");
+            return;
+        }
+        
+        fully.exitKioskMode();
+    } else {
+        console.warn("Fully Kiosk is not available.");
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
