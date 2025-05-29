@@ -40,6 +40,14 @@ button, .button, .task-button, .big-button {
     color: white;
 }
 
+.buttontight {
+    padding: 20px 40px;
+    margin: 5px;
+    font-size: 24px;
+    background-color: #6ac2ff; /* Lighter blue */
+    color: white;
+}
+
 .button:hover {
     background-color: #ff8c00; /* Orange hover effect */
     transform: scale(1.05);

@@ -42,7 +42,8 @@
 
     function closeModal() {
       window.parent.postMessage({ type: "videoEnded" }, "*");
-    }
+    }iframe.allow = "autoplay; encrypted-media";
+        iframe.allowFullscreen = true;
 
     const params = new URLSearchParams(window.location.search);
     const videoUrl = params.get('video');
@@ -54,8 +55,7 @@
       if (videoId) {
         const iframe = document.createElement('iframe');
         iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1&modestbranding=1&rel=0`;
-        iframe.allow = "autoplay; encrypted-media";
-        iframe.allowFullscreen = true;
+        
         container.appendChild(iframe);
 
         // Add YouTube API for end detection
