@@ -102,8 +102,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (lang === "fr-FR") lang = "fr";
             fully.textToSpeech(text, lang);
             if (typeof onEnd === "function") {
-                // Estimate: 40ms per character, min 1s, max 6s
-                const duration = Math.min(Math.max(text.length * 40, 1000), 6000);
+                // Estimate: 60ms per character, min 1s, max 6s
+                const duration = Math.min(Math.max(text.length * 60, 1000), 6000);
                 setTimeout(onEnd, duration);
             }
         } else {
