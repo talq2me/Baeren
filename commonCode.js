@@ -63,8 +63,14 @@ function kioskSettings() {
         console.warn("Fully Kiosk is not available.");
     }
 }
-
-
+document.addEventListener("DOMContentLoaded", function () {
+    if (typeof fully !== "undefined") {
+        // Hide Back and Home buttons if running in Fully Kiosk Browser
+        document.querySelectorAll("button[onclick*='goBack()'], button[onclick*=\"location.href='../index.html'\"]").forEach(btn => {
+            btn.style.display = "none";
+        });
+    }
+});
 document.addEventListener('DOMContentLoaded', function() {
     const overrideBtn = document.getElementById('overrideBtn');
     const kid = document.getElementById("codeDisplay")?.getAttribute("data-kid") || "kid1"; // fallback if not set
