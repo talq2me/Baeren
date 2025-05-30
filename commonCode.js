@@ -1,3 +1,5 @@
+let pin = 1981;
+
 function reward(timeInMins) {
     const rewardTime = timeInMins * 60 * 1000; // Convert minutes to milliseconds
     if (typeof fully !== "undefined") {
@@ -25,7 +27,7 @@ function pokemonGo() {
 
 function exitFullyKiosk(){
     if (typeof fully !== "undefined") {
-        const correctPIN = "1981"; // Change to your secret PIN
+        const correctPIN = pin; // Change to your secret PIN
         const userPIN = prompt("Enter Parent PIN:");
 
         if (userPIN !== correctPIN) {
@@ -50,7 +52,7 @@ function resumeFullyKiosk() {
 
 function kioskSettings() {
     if (typeof fully !== "undefined") {
-        const correctPIN = "1981"; // Change to your secret PIN
+        const correctPIN = pin; // Change to your secret PIN
         const userPIN = prompt("Enter Parent PIN:");
 
         if (userPIN !== correctPIN) {
@@ -69,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const kid = document.getElementById("codeDisplay")?.getAttribute("data-kid") || "kid1"; // fallback if not set
     overrideBtn.addEventListener('click', function() {
         const pin = prompt("Parent PIN:");
-        const correctPin = "1981"; // <-- Change this to your secret PIN!
+        const correctPin = pin; // <-- Change this to your secret PIN!
         if (pin !== correctPin) {
             alert("Sorry, that's not the right PIN.");
             return;
