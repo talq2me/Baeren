@@ -1,11 +1,26 @@
 function reward(timeInMins) {
     const rewardTime = timeInMins * 60 * 1000; // Convert minutes to milliseconds
-  if (typeof fully !== "undefined") {
-    fully.startApplication("com.netflix.mediaclient"); // 🚀 Launch Netflix app
-    setTimeout(() => {
-      fully.startURL();      // 🔁 Go back to your site after timeInMins min
-    }, rewardTime);
-  }
+    if (typeof fully !== "undefined") {
+        fully.startApplication("com.netflix.mediaclient"); // 🚀 Launch Netflix app
+        setTimeout(() => {
+        fully.startURL();      // 🔁 Go back to your site after timeInMins min
+        }, rewardTime);
+    } else {
+            console.warn("Fully Kiosk is not available.");
+    }
+  
+}
+
+function pokemonGo() {
+    const rewardTime = 60 * 60 * 1000; // Convert 60 minutes to milliseconds
+    if (typeof fully !== "undefined") {
+        fully.startApplication("com.nianticlabs.pokemongo"); // 🚀 Launch pokemon go app
+        setTimeout(() => {
+        fully.startURL();      // 🔁 Go back to your site after timeInMins min
+        }, rewardTime);
+    } else {
+        console.warn("Fully Kiosk is not available.");
+    }
 }
 
 function exitFullyKiosk(){
