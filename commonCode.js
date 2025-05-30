@@ -48,6 +48,22 @@ function resumeFullyKiosk() {
     }
 }
 
+function kioskSettings() {
+    if (typeof fully !== "undefined") {
+        const correctPIN = "1981"; // Change to your secret PIN
+        const userPIN = prompt("Enter Parent PIN:");
+
+        if (userPIN !== correctPIN) {
+            alert("Sorry, that's not the right PIN.");
+            return;
+        }
+        fully.openSettings();
+    } else {
+        console.warn("Fully Kiosk is not available.");
+    }
+}
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const overrideBtn = document.getElementById('overrideBtn');
     const kid = document.getElementById("codeDisplay")?.getAttribute("data-kid") || "kid1"; // fallback if not set
