@@ -1,4 +1,4 @@
-let pin = 1981;
+let pin = "1981"; // Parent PIN for unlocking features
 
 function reward(timeInMins) {
     const rewardTime = timeInMins * 60 * 1000; // Convert minutes to milliseconds
