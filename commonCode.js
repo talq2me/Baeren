@@ -39,6 +39,15 @@ function exitFullyKiosk(){
     }
 }
 
+function resumeFullyKiosk() {
+    if (typeof fully !== "undefined") {
+        fully.setDefaultLauncher();
+        fully.startURL(); // Go back to your site
+    } else {
+        console.warn("Fully Kiosk is not available.");
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const overrideBtn = document.getElementById('overrideBtn');
     const kid = document.getElementById("codeDisplay")?.getAttribute("data-kid") || "kid1"; // fallback if not set
