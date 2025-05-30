@@ -27,10 +27,10 @@ function pokemonGo() {
 
 function exitFullyKiosk(){
     if (typeof fully !== "undefined") {
-        const correctPIN = pin; // Change to your secret PIN
+        
         const userPIN = prompt("Enter Parent PIN:");
 
-        if (userPIN !== correctPIN) {
+        if (userPIN !== pin) {
             alert("Sorry, that's not the right PIN.");
             return;
         }
@@ -52,10 +52,9 @@ function resumeFullyKiosk() {
 
 function kioskSettings() {
     if (typeof fully !== "undefined") {
-        const correctPIN = pin; // Change to your secret PIN
         const userPIN = prompt("Enter Parent PIN:");
 
-        if (userPIN !== correctPIN) {
+        if (userPIN !== pin) {
             alert("Sorry, that's not the right PIN.");
             return;
         }
@@ -70,9 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const overrideBtn = document.getElementById('overrideBtn');
     const kid = document.getElementById("codeDisplay")?.getAttribute("data-kid") || "kid1"; // fallback if not set
     overrideBtn.addEventListener('click', function() {
-        const pin = prompt("Parent PIN:");
-        const correctPin = pin; // <-- Change this to your secret PIN!
-        if (pin !== correctPin) {
+        const userPIN = prompt("Parent PIN:");
+        if (userPIN !== pin) {
             alert("Sorry, that's not the right PIN.");
             return;
         }
