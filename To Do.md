@@ -1,9 +1,14 @@
 # To Do
 
+- is there a way to exit fully completely through api? with pin?
+- update baels extra school work (pick book report format)
+- work on book report project 10 mins each day
+- french reading
+- make a way of updating minutes earned
+- make video and games issue points on modal close
+
 - more read aloud sentences
-- math game for both
 - Gr 3 verb conjugation game (avoir, etre, er verbs, ir verbs, aller) Pick the correct ending for: ils saut (ent, ant, ez, ons)
-- french reading comprehension game: given french  sentence at grade 3 level, pick from one of the 3 english sentences that matches (where these are designed to trick you)
 
 - more french book links
 - french spelling game: spell bobo, cica, mopu, etc

@@ -1,0 +1,1382 @@
+[
+    {
+        "word": "chat",
+        "choices": ["chat", "chet", "chot", "chta", "caht"]
+    },
+    {
+        "word": "chien",
+        "choices": ["chien", "chein", "chian", "cheen", "chyen"]
+    },
+    {
+        "word": "arbre",
+        "choices": ["arbre", "arber", "abrer", "arbre", "abrre"]
+    },
+    {
+        "word": "fleur",
+        "choices": ["fleur", "fluer", "fleu", "fleur", "felur"]
+    },
+    {
+        "word": "maison",
+        "choices": ["maison", "mason", "maisson", "maisn", "moisan"]
+    },
+    {
+        "word": "lune",
+        "choices": ["lune", "lenu", "luen", "luna", "lune"]
+    },
+    {
+        "word": "étoile",
+        "choices": ["étoile", "etoile", "étoil", "etiol", "étoiel"]
+    },
+    {
+        "word": "pomme",
+        "choices": ["pomme", "pome", "pomm", "pomem", "poome"]
+    },
+    {
+        "word": "livre",
+        "choices": ["livre", "livr", "lirve", "livra", "liver"]
+    },
+    {
+        "word": "école",
+        "choices": ["école", "ecole", "écol", "ekole", "écloe"]
+    },
+    {
+        "word": "pain",
+        "choices": ["pain", "pani", "pian", "paen", "pin"]
+    },
+    {
+        "word": "eau",
+        "choices": ["eau", "aeu", "eou", "uae", "eua"]
+    },
+    {
+        "word": "ciel",
+        "choices": ["ciel", "ceil", "cile", "ceal", "ciell"]
+    },
+    {
+        "word": "mer",
+        "choices": ["mer", "mre", "emr", "merr", "mear"]
+    },
+    {
+        "word": "poisson",
+        "choices": ["poisson", "posson", "poissn", "pisoon", "poissno"]
+    },
+    {
+        "word": "oiseau",
+        "choices": ["oiseau", "oiseu", "oisau", "oiesau", "oiseua"]
+    },
+    {
+        "word": "jardin",
+        "choices": ["jardin", "jardn", "jardni", "jadran", "jardain"]
+    },
+    {
+        "word": "voiture",
+        "choices": ["voiture", "voituer", "voutire", "voitur", "voitire"]
+    },
+    {
+        "word": "table",
+        "choices": ["table", "tabel", "talbe", "tablle", "teble"]
+    },
+    {
+        "word": "chaise",
+        "choices": ["chaise", "chais", "chiase", "chasie", "chaiss"]
+    },
+    {
+        "word": "fenêtre",
+        "choices": ["fenêtre", "fenetre", "fênetre", "fenêt", "fenet"]
+    },
+    {
+        "word": "porte",
+        "choices": ["porte", "port", "poret", "potre", "porrte"]
+    },
+    {
+        "word": "lit",
+        "choices": ["lit", "li", "lti", "ilt", "litt"]
+    },
+    {
+        "word": "fille",
+        "choices": ["fille", "fil", "fllie", "fiel", "fillee"]
+    },
+    {
+        "word": "garçon",
+        "choices": ["garçon", "garcon", "garçn", "gacon", "garçon"]
+    },
+    {
+        "word": "arbre",
+        "choices": ["arbre", "arber", "abrer", "arbre", "abrre"]
+    },
+    {
+        "word": "soleil",
+        "choices": ["soleil", "soliel", "solel", "soelil", "sollil"]
+    },
+    {
+        "word": "lune",
+        "choices": ["lune", "lenu", "luen", "luna", "lune"]
+    },
+    {
+        "word": "chat",
+        "choices": ["chat", "chet", "chot", "chta", "caht"]
+    },
+    {
+        "word": "chien",
+        "choices": ["chien", "chein", "chian", "cheen", "chyen"]
+    },
+    {
+        "word": "fleur",
+        "choices": ["fleur", "fluer", "fleu", "fleur", "felur"]
+    },
+    {
+        "word": "maison",
+        "choices": ["maison", "mason", "maisson", "maisn", "moisan"]
+    },
+    {
+        "word": "étoile",
+        "choices": ["étoile", "etoile", "étoil", "etiol", "étoiel"]
+    },
+    {
+        "word": "pomme",
+        "choices": ["pomme", "pome", "pomm", "pomem", "poome"]
+    },
+    {
+        "word": "livre",
+        "choices": ["livre", "livr", "lirve", "livra", "liver"]
+    },
+    {
+        "word": "école",
+        "choices": ["école", "ecole", "écol", "ekole", "écloe"]
+    },
+    {
+        "word": "pain",
+        "choices": ["pain", "pani", "pian", "paen", "pin"]
+    },
+    {
+        "word": "eau",
+        "choices": ["eau", "aeu", "eou", "uae", "eua"]
+    },
+    {
+        "word": "ciel",
+        "choices": ["ciel", "ceil", "cile", "ceal", "ciell"]
+    },
+    {
+        "word": "mer",
+        "choices": ["mer", "mre", "emr", "merr", "mear"]
+    },
+    {
+        "word": "poisson",
+        "choices": ["poisson", "posson", "poissn", "pisoon", "poissno"]
+    },
+    {
+        "word": "oiseau",
+        "choices": ["oiseau", "oiseu", "oisau", "oiesau", "oiseua"]
+    },
+    {
+        "word": "jardin",
+        "choices": ["jardin", "jardn", "jardni", "jadran", "jardain"]
+    },
+    {
+        "word": "voiture",
+        "choices": ["voiture", "voituer", "voutire", "voitur", "voitire"]
+    },
+    {
+        "word": "table",
+        "choices": ["table", "tabel", "talbe", "tablle", "teble"]
+    },
+    {
+        "word": "chaise",
+        "choices": ["chaise", "chais", "chiase", "chasie", "chaiss"]
+    },
+    {
+        "word": "fenêtre",
+        "choices": ["fenêtre", "fenetre", "fênetre", "fenêt", "fenet"]
+    },
+    {
+        "word": "porte",
+        "choices": ["porte", "port", "poret", "potre", "porrte"]
+    },
+    {
+        "word": "lit",
+        "choices": ["lit", "li", "lti", "ilt", "litt"]
+    },
+    {
+        "word": "fille",
+        "choices": ["fille", "fil", "fllie", "fiel", "fillee"]
+    },
+    {
+        "word": "garçon",
+        "choices": ["garçon", "garcon", "garçn", "gacon", "garçon"]
+    },
+    {
+        "word": "joli",
+        "choices": ["joli", "jolie", "jole", "joil", "jloi"]
+    },
+    {
+        "word": "grand",
+        "choices": ["grand", "grnad", "gand", "grnd", "gradn"]
+    },
+    {
+        "word": "petit",
+        "choices": ["petit", "petti", "peit", "ptit", "peti"]
+    },
+    {
+        "word": "beau",
+        "choices": ["beau", "baeu", "buea", "beu", "boeu"]
+    },
+    {
+        "word": "bon",
+        "choices": ["bon", "bno", "bo", "bôn", "bòn"]
+    },
+    {
+        "word": "manger",
+        "choices": ["manger", "mangre", "mange", "mnager", "mangar"]
+    },
+    {
+        "word": "courir",
+        "choices": ["courir", "courri", "coruir", "courir", "couri"]
+    },
+    {
+        "word": "jouer",
+        "choices": ["jouer", "joueur", "joeur", "juer", "joue"]
+    },
+    {
+        "word": "dormir",
+        "choices": ["dormir", "dormi", "domrir", "dormri", "dorim"]
+    },
+    {
+        "word": "lire",
+        "choices": ["lire", "lir", "lier", "lre", "lirré"]
+    },
+    {
+        "word": "écrire",
+        "choices": ["écrire", "ecrire", "écrier", "écre", "écrir"]
+    },
+    {
+        "word": "chanter",
+        "choices": ["chanter", "chantre", "chante", "chnater", "chantar"]
+    },
+    {
+        "word": "danser",
+        "choices": ["danser", "dansre", "danse", "dnaser", "dansar"]
+    },
+    {
+        "word": "nager",
+        "choices": ["nager", "nagre", "nage", "ngeur", "naga"]
+    },
+    {
+        "word": "sauter",
+        "choices": ["sauter", "sautre", "saute", "suteur", "sautar"]
+    },
+    {
+        "word": "main",
+        "choices": ["main", "mian", "mani", "maen", "min"]
+    },
+    {
+        "word": "pied",
+        "choices": ["pied", "peid", "pied", "pide", "piéd"]
+    },
+    {
+        "word": "tête",
+        "choices": ["tête", "tete", "têt", "tête", "téte"]
+    },
+    {
+        "word": "nez",
+        "choices": ["nez", "nze", "enz", "ne", "nèz"]
+    },
+    {
+        "word": "bouche",
+        "choices": ["bouche", "bouch", "buche", "bouhce", "bocuhe"]
+    },
+    {
+        "word": "œil",
+        "choices": ["œil", "oeil", "œill", "eoil", "oiel"]
+    },
+    {
+        "word": "oreille",
+        "choices": ["oreille", "oreill", "orielle", "oreile", "oriele"]
+    },
+    {
+        "word": "bras",
+        "choices": ["bras", "bars", "brsa", "bra", "braz"]
+    },
+    {
+        "word": "jambe",
+        "choices": ["jambe", "jamb", "jmabe", "jabme", "jameb"]
+    },
+    {
+        "word": "ventre",
+        "choices": ["ventre", "ventr", "vnetre", "ventar", "vneter"]
+    },
+    {
+        "word": "dos",
+        "choices": ["dos", "dso", "od", "dôs", "dòs"]
+    },
+    {
+        "word": "ami",
+        "choices": ["ami", "aim", "ma", "amie", "iam"]
+    },
+    {
+        "word": "école",
+        "choices": ["école", "ecole", "écol", "ekole", "écloe"]
+    },
+    {
+        "word": "crayon",
+        "choices": ["crayon", "crayno", "caryon", "crayn", "cryaon"]
+    },
+    {
+        "word": "cahier",
+        "choices": ["cahier", "cahie", "chai", "cahe", "cahi"]
+    },
+    {
+        "word": "sac",
+        "choices": ["sac", "sacc", "asc", "sa", "sàc"]
+    },
+    {
+        "word": "règle",
+        "choices": ["règle", "regle", "règ", "règel", "régle"]
+    },
+    {
+        "word": "gomme",
+        "choices": ["gomme", "gome", "gom", "gomm", "goome"]
+    },
+    {
+        "word": "stylo",
+        "choices": ["stylo", "styl", "sytlo", "styol", "stlyo"]
+    },
+    {
+        "word": "papier",
+        "choices": ["papier", "papeir", "papi", "papir", "pappier"]
+    },
+    {
+        "word": "lune",
+        "choices": ["lune", "lenu", "luen", "luna", "lune"]
+    },
+    {
+        "word": "étoile",
+        "choices": ["étoile", "etoile", "étoil", "etiol", "étoiel"]
+    },
+    {
+        "word": "soleil",
+        "choices": ["soleil", "soliel", "solel", "soelil", "sollil"]
+    },
+    {
+        "word": "nuage",
+        "choices": ["nuage", "nugae", "nauge", "nuag", "nuaeg"]
+    },
+    {
+        "word": "pluie",
+        "choices": ["pluie", "plui", "puli", "plue", "pliu"]
+    },
+    {
+        "word": "vent",
+        "choices": ["vent", "vnet", "evnt", "vnt", "ven"]
+    },
+    {
+        "word": "neige",
+        "choices": ["neige", "niege", "negie", "neig", "nige"]
+    },
+    {
+        "word": "arbre",
+        "choices": ["arbre", "arber", "abrer", "arbre", "abrre"]
+    },
+    {
+        "word": "fleur",
+        "choices": ["fleur", "fluer", "fleu", "fleur", "felur"]
+    },
+    {
+        "word": "herbe",
+        "choices": ["herbe", "herb", "ehrbe", "hreb", "herbb"]
+    },
+    {
+        "word": "poussin",
+        "choices": ["poussin", "pousin", "pusson", "poussn", "poussi"]
+    },
+    {
+        "word": "vache",
+        "choices": ["vache", "vach", "avche", "vcahe", "vachh"]
+    },
+    {
+        "word": "cheval",
+        "choices": ["cheval", "chevla", "cheavl", "chevl", "chveal"]
+    },
+    {
+        "word": "cochon",
+        "choices": ["cochon", "cochn", "cchoon", "coch", "cocon"]
+    },
+    {
+        "word": "mouton",
+        "choices": ["mouton", "moutn", "muoton", "motun", "moutno"]
+    },
+    {
+        "word": "poule",
+        "choices": ["poule", "pouel", "ploue", "poul", "puole"]
+    },
+    {
+        "word": "canard",
+        "choices": ["canard", "canrad", "cnaard", "canar", "candra"]
+    },
+    {
+        "word": "lapin",
+        "choices": ["lapin", "lapi", "lpain", "laipn", "lappin"]
+    },
+    {
+        "word": "souris",
+        "choices": ["souris", "souri", "suoris", "sorus", "souriss"]
+    },
+    {
+        "word": "chat",
+        "choices": ["chat", "chet", "chot", "chta", "caht"]
+    },
+    {
+        "word": "chien",
+        "choices": ["chien", "chein", "chian", "cheen", "chyen"]
+    },
+    {
+        "word": "poisson",
+        "choices": ["poisson", "posson", "poissn", "pisoon", "poissno"]
+    },
+    {
+        "word": "oiseau",
+        "choices": ["oiseau", "oiseu", "oisau", "oiesau", "oiseua"]
+    },
+    {
+        "word": "abeille",
+        "choices": ["abeille", "abeil", "abielle", "abeile", "abie"]
+    },
+    {
+        "word": "fourmi",
+        "choices": ["fourmi", "foumir", "formui", "fourm", "fumri"]
+    },
+    {
+        "word": "papillon",
+        "choices": ["papillon", "papilon", "pappillon", "papilln", "papil"]
+    },
+    {
+        "word": "coccinelle",
+        "choices": ["coccinelle", "cocinelle", "coccinel", "cocinnelle", "coccinell"]
+    },
+    {
+        "word": "étoile",
+        "choices": ["étoile", "etoile", "étoil", "etiol", "étoiel"]
+    },
+    {
+        "word": "lune",
+        "choices": ["lune", "lenu", "luen", "luna", "lune"]
+    },
+    {
+        "word": "soleil",
+        "choices": ["soleil", "soliel", "solel", "soelil", "sollil"]
+    },
+    {
+        "word": "arc-en-ciel",
+        "choices": ["arc-en-ciel", "arc-en-ceil", "arc-en-cil", "arcenciel", "arc-en-ciell"]
+    },
+    {
+        "word": "montagne",
+        "choices": ["montagne", "montagn", "montange", "mnotagne", "montgane"]
+    },
+    {
+        "word": "rivière",
+        "choices": ["rivière", "riviere", "rivier", "rvière", "rivéire"]
+    },
+    {
+        "word": "forêt",
+        "choices": ["forêt", "foret", "fôret", "foré", "foret"]
+    },
+    {
+        "word": "plage",
+        "choices": ["plage", "palge", "plgae", "plaeg", "plag"]
+    },
+    {
+        "word": "sable",
+        "choices": ["sable", "sabel", "sabl", "asble", "sble"]
+    },
+    {
+        "word": "rocher",
+        "choices": ["rocher", "roche", "rohcer", "rochr", "rocehr"]
+    },
+    {
+        "word": "arbre",
+        "choices": ["arbre", "arber", "abrer", "arbre", "abrre"]
+    },
+    {
+        "word": "fleur",
+        "choices": ["fleur", "fluer", "fleu", "fleur", "felur"]
+    },
+    {
+        "word": "fruit",
+        "choices": ["fruit", "frui", "furit", "friut", "frut"]
+    },
+    {
+        "word": "pomme",
+        "choices": ["pomme", "pome", "pomm", "pomem", "poome"]
+    },
+    {
+        "word": "banane",
+        "choices": ["banane", "banaen", "banan", "abnane", "bannae"]
+    },
+    {
+        "word": "orange",
+        "choices": ["orange", "oragne", "organe", "orang", "oarnge"]
+    },
+    {
+        "word": "fraise",
+        "choices": ["fraise", "frias", "frasie", "frai", "fraize"]
+    },
+    {
+        "word": "cerise",
+        "choices": ["cerise", "ceris", "cérise", "ceri", "céris"]
+    },
+    {
+        "word": "raisin",
+        "choices": ["raisin", "raisi", "riasin", "rasin", "raisn"]
+    },
+    {
+        "word": "légume",
+        "choices": ["légume", "legume", "légum", "légu", "lugeme"]
+    },
+    {
+        "word": "carotte",
+        "choices": ["carotte", "carote", "carott", "caorte", "crotte"]
+    },
+    {
+        "word": "tomate",
+        "choices": ["tomate", "tomaet", "toamte", "tomtae", "tomat"]
+    },
+    {
+        "word": "salade",
+        "choices": ["salade", "salaed", "slade", "sala", "saldae"]
+    },
+    {
+        "word": "pomme de terre",
+        "choices": ["pomme de terre", "pomme de ter", "pom de terre", "pomme terre", "pomme de tterre"]
+    },
+    {
+        "word": "maïs",
+        "choices": ["maïs", "mais", "mias", "maï", "mâs"]
+    },
+    {
+        "word": "haricot",
+        "choices": ["haricot", "hariot", "harcot", "haric", "haicot"]
+    },
+    {
+        "word": "chou",
+        "choices": ["chou", "cho", "hcou", "chuo", "chôu"]
+    },
+    {
+        "word": "pain",
+        "choices": ["pain", "pani", "pian", "paen", "pin"]
+    },
+    {
+        "word": "fromage",
+        "choices": ["fromage", "fromag", "fomrage", "froma", "frmoage"]
+    },
+    {
+        "word": "lait",
+        "choices": ["lait", "lati", "liat", "laît", "làit"]
+    },
+    {
+        "word": "eau",
+        "choices": ["eau", "aeu", "eou", "uae", "eua"]
+    },
+    {
+        "word": "jus",
+        "choices": ["jus", "jsu", "juz", "jûs", "jùs"]
+    },
+    {
+        "word": "thé",
+        "choices": ["thé", "the", "téh", "thê", "té"]
+    },
+    {
+        "word": "café",
+        "choices": ["café", "cafe", "cafè", "caéf", "cfae"]
+    },
+    {
+        "word": "sucre",
+        "choices": ["sucre", "sucr", "scure", "sucer", "surce"]
+    },
+    {
+        "word": "sel",
+        "choices": ["sel", "sle", "esl", "sél", "sèl"]
+    },
+    {
+        "word": "poivre",
+        "choices": ["poivre", "poiv", "povire", "poivré", "poivree"]
+    },
+    {
+        "word": "huile",
+        "choices": ["huile", "hiu", "hule", "huil", "hiuile"]
+    },
+    {
+        "word": "beurre",
+        "choices": ["beurre", "buerre", "beurr", "bue", "berre"]
+    },
+    {
+        "word": "œuf",
+        "choices": ["œuf", "oeuf", "œf", "oef", "œuff"]
+    },
+    {
+        "word": "viande",
+        "choices": ["viande", "vianed", "viand", "vinde", "vian"]
+    },
+    {
+        "word": "poulet",
+        "choices": ["poulet", "pouelt", "plouet", "poult", "pouel"]
+    },
+    {
+        "word": "poisson",
+        "choices": ["poisson", "posson", "poissn", "pisoon", "poissno"]
+    },
+    {
+        "word": "riz",
+        "choices": ["riz", "rzi", "irz", "ri", "rîz"]
+    },
+    {
+        "word": "pâtes",
+        "choices": ["pâtes", "pates", "pâtés", "patte", "pât"]
+    },
+    {
+        "word": "soupe",
+        "choices": ["soupe", "souep", "suope", "sopue", "sou"]
+    },
+    {
+        "word": "salade",
+        "choices": ["salade", "salaed", "slade", "sala", "saldae"]
+    },
+    {
+        "word": "pizza",
+        "choices": ["pizza", "piza", "pizaz", "piizza", "pizz"]
+    },
+    {
+        "word": "gâteau",
+        "choices": ["gâteau", "gateau", "gâteu", "gatau", "gâto"]
+    },
+    {
+        "word": "glace",
+        "choices": ["glace", "glac", "galce", "glaec", "glaice"]
+    },
+    {
+        "word": "bonbon",
+        "choices": ["bonbon", "bobon", "bonbn", "bnon", "bonob"]
+    },
+    {
+        "word": "chocolat",
+        "choices": ["chocolat", "choclat", "chocol", "cholocat", "chocola"]
+    },
+    {
+        "word": "lune",
+        "choices": ["lune", "lenu", "luen", "luna", "lune"]
+    },
+    {
+        "word": "étoile",
+        "choices": ["étoile", "etoile", "étoil", "etiol", "étoiel"]
+    },
+    {
+        "word": "soleil",
+        "choices": ["soleil", "soliel", "solel", "soelil", "sollil"]
+    },
+    {
+        "word": "ciel",
+        "choices": ["ciel", "ceil", "cile", "ceal", "ciell"]
+    },
+    {
+        "word": "nuage",
+        "choices": ["nuage", "nugae", "nauge", "nuag", "nuaeg"]
+    },
+    {
+        "word": "pluie",
+        "choices": ["pluie", "plui", "puli", "plue", "pliu"]
+    },
+    {
+        "word": "vent",
+        "choices": ["vent", "vnet", "evnt", "vnt", "ven"]
+    },
+    {
+        "word": "neige",
+        "choices": ["neige", "niege", "negie", "neig", "nige"]
+    },
+    {
+        "word": "soleil",
+        "choices": ["soleil", "soliel", "solel", "soelil", "sollil"]
+    },
+    {
+        "word": "lune",
+        "choices": ["lune", "lenu", "luen", "luna", "lune"]
+    },
+    {
+        "word": "étoile",
+        "choices": ["étoile", "etoile", "étoil", "etiol", "étoiel"]
+    },
+    {
+        "word": "arc-en-ciel",
+        "choices": ["arc-en-ciel", "arc-en-ceil", "arc-en-cil", "arcenciel", "arc-en-ciell"]
+    },
+    {
+        "word": "montagne",
+        "choices": ["montagne", "montagn", "montange", "mnotagne", "montgane"]
+    },
+    {
+        "word": "rivière",
+        "choices": ["rivière", "riviere", "rivier", "rvière", "rivéire"]
+    },
+    {
+        "word": "forêt",
+        "choices": ["forêt", "foret", "fôret", "foré", "foret"]
+    },
+    {
+        "word": "plage",
+        "choices": ["plage", "palge", "plgae", "plaeg", "plag"]
+    },
+    {
+        "word": "sable",
+        "choices": ["sable", "sabel", "sabl", "asble", "sble"]
+    },
+    {
+        "word": "rocher",
+        "choices": ["rocher", "roche", "rohcer", "rochr", "rocehr"]
+    },
+    {
+        "word": "arbre",
+        "choices": ["arbre", "arber", "abrer", "arbre", "abrre"]
+    },
+    {
+        "word": "fleur",
+        "choices": ["fleur", "fluer", "fleu", "fleur", "felur"]
+    },
+    {
+        "word": "herbe",
+        "choices": ["herbe", "herb", "ehrbe", "hreb", "herbb"]
+    },
+    {
+        "word": "poussin",
+        "choices": ["poussin", "pousin", "pusson", "poussn", "poussi"]
+    },
+    {
+        "word": "vache",
+        "choices": ["vache", "vach", "avche", "vcahe", "vachh"]
+    },
+    {
+        "word": "cheval",
+        "choices": ["cheval", "chevla", "cheavl", "chevl", "chveal"]
+    },
+    {
+        "word": "cochon",
+        "choices": ["cochon", "cochn", "cchoon", "coch", "cocon"]
+    },
+    {
+        "word": "mouton",
+        "choices": ["mouton", "moutn", "muoton", "motun", "moutno"]
+    },
+    {
+        "word": "poule",
+        "choices": ["poule", "pouel", "ploue", "poul", "puole"]
+    },
+    {
+        "word": "canard",
+        "choices": ["canard", "canrad", "cnaard", "canar", "candra"]
+    },
+    {
+        "word": "lapin",
+        "choices": ["lapin", "lapi", "lpain", "laipn", "lappin"]
+    },
+    {
+        "word": "souris",
+        "choices": ["souris", "souri", "suoris", "sorus", "souriss"]
+    },
+    {
+        "word": "chat",
+        "choices": ["chat", "chet", "chot", "chta", "caht"]
+    },
+    {
+        "word": "chien",
+        "choices": ["chien", "chein", "chian", "cheen", "chyen"]
+    },
+    {
+        "word": "poisson",
+        "choices": ["poisson", "posson", "poissn", "pisoon", "poissno"]
+    },
+    {
+        "word": "oiseau",
+        "choices": ["oiseau", "oiseu", "oisau", "oiesau", "oiseua"]
+    },
+    {
+        "word": "abeille",
+        "choices": ["abeille", "abeil", "abielle", "abeile", "abie"]
+    },
+    {
+        "word": "fourmi",
+        "choices": ["fourmi", "foumir", "formui", "fourm", "fumri"]
+    },
+    {
+        "word": "papillon",
+        "choices": ["papillon", "papilon", "pappillon", "papilln", "papil"]
+    },
+    {
+        "word": "coccinelle",
+        "choices": ["coccinelle", "cocinelle", "coccinel", "cocinnelle", "coccinell"]
+    },
+    {
+        "word": "écureuil",
+        "choices": ["écureuil", "ecureuil", "écureil", "écureui", "écuruil"]
+    },
+    {
+        "word": "hérisson",
+        "choices": ["hérisson", "herisson", "hérison", "héri", "hérissn"]
+    },
+    {
+        "word": "grenouille",
+        "choices": ["grenouille", "grenouile", "grenoille", "grenouil", "genrouille"]
+    },
+    {
+        "word": "serpent",
+        "choices": ["serpent", "serpen", "seprent", "serpnt", "srepent"]
+    },
+    {
+        "word": "tortue",
+        "choices": ["tortue", "torteu", "totue", "tortu", "torute"]
+    },
+    {
+        "word": "crocodile",
+        "choices": ["crocodile", "crocodiel", "crocdile", "crocodle", "crocodile"]
+    },
+    {
+        "word": "éléphant",
+        "choices": ["éléphant", "elephant", "éléphnat", "éléphent", "élephnat"]
+    },
+    {
+        "word": "girafe",
+        "choices": ["girafe", "giraf", "griafe", "girfae", "giraef"]
+    },
+    {
+        "word": "lion",
+        "choices": ["lion", "loin", "lino", "liôn", "lìon"]
+    },
+    {
+        "word": "tigre",
+        "choices": ["tigre", "tigr", "tig", "tirge", "tiger"]
+    },
+    {
+        "word": "ours",
+        "choices": ["ours", "orus", "ous", "ôurs", "ùors"]
+    },
+    {
+        "word": "loup",
+        "choices": ["loup", "luop", "lupo", "loûp", "lòup"]
+    },
+    {
+        "word": "renard",
+        "choices": ["renard", "renar", "rnerad", "renrad", "renadr"]
+    },
+    {
+        "word": "singe",
+        "choices": ["singe", "sign", "signe", "snige", "sing"]
+    },
+    {
+        "word": "zèbre",
+        "choices": ["zèbre", "zebre", "zèbr", "zébre", "zèb"]
+    },
+    {
+        "word": "chevreuil",
+        "choices": ["chevreuil", "chevrueil", "chevreil", "chevreui", "chevruil"]
+    },
+    {
+        "word": "biche",
+        "choices": ["biche", "bich", "bhice", "bic", "bichhe"]
+    },
+    {
+        "word": "cerf",
+        "choices": ["cerf", "cref", "cefr", "cérf", "cèrf"]
+    },
+    {
+        "word": "aigle",
+        "choices": ["aigle", "aigel", "aig", "aglie", "aile"]
+    },
+    {
+        "word": "hibou",
+        "choices": ["hibou", "hbiou", "hiobu", "hibu", "hobiu"]
+    },
+    {
+        "word": "chouette",
+        "choices": ["chouette", "chouete", "chuette", "chouett", "choeutte"]
+    },
+    {
+        "word": "corbeau",
+        "choices": ["corbeau", "corbeu", "cobreau", "corbaeu", "corboe"]
+    },
+    {
+        "word": "pingouin",
+        "choices": ["pingouin", "pingoin", "pignouin", "pingoun", "pinouin"]
+    },
+    {
+        "word": "manteau",
+        "choices": ["manteau", "manteu", "maneto", "mantau", "maetau"]
+    },
+    {
+        "word": "chapeau",
+        "choices": ["chapeau", "chapeu", "chapaeu", "chapeo", "cahpeau"]
+    },
+    {
+        "word": "écharpe",
+        "choices": ["écharpe", "echarpe", "échrape", "écharp", "échpar"]
+    },
+    {
+        "word": "gant",
+        "choices": ["gant", "gnat", "gnt", "gant", "gatn"]
+    },
+    {
+        "word": "chaussure",
+        "choices": ["chaussure", "chaussur", "chassure", "chausure", "chausser"]
+    },
+    {
+        "word": "pantalon",
+        "choices": ["pantalon", "pantaln", "pntalon", "pantalo", "patnalon"]
+    },
+    {
+        "word": "chemise",
+        "choices": ["chemise", "chemsie", "chmise", "chemis", "cehmise"]
+    },
+    {
+        "word": "robe",
+        "choices": ["robe", "rboe", "roeb", "rob", "rôbe"]
+    },
+    {
+        "word": "jupe",
+        "choices": ["jupe", "jup", "jpue", "jupe", "juep"]
+    },
+    {
+        "word": "pull",
+        "choices": ["pull", "pul", "plul", "pûll", "pùll"]
+    },
+    {
+        "word": "veste",
+        "choices": ["veste", "vsete", "vets", "veset", "vest"]
+    },
+    {
+        "word": "sac à dos",
+        "choices": ["sac à dos", "sac a dos", "sac à do", "sac dos", "sàc à dos"]
+    },
+    {
+        "word": "parapluie",
+        "choices": ["parapluie", "paraplu", "paralpuie", "paraplie", "parapui"]
+    },
+    {
+        "word": "lunettes",
+        "choices": ["lunettes", "lunetes", "lnuettes", "lunett", "luenettes"]
+    },
+    {
+        "word": "montre",
+        "choices": ["montre", "montr", "motnre", "mont", "mnotre"]
+    },
+    {
+        "word": "ceinture",
+        "choices": ["ceinture", "ceintur", "cienture", "ceint", "cetnure"]
+    },
+    {
+        "word": "cravate",
+        "choices": ["cravate", "cravtae", "carvate", "cravte", "cravaet"]
+    },
+    {
+        "word": "bague",
+        "choices": ["bague", "baug", "bagu", "abgue", "bgae"]
+    },
+    {
+        "word": "collier",
+        "choices": ["collier", "colier", "clolier", "coli", "collier"]
+    },
+    {
+        "word": "bracelet",
+        "choices": ["bracelet", "braclet", "bracelt", "bracele", "bracle"]
+    },
+    {
+        "word": "boucle",
+        "choices": ["boucle", "bocule", "buocle", "boulce", "boucl"]
+    },
+    {
+        "word": "chapeau",
+        "choices": ["chapeau", "chapeu", "chapaeu", "chapeo", "cahpeau"]
+    },
+    {
+        "word": "écharpe",
+        "choices": ["écharpe", "echarpe", "échrape", "écharp", "échpar"]
+    },
+    {
+        "word": "gant",
+        "choices": ["gant", "gnat", "gnt", "gant", "gatn"]
+    },
+    {
+        "word": "chaussure",
+        "choices": ["chaussure", "chaussur", "chassure", "chausure", "chausser"]
+    },
+    {
+        "word": "pantalon",
+        "choices": ["pantalon", "pantaln", "pntalon", "pantalo", "patnalon"]
+    },
+    {
+        "word": "chemise",
+        "choices": ["chemise", "chemsie", "chmise", "chemis", "cehmise"]
+    },
+    {
+        "word": "robe",
+        "choices": ["robe", "rboe", "roeb", "rob", "rôbe"]
+    },
+    {
+        "word": "jupe",
+        "choices": ["jupe", "jup", "jpue", "jupe", "juep"]
+    },
+    {
+        "word": "pull",
+        "choices": ["pull", "pul", "plul", "pûll", "pùll"]
+    },
+    {
+        "word": "veste",
+        "choices": ["veste", "vsete", "vets", "veset", "vest"]
+    },
+    {
+        "word": "sac à dos",
+        "choices": ["sac à dos", "sac a dos", "sac à do", "sac dos", "sàc à dos"]
+    },
+    {
+        "word": "parapluie",
+        "choices": ["parapluie", "paraplu", "paralpuie", "paraplie", "parapui"]
+    },
+    {
+        "word": "lunettes",
+        "choices": ["lunettes", "lunetes", "lnuettes", "lunett", "luenettes"]
+    },
+    {
+        "word": "montre",
+        "choices": ["montre", "montr", "motnre", "mont", "mnotre"]
+    },
+    {
+        "word": "ceinture",
+        "choices": ["ceinture", "ceintur", "cienture", "ceint", "cetnure"]
+    },
+    {
+        "word": "cravate",
+        "choices": ["cravate", "cravtae", "carvate", "cravte", "cravaet"]
+    },
+    {
+        "word": "bague",
+        "choices": ["bague", "baug", "bagu", "abgue", "bgae"]
+    },
+    {
+        "word": "collier",
+        "choices": ["collier", "colier", "clolier", "coli", "collier"]
+    },
+    {
+        "word": "bracelet",
+        "choices": ["bracelet", "braclet", "bracelt", "bracele", "bracle"]
+    },
+    {
+        "word": "boucle",
+        "choices": ["boucle", "bocule", "buocle", "boulce", "boucl"]
+    },
+    {
+        "word": "maillot",
+        "choices": ["maillot", "maillt", "miallot", "mailot", "maiol"]
+    },
+    {
+        "word": "short",
+        "choices": ["short", "shrot", "sohrt", "shor", "hsort"]
+    },
+    {
+        "word": "casquette",
+        "choices": ["casquette", "casquet", "caquette", "casqette", "casqute"]
+    },
+    {
+        "word": "bottes",
+        "choices": ["bottes", "botes", "botts", "botte", "obttes"]
+    },
+    {
+        "word": "sandales",
+        "choices": ["sandales", "sandal", "sndales", "sandals", "sanadles"]
+    },
+    {
+        "word": "tong",
+        "choices": ["tong", "togn", "otng", "tng", "tông"]
+    },
+    {
+        "word": "chemisier",
+        "choices": ["chemisier", "chemsiier", "chemiser", "chemi", "chemisir"]
+    },
+    {
+        "word": "veston",
+        "choices": ["veston", "vseton", "vetsn", "vesto", "veostn"]
+    },
+    {
+        "word": "blouson",
+        "choices": ["blouson", "blousn", "boluson", "blouso", "bluosn"]
+    },
+    {
+        "word": "anorak",
+        "choices": ["anorak", "anork", "aonrak", "anroak", "anoark"]
+    },
+    {
+        "word": "imperméable",
+        "choices": ["imperméable", "impermeable", "imperméble", "imperméab", "impérméable"]
+    },
+    {
+        "word": "parka",
+        "choices": ["parka", "pakra", "praka", "parak", "praak"]
+    },
+    {
+        "word": "pull-over",
+        "choices": ["pull-over", "pullover", "pull-ovre", "pull-ver", "pul-ovre"]
+    },
+    {
+        "word": "gilet",
+        "choices": ["gilet", "glite", "gielt", "gile", "gilte"]
+    },
+    {
+        "word": "chandail",
+        "choices": ["chandail", "chandial", "chanadil", "chandai", "chadnail"]
+    },
+    {
+        "word": "sweat",
+        "choices": ["sweat", "swaet", "swea", "sewat", "sweta"]
+    },
+    {
+        "word": "t-shirt",
+        "choices": ["t-shirt", "tshirt", "t-shrit", "t-shir", "t-hsirt"]
+    },
+    {
+        "word": "débardeur",
+        "choices": ["débardeur", "debardeur", "débarder", "débareur", "débadrer"]
+    },
+    {
+        "word": "collant",
+        "choices": ["collant", "colant", "clolant", "collnat", "collnt"]
+    },
+    {
+        "word": "bas",
+        "choices": ["bas", "bsa", "abs", "bàs", "bâs"]
+    },
+    {
+        "word": "chaussette",
+        "choices": ["chaussette", "chausset", "cahussette", "chausete", "chaussett"]
+    },
+    {
+        "word": "pyjama",
+        "choices": ["pyjama", "pyajma", "pjyama", "pyjam", "pyajam"]
+    },
+    {
+        "word": "robe de chambre",
+        "choices": ["robe de chambre", "robe de chambr", "robe chambre", "robe de chmabre", "rob de chambre"]
+    },
+    {
+        "word": "peignoir",
+        "choices": ["peignoir", "peignior", "pienoir", "peignoi", "peingoir"]
+    },
+    {
+        "word": "slip",
+        "choices": ["slip", "slpi", "lsip", "sli", "silp"]
+    },
+    {
+        "word": "culotte",
+        "choices": ["culotte", "culote", "cloutte", "culott", "cuoltte"]
+    },
+    {
+        "word": "boxer",
+        "choices": ["boxer", "bxoer", "obxer", "boxr", "boexr"]
+    },
+    {
+        "word": "soutien-gorge",
+        "choices": ["soutien-gorge", "soutien-gorg", "soutien-ogrge", "soutien-gore", "soutiengorge"]
+    },
+    {
+        "word": "maillot de bain",
+        "choices": ["maillot de bain", "maillot de bian", "maillot bain", "maillot de ban", "mailot de bain"]
+    },
+    {
+        "word": "bikini",
+        "choices": ["bikini", "bikin", "bkini", "biikni", "biknii"]
+    },
+    {
+        "word": "costume",
+        "choices": ["costume", "costum", "cotusme", "cosutme", "costmue"]
+    },
+    {
+        "word": "uniforme",
+        "choices": ["uniforme", "unifomre", "nuiforme", "unifore", "uniorme"]
+    },
+    {
+        "word": "salopette",
+        "choices": ["salopette", "salopete", "slaopette", "salopett", "salpoette"]
+    },
+    {
+        "word": "tablier",
+        "choices": ["tablier", "tabiler", "atblier", "tablie", "tablire"]
+    },
+    {
+        "word": "blouse",
+        "choices": ["blouse", "boluse", "bluose", "blous", "lbouse"]
+    },
+    {
+        "word": "robe de mariée",
+        "choices": ["robe de mariée", "robe de marie", "robe mariée", "robe de mraiee", "rob de mariée"]
+    },
+    {
+        "word": "smoking",
+        "choices": ["smoking", "smokin", "msoking", "smoknig", "somking"]
+    },
+    {
+        "word": "cravate",
+        "choices": ["cravate", "cravtae", "carvate", "cravte", "cravaet"]
+    },
+    {
+        "word": "nœud",
+        "choices": ["nœud", "noeud", "nœd", "nued", "nœu"]
+    },
+    {
+        "word": "boucle d’oreille",
+        "choices": ["boucle d’oreille", "boucle d oreille", "boucle oreille", "boucle d’oreill", "bocule d’oreille"]
+    },
+    {
+        "word": "pendentif",
+        "choices": ["pendentif", "pendantif", "penedntif", "pendentfi", "pnedentif"]
+    },
+    {
+        "word": "broche",
+        "choices": ["broche", "borche", "brcohe", "brohce", "bocreh"]
+    },
+    {
+        "word": "épingle",
+        "choices": ["épingle", "epingle", "épingl", "épnigle", "épingel"]
+    },
+    {
+        "word": "barrette",
+        "choices": ["barrette", "barett", "brarette", "barret", "barette"]
+    },
+    {
+        "word": "chouchou",
+        "choices": ["chouchou", "choucho", "hcouchou", "choucou", "chouchu"]
+    },
+    {
+        "word": "foulard",
+        "choices": ["foulard", "foulrad", "ofulard", "fouladr", "foluard"]
+    },
+    {
+        "word": "étole",
+        "choices": ["étole", "etole", "étol", "éotle", "étoel"]
+    },
+    {
+        "word": "cape",
+        "choices": ["cape", "caep", "cpae", "cap", "càpe"]
+    },
+    {
+        "word": "poncho",
+        "choices": ["poncho", "pochno", "opncho", "poncoh", "pnocho"]
+    },
+    {
+        "word": "manteau",
+        "choices": ["manteau", "manteu", "maneto", "mantau", "maetau"]
+    },
+    {
+        "word": "veston",
+        "choices": ["veston", "vseton", "vetsn", "vesto", "veostn"]
+    },
+    {
+        "word": "blouson",
+        "choices": ["blouson", "blousn", "boluson", "blouso", "bluosn"]
+    },
+    {
+        "word": "anorak",
+        "choices": ["anorak", "anork", "aonrak", "anroak", "anoark"]
+    },
+    {
+        "word": "imperméable",
+        "choices": ["imperméable", "impermeable", "imperméble", "imperméab", "impérméable"]
+    },
+    {
+        "word": "parka",
+        "choices": ["parka", "pakra", "praka", "parak", "praak"]
+    },
+    {
+        "word": "pull-over",
+        "choices": ["pull-over", "pullover", "pull-ovre", "pull-ver", "pul-ovre"]
+    },
+    {
+        "word": "gilet",
+        "choices": ["gilet", "glite", "gielt", "gile", "gilte"]
+    },
+    {
+        "word": "chandail",
+        "choices": ["chandail", "chandial", "chanadil", "chandai", "chadnail"]
+    },
+    {
+        "word": "sweat",
+        "choices": ["sweat", "swaet", "swea", "sewat", "sweta"]
+    },
+    {
+        "word": "t-shirt",
+        "choices": ["t-shirt", "tshirt", "t-shrit", "t-shir", "t-hsirt"]
+    },
+    {
+        "word": "débardeur",
+        "choices": ["débardeur", "debardeur", "débarder", "débareur", "débadrer"]
+    },
+    {
+        "word": "collant",
+        "choices": ["collant", "colant", "clolant", "collnat", "collnt"]
+    },
+    {
+        "word": "bas",
+        "choices": ["bas", "bsa", "abs", "bàs", "bâs"]
+    },
+    {
+        "word": "chaussette",
+        "choices": ["chaussette", "chausset", "cahussette", "chausete", "chaussett"]
+    },
+    {
+        "word": "pyjama",
+        "choices": ["pyjama", "pyajma", "pjyama", "pyjam", "pyajam"]
+    },
+    {
+        "word": "robe de chambre",
+        "choices": ["robe de chambre", "robe de chambr", "robe chambre", "robe de chmabre", "rob de chambre"]
+    },
+    {
+        "word": "peignoir",
+        "choices": ["peignoir", "peignior", "pienoir", "peignoi", "peingoir"]
+    },
+    {
+        "word": "slip",
+        "choices": ["slip", "slpi", "lsip", "sli", "silp"]
+    },
+    {
+        "word": "culotte",
+        "choices": ["culotte", "culote", "cloutte", "culott", "cuoltte"]
+    },
+    {
+        "word": "boxer",
+        "choices": ["boxer", "bxoer", "obxer", "boxr", "boexr"]
+    },
+    {
+        "word": "soutien-gorge",
+        "choices": ["soutien-gorge", "soutien-gorg", "soutien-ogrge", "soutien-gore", "soutiengorge"]
+    },
+    {
+        "word": "maillot de bain",
+        "choices": ["maillot de bain", "maillot de bian", "maillot bain", "maillot de ban", "mailot de bain"]
+    },
+    {
+        "word": "bikini",
+        "choices": ["bikini", "bikin", "bkini", "biikni", "biknii"]
+    },
+    {
+        "word": "costume",
+        "choices": ["costume", "costum", "cotusme", "cosutme", "costmue"]
+    },
+    {
+        "word": "uniforme",
+        "choices": ["uniforme", "unifomre", "nuiforme", "unifore", "uniorme"]
+    },
+    {
+        "word": "salopette",
+        "choices": ["salopette", "salopete", "slaopette", "salopett", "salpoette"]
+    },
+    {
+        "word": "tablier",
+        "choices": ["tablier", "tabiler", "atblier", "tablie", "tablire"]
+    },
+    {
+        "word": "blouse",
+        "choices": ["blouse", "boluse", "bluose", "blous", "lbouse"]
+    }
+]

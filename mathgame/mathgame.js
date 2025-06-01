@@ -1,7 +1,7 @@
 let gameData = [];
 let currentIndex = 0;
 let correctCount = 0;
-let maxQuestions = 2;
+let maxQuestions = 10;
 
 
 
@@ -34,6 +34,7 @@ async function loadGame() {
     // Hide Submit and Delete buttons for games that don't use them
     if (gameTitle === "Algebra Game" || gameTitle === "Fractions Game" || 
         gameTitle === "General Math Game" || gameTitle === "Mixed Math Game" ||
+        gameTitle === "Conjugation Game" || gameTitle === "Translation Game" || 
         gameTitle === "Word Problems Math Game") {
         document.getElementById("submitBtn").style.display = "none";
         document.getElementById("delete-btn").style.display = "none";
@@ -45,7 +46,7 @@ async function loadGame() {
 
         // Load the current index from localStorage
         const today = new Date().toISOString().slice(0, 10);
-        const storageKey = `mathgame_index_${today}`;
+        const storageKey = `mathgame_index_${jsonFile}`;
         currentIndex = parseInt(localStorage.getItem(storageKey) || "0", 10);
 
         // Start the game
@@ -131,8 +132,9 @@ function updateStarCount() {
 
 // Save the user's progress to localStorage
 function saveProgress() {
-    const today = new Date().toISOString().slice(0, 10);
-    const storageKey = `mathgame_index_${today}`;
+    const urlParams = new URLSearchParams(window.location.search);
+    const jsonFile = urlParams.get("jsonFile");
+    const storageKey = `mathgame_index_${jsonFile}`;
     localStorage.setItem(storageKey, currentIndex);
 }
 

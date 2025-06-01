@@ -24,7 +24,11 @@
     </div>
 
     <div class="div-container">
-     <button class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/frenchData.json&title=French Game&useAudioFiles=true&useTTS=false">French Game</button>
+        <button class="button required task-button" data-reveal-code="true" data-target-page="../mathgame/gr3math.html?jsonFile=jkmath.json&title=Jk%20Math%20Game&useAudioFiles=false&useTTS=false">Sk Math Game</button>
+        
+        <button class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/frenchWordGame.json&title=French Word Game&useAudioFiles=true&useTTS=false">French Word Game</button>
+        
+        <button class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/frenchData.json&title=French Game&useAudioFiles=true&useTTS=false">French Game</button>
         <button class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/skSpellingData.json&title=Spelling Game&useAudioFiles=true&useTTS=true">Spelling Game</button>
         <button class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/skLetterSounds.json&title=Letter Sound Game&useAudioFiles=true&useTTS=false">Letter Sound Game</button>
         <button class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/skSpellingData.json&title=Sound Parts Game&useAudioFiles=true&useTTS=true">Sound Parts Game</button>
@@ -35,7 +39,7 @@
             onclick="if (typeof fully !== 'undefined' && fully.startApplication) { fully.startApplication('com.google.android.apps.seekh'); } else { openNewWindow('https://readalong.google.com'); }">
             Google Read Along
         </button>
-        <button class="button required day-friday"  data-reveal-code="true" onclick="openNewWindow('https://classroom.google.com/c/NTI0MDY0MjM3OTg5')">Google Classroom</button>
+        <button class="button required" data-show-days="fri" data-reveal-code="true" onclick="openNewWindow('https://classroom.google.com/c/NTI0MDY0MjM3OTg5')">Google Classroom</button>
         <button class="button notfriday"  data-reveal-code="true" onclick="openNewWindow('https://classroom.google.com/c/NTI0MDY0MjM3OTg5')">Google Classroom</button>
     </div>
 
@@ -50,15 +54,15 @@
  
     <div id="homework" class="div-container">
         <ul id="checklist">
-            <li class="weekday-only">
+            <li data-show-days="mon,tue,wed,thu,fri">
                 <input type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item0">
                 <span class="chore-text" onclick="readText('English printing')">English printing 🔊</span>
             </li>
-            <li class="weekday-only">
+            <li data-show-days="mon,tue,wed,thu,fri">
                 <input type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item1">
                 <span class="chore-text" onclick="readText('Read english book to parent')">Read english book 🔊</span>
             </li>
-            <li class="weekday-only">
+            <li data-show-days="mon,tue,wed,thu,fri">
                 <input type="checkbox" class="chore-checkbox" data-reveal-code="true"id="item2">
                 <span class="chore-text" onclick="readText('Ten pushups')" data-kid="kid1">Ten pushups 🔊</span>
                 <br>
@@ -69,15 +73,15 @@
     <h1>My Chores</h1>
     <div id="chores" class="div-container">
         <ul id="checklist">
-            <li class="weekday-only">
+            <li data-show-days="mon,tue,wed,thu,fri">
                 <input type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item3">
                 <span class="chore-text" onclick="readText('Unpack bag')">Unpack bag 🔊</span>
             </li>
-            <li class="weekday-only">
+            <li data-show-days="mon,tue,wed,thu,fri">
                 <input type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item4">
                 <span class="chore-text" onclick="readText('Pack lunch')">Pack lunch 🔊</span>
             </li>
-            <li class="sunday-monday">
+            <li data-show-days="sun,mon,tue">
                 <input type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item5">
                 <span class="chore-text" onclick="readText('Laundry')">Laundry 🔊</span>
             </li>

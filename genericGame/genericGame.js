@@ -4,7 +4,7 @@ let currentItem = {};
 let useTTS = false;
 let useAudioFiles = false;
 let userInput = []; // Store user input for spelling games
-let maxQuestions = 10;
+let maxQuestions;
 
 
 // Load game data and initialize the game
@@ -14,6 +14,13 @@ async function loadGame() {
     const gameTitle = urlParams.get("title");
     useTTS = urlParams.get("useTTS") === "true";
     useAudioFiles = urlParams.get("useAudioFiles") === "true";
+
+    //update maxQuestions based on the game title
+    if (gameTitle === "French Word Game" ){
+        maxQuestions = 5; // French Game has fewer questions
+    } else {
+        maxQuestions = 10; // Default for other games
+    }
 
     console.log("Loading JSON file:", jsonFile); // Debugging
     updateStarCount(); // Draw the 0/maxQuestions stars
@@ -29,7 +36,8 @@ async function loadGame() {
 
     // Hide Submit and Delete buttons for games that don't use them
     if (gameTitle === "French Game" || gameTitle === "Sight Word Game" || 
-        gameTitle === "Letter Sound Game" || gameTitle === "Sound Parts Game") {
+        gameTitle === "Letter Sound Game" || gameTitle === "Sound Parts Game" ||
+        gameTitle === "French Word Game") {
         document.getElementById("submitBtn").style.display = "none";
         document.getElementById("delete-btn").style.display = "none";
     }
@@ -63,6 +71,14 @@ function playSound() {
         // Use TTS to repeat the instruction
         readText(`Find the word ${word}.`); // Use TTS to read the instruction
 
+    } else if (gameTitle === "French Word Game") {
+        const word = currentItem.word;
+
+        
+        
+                readText(` ${word}.`, 'fr-FR');
+           
+
     } else if (gameTitle === "Spelling Game") {
         const word = currentItem.word;
 
@@ -87,7 +103,8 @@ function handleChoice(choice) {
 
     // For games without a Submit button, check the word immediately
     if (gameTitle === "Sound Parts Game" || gameTitle === "Sight Word Game" || 
-        gameTitle === "French Game" || gameTitle === "Letter Sound Game") {
+        gameTitle === "French Game" || gameTitle === "Letter Sound Game" ||
+        gameTitle === "French Word Game") {
         const feedback = document.getElementById("messageContainer");
 
         // Determine the correct choice
@@ -227,6 +244,19 @@ function nextRound() {
         messageContainer.innerText = `Find the word "${word}".`;
 
         readText(`Find the word ${word}.`); // Use TTS to read the instruction
+    } else if (gameTitle === "French Word Game") {
+        // Special logic for French Word Game
+        const messageContainer = document.getElementById("messageContainer");
+        const word = currentItem.word;
+
+        // Display the instruction
+        messageContainer.innerText = `Find the word "${word}".`;
+
+        readText(`Find the word`, 'en-US', () => {
+            setTimeout(() => {
+                readText(` ${word}.`, 'fr-FR');
+            }, 200); // 200ms pause
+        });
     } else if (gameTitle === "Spelling Game") {
         // Special logic for Spelling Game
         const messageContainer = document.getElementById("messageContainer");

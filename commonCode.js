@@ -107,52 +107,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function showControlsForDay() {
-            let days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-            let today = days[new Date().getDay()];
+            const days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+            const today = days[new Date().getDay()];
 
-            // Show/hide based on specific days
-            document.querySelectorAll(`[class*="day-"]`).forEach(el => {
-                if (el.classList.contains(`day-${today}`)) {
+            document.querySelectorAll("[data-show-days]").forEach(el => {
+                const showDays = el.getAttribute("data-show-days")
+                    .split(",")
+                    .map(d => d.trim().toLowerCase());
+                if (showDays.includes(today)) {
                     el.style.display = "block";
                 } else {
                     el.style.display = "none";
                 }
             });
-
-            // Show only on weekdays (Monday-Friday)
-            if (["monday", "tuesday", "wednesday", "thursday", "friday"].includes(today)) {
-                document.querySelectorAll(".weekday-only").forEach(el => el.style.display = "block");
-            } else {
-                document.querySelectorAll(".weekday-only").forEach(el => el.style.display = "none");
-            }
-
-            // Show on Tuesday-Monday (every day except Monday)
-            if (today !== "monday") {
-                document.querySelectorAll(".notmonday").forEach(el => el.style.display = "block");
-            } else {
-                document.querySelectorAll(".notmonday").forEach(el => el.style.display = "none");
-            }
-
-            // Show on Tuesday-Monday (every day except Monday)
-            if (today !== "friday") {
-                document.querySelectorAll(".notfriday").forEach(el => el.style.display = "block");
-            } else {
-                document.querySelectorAll(".notfriday").forEach(el => el.style.display = "none");
-            }
-
-            // Show only on Sundays and Tuesdays
-            if (["sunday", "tuesday"].includes(today)) {
-                document.querySelectorAll(".sunday-tuesday").forEach(el => el.style.display = "block");
-            } else {
-                document.querySelectorAll(".sunday-tuesday").forEach(el => el.style.display = "none");
-            }
-
-            // Show only on Sundays and Mondays
-            if (["sunday", "monday"].includes(today)) {
-                document.querySelectorAll(".sunday-monday").forEach(el => el.style.display = "block");
-            } else {
-                document.querySelectorAll(".sunday-monday").forEach(el => el.style.display = "none");
-            }
         }
 
         document.addEventListener("DOMContentLoaded", showControlsForDay);

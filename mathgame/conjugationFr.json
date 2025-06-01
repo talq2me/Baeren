@@ -1,0 +1,3302 @@
+[
+  {
+    "question": "Il ______ au ballon.",
+    "correctAnswer": "joue",
+    "choices": [
+      "jouer",
+      "jouait",
+      "joue",
+      "jouent",
+      "joues"
+    ]
+  },
+  {
+    "question": "Nous ______ français en classe.",
+    "correctAnswer": "parlons",
+    "choices": [
+      "parlez",
+      "parler",
+      "parlais",
+      "parlent",
+      "parlons"
+    ]
+  },
+  {
+    "question": "Tu ______ bien à l’école.",
+    "correctAnswer": "travailles",
+    "choices": [
+      "travailles",
+      "travaille",
+      "travaillent",
+      "travaillait",
+      "travailler"
+    ]
+  },
+  {
+    "question": "Je ______ un dessin animé.",
+    "correctAnswer": "regarde",
+    "choices": [
+      "regardent",
+      "regarde",
+      "regardait",
+      "regardes",
+      "regarder"
+    ]
+  },
+  {
+    "question": "Vous ______ la musique forte.",
+    "correctAnswer": "écoutez",
+    "choices": [
+      "écoutent",
+      "écouter",
+      "écoutons",
+      "écoutait",
+      "écoutez"
+    ]
+  },
+  {
+    "question": "Elles ______ dans le parc.",
+    "correctAnswer": "marchent",
+    "choices": [
+      "marches",
+      "marcher",
+      "marche",
+      "marchent",
+      "marchait"
+    ]
+  },
+  {
+    "question": "Nous ______ une chanson joyeuse.",
+    "correctAnswer": "chantons",
+    "choices": [
+      "chantez",
+      "chantons",
+      "chantent",
+      "chanter",
+      "chantait"
+    ]
+  },
+  {
+    "question": "Tu ______ les animaux.",
+    "correctAnswer": "aimes",
+    "choices": [
+      "aimait",
+      "aimer",
+      "aimes",
+      "aimaient",
+      "aime"
+    ]
+  },
+  {
+    "question": "Il ______ un cadeau à son ami.",
+    "correctAnswer": "donne",
+    "choices": [
+      "donnent",
+      "donner",
+      "donnes",
+      "donne",
+      "donnait"
+    ]
+  },
+  {
+    "question": "Je ______ la porte.",
+    "correctAnswer": "ferme",
+    "choices": [
+      "fermait",
+      "fermer",
+      "ferment",
+      "ferme",
+      "fermes"
+    ]
+  },
+  {
+    "question": "Nous ______ nos devoirs.",
+    "correctAnswer": "finissons",
+    "choices": [
+      "finissent",
+      "finis",
+      "finissons",
+      "finir",
+      "finissait"
+    ]
+  },
+  {
+    "question": "Tu ______ un livre intéressant.",
+    "correctAnswer": "choisis",
+    "choices": [
+      "choisir",
+      "choisis",
+      "choisissent",
+      "choisit",
+      "choisissait"
+    ]
+  },
+  {
+    "question": "Je ______ mon verre d’eau.",
+    "correctAnswer": "remplis",
+    "choices": [
+      "remplissent",
+      "remplir",
+      "remplit",
+      "remplissait",
+      "remplis"
+    ]
+  },
+  {
+    "question": "Elle ______ toujours les tests.",
+    "correctAnswer": "réussit",
+    "choices": [
+      "réussis",
+      "réussissait",
+      "réussit",
+      "réussissent",
+      "réussir"
+    ]
+  },
+  {
+    "question": "Les enfants ______ vite.",
+    "correctAnswer": "grandissent",
+    "choices": [
+      "grandissait",
+      "grandis",
+      "grandir",
+      "grandit",
+      "grandissent"
+    ]
+  },
+  {
+    "question": "Il ______ des fruits au marché.",
+    "correctAnswer": "vend",
+    "choices": [
+      "vendait",
+      "vend",
+      "vendent",
+      "vendre",
+      "vends"
+    ]
+  },
+  {
+    "question": "Nous ______ le bus.",
+    "correctAnswer": "attendons",
+    "choices": [
+      "attendait",
+      "attendez",
+      "attendons",
+      "attendent",
+      "attendre"
+    ]
+  },
+  {
+    "question": "Tu ______ souvent tes clés.",
+    "correctAnswer": "perds",
+    "choices": [
+      "perdent",
+      "perds",
+      "perdait",
+      "perd",
+      "perdre"
+    ]
+  },
+  {
+    "question": "Je ______ à la question.",
+    "correctAnswer": "réponds",
+    "choices": [
+      "réponds",
+      "répondre",
+      "répond",
+      "répondait",
+      "répondent"
+    ]
+  },
+  {
+    "question": "Ils ______ un bruit étrange.",
+    "correctAnswer": "entendent",
+    "choices": [
+      "entends",
+      "entendent",
+      "entendre",
+      "entend",
+      "entendait"
+    ]
+  },
+  {
+    "question": "Je ______ content aujourd’hui.",
+    "correctAnswer": "suis",
+    "choices": [
+      "es",
+      "suis",
+      "être",
+      "est",
+      "étais"
+    ]
+  },
+  {
+    "question": "Nous ______ prêts pour partir.",
+    "correctAnswer": "sommes",
+    "choices": [
+      "étions",
+      "sommes",
+      "sont",
+      "êtes",
+      "être"
+    ]
+  },
+  {
+    "question": "Tu ______ une belle bicyclette.",
+    "correctAnswer": "as",
+    "choices": [
+      "as",
+      "a",
+      "avoir",
+      "ai",
+      "avais"
+    ]
+  },
+  {
+    "question": "Ils ______ trois chiens.",
+    "correctAnswer": "ont",
+    "choices": [
+      "avoir",
+      "ont",
+      "avaient",
+      "as",
+      "a"
+    ]
+  },
+  {
+    "question": "Je ______ à l’école à pied.",
+    "correctAnswer": "vais",
+    "choices": [
+      "aller",
+      "allais",
+      "vas",
+      "vais",
+      "va"
+    ]
+  },
+  {
+    "question": "Vous ______ au cinéma ce soir.",
+    "correctAnswer": "allez",
+    "choices": [
+      "alliez",
+      "vont",
+      "allons",
+      "aller",
+      "allez"
+    ]
+  },
+  {
+    "question": "Nous ______ un gâteau.",
+    "correctAnswer": "faisons",
+    "choices": [
+      "faites",
+      "faire",
+      "faisaient",
+      "font",
+      "faisons"
+    ]
+  },
+  {
+    "question": "Il ______ ses devoirs chaque soir.",
+    "correctAnswer": "fait",
+    "choices": [
+      "fais",
+      "font",
+      "faisait",
+      "faire",
+      "fait"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ bien à l’école.",
+    "correctAnswer": "travailles",
+    "choices": [
+      "travailles",
+      "travaille",
+      "travaillent",
+      "travaillait",
+      "travailler"
+    ]
+  },
+  {
+    "question": "Elle-même, elle ______ toujours les tests.",
+    "correctAnswer": "réussit",
+    "choices": [
+      "réussis",
+      "réussissait",
+      "réussit",
+      "réussissent",
+      "réussir"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ le bus.",
+    "correctAnswer": "attendons",
+    "choices": [
+      "attendait",
+      "attendez",
+      "attendons",
+      "attendent",
+      "attendre"
+    ]
+  },
+  {
+    "question": "Moi, je ______ la porte.",
+    "correctAnswer": "ferme",
+    "choices": [
+      "fermait",
+      "fermer",
+      "ferment",
+      "ferme",
+      "fermes"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ bien à l’école.",
+    "correctAnswer": "travailles",
+    "choices": [
+      "travailles",
+      "travaille",
+      "travaillent",
+      "travaillait",
+      "travailler"
+    ]
+  },
+  {
+    "question": "Les enfants ______ vite.",
+    "correctAnswer": "grandissent",
+    "choices": [
+      "grandissait",
+      "grandis",
+      "grandir",
+      "grandit",
+      "grandissent"
+    ]
+  },
+  {
+    "question": "Vous-mêmes, vous ______ au cinéma ce soir.",
+    "correctAnswer": "allez",
+    "choices": [
+      "alliez",
+      "vont",
+      "allons",
+      "aller",
+      "allez"
+    ]
+  },
+  {
+    "question": "Les enfants ______ vite.",
+    "correctAnswer": "grandissent",
+    "choices": [
+      "grandissait",
+      "grandis",
+      "grandir",
+      "grandit",
+      "grandissent"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à la question.",
+    "correctAnswer": "réponds",
+    "choices": [
+      "réponds",
+      "répondre",
+      "répond",
+      "répondait",
+      "répondent"
+    ]
+  },
+  {
+    "question": "Vous-mêmes, vous ______ la musique forte.",
+    "correctAnswer": "écoutez",
+    "choices": [
+      "écoutent",
+      "écouter",
+      "écoutons",
+      "écoutait",
+      "écoutez"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ une belle bicyclette.",
+    "correctAnswer": "as",
+    "choices": [
+      "as",
+      "a",
+      "avoir",
+      "ai",
+      "avais"
+    ]
+  },
+  {
+    "question": "Vous-mêmes, vous ______ la musique forte.",
+    "correctAnswer": "écoutez",
+    "choices": [
+      "écoutent",
+      "écouter",
+      "écoutons",
+      "écoutait",
+      "écoutez"
+    ]
+  },
+  {
+    "question": "Lui, il ______ un cadeau à son ami.",
+    "correctAnswer": "donne",
+    "choices": [
+      "donnent",
+      "donner",
+      "donnes",
+      "donne",
+      "donnait"
+    ]
+  },
+  {
+    "question": "Vous-mêmes, vous ______ la musique forte.",
+    "correctAnswer": "écoutez",
+    "choices": [
+      "écoutent",
+      "écouter",
+      "écoutons",
+      "écoutait",
+      "écoutez"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ une chanson joyeuse.",
+    "correctAnswer": "chantons",
+    "choices": [
+      "chantez",
+      "chantons",
+      "chantent",
+      "chanter",
+      "chantait"
+    ]
+  },
+  {
+    "question": "Vous-mêmes, vous ______ la musique forte.",
+    "correctAnswer": "écoutez",
+    "choices": [
+      "écoutent",
+      "écouter",
+      "écoutons",
+      "écoutait",
+      "écoutez"
+    ]
+  },
+  {
+    "question": "Lui, il ______ au ballon.",
+    "correctAnswer": "joue",
+    "choices": [
+      "jouer",
+      "jouait",
+      "joue",
+      "jouent",
+      "joues"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ souvent tes clés.",
+    "correctAnswer": "perds",
+    "choices": [
+      "perdent",
+      "perds",
+      "perdait",
+      "perd",
+      "perdre"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à l’école à pied.",
+    "correctAnswer": "vais",
+    "choices": [
+      "aller",
+      "allais",
+      "vas",
+      "vais",
+      "va"
+    ]
+  },
+  {
+    "question": "Vous-mêmes, vous ______ la musique forte.",
+    "correctAnswer": "écoutez",
+    "choices": [
+      "écoutent",
+      "écouter",
+      "écoutons",
+      "écoutait",
+      "écoutez"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à l’école à pied.",
+    "correctAnswer": "vais",
+    "choices": [
+      "aller",
+      "allais",
+      "vas",
+      "vais",
+      "va"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ les animaux.",
+    "correctAnswer": "aimes",
+    "choices": [
+      "aimait",
+      "aimer",
+      "aimes",
+      "aimaient",
+      "aime"
+    ]
+  },
+  {
+    "question": "Lui, il ______ un cadeau à son ami.",
+    "correctAnswer": "donne",
+    "choices": [
+      "donnent",
+      "donner",
+      "donnes",
+      "donne",
+      "donnait"
+    ]
+  },
+  {
+    "question": "Les enfants ______ vite.",
+    "correctAnswer": "grandissent",
+    "choices": [
+      "grandissait",
+      "grandis",
+      "grandir",
+      "grandit",
+      "grandissent"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ souvent tes clés.",
+    "correctAnswer": "perds",
+    "choices": [
+      "perdent",
+      "perds",
+      "perdait",
+      "perd",
+      "perdre"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à la question.",
+    "correctAnswer": "réponds",
+    "choices": [
+      "réponds",
+      "répondre",
+      "répond",
+      "répondait",
+      "répondent"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ souvent tes clés.",
+    "correctAnswer": "perds",
+    "choices": [
+      "perdent",
+      "perds",
+      "perdait",
+      "perd",
+      "perdre"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ un livre intéressant.",
+    "correctAnswer": "choisis",
+    "choices": [
+      "choisir",
+      "choisis",
+      "choisissent",
+      "choisit",
+      "choisissait"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ un livre intéressant.",
+    "correctAnswer": "choisis",
+    "choices": [
+      "choisir",
+      "choisis",
+      "choisissent",
+      "choisit",
+      "choisissait"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ les animaux.",
+    "correctAnswer": "aimes",
+    "choices": [
+      "aimait",
+      "aimer",
+      "aimes",
+      "aimaient",
+      "aime"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à l’école à pied.",
+    "correctAnswer": "vais",
+    "choices": [
+      "aller",
+      "allais",
+      "vas",
+      "vais",
+      "va"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ nos devoirs.",
+    "correctAnswer": "finissons",
+    "choices": [
+      "finissent",
+      "finis",
+      "finissons",
+      "finir",
+      "finissait"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ souvent tes clés.",
+    "correctAnswer": "perds",
+    "choices": [
+      "perdent",
+      "perds",
+      "perdait",
+      "perd",
+      "perdre"
+    ]
+  },
+  {
+    "question": "Lui, il ______ des fruits au marché.",
+    "correctAnswer": "vend",
+    "choices": [
+      "vendait",
+      "vend",
+      "vendent",
+      "vendre",
+      "vends"
+    ]
+  },
+  {
+    "question": "Eux, ils ______ un bruit étrange.",
+    "correctAnswer": "entendent",
+    "choices": [
+      "entends",
+      "entendent",
+      "entendre",
+      "entend",
+      "entendait"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ français en classe.",
+    "correctAnswer": "parlons",
+    "choices": [
+      "parlez",
+      "parler",
+      "parlais",
+      "parlent",
+      "parlons"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ prêts pour partir.",
+    "correctAnswer": "sommes",
+    "choices": [
+      "étions",
+      "sommes",
+      "sont",
+      "êtes",
+      "être"
+    ]
+  },
+  {
+    "question": "Elle-même, elle ______ toujours les tests.",
+    "correctAnswer": "réussit",
+    "choices": [
+      "réussis",
+      "réussissait",
+      "réussit",
+      "réussissent",
+      "réussir"
+    ]
+  },
+  {
+    "question": "Moi, je ______ content aujourd’hui.",
+    "correctAnswer": "suis",
+    "choices": [
+      "es",
+      "suis",
+      "être",
+      "est",
+      "étais"
+    ]
+  },
+  {
+    "question": "Moi, je ______ mon verre d’eau.",
+    "correctAnswer": "remplis",
+    "choices": [
+      "remplissent",
+      "remplir",
+      "remplit",
+      "remplissait",
+      "remplis"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ français en classe.",
+    "correctAnswer": "parlons",
+    "choices": [
+      "parlez",
+      "parler",
+      "parlais",
+      "parlent",
+      "parlons"
+    ]
+  },
+  {
+    "question": "Vous-mêmes, vous ______ la musique forte.",
+    "correctAnswer": "écoutez",
+    "choices": [
+      "écoutent",
+      "écouter",
+      "écoutons",
+      "écoutait",
+      "écoutez"
+    ]
+  },
+  {
+    "question": "Lui, il ______ au ballon.",
+    "correctAnswer": "joue",
+    "choices": [
+      "jouer",
+      "jouait",
+      "joue",
+      "jouent",
+      "joues"
+    ]
+  },
+  {
+    "question": "Lui, il ______ au ballon.",
+    "correctAnswer": "joue",
+    "choices": [
+      "jouer",
+      "jouait",
+      "joue",
+      "jouent",
+      "joues"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à l’école à pied.",
+    "correctAnswer": "vais",
+    "choices": [
+      "aller",
+      "allais",
+      "vas",
+      "vais",
+      "va"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ une belle bicyclette.",
+    "correctAnswer": "as",
+    "choices": [
+      "as",
+      "a",
+      "avoir",
+      "ai",
+      "avais"
+    ]
+  },
+  {
+    "question": "Vous-mêmes, vous ______ la musique forte.",
+    "correctAnswer": "écoutez",
+    "choices": [
+      "écoutent",
+      "écouter",
+      "écoutons",
+      "écoutait",
+      "écoutez"
+    ]
+  },
+  {
+    "question": "Lui, il ______ au ballon.",
+    "correctAnswer": "joue",
+    "choices": [
+      "jouer",
+      "jouait",
+      "joue",
+      "jouent",
+      "joues"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ un gâteau.",
+    "correctAnswer": "faisons",
+    "choices": [
+      "faites",
+      "faire",
+      "faisaient",
+      "font",
+      "faisons"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ nos devoirs.",
+    "correctAnswer": "finissons",
+    "choices": [
+      "finissent",
+      "finis",
+      "finissons",
+      "finir",
+      "finissait"
+    ]
+  },
+  {
+    "question": "Vous-mêmes, vous ______ la musique forte.",
+    "correctAnswer": "écoutez",
+    "choices": [
+      "écoutent",
+      "écouter",
+      "écoutons",
+      "écoutait",
+      "écoutez"
+    ]
+  },
+  {
+    "question": "Elle-même, elle ______ toujours les tests.",
+    "correctAnswer": "réussit",
+    "choices": [
+      "réussis",
+      "réussissait",
+      "réussit",
+      "réussissent",
+      "réussir"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ le bus.",
+    "correctAnswer": "attendons",
+    "choices": [
+      "attendait",
+      "attendez",
+      "attendons",
+      "attendent",
+      "attendre"
+    ]
+  },
+  {
+    "question": "Eux, ils ______ un bruit étrange.",
+    "correctAnswer": "entendent",
+    "choices": [
+      "entends",
+      "entendent",
+      "entendre",
+      "entend",
+      "entendait"
+    ]
+  },
+  {
+    "question": "Lui, il ______ au ballon.",
+    "correctAnswer": "joue",
+    "choices": [
+      "jouer",
+      "jouait",
+      "joue",
+      "jouent",
+      "joues"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ souvent tes clés.",
+    "correctAnswer": "perds",
+    "choices": [
+      "perdent",
+      "perds",
+      "perdait",
+      "perd",
+      "perdre"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ le bus.",
+    "correctAnswer": "attendons",
+    "choices": [
+      "attendait",
+      "attendez",
+      "attendons",
+      "attendent",
+      "attendre"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ une belle bicyclette.",
+    "correctAnswer": "as",
+    "choices": [
+      "as",
+      "a",
+      "avoir",
+      "ai",
+      "avais"
+    ]
+  },
+  {
+    "question": "Eux, ils ______ un bruit étrange.",
+    "correctAnswer": "entendent",
+    "choices": [
+      "entends",
+      "entendent",
+      "entendre",
+      "entend",
+      "entendait"
+    ]
+  },
+  {
+    "question": "Elle-même, elle ______ toujours les tests.",
+    "correctAnswer": "réussit",
+    "choices": [
+      "réussis",
+      "réussissait",
+      "réussit",
+      "réussissent",
+      "réussir"
+    ]
+  },
+  {
+    "question": "Lui, il ______ au ballon.",
+    "correctAnswer": "joue",
+    "choices": [
+      "jouer",
+      "jouait",
+      "joue",
+      "jouent",
+      "joues"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ les animaux.",
+    "correctAnswer": "aimes",
+    "choices": [
+      "aimait",
+      "aimer",
+      "aimes",
+      "aimaient",
+      "aime"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à l’école à pied.",
+    "correctAnswer": "vais",
+    "choices": [
+      "aller",
+      "allais",
+      "vas",
+      "vais",
+      "va"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ bien à l’école.",
+    "correctAnswer": "travailles",
+    "choices": [
+      "travailles",
+      "travaille",
+      "travaillent",
+      "travaillait",
+      "travailler"
+    ]
+  },
+  {
+    "question": "Moi, je ______ mon verre d’eau.",
+    "correctAnswer": "remplis",
+    "choices": [
+      "remplissent",
+      "remplir",
+      "remplit",
+      "remplissait",
+      "remplis"
+    ]
+  },
+  {
+    "question": "Moi, je ______ la porte.",
+    "correctAnswer": "ferme",
+    "choices": [
+      "fermait",
+      "fermer",
+      "ferment",
+      "ferme",
+      "fermes"
+    ]
+  },
+  {
+    "question": "Lui, il ______ au ballon.",
+    "correctAnswer": "joue",
+    "choices": [
+      "jouer",
+      "jouait",
+      "joue",
+      "jouent",
+      "joues"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ une belle bicyclette.",
+    "correctAnswer": "as",
+    "choices": [
+      "as",
+      "a",
+      "avoir",
+      "ai",
+      "avais"
+    ]
+  },
+  {
+    "question": "Eux, ils ______ un bruit étrange.",
+    "correctAnswer": "entendent",
+    "choices": [
+      "entends",
+      "entendent",
+      "entendre",
+      "entend",
+      "entendait"
+    ]
+  },
+  {
+    "question": "Eux, ils ______ trois chiens.",
+    "correctAnswer": "ont",
+    "choices": [
+      "avoir",
+      "ont",
+      "avaient",
+      "as",
+      "a"
+    ]
+  },
+  {
+    "question": "Lui, il ______ un cadeau à son ami.",
+    "correctAnswer": "donne",
+    "choices": [
+      "donnent",
+      "donner",
+      "donnes",
+      "donne",
+      "donnait"
+    ]
+  },
+  {
+    "question": "Eux, ils ______ un bruit étrange.",
+    "correctAnswer": "entendent",
+    "choices": [
+      "entends",
+      "entendent",
+      "entendre",
+      "entend",
+      "entendait"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ un livre intéressant.",
+    "correctAnswer": "choisis",
+    "choices": [
+      "choisir",
+      "choisis",
+      "choisissent",
+      "choisit",
+      "choisissait"
+    ]
+  },
+  {
+    "question": "Moi, je ______ content aujourd’hui.",
+    "correctAnswer": "suis",
+    "choices": [
+      "es",
+      "suis",
+      "être",
+      "est",
+      "étais"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ le bus.",
+    "correctAnswer": "attendons",
+    "choices": [
+      "attendait",
+      "attendez",
+      "attendons",
+      "attendent",
+      "attendre"
+    ]
+  },
+  {
+    "question": "Elles ______ dans le parc.",
+    "correctAnswer": "marchent",
+    "choices": [
+      "marches",
+      "marcher",
+      "marche",
+      "marchent",
+      "marchait"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ une belle bicyclette.",
+    "correctAnswer": "as",
+    "choices": [
+      "as",
+      "a",
+      "avoir",
+      "ai",
+      "avais"
+    ]
+  },
+  {
+    "question": "Lui, il ______ au ballon.",
+    "correctAnswer": "joue",
+    "choices": [
+      "jouer",
+      "jouait",
+      "joue",
+      "jouent",
+      "joues"
+    ]
+  },
+  {
+    "question": "Lui, il ______ ses devoirs chaque soir.",
+    "correctAnswer": "fait",
+    "choices": [
+      "fais",
+      "font",
+      "faisait",
+      "faire",
+      "fait"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ une chanson joyeuse.",
+    "correctAnswer": "chantons",
+    "choices": [
+      "chantez",
+      "chantons",
+      "chantent",
+      "chanter",
+      "chantait"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ français en classe.",
+    "correctAnswer": "parlons",
+    "choices": [
+      "parlez",
+      "parler",
+      "parlais",
+      "parlent",
+      "parlons"
+    ]
+  },
+  {
+    "question": "Vous-mêmes, vous ______ la musique forte.",
+    "correctAnswer": "écoutez",
+    "choices": [
+      "écoutent",
+      "écouter",
+      "écoutons",
+      "écoutait",
+      "écoutez"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ souvent tes clés.",
+    "correctAnswer": "perds",
+    "choices": [
+      "perdent",
+      "perds",
+      "perdait",
+      "perd",
+      "perdre"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ français en classe.",
+    "correctAnswer": "parlons",
+    "choices": [
+      "parlez",
+      "parler",
+      "parlais",
+      "parlent",
+      "parlons"
+    ]
+  },
+  {
+    "question": "Eux, ils ______ un bruit étrange.",
+    "correctAnswer": "entendent",
+    "choices": [
+      "entends",
+      "entendent",
+      "entendre",
+      "entend",
+      "entendait"
+    ]
+  },
+  {
+    "question": "Lui, il ______ au ballon.",
+    "correctAnswer": "joue",
+    "choices": [
+      "jouer",
+      "jouait",
+      "joue",
+      "jouent",
+      "joues"
+    ]
+  },
+  {
+    "question": "Moi, je ______ un dessin animé.",
+    "correctAnswer": "regarde",
+    "choices": [
+      "regardent",
+      "regarde",
+      "regardait",
+      "regardes",
+      "regarder"
+    ]
+  },
+  {
+    "question": "Vous-mêmes, vous ______ au cinéma ce soir.",
+    "correctAnswer": "allez",
+    "choices": [
+      "alliez",
+      "vont",
+      "allons",
+      "aller",
+      "allez"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ nos devoirs.",
+    "correctAnswer": "finissons",
+    "choices": [
+      "finissent",
+      "finis",
+      "finissons",
+      "finir",
+      "finissait"
+    ]
+  },
+  {
+    "question": "Eux, ils ______ trois chiens.",
+    "correctAnswer": "ont",
+    "choices": [
+      "avoir",
+      "ont",
+      "avaient",
+      "as",
+      "a"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ une belle bicyclette.",
+    "correctAnswer": "as",
+    "choices": [
+      "as",
+      "a",
+      "avoir",
+      "ai",
+      "avais"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ une belle bicyclette.",
+    "correctAnswer": "as",
+    "choices": [
+      "as",
+      "a",
+      "avoir",
+      "ai",
+      "avais"
+    ]
+  },
+  {
+    "question": "Moi, je ______ un dessin animé.",
+    "correctAnswer": "regarde",
+    "choices": [
+      "regardent",
+      "regarde",
+      "regardait",
+      "regardes",
+      "regarder"
+    ]
+  },
+  {
+    "question": "Moi, je ______ la porte.",
+    "correctAnswer": "ferme",
+    "choices": [
+      "fermait",
+      "fermer",
+      "ferment",
+      "ferme",
+      "fermes"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ prêts pour partir.",
+    "correctAnswer": "sommes",
+    "choices": [
+      "étions",
+      "sommes",
+      "sont",
+      "êtes",
+      "être"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ nos devoirs.",
+    "correctAnswer": "finissons",
+    "choices": [
+      "finissent",
+      "finis",
+      "finissons",
+      "finir",
+      "finissait"
+    ]
+  },
+  {
+    "question": "Moi, je ______ la porte.",
+    "correctAnswer": "ferme",
+    "choices": [
+      "fermait",
+      "fermer",
+      "ferment",
+      "ferme",
+      "fermes"
+    ]
+  },
+  {
+    "question": "Eux, ils ______ trois chiens.",
+    "correctAnswer": "ont",
+    "choices": [
+      "avoir",
+      "ont",
+      "avaient",
+      "as",
+      "a"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ les animaux.",
+    "correctAnswer": "aimes",
+    "choices": [
+      "aimait",
+      "aimer",
+      "aimes",
+      "aimaient",
+      "aime"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à l’école à pied.",
+    "correctAnswer": "vais",
+    "choices": [
+      "aller",
+      "allais",
+      "vas",
+      "vais",
+      "va"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ un gâteau.",
+    "correctAnswer": "faisons",
+    "choices": [
+      "faites",
+      "faire",
+      "faisaient",
+      "font",
+      "faisons"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ un livre intéressant.",
+    "correctAnswer": "choisis",
+    "choices": [
+      "choisir",
+      "choisis",
+      "choisissent",
+      "choisit",
+      "choisissait"
+    ]
+  },
+  {
+    "question": "Moi, je ______ content aujourd’hui.",
+    "correctAnswer": "suis",
+    "choices": [
+      "es",
+      "suis",
+      "être",
+      "est",
+      "étais"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ un livre intéressant.",
+    "correctAnswer": "choisis",
+    "choices": [
+      "choisir",
+      "choisis",
+      "choisissent",
+      "choisit",
+      "choisissait"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à l’école à pied.",
+    "correctAnswer": "vais",
+    "choices": [
+      "aller",
+      "allais",
+      "vas",
+      "vais",
+      "va"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à la question.",
+    "correctAnswer": "réponds",
+    "choices": [
+      "réponds",
+      "répondre",
+      "répond",
+      "répondait",
+      "répondent"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à l’école à pied.",
+    "correctAnswer": "vais",
+    "choices": [
+      "aller",
+      "allais",
+      "vas",
+      "vais",
+      "va"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ une chanson joyeuse.",
+    "correctAnswer": "chantons",
+    "choices": [
+      "chantez",
+      "chantons",
+      "chantent",
+      "chanter",
+      "chantait"
+    ]
+  },
+  {
+    "question": "Les enfants ______ vite.",
+    "correctAnswer": "grandissent",
+    "choices": [
+      "grandissait",
+      "grandis",
+      "grandir",
+      "grandit",
+      "grandissent"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ un livre intéressant.",
+    "correctAnswer": "choisis",
+    "choices": [
+      "choisir",
+      "choisis",
+      "choisissent",
+      "choisit",
+      "choisissait"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à la question.",
+    "correctAnswer": "réponds",
+    "choices": [
+      "réponds",
+      "répondre",
+      "répond",
+      "répondait",
+      "répondent"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ bien à l’école.",
+    "correctAnswer": "travailles",
+    "choices": [
+      "travailles",
+      "travaille",
+      "travaillent",
+      "travaillait",
+      "travailler"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à la question.",
+    "correctAnswer": "réponds",
+    "choices": [
+      "réponds",
+      "répondre",
+      "répond",
+      "répondait",
+      "répondent"
+    ]
+  },
+  {
+    "question": "Elle-même, elle ______ toujours les tests.",
+    "correctAnswer": "réussit",
+    "choices": [
+      "réussis",
+      "réussissait",
+      "réussit",
+      "réussissent",
+      "réussir"
+    ]
+  },
+  {
+    "question": "Elle-même, elle ______ toujours les tests.",
+    "correctAnswer": "réussit",
+    "choices": [
+      "réussis",
+      "réussissait",
+      "réussit",
+      "réussissent",
+      "réussir"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ une chanson joyeuse.",
+    "correctAnswer": "chantons",
+    "choices": [
+      "chantez",
+      "chantons",
+      "chantent",
+      "chanter",
+      "chantait"
+    ]
+  },
+  {
+    "question": "Elle-même, elle ______ toujours les tests.",
+    "correctAnswer": "réussit",
+    "choices": [
+      "réussis",
+      "réussissait",
+      "réussit",
+      "réussissent",
+      "réussir"
+    ]
+  },
+  {
+    "question": "Les enfants ______ vite.",
+    "correctAnswer": "grandissent",
+    "choices": [
+      "grandissait",
+      "grandis",
+      "grandir",
+      "grandit",
+      "grandissent"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ bien à l’école.",
+    "correctAnswer": "travailles",
+    "choices": [
+      "travailles",
+      "travaille",
+      "travaillent",
+      "travaillait",
+      "travailler"
+    ]
+  },
+  {
+    "question": "Moi, je ______ content aujourd’hui.",
+    "correctAnswer": "suis",
+    "choices": [
+      "es",
+      "suis",
+      "être",
+      "est",
+      "étais"
+    ]
+  },
+  {
+    "question": "Lui, il ______ des fruits au marché.",
+    "correctAnswer": "vend",
+    "choices": [
+      "vendait",
+      "vend",
+      "vendent",
+      "vendre",
+      "vends"
+    ]
+  },
+  {
+    "question": "Elle-même, elle ______ toujours les tests.",
+    "correctAnswer": "réussit",
+    "choices": [
+      "réussis",
+      "réussissait",
+      "réussit",
+      "réussissent",
+      "réussir"
+    ]
+  },
+  {
+    "question": "Lui, il ______ un cadeau à son ami.",
+    "correctAnswer": "donne",
+    "choices": [
+      "donnent",
+      "donner",
+      "donnes",
+      "donne",
+      "donnait"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ un gâteau.",
+    "correctAnswer": "faisons",
+    "choices": [
+      "faites",
+      "faire",
+      "faisaient",
+      "font",
+      "faisons"
+    ]
+  },
+  {
+    "question": "Elle-même, elle ______ toujours les tests.",
+    "correctAnswer": "réussit",
+    "choices": [
+      "réussis",
+      "réussissait",
+      "réussit",
+      "réussissent",
+      "réussir"
+    ]
+  },
+  {
+    "question": "Elle-même, elle ______ toujours les tests.",
+    "correctAnswer": "réussit",
+    "choices": [
+      "réussis",
+      "réussissait",
+      "réussit",
+      "réussissent",
+      "réussir"
+    ]
+  },
+  {
+    "question": "Lui, il ______ ses devoirs chaque soir.",
+    "correctAnswer": "fait",
+    "choices": [
+      "fais",
+      "font",
+      "faisait",
+      "faire",
+      "fait"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ souvent tes clés.",
+    "correctAnswer": "perds",
+    "choices": [
+      "perdent",
+      "perds",
+      "perdait",
+      "perd",
+      "perdre"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à l’école à pied.",
+    "correctAnswer": "vais",
+    "choices": [
+      "aller",
+      "allais",
+      "vas",
+      "vais",
+      "va"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ nos devoirs.",
+    "correctAnswer": "finissons",
+    "choices": [
+      "finissent",
+      "finis",
+      "finissons",
+      "finir",
+      "finissait"
+    ]
+  },
+  {
+    "question": "Lui, il ______ au ballon.",
+    "correctAnswer": "joue",
+    "choices": [
+      "jouer",
+      "jouait",
+      "joue",
+      "jouent",
+      "joues"
+    ]
+  },
+  {
+    "question": "Lui, il ______ ses devoirs chaque soir.",
+    "correctAnswer": "fait",
+    "choices": [
+      "fais",
+      "font",
+      "faisait",
+      "faire",
+      "fait"
+    ]
+  },
+  {
+    "question": "Moi, je ______ mon verre d’eau.",
+    "correctAnswer": "remplis",
+    "choices": [
+      "remplissent",
+      "remplir",
+      "remplit",
+      "remplissait",
+      "remplis"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ les animaux.",
+    "correctAnswer": "aimes",
+    "choices": [
+      "aimait",
+      "aimer",
+      "aimes",
+      "aimaient",
+      "aime"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ prêts pour partir.",
+    "correctAnswer": "sommes",
+    "choices": [
+      "étions",
+      "sommes",
+      "sont",
+      "êtes",
+      "être"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ prêts pour partir.",
+    "correctAnswer": "sommes",
+    "choices": [
+      "étions",
+      "sommes",
+      "sont",
+      "êtes",
+      "être"
+    ]
+  },
+  {
+    "question": "Eux, ils ______ trois chiens.",
+    "correctAnswer": "ont",
+    "choices": [
+      "avoir",
+      "ont",
+      "avaient",
+      "as",
+      "a"
+    ]
+  },
+  {
+    "question": "Moi, je ______ un dessin animé.",
+    "correctAnswer": "regarde",
+    "choices": [
+      "regardent",
+      "regarde",
+      "regardait",
+      "regardes",
+      "regarder"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à l’école à pied.",
+    "correctAnswer": "vais",
+    "choices": [
+      "aller",
+      "allais",
+      "vas",
+      "vais",
+      "va"
+    ]
+  },
+  {
+    "question": "Elles ______ dans le parc.",
+    "correctAnswer": "marchent",
+    "choices": [
+      "marches",
+      "marcher",
+      "marche",
+      "marchent",
+      "marchait"
+    ]
+  },
+  {
+    "question": "Moi, je ______ la porte.",
+    "correctAnswer": "ferme",
+    "choices": [
+      "fermait",
+      "fermer",
+      "ferment",
+      "ferme",
+      "fermes"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ bien à l’école.",
+    "correctAnswer": "travailles",
+    "choices": [
+      "travailles",
+      "travaille",
+      "travaillent",
+      "travaillait",
+      "travailler"
+    ]
+  },
+  {
+    "question": "Vous-mêmes, vous ______ la musique forte.",
+    "correctAnswer": "écoutez",
+    "choices": [
+      "écoutent",
+      "écouter",
+      "écoutons",
+      "écoutait",
+      "écoutez"
+    ]
+  },
+  {
+    "question": "Vous-mêmes, vous ______ au cinéma ce soir.",
+    "correctAnswer": "allez",
+    "choices": [
+      "alliez",
+      "vont",
+      "allons",
+      "aller",
+      "allez"
+    ]
+  },
+  {
+    "question": "Moi, je ______ la porte.",
+    "correctAnswer": "ferme",
+    "choices": [
+      "fermait",
+      "fermer",
+      "ferment",
+      "ferme",
+      "fermes"
+    ]
+  },
+  {
+    "question": "Les enfants ______ vite.",
+    "correctAnswer": "grandissent",
+    "choices": [
+      "grandissait",
+      "grandis",
+      "grandir",
+      "grandit",
+      "grandissent"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ souvent tes clés.",
+    "correctAnswer": "perds",
+    "choices": [
+      "perdent",
+      "perds",
+      "perdait",
+      "perd",
+      "perdre"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ une belle bicyclette.",
+    "correctAnswer": "as",
+    "choices": [
+      "as",
+      "a",
+      "avoir",
+      "ai",
+      "avais"
+    ]
+  },
+  {
+    "question": "Moi, je ______ content aujourd’hui.",
+    "correctAnswer": "suis",
+    "choices": [
+      "es",
+      "suis",
+      "être",
+      "est",
+      "étais"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ bien à l’école.",
+    "correctAnswer": "travailles",
+    "choices": [
+      "travailles",
+      "travaille",
+      "travaillent",
+      "travaillait",
+      "travailler"
+    ]
+  },
+  {
+    "question": "Vous-mêmes, vous ______ au cinéma ce soir.",
+    "correctAnswer": "allez",
+    "choices": [
+      "alliez",
+      "vont",
+      "allons",
+      "aller",
+      "allez"
+    ]
+  },
+  {
+    "question": "Eux, ils ______ trois chiens.",
+    "correctAnswer": "ont",
+    "choices": [
+      "avoir",
+      "ont",
+      "avaient",
+      "as",
+      "a"
+    ]
+  },
+  {
+    "question": "Les enfants ______ vite.",
+    "correctAnswer": "grandissent",
+    "choices": [
+      "grandissait",
+      "grandis",
+      "grandir",
+      "grandit",
+      "grandissent"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ bien à l’école.",
+    "correctAnswer": "travailles",
+    "choices": [
+      "travailles",
+      "travaille",
+      "travaillent",
+      "travaillait",
+      "travailler"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ les animaux.",
+    "correctAnswer": "aimes",
+    "choices": [
+      "aimait",
+      "aimer",
+      "aimes",
+      "aimaient",
+      "aime"
+    ]
+  },
+  {
+    "question": "Lui, il ______ au ballon.",
+    "correctAnswer": "joue",
+    "choices": [
+      "jouer",
+      "jouait",
+      "joue",
+      "jouent",
+      "joues"
+    ]
+  },
+  {
+    "question": "Lui, il ______ des fruits au marché.",
+    "correctAnswer": "vend",
+    "choices": [
+      "vendait",
+      "vend",
+      "vendent",
+      "vendre",
+      "vends"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à l’école à pied.",
+    "correctAnswer": "vais",
+    "choices": [
+      "aller",
+      "allais",
+      "vas",
+      "vais",
+      "va"
+    ]
+  },
+  {
+    "question": "Lui, il ______ un cadeau à son ami.",
+    "correctAnswer": "donne",
+    "choices": [
+      "donnent",
+      "donner",
+      "donnes",
+      "donne",
+      "donnait"
+    ]
+  },
+  {
+    "question": "Moi, je ______ un dessin animé.",
+    "correctAnswer": "regarde",
+    "choices": [
+      "regardent",
+      "regarde",
+      "regardait",
+      "regardes",
+      "regarder"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ un gâteau.",
+    "correctAnswer": "faisons",
+    "choices": [
+      "faites",
+      "faire",
+      "faisaient",
+      "font",
+      "faisons"
+    ]
+  },
+  {
+    "question": "Lui, il ______ ses devoirs chaque soir.",
+    "correctAnswer": "fait",
+    "choices": [
+      "fais",
+      "font",
+      "faisait",
+      "faire",
+      "fait"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à l’école à pied.",
+    "correctAnswer": "vais",
+    "choices": [
+      "aller",
+      "allais",
+      "vas",
+      "vais",
+      "va"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ une chanson joyeuse.",
+    "correctAnswer": "chantons",
+    "choices": [
+      "chantez",
+      "chantons",
+      "chantent",
+      "chanter",
+      "chantait"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ prêts pour partir.",
+    "correctAnswer": "sommes",
+    "choices": [
+      "étions",
+      "sommes",
+      "sont",
+      "êtes",
+      "être"
+    ]
+  },
+  {
+    "question": "Les enfants ______ vite.",
+    "correctAnswer": "grandissent",
+    "choices": [
+      "grandissait",
+      "grandis",
+      "grandir",
+      "grandit",
+      "grandissent"
+    ]
+  },
+  {
+    "question": "Lui, il ______ des fruits au marché.",
+    "correctAnswer": "vend",
+    "choices": [
+      "vendait",
+      "vend",
+      "vendent",
+      "vendre",
+      "vends"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ bien à l’école.",
+    "correctAnswer": "travailles",
+    "choices": [
+      "travailles",
+      "travaille",
+      "travaillent",
+      "travaillait",
+      "travailler"
+    ]
+  },
+  {
+    "question": "Moi, je ______ mon verre d’eau.",
+    "correctAnswer": "remplis",
+    "choices": [
+      "remplissent",
+      "remplir",
+      "remplit",
+      "remplissait",
+      "remplis"
+    ]
+  },
+  {
+    "question": "Elle-même, elle ______ toujours les tests.",
+    "correctAnswer": "réussit",
+    "choices": [
+      "réussis",
+      "réussissait",
+      "réussit",
+      "réussissent",
+      "réussir"
+    ]
+  },
+  {
+    "question": "Elles ______ dans le parc.",
+    "correctAnswer": "marchent",
+    "choices": [
+      "marches",
+      "marcher",
+      "marche",
+      "marchent",
+      "marchait"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ un livre intéressant.",
+    "correctAnswer": "choisis",
+    "choices": [
+      "choisir",
+      "choisis",
+      "choisissent",
+      "choisit",
+      "choisissait"
+    ]
+  },
+  {
+    "question": "Moi, je ______ un dessin animé.",
+    "correctAnswer": "regarde",
+    "choices": [
+      "regardent",
+      "regarde",
+      "regardait",
+      "regardes",
+      "regarder"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ souvent tes clés.",
+    "correctAnswer": "perds",
+    "choices": [
+      "perdent",
+      "perds",
+      "perdait",
+      "perd",
+      "perdre"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ un livre intéressant.",
+    "correctAnswer": "choisis",
+    "choices": [
+      "choisir",
+      "choisis",
+      "choisissent",
+      "choisit",
+      "choisissait"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ les animaux.",
+    "correctAnswer": "aimes",
+    "choices": [
+      "aimait",
+      "aimer",
+      "aimes",
+      "aimaient",
+      "aime"
+    ]
+  },
+  {
+    "question": "Lui, il ______ au ballon.",
+    "correctAnswer": "joue",
+    "choices": [
+      "jouer",
+      "jouait",
+      "joue",
+      "jouent",
+      "joues"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à l’école à pied.",
+    "correctAnswer": "vais",
+    "choices": [
+      "aller",
+      "allais",
+      "vas",
+      "vais",
+      "va"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ les animaux.",
+    "correctAnswer": "aimes",
+    "choices": [
+      "aimait",
+      "aimer",
+      "aimes",
+      "aimaient",
+      "aime"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ une chanson joyeuse.",
+    "correctAnswer": "chantons",
+    "choices": [
+      "chantez",
+      "chantons",
+      "chantent",
+      "chanter",
+      "chantait"
+    ]
+  },
+  {
+    "question": "Vous-mêmes, vous ______ la musique forte.",
+    "correctAnswer": "écoutez",
+    "choices": [
+      "écoutent",
+      "écouter",
+      "écoutons",
+      "écoutait",
+      "écoutez"
+    ]
+  },
+  {
+    "question": "Moi, je ______ un dessin animé.",
+    "correctAnswer": "regarde",
+    "choices": [
+      "regardent",
+      "regarde",
+      "regardait",
+      "regardes",
+      "regarder"
+    ]
+  },
+  {
+    "question": "Lui, il ______ au ballon.",
+    "correctAnswer": "joue",
+    "choices": [
+      "jouer",
+      "jouait",
+      "joue",
+      "jouent",
+      "joues"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à la question.",
+    "correctAnswer": "réponds",
+    "choices": [
+      "réponds",
+      "répondre",
+      "répond",
+      "répondait",
+      "répondent"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ prêts pour partir.",
+    "correctAnswer": "sommes",
+    "choices": [
+      "étions",
+      "sommes",
+      "sont",
+      "êtes",
+      "être"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ bien à l’école.",
+    "correctAnswer": "travailles",
+    "choices": [
+      "travailles",
+      "travaille",
+      "travaillent",
+      "travaillait",
+      "travailler"
+    ]
+  },
+  {
+    "question": "Moi, je ______ la porte.",
+    "correctAnswer": "ferme",
+    "choices": [
+      "fermait",
+      "fermer",
+      "ferment",
+      "ferme",
+      "fermes"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ français en classe.",
+    "correctAnswer": "parlons",
+    "choices": [
+      "parlez",
+      "parler",
+      "parlais",
+      "parlent",
+      "parlons"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ les animaux.",
+    "correctAnswer": "aimes",
+    "choices": [
+      "aimait",
+      "aimer",
+      "aimes",
+      "aimaient",
+      "aime"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à la question.",
+    "correctAnswer": "réponds",
+    "choices": [
+      "réponds",
+      "répondre",
+      "répond",
+      "répondait",
+      "répondent"
+    ]
+  },
+  {
+    "question": "Les enfants ______ vite.",
+    "correctAnswer": "grandissent",
+    "choices": [
+      "grandissait",
+      "grandis",
+      "grandir",
+      "grandit",
+      "grandissent"
+    ]
+  },
+  {
+    "question": "Les enfants ______ vite.",
+    "correctAnswer": "grandissent",
+    "choices": [
+      "grandissait",
+      "grandis",
+      "grandir",
+      "grandit",
+      "grandissent"
+    ]
+  },
+  {
+    "question": "Lui, il ______ des fruits au marché.",
+    "correctAnswer": "vend",
+    "choices": [
+      "vendait",
+      "vend",
+      "vendent",
+      "vendre",
+      "vends"
+    ]
+  },
+  {
+    "question": "Eux, ils ______ un bruit étrange.",
+    "correctAnswer": "entendent",
+    "choices": [
+      "entends",
+      "entendent",
+      "entendre",
+      "entend",
+      "entendait"
+    ]
+  },
+  {
+    "question": "Vous-mêmes, vous ______ au cinéma ce soir.",
+    "correctAnswer": "allez",
+    "choices": [
+      "alliez",
+      "vont",
+      "allons",
+      "aller",
+      "allez"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ bien à l’école.",
+    "correctAnswer": "travailles",
+    "choices": [
+      "travailles",
+      "travaille",
+      "travaillent",
+      "travaillait",
+      "travailler"
+    ]
+  },
+  {
+    "question": "Eux, ils ______ un bruit étrange.",
+    "correctAnswer": "entendent",
+    "choices": [
+      "entends",
+      "entendent",
+      "entendre",
+      "entend",
+      "entendait"
+    ]
+  },
+  {
+    "question": "Elles ______ dans le parc.",
+    "correctAnswer": "marchent",
+    "choices": [
+      "marches",
+      "marcher",
+      "marche",
+      "marchent",
+      "marchait"
+    ]
+  },
+  {
+    "question": "Eux, ils ______ trois chiens.",
+    "correctAnswer": "ont",
+    "choices": [
+      "avoir",
+      "ont",
+      "avaient",
+      "as",
+      "a"
+    ]
+  },
+  {
+    "question": "Lui, il ______ un cadeau à son ami.",
+    "correctAnswer": "donne",
+    "choices": [
+      "donnent",
+      "donner",
+      "donnes",
+      "donne",
+      "donnait"
+    ]
+  },
+  {
+    "question": "Moi, je ______ à l’école à pied.",
+    "correctAnswer": "vais",
+    "choices": [
+      "aller",
+      "allais",
+      "vas",
+      "vais",
+      "va"
+    ]
+  },
+  {
+    "question": "Moi, je ______ content aujourd’hui.",
+    "correctAnswer": "suis",
+    "choices": [
+      "es",
+      "suis",
+      "être",
+      "est",
+      "étais"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ prêts pour partir.",
+    "correctAnswer": "sommes",
+    "choices": [
+      "étions",
+      "sommes",
+      "sont",
+      "êtes",
+      "être"
+    ]
+  },
+  {
+    "question": "Eux, ils ______ trois chiens.",
+    "correctAnswer": "ont",
+    "choices": [
+      "avoir",
+      "ont",
+      "avaient",
+      "as",
+      "a"
+    ]
+  },
+  {
+    "question": "Moi, je ______ un dessin animé.",
+    "correctAnswer": "regarde",
+    "choices": [
+      "regardent",
+      "regarde",
+      "regardait",
+      "regardes",
+      "regarder"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ une chanson joyeuse.",
+    "correctAnswer": "chantons",
+    "choices": [
+      "chantez",
+      "chantons",
+      "chantent",
+      "chanter",
+      "chantait"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ une chanson joyeuse.",
+    "correctAnswer": "chantons",
+    "choices": [
+      "chantez",
+      "chantons",
+      "chantent",
+      "chanter",
+      "chantait"
+    ]
+  },
+  {
+    "question": "Vous-mêmes, vous ______ au cinéma ce soir.",
+    "correctAnswer": "allez",
+    "choices": [
+      "alliez",
+      "vont",
+      "allons",
+      "aller",
+      "allez"
+    ]
+  },
+  {
+    "question": "Lui, il ______ un cadeau à son ami.",
+    "correctAnswer": "donne",
+    "choices": [
+      "donnent",
+      "donner",
+      "donnes",
+      "donne",
+      "donnait"
+    ]
+  },
+  {
+    "question": "Moi, je ______ un dessin animé.",
+    "correctAnswer": "regarde",
+    "choices": [
+      "regardent",
+      "regarde",
+      "regardait",
+      "regardes",
+      "regarder"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ un livre intéressant.",
+    "correctAnswer": "choisis",
+    "choices": [
+      "choisir",
+      "choisis",
+      "choisissent",
+      "choisit",
+      "choisissait"
+    ]
+  },
+  {
+    "question": "Moi, je ______ la porte.",
+    "correctAnswer": "ferme",
+    "choices": [
+      "fermait",
+      "fermer",
+      "ferment",
+      "ferme",
+      "fermes"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ un gâteau.",
+    "correctAnswer": "faisons",
+    "choices": [
+      "faites",
+      "faire",
+      "faisaient",
+      "font",
+      "faisons"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ bien à l’école.",
+    "correctAnswer": "travailles",
+    "choices": [
+      "travailles",
+      "travaille",
+      "travaillent",
+      "travaillait",
+      "travailler"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ une belle bicyclette.",
+    "correctAnswer": "as",
+    "choices": [
+      "as",
+      "a",
+      "avoir",
+      "ai",
+      "avais"
+    ]
+  },
+  {
+    "question": "Vous-mêmes, vous ______ la musique forte.",
+    "correctAnswer": "écoutez",
+    "choices": [
+      "écoutent",
+      "écouter",
+      "écoutons",
+      "écoutait",
+      "écoutez"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ une chanson joyeuse.",
+    "correctAnswer": "chantons",
+    "choices": [
+      "chantez",
+      "chantons",
+      "chantent",
+      "chanter",
+      "chantait"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ bien à l’école.",
+    "correctAnswer": "travailles",
+    "choices": [
+      "travailles",
+      "travaille",
+      "travaillent",
+      "travaillait",
+      "travailler"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ les animaux.",
+    "correctAnswer": "aimes",
+    "choices": [
+      "aimait",
+      "aimer",
+      "aimes",
+      "aimaient",
+      "aime"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ prêts pour partir.",
+    "correctAnswer": "sommes",
+    "choices": [
+      "étions",
+      "sommes",
+      "sont",
+      "êtes",
+      "être"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ un gâteau.",
+    "correctAnswer": "faisons",
+    "choices": [
+      "faites",
+      "faire",
+      "faisaient",
+      "font",
+      "faisons"
+    ]
+  },
+  {
+    "question": "Eux, ils ______ trois chiens.",
+    "correctAnswer": "ont",
+    "choices": [
+      "avoir",
+      "ont",
+      "avaient",
+      "as",
+      "a"
+    ]
+  },
+  {
+    "question": "Eux, ils ______ un bruit étrange.",
+    "correctAnswer": "entendent",
+    "choices": [
+      "entends",
+      "entendent",
+      "entendre",
+      "entend",
+      "entendait"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ prêts pour partir.",
+    "correctAnswer": "sommes",
+    "choices": [
+      "étions",
+      "sommes",
+      "sont",
+      "êtes",
+      "être"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ les animaux.",
+    "correctAnswer": "aimes",
+    "choices": [
+      "aimait",
+      "aimer",
+      "aimes",
+      "aimaient",
+      "aime"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ français en classe.",
+    "correctAnswer": "parlons",
+    "choices": [
+      "parlez",
+      "parler",
+      "parlais",
+      "parlent",
+      "parlons"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ un gâteau.",
+    "correctAnswer": "faisons",
+    "choices": [
+      "faites",
+      "faire",
+      "faisaient",
+      "font",
+      "faisons"
+    ]
+  },
+  {
+    "question": "Lui, il ______ un cadeau à son ami.",
+    "correctAnswer": "donne",
+    "choices": [
+      "donnent",
+      "donner",
+      "donnes",
+      "donne",
+      "donnait"
+    ]
+  },
+  {
+    "question": "Moi, je ______ la porte.",
+    "correctAnswer": "ferme",
+    "choices": [
+      "fermait",
+      "fermer",
+      "ferment",
+      "ferme",
+      "fermes"
+    ]
+  },
+  {
+    "question": "Lui, il ______ ses devoirs chaque soir.",
+    "correctAnswer": "fait",
+    "choices": [
+      "fais",
+      "font",
+      "faisait",
+      "faire",
+      "fait"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ bien à l’école.",
+    "correctAnswer": "travailles",
+    "choices": [
+      "travailles",
+      "travaille",
+      "travaillent",
+      "travaillait",
+      "travailler"
+    ]
+  },
+  {
+    "question": "Moi, je ______ mon verre d’eau.",
+    "correctAnswer": "remplis",
+    "choices": [
+      "remplissent",
+      "remplir",
+      "remplit",
+      "remplissait",
+      "remplis"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ un gâteau.",
+    "correctAnswer": "faisons",
+    "choices": [
+      "faites",
+      "faire",
+      "faisaient",
+      "font",
+      "faisons"
+    ]
+  },
+  {
+    "question": "Moi, je ______ mon verre d’eau.",
+    "correctAnswer": "remplis",
+    "choices": [
+      "remplissent",
+      "remplir",
+      "remplit",
+      "remplissait",
+      "remplis"
+    ]
+  },
+  {
+    "question": "Vous-mêmes, vous ______ au cinéma ce soir.",
+    "correctAnswer": "allez",
+    "choices": [
+      "alliez",
+      "vont",
+      "allons",
+      "aller",
+      "allez"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ prêts pour partir.",
+    "correctAnswer": "sommes",
+    "choices": [
+      "étions",
+      "sommes",
+      "sont",
+      "êtes",
+      "être"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ un gâteau.",
+    "correctAnswer": "faisons",
+    "choices": [
+      "faites",
+      "faire",
+      "faisaient",
+      "font",
+      "faisons"
+    ]
+  },
+  {
+    "question": "Lui, il ______ des fruits au marché.",
+    "correctAnswer": "vend",
+    "choices": [
+      "vendait",
+      "vend",
+      "vendent",
+      "vendre",
+      "vends"
+    ]
+  },
+  {
+    "question": "Lui, il ______ au ballon.",
+    "correctAnswer": "joue",
+    "choices": [
+      "jouer",
+      "jouait",
+      "joue",
+      "jouent",
+      "joues"
+    ]
+  },
+  {
+    "question": "Moi, je ______ un dessin animé.",
+    "correctAnswer": "regarde",
+    "choices": [
+      "regardent",
+      "regarde",
+      "regardait",
+      "regardes",
+      "regarder"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ prêts pour partir.",
+    "correctAnswer": "sommes",
+    "choices": [
+      "étions",
+      "sommes",
+      "sont",
+      "êtes",
+      "être"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ prêts pour partir.",
+    "correctAnswer": "sommes",
+    "choices": [
+      "étions",
+      "sommes",
+      "sont",
+      "êtes",
+      "être"
+    ]
+  },
+  {
+    "question": "Lui, il ______ des fruits au marché.",
+    "correctAnswer": "vend",
+    "choices": [
+      "vendait",
+      "vend",
+      "vendent",
+      "vendre",
+      "vends"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ un gâteau.",
+    "correctAnswer": "faisons",
+    "choices": [
+      "faites",
+      "faire",
+      "faisaient",
+      "font",
+      "faisons"
+    ]
+  },
+  {
+    "question": "Moi, je ______ la porte.",
+    "correctAnswer": "ferme",
+    "choices": [
+      "fermait",
+      "fermer",
+      "ferment",
+      "ferme",
+      "fermes"
+    ]
+  },
+  {
+    "question": "Les enfants ______ vite.",
+    "correctAnswer": "grandissent",
+    "choices": [
+      "grandissait",
+      "grandis",
+      "grandir",
+      "grandit",
+      "grandissent"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ souvent tes clés.",
+    "correctAnswer": "perds",
+    "choices": [
+      "perdent",
+      "perds",
+      "perdait",
+      "perd",
+      "perdre"
+    ]
+  },
+  {
+    "question": "Lui, il ______ un cadeau à son ami.",
+    "correctAnswer": "donne",
+    "choices": [
+      "donnent",
+      "donner",
+      "donnes",
+      "donne",
+      "donnait"
+    ]
+  },
+  {
+    "question": "Moi, je ______ content aujourd’hui.",
+    "correctAnswer": "suis",
+    "choices": [
+      "es",
+      "suis",
+      "être",
+      "est",
+      "étais"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ les animaux.",
+    "correctAnswer": "aimes",
+    "choices": [
+      "aimait",
+      "aimer",
+      "aimes",
+      "aimaient",
+      "aime"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ les animaux.",
+    "correctAnswer": "aimes",
+    "choices": [
+      "aimait",
+      "aimer",
+      "aimes",
+      "aimaient",
+      "aime"
+    ]
+  },
+  {
+    "question": "Les enfants ______ vite.",
+    "correctAnswer": "grandissent",
+    "choices": [
+      "grandissait",
+      "grandis",
+      "grandir",
+      "grandit",
+      "grandissent"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ une belle bicyclette.",
+    "correctAnswer": "as",
+    "choices": [
+      "as",
+      "a",
+      "avoir",
+      "ai",
+      "avais"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ prêts pour partir.",
+    "correctAnswer": "sommes",
+    "choices": [
+      "étions",
+      "sommes",
+      "sont",
+      "êtes",
+      "être"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ les animaux.",
+    "correctAnswer": "aimes",
+    "choices": [
+      "aimait",
+      "aimer",
+      "aimes",
+      "aimaient",
+      "aime"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ une belle bicyclette.",
+    "correctAnswer": "as",
+    "choices": [
+      "as",
+      "a",
+      "avoir",
+      "ai",
+      "avais"
+    ]
+  },
+  {
+    "question": "Eux, ils ______ trois chiens.",
+    "correctAnswer": "ont",
+    "choices": [
+      "avoir",
+      "ont",
+      "avaient",
+      "as",
+      "a"
+    ]
+  },
+  {
+    "question": "Moi, je ______ la porte.",
+    "correctAnswer": "ferme",
+    "choices": [
+      "fermait",
+      "fermer",
+      "ferment",
+      "ferme",
+      "fermes"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ un livre intéressant.",
+    "correctAnswer": "choisis",
+    "choices": [
+      "choisir",
+      "choisis",
+      "choisissent",
+      "choisit",
+      "choisissait"
+    ]
+  },
+  {
+    "question": "Les enfants ______ vite.",
+    "correctAnswer": "grandissent",
+    "choices": [
+      "grandissait",
+      "grandis",
+      "grandir",
+      "grandit",
+      "grandissent"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ les animaux.",
+    "correctAnswer": "aimes",
+    "choices": [
+      "aimait",
+      "aimer",
+      "aimes",
+      "aimaient",
+      "aime"
+    ]
+  },
+  {
+    "question": "Lui, il ______ au ballon.",
+    "correctAnswer": "joue",
+    "choices": [
+      "jouer",
+      "jouait",
+      "joue",
+      "jouent",
+      "joues"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ une belle bicyclette.",
+    "correctAnswer": "as",
+    "choices": [
+      "as",
+      "a",
+      "avoir",
+      "ai",
+      "avais"
+    ]
+  },
+  {
+    "question": "Les enfants ______ vite.",
+    "correctAnswer": "grandissent",
+    "choices": [
+      "grandissait",
+      "grandis",
+      "grandir",
+      "grandit",
+      "grandissent"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ un gâteau.",
+    "correctAnswer": "faisons",
+    "choices": [
+      "faites",
+      "faire",
+      "faisaient",
+      "font",
+      "faisons"
+    ]
+  },
+  {
+    "question": "Lui, il ______ des fruits au marché.",
+    "correctAnswer": "vend",
+    "choices": [
+      "vendait",
+      "vend",
+      "vendent",
+      "vendre",
+      "vends"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ prêts pour partir.",
+    "correctAnswer": "sommes",
+    "choices": [
+      "étions",
+      "sommes",
+      "sont",
+      "êtes",
+      "être"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ bien à l’école.",
+    "correctAnswer": "travailles",
+    "choices": [
+      "travailles",
+      "travaille",
+      "travaillent",
+      "travaillait",
+      "travailler"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ nos devoirs.",
+    "correctAnswer": "finissons",
+    "choices": [
+      "finissent",
+      "finis",
+      "finissons",
+      "finir",
+      "finissait"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ un gâteau.",
+    "correctAnswer": "faisons",
+    "choices": [
+      "faites",
+      "faire",
+      "faisaient",
+      "font",
+      "faisons"
+    ]
+  },
+  {
+    "question": "Nous tous, nous ______ prêts pour partir.",
+    "correctAnswer": "sommes",
+    "choices": [
+      "étions",
+      "sommes",
+      "sont",
+      "êtes",
+      "être"
+    ]
+  },
+  {
+    "question": "Toi, tu ______ une belle bicyclette.",
+    "correctAnswer": "as",
+    "choices": [
+      "as",
+      "a",
+      "avoir",
+      "ai",
+      "avais"
+    ]
+  }
+]
