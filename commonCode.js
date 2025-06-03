@@ -209,9 +209,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 const modal = document.getElementById("iframeModal");
                 modal.style.display = "none";
 
-                // Use system clock to check elapsed time
                 const now = Date.now();
-                if (lastTaskButtonStartTime && (now - lastTaskButtonStartTime) >= MIN_TASK_TIME_MS) {
+                let startTime = lastTaskButtonStartTime || parseInt(localStorage.getItem('lastTaskButtonStartTime'), 10);
+                if (startTime && (now - startTime) >= MIN_TASK_TIME_MS) {
                     if (typeof unlockNextPiece === "function" && lastTaskButtonKid !== null && lastTaskButtonIdx !== null) {
                         unlockNextPiece(lastTaskButtonKid, lastTaskButtonIdx);
                     }
@@ -219,8 +219,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     alert("Please spend at least 30 seconds on the task before closing.");
                 }
 
-                // Reset timer
                 lastTaskButtonStartTime = null;
+                localStorage.removeItem('lastTaskButtonStartTime');
             }
         
             let lastTaskButtonIdx = null;
@@ -232,9 +232,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 const kidId = button.getAttribute("data-kid") || (document.getElementById("codeDisplay")?.getAttribute("data-kid") || "kid1");
                 const key = button.getAttribute("data-key");
                 button.addEventListener("click", function () {
-                    lastTaskButtonIdx = key; // <-- Use data-key, not idx
+                    lastTaskButtonIdx = key;
                     lastTaskButtonKid = kidId;
-                    lastTaskButtonStartTime = Date.now(); // Already correct
+                    lastTaskButtonStartTime = Date.now();
+                    localStorage.setItem('lastTaskButtonStartTime', lastTaskButtonStartTime);
                     launchGameInModal(button.getAttribute("data-target-page"));
                 });
             });
