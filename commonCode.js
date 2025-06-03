@@ -200,27 +200,15 @@ document.addEventListener("DOMContentLoaded", function () {
         
                 iframe.src = gameUrl;
                 modal.style.display = "block";
-                // Always set start time in localStorage
-                const now = Date.now();
-                localStorage.setItem('lastTaskButtonStartTime', now);
-                lastTaskButtonStartTime = now;
             }
         
-            const MIN_TASK_TIME_MS = 10000; // 10 seconds
         
             // Function to handle modal close
             function handleModalClose() {
                 const modal = document.getElementById("iframeModal");
                 modal.style.display = "none";
-
-                // Use system clock to check elapsed time
-                const now = Date.now();
-                if (lastTaskButtonStartTime && (now - lastTaskButtonStartTime) >= MIN_TASK_TIME_MS) {
-                    if (typeof unlockNextPiece === "function" && lastTaskButtonKid !== null && lastTaskButtonIdx !== null) {
-                        unlockNextPiece(lastTaskButtonKid, lastTaskButtonIdx);
-                    }
-                } else {
-                    alert("Please spend at least 30 seconds on the task before closing.");
+                if (typeof unlockNextPiece === "function" && lastTaskButtonKid !== null && lastTaskButtonIdx !== null) {
+                    unlockNextPiece(lastTaskButtonKid, lastTaskButtonIdx);
                 }
                 lastTaskButtonStartTime = null;
                 localStorage.removeItem('lastTaskButtonStartTime');
