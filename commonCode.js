@@ -213,10 +213,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 const modal = document.getElementById("iframeModal");
                 modal.style.display = "none";
 
+                // Use system clock to check elapsed time
                 const now = Date.now();
-                // Always read from localStorage
-                let startTime = parseInt(localStorage.getItem('lastTaskButtonStartTime'), 10);
-                if (startTime && (now - startTime) >= MIN_TASK_TIME_MS) {
+                if (lastTaskButtonStartTime && (now - lastTaskButtonStartTime) >= MIN_TASK_TIME_MS) {
                     if (typeof unlockNextPiece === "function" && lastTaskButtonKid !== null && lastTaskButtonIdx !== null) {
                         unlockNextPiece(lastTaskButtonKid, lastTaskButtonIdx);
                     }
@@ -238,8 +237,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 button.addEventListener("click", function () {
                     lastTaskButtonIdx = key;
                     lastTaskButtonKid = kidId;
-                    lastTaskButtonStartTime = Date.now();
-                    localStorage.setItem('lastTaskButtonStartTime', lastTaskButtonStartTime);
+                    lastTaskButtonStartTime = Date.now(); // Already correct
                     launchGameInModal(button.getAttribute("data-target-page"));
                 });
             });
