@@ -206,37 +206,34 @@ document.addEventListener("DOMContentLoaded", function () {
             function handleModalClose() {
                 const modal = document.getElementById("iframeModal");
                 modal.style.display = "none";
-            
-                const today = new Date().toISOString().slice(0, 10);
-                const codes = getTodayCodes(); // Assuming getTodayCodes() is defined elsewhere
-                const fullCode = codes.kid1; // Replace 'kid1' with the appropriate kid ID if needed
-            
-                // Load revealed parts from localStorage
-                const storageKey = `revealedParts_${today}`;
-                let revealedParts = parseInt(localStorage.getItem(storageKey) || "0", 10);
-            
-                // Increment revealed parts if the modal was closed after completing a task
-                revealedParts = Math.min(revealedParts + 1, document.querySelectorAll(".task-button[data-reveal-code='true']").length);
-            
-                // Save the updated revealed parts to localStorage
-                localStorage.setItem(storageKey, revealedParts);
-            
-                // Update the code display
-                const codeDisplay = document.getElementById("codeDisplay");
-                if (codeDisplay) {
-                    updateCodeDisplay(fullCode, revealedParts, document.querySelectorAll(".task-button[data-reveal-code='true']").length);
+
+                // Only mark as complete if enough time has passed
+                if (lastTaskButtonStartTime && (Date.now() - lastTaskButtonStartTime) >= MIN_TASK_TIME_MS) {
+                    if (typeof unlockNextPiece === "function" && lastTaskButtonKid !== null && lastTaskButtonIdx !== null) {
+                        unlockNextPiece(lastTaskButtonKid, lastTaskButtonIdx);
+                    }
+                } else {
+                    alert("Please spend at least 30 seconds on the task before closing.");
                 }
-            
-                console.log(`Modal closed. Updated revealed parts: ${revealedParts}`);
+
+                // Reset timer
+                lastTaskButtonStartTime = null;
             }
+        
+            let lastTaskButtonIdx = null;
+            let lastTaskButtonKid = null;
+            let lastTaskButtonStartTime = null;
+            const MIN_TASK_TIME_MS = 15000; // 15 seconds
         
             // Attach event listeners to all task buttons
             document.querySelectorAll(".task-button[data-target-page]").forEach((button) => {
-                const gameUrl = button.getAttribute("data-target-page");
-                const kidId = button.getAttribute("data-kid");
-        
+                const kidId = button.getAttribute("data-kid") || (document.getElementById("codeDisplay")?.getAttribute("data-kid") || "kid1");
+                const key = button.getAttribute("data-key");
                 button.addEventListener("click", function () {
-                    launchGameInModal(gameUrl);
+                    lastTaskButtonIdx = key; // <-- Use data-key, not idx
+                    lastTaskButtonKid = kidId;
+                    lastTaskButtonStartTime = Date.now();
+                    launchGameInModal(button.getAttribute("data-target-page"));
                 });
             });
         
@@ -252,7 +249,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (event.data && event.data.type === "gameCompleted") {
                     const modal = document.getElementById("iframeModal");
                     if (modal.style.display === "block") {
-                        console.log("Game completed. Closing modal in 2 seconds...");
+                        // Call unlockNextPiece with the stored values
+                        if (typeof unlockNextPiece === "function" && lastTaskButtonKid !== null && lastTaskButtonIdx !== null) {
+                            unlockNextPiece(lastTaskButtonKid, lastTaskButtonIdx);
+                        }
                         setTimeout(handleModalClose, 2000); // Close the modal after 2 seconds
                     }
                 }
@@ -264,3 +264,19 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 }
             });
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Find all required buttons that can reveal code (task or non-task)
+    const revealButtons = Array.from(document.querySelectorAll('.button.required[data-reveal-code="true"]'));
+    revealButtons.forEach((button, idx) => {
+        if (button.classList.contains('non-task')) {
+            const kidId = button.getAttribute("data-kid") || (document.getElementById("codeDisplay")?.getAttribute("data-kid") || "kid1");
+            const key = button.getAttribute("data-key");
+            button.addEventListener("click", function () {
+                if (typeof unlockNextPiece === "function" && key) {
+                    unlockNextPiece(kidId, key);
+                }
+            });
+        }
+    });
+});

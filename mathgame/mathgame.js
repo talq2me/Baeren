@@ -5,6 +5,14 @@ let maxQuestions = 10;
 
 
 
+// Utility to shuffle an array in place
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
 // Load the game data and initialize the game
 async function loadGame() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -16,15 +24,14 @@ async function loadGame() {
     updateStarCount(); //draw the 0/maxQuestions stars
 
     if (!jsonFile || !gameTitle) {
-      console.error("Missing required parameters: jsonFile or title");
-      const messageContainer = document.getElementById("messageContainer");
-      if (messageContainer) {
-          messageContainer.innerText = "Error: Missing game data. Please start the game from the correct page.";
-      }
-      return; // Stop execution if parameters are missing
-  }
+        console.error("Missing required parameters: jsonFile or title");
+        const messageContainer = document.getElementById("messageContainer");
+        if (messageContainer) {
+            messageContainer.innerText = "Error: Missing game data. Please start the game from the correct page.";
+        }
+        return; // Stop execution if parameters are missing
+    }
 
-    console.log("Loading JSON file:", jsonFile);
     // Set the game title
     const gameTitleElement = document.getElementById("gameTitle");
     if (gameTitleElement) {
@@ -35,7 +42,7 @@ async function loadGame() {
     if (gameTitle === "Algebra Game" || gameTitle === "Fractions Game" || 
         gameTitle === "General Math Game" || gameTitle === "Mixed Math Game" ||
         gameTitle === "Conjugation Game" || gameTitle === "Translation Game" || 
-        gameTitle === "Word Problems Math Game") {
+        gameTitle === "Word Problems Math Game" || gameTitle === "Sk Math Game") {
         document.getElementById("submitBtn").style.display = "none";
         document.getElementById("delete-btn").style.display = "none";
     }
@@ -44,19 +51,18 @@ async function loadGame() {
         const response = await fetch(jsonFile);
         gameData = await response.json();
 
-        // Load the current index from localStorage
-        const today = new Date().toISOString().slice(0, 10);
+        // Load the current index from localStorage (no date, so always resumes)
         const storageKey = `mathgame_index_${jsonFile}`;
         currentIndex = parseInt(localStorage.getItem(storageKey) || "0", 10);
 
         // Start the game
         showQuestion();
     } catch (error) {
-      console.error("Error loading game data:", error);
-      const messageContainer = document.getElementById("messageContainer");
-      if (messageContainer) {
-          messageContainer.innerText = "Error loading game data.";
-      }
+        console.error("Error loading game data:", error);
+        const messageContainer = document.getElementById("messageContainer");
+        if (messageContainer) {
+            messageContainer.innerText = "Error loading game data.";
+        }
     }
 }
 
@@ -82,8 +88,12 @@ function showQuestion() {
     choicesDiv.innerHTML = "";
     messageContainer.innerText = "";
 
+    // Shuffle choices before displaying
+    const shuffledChoices = [...currentItem.choices];
+    shuffleArray(shuffledChoices);
+
     // Display choices as buttons
-    currentItem.choices.forEach(choice => {
+    shuffledChoices.forEach(choice => {
         const btn = document.createElement("button");
         btn.innerText = choice;
         btn.className = "button";

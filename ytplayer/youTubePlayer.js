@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(modal);
 
     let player = null;
+    let lastVideoButtonKid = null;
+    let lastVideoButtonKey = null; // Use data-key instead of idx
 
     // Helper: get next video key for sequential mode
     function getNextVideoKey(keys, storageKey) {
@@ -41,9 +43,14 @@ document.addEventListener("DOMContentLoaded", function () {
     function launchYouTubeModal(videoId, onEnd) {
         modal.style.display = "flex";
         document.body.style.overflow = "hidden";
-        // Clean up previous player if any
         document.getElementById("ytPlayerContainer").innerHTML = `<div id="ytPlayer"></div>`;
-        // Wait for YT API
+
+        let lastTime = 0;
+        let watchedTime = 0;
+        let duration = 0;
+        let interval = null;
+        let skipped = false;
+
         function createPlayer() {
             if (!window.YT || !window.YT.Player) {
                 setTimeout(createPlayer, 200);
@@ -54,11 +61,33 @@ document.addEventListener("DOMContentLoaded", function () {
                 height: "100%",
                 videoId: videoId,
                 events: {
+                    onReady: function (event) {
+                        duration = event.target.getDuration();
+                        lastTime = event.target.getCurrentTime();
+                        interval = setInterval(() => {
+                            let currentTime = event.target.getCurrentTime();
+                            // If user skips ahead by more than 2 seconds, mark as skipped
+                            if (currentTime - lastTime > 2.5) {
+                                skipped = true;
+                            }
+                            // Only count forward progress
+                            if (currentTime > lastTime) {
+                                watchedTime += (currentTime - lastTime);
+                            }
+                            lastTime = currentTime;
+                        }, 1000);
+                    },
                     onStateChange: function (event) {
                         if (event.data === YT.PlayerState.ENDED) {
+                            clearInterval(interval);
                             modal.style.display = "none";
                             document.body.style.overflow = "";
-                            if (typeof onEnd === "function") onEnd();
+                            // Only count as watched if not skipped and watched at least 90% of the video
+                            if (!skipped && watchedTime > 0.9 * duration) {
+                                if (typeof onEnd === "function") onEnd();
+                            } else {
+                                alert("Please watch the whole video without skipping to count as complete.");
+                            }
                         }
                     }
                 },
@@ -67,11 +96,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     controls: 1,
                     rel: 0,
                     modestbranding: 1,
-                    fs: 1
+                    fs: 1,
+                    disablekb: 1 // disables keyboard controls
                 }
             });
         }
-        
         createPlayer();
     }
 
@@ -83,11 +112,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Initialize video buttons
-    document.querySelectorAll(".video-button").forEach((button, btnIndex) => {
+    document.querySelectorAll(".video-button").forEach((button) => {
+        const kid = button.getAttribute("data-kid") || (document.getElementById("codeDisplay")?.getAttribute("data-kid") || "kid1");
         const jsonFile = button.getAttribute("data-json-file");
         const selectionMode = button.getAttribute("data-selection-mode");
+        const dataKey = button.getAttribute("data-key"); // Use data-key
 
-        if (!jsonFile || !selectionMode) {
+        if (!jsonFile || !selectionMode || !dataKey) {
             button.textContent = "Invalid Config";
             button.disabled = true;
             return;
@@ -101,31 +132,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // Determine the video key based on the selection mode
                 if (selectionMode === "sequential") {
-                    videoKey = getNextVideoKey(keys, "ytseq_btn" + btnIndex);
+                    videoKey = getNextVideoKey(keys, "ytseq_btn_" + dataKey);
                 } else if (selectionMode === "exact") {
-                    videoKey = button.textContent.trim(); // Use the button's text as the key
+                    videoKey = button.textContent.trim();
                 } else if (selectionMode === "random") {
-                    videoKey = keys[Math.floor(Math.random() * keys.length)]; // Pick a random key
+                    videoKey = keys[Math.floor(Math.random() * keys.length)];
                 }
 
-                // Get the video ID from the JSON data
                 const videoId = videoData[videoKey];
-
-                // Set the button text to the video name (formatted for readability)
                 button.textContent = videoKey.replace(/([A-Z])/g, ' $1').trim();
 
-                // Add click event to launch the video modal
                 button.addEventListener("click", function () {
+                    lastVideoButtonKid = kid;
+                    lastVideoButtonKey = dataKey;
+
                     // Recompute videoKey in case day changed (for sequential mode)
                     let key = videoKey;
                     if (selectionMode === "sequential") {
-                        key = getNextVideoKey(keys, "ytseq_btn" + btnIndex);
+                        key = getNextVideoKey(keys, "ytseq_btn_" + dataKey);
                     }
                     const videoId = videoData[key];
 
-                    // Launch the YouTube modal
                     launchYouTubeModal(videoId, function () {
-                        // Optional: Add logic to execute when the modal closes
+                        if (typeof unlockNextPiece === "function" && lastVideoButtonKid && lastVideoButtonKey) {
+                            unlockNextPiece(lastVideoButtonKid, lastVideoButtonKey);
+
+                            // Immediately mark the video button as completed
+                            button.classList.add('completed');
+                        }
                     });
                 });
             })

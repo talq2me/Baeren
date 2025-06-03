@@ -8,7 +8,15 @@
     <link rel="stylesheet" href="../ytplayer/ytplayer.css">
     <!--script src="../videoModal.js" defer></script-->
     <script src="../ytplayer/youTubePlayer.js" defer></script>
-    <script src="../commonCode.js" defer></script>
+    <script>
+        // Get today's date in YYYY-MM-DD format
+        const today = new Date().toISOString().slice(0, 10);
+        // Create the script element
+        const script = document.createElement('script');
+        script.src = `../commonCode.js?v=${today}`;
+        script.defer = true;
+        document.head.appendChild(script);
+    </script>
     <script src="../codeGenerator/unlockCodePiece.js"></script>
 </head>
 <body>
@@ -24,46 +32,46 @@
     </div>
 
     <div class="div-container">
-        <button class="button required task-button" data-reveal-code="true" data-target-page="../mathgame/gr3math.html?jsonFile=jkmath.json&title=Jk%20Math%20Game&useAudioFiles=false&useTTS=false">Sk Math Game</button>
-        
-        <button class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/frenchWordGame.json&title=French Word Game&useAudioFiles=true&useTTS=false">French Word Game</button>
-        
-        <button class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/frenchData.json&title=French Game&useAudioFiles=true&useTTS=false">French Game</button>
-        <button class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/skSpellingData.json&title=Spelling Game&useAudioFiles=true&useTTS=true">Spelling Game</button>
-        <button class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/skLetterSounds.json&title=Letter Sound Game&useAudioFiles=true&useTTS=false">Letter Sound Game</button>
-        <button class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/skSpellingData.json&title=Sound Parts Game&useAudioFiles=true&useTTS=true">Sound Parts Game</button>
-        <button class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/sightWord.json&title=Sight Word Game&useAudioFiles=false&useTTS=true">Sight Word Game</button>
-        
+        <button data-key="1" class="button required task-button" data-reveal-code="true" data-target-page="../mathgame/gr3math.html?jsonFile=jkmath.json&title=Sk%20Math%20Game&useAudioFiles=false&useTTS=false">Sk Math Game</button>
+
+        <button data-key="2" class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/frenchWordGame.json&title=French Word Game&useAudioFiles=true&useTTS=false">French Word Game</button>
+
+        <button data-key="3" class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/frenchData.json&title=French Game&useAudioFiles=true&useTTS=false">French Game</button>
+        <button data-key="4" class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/skSpellingData.json&title=Spelling Game&useAudioFiles=true&useTTS=true">Spelling Game</button>
+        <button data-key="5" class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/skLetterSounds.json&title=Letter Sound Game&useAudioFiles=true&useTTS=false">Letter Sound Game</button>
+        <button data-key="6" class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/skSpellingData.json&title=Sound Parts Game&useAudioFiles=true&useTTS=true">Sound Parts Game</button>
+        <button data-key="7" class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/sightWord.json&title=Sight Word Game&useAudioFiles=false&useTTS=true">Sight Word Game</button>
+
         <!--button class="button" onclick="location.href='../readAlongGame/readalong-game.html'">Read Along Game</button-->
-        <button class="button required" data-reveal-code="true"
+        <button data-key="8" class="button required non-task" data-reveal-code="true"
             onclick="if (typeof fully !== 'undefined' && fully.startApplication) { fully.startApplication('com.google.android.apps.seekh'); } else { openNewWindow('https://readalong.google.com'); }">
             Google Read Along
         </button>
-        <button class="button required" data-show-days="fri" data-reveal-code="true" onclick="openNewWindow('https://classroom.google.com/c/NTI0MDY0MjM3OTg5')">Google Classroom</button>
-        <button class="button notfriday"  data-reveal-code="true" onclick="openNewWindow('https://classroom.google.com/c/NTI0MDY0MjM3OTg5')">Google Classroom</button>
+        <button data-key="9" class="button required non-task" data-show-days="fri" data-reveal-code="true" onclick="openNewWindow('https://classroom.google.com/c/NTI0MDY0MjM3OTg5')">Google Classroom</button>
+        <button data-key="10" class="button notfriday"  data-reveal-code="true" onclick="openNewWindow('https://classroom.google.com/c/NTI0MDY0MjM3OTg5')">Google Classroom</button>
     </div>
 
     <div class="video div-container">
         <!-- Video Modal -->
-        <button class="button required video-button" data-reveal-code="true" data-json-file="../heggertyVideos.json" data-selection-mode="sequential">Heggerty Video</button>
-        <button class="button required video-button" data-reveal-code="true" data-json-file="../frenchBookVideoLinks.json" data-selection-mode="sequential">Random French Book</button>
-        <button class="button required video-button" data-reveal-code="true" data-json-file="../noviceKungFuVideos.json" data-selection-mode="sequential">Random Novice Kungfu</button>     
-        <button class="button required video-button" data-reveal-code="true" data-json-file="../noviceKungFuVideos.json" data-selection-mode="exact">SingleStepForm</button>
+        <button data-key="11" class="button required video-button" data-reveal-code="true" data-json-file="../heggertyVideos.json" data-selection-mode="sequential">Heggerty Video</button>
+        <button data-key="12" class="button required video-button" data-reveal-code="true" data-json-file="../frenchBookVideoLinks.json" data-selection-mode="sequential">Random French Book</button>
+        <button data-key="13" class="button required video-button" data-reveal-code="true" data-json-file="../noviceKungFuVideos.json" data-selection-mode="sequential">Random Novice Kungfu</button>     
+        <button data-key="14" class="button required video-button" data-reveal-code="true" data-json-file="../noviceKungFuVideos.json" data-selection-mode="exact">SingleStepForm</button>
     </div>
  
  
     <div id="homework" class="div-container">
         <ul id="checklist">
             <li data-show-days="mon,tue,wed,thu,fri">
-                <input type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item0">
+                <input data-key="15" type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item0">
                 <span class="chore-text" onclick="readText('English printing')">English printing 🔊</span>
             </li>
             <li data-show-days="mon,tue,wed,thu,fri">
-                <input type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item1">
+                <input data-key="16" type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item1">
                 <span class="chore-text" onclick="readText('Read english book to parent')">Read english book 🔊</span>
             </li>
             <li data-show-days="mon,tue,wed,thu,fri">
-                <input type="checkbox" class="chore-checkbox" data-reveal-code="true"id="item2">
+                <input data-key="17" type="checkbox" class="chore-checkbox" data-reveal-code="true"id="item2">
                 <span class="chore-text" onclick="readText('Ten pushups')" data-kid="kid1">Ten pushups 🔊</span>
                 <br>
                 <img src="https://media.giphy.com/media/mGWBjz74fn404BWUl4/giphy.gif?cid=ecf05e476pxqqc6cbon5ir86ggdqlsxc76d3ms0nhqklyspt&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Funny Cat GIF"> X 10
@@ -74,19 +82,19 @@
     <div id="chores" class="div-container">
         <ul id="checklist">
             <li data-show-days="mon,tue,wed,thu,fri">
-                <input type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item3">
+                <input data-key="18" type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item3">
                 <span class="chore-text" onclick="readText('Unpack bag')">Unpack bag 🔊</span>
             </li>
             <li data-show-days="mon,tue,wed,thu,fri">
-                <input type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item4">
+                <input data-key="19" type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item4">
                 <span class="chore-text" onclick="readText('Pack lunch')">Pack lunch 🔊</span>
             </li>
             <li data-show-days="sun,mon,tue">
-                <input type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item5">
+                <input data-key="20" type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item5">
                 <span class="chore-text" onclick="readText('Laundry')">Laundry 🔊</span>
             </li>
             <li>
-                <input type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item6">
+                <input data-key="21" type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item6">
                 <span class="chore-text" onclick="readText('Pajamas')">Pajamas 🔊</span>
             </li>
         </ul>
@@ -97,8 +105,8 @@
     
     <h1>My Bonus Work</h1>
     <div id="bonusWork" class="div-container">
-        <button class="button bonus-task video-button" data-reveal-code="true" data-json-file="../alphaBlocks.json" data-selection-mode="sequential">AlphaBlocks</button>     
-        <button class="button bonus-task video-button" data-reveal-code="true" data-json-file="../caillouVideos.json" data-selection-mode="sequential">Caillou</button>    
+        <button data-key="22" class="button bonus-task video-button" data-reveal-code="true" data-json-file="../alphaBlocks.json" data-selection-mode="sequential">AlphaBlocks</button>     
+        <button data-key="23" class="button bonus-task video-button" data-reveal-code="true" data-json-file="../caillouVideos.json" data-selection-mode="sequential">Caillou</button>    
     </div>
 
     <h1>My Rewards</h1>

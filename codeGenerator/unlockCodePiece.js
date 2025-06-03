@@ -31,14 +31,21 @@ function getTodayCodes(codeLength) {
 }
 
 function countVisibleRevealCodeElements() {
-    showControlsForDay();// Call the function to show/hide controls based on the day of the week
-    return Array.from(document.querySelectorAll('[data-reveal-code="true"]'))
-        .filter(el => el.offsetParent !== null)
-        .length;
+    showControlsForDay(); // Show/hide controls based on the day of the week
+
+    // Count visible required buttons
+    const visibleButtons = Array.from(document.querySelectorAll('.button.required[data-reveal-code="true"]'))
+        .filter(el => el.offsetParent !== null);
+
+    // Count visible checkboxes
+    const visibleCheckboxes = Array.from(document.querySelectorAll('input[type="checkbox"][data-reveal-code="true"]'))
+        .filter(el => el.offsetParent !== null);
+
+    return visibleButtons.length + visibleCheckboxes.length;
 }
 
 function countVisibleBonusTasks() {
-    return Array.from(document.querySelectorAll('[data-reveal-code="true"].bonus-task'))
+    return Array.from(document.querySelectorAll('.bonus-task[data-reveal-code="true"]'))
         .filter(el => el.offsetParent !== null)
         .length;
 }
@@ -69,23 +76,32 @@ function unlockNextPiece(kidId, buttonKey) {
 
     localStorage.setItem(unlockKey, "1");
     updateCodeDisplay();
+
+    // Find all progress buttons in the correct order
+    const revealButtons = Array.from(document.querySelectorAll('.button.required[data-reveal-code="true"]'));
+    const button = document.querySelector(`.button.required[data-reveal-code="true"][data-key="${buttonKey}"]`);
+if (button) {
+    button.classList.add('completed');
+}
 }
 
 function resetAllProgressIfRequested() {
     const params = new URLSearchParams(window.location.search);
     if (params.has("resetprogress")) {
         Object.keys(localStorage)
-            .filter(key => key.startsWith("progress_") || key.startsWith("unlocked_"))
+            .filter(key =>
+                key.startsWith("progress_") ||
+                key.startsWith("unlocked_") ||
+                key.startsWith("bonus_") ||
+                key.startsWith("checkbox_") ||
+                key.match(/^item\d+$/)
+            )
             .forEach(key => localStorage.removeItem(key));
-        const codeDisplay = document.getElementById("codeDisplay");
-        if (codeDisplay) {
-            codeDisplay.textContent = "Progress: 0/" + countVisibleRevealCodeElements();
-        }
-        alert("Progress has been reset!");
+        // Optionally uncheck all checkboxes in the DOM
+        document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+        // Remove the query param and reload the page
         setTimeout(() => {
-            const url = new URL(window.location.href);
-            url.searchParams.delete("resetprogress");
-            window.location.href = url.toString();
+            location.replace(location.pathname);
         }, 100);
         return true;
     }
@@ -141,24 +157,46 @@ document.addEventListener('DOMContentLoaded', function () {
     // Ensure all DOM manipulation (show/hide tasks) is done before this line!
     updateCodeDisplay();
 
+    // Mark completed task buttons as .completed after reload
+    const codeDisplay = document.getElementById("codeDisplay");
+    const kid = codeDisplay ? codeDisplay.getAttribute("data-kid") : "kid1";
+    const today = new Date().toISOString().slice(0, 10);
+
+    // --- TASK BUTTONS ---
+    const revealButtons = Array.from(document.querySelectorAll('.button.required[data-reveal-code="true"]'));
+    revealButtons.forEach((button) => {
+        const key = button.getAttribute('data-key');
+        const unlockKey = `unlocked_${key}_${kid}_${today}`;
+        if (localStorage.getItem(unlockKey)) {
+            button.classList.add('completed');
+        }
+    });
+
+    // --- VIDEO BUTTONS ---
+    const videoButtons = Array.from(document.querySelectorAll('.video-button.required[data-reveal-code="true"]'));
+    videoButtons.forEach((button) => {
+        const key = button.getAttribute('data-key');
+        const unlockKey = `unlocked_${key}_${kid}_${today}`; 
+        if (localStorage.getItem(unlockKey)) {
+            button.classList.add('completed');
+        }
+    });
+
     const revealElements = Array.from(document.querySelectorAll('[data-reveal-code="true"]'));
-    revealElements.forEach((el, idx) => {
+    revealElements.forEach((el) => {
         if (el.type === "checkbox") {
             el.addEventListener('change', function (event) {
                 if (event.target.checked) {
                     const codeDisplay = document.getElementById("codeDisplay");
                     const kid = codeDisplay ? codeDisplay.getAttribute("data-kid") : el.getAttribute('data-kid');
-                    if (kid) unlockNextPiece(kid, "reveal" + idx);
+                    const key = el.getAttribute('data-key');
+                    if (kid && key) unlockNextPiece(kid, key);
                 }
-            });
-        } else {
-            el.addEventListener('click', function () {
-                const codeDisplay = document.getElementById("codeDisplay");
-                const kid = codeDisplay ? codeDisplay.getAttribute("data-kid") : el.getAttribute('data-kid');
-                if (kid) unlockNextPiece(kid, "reveal" + idx);
             });
         }
     });
+
+
 });
 
 window.unlockNextPiece = unlockNextPiece;

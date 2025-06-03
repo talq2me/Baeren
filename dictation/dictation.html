@@ -72,6 +72,29 @@
 
                 checkButton.onclick = function() {
                     revealSpan.textContent = word;
+
+                    // If this is the last word, show a Close button
+                    if (index === words.length - 1) {
+                        // Create the Close button if it doesn't exist
+                        let closeBtn = document.getElementById('dictationCloseBtn');
+                        if (!closeBtn) {
+                            // Add a line break before the button
+                            lineDiv.appendChild(document.createElement('br'));
+
+                            closeBtn = document.createElement('button');
+                            closeBtn.id = 'dictationCloseBtn';
+                            closeBtn.textContent = 'Close';
+                            closeBtn.className = 'button';
+                            closeBtn.style.marginLeft = "20px";
+                            closeBtn.onclick = function() {
+                                if (window.parent && window.parent !== window) {
+                                    window.parent.postMessage({ type: "gameCompleted" }, "*");
+                                }
+                            };
+                            lineDiv.appendChild(closeBtn);
+                        }
+                        closeBtn.style.display = 'inline-block';
+                    }
                 };
 
                 lineDiv.appendChild(button);
