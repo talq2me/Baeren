@@ -202,13 +202,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 modal.style.display = "block";
             }
         
+            const MIN_TASK_TIME_MS = 10000; // 10 seconds
+        
             // Function to handle modal close
             function handleModalClose() {
                 const modal = document.getElementById("iframeModal");
                 modal.style.display = "none";
 
-                // Only mark as complete if enough time has passed
-                if (lastTaskButtonStartTime && (Date.now() - lastTaskButtonStartTime) >= MIN_TASK_TIME_MS) {
+                // Use system clock to check elapsed time
+                const now = Date.now();
+                if (lastTaskButtonStartTime && (now - lastTaskButtonStartTime) >= MIN_TASK_TIME_MS) {
                     if (typeof unlockNextPiece === "function" && lastTaskButtonKid !== null && lastTaskButtonIdx !== null) {
                         unlockNextPiece(lastTaskButtonKid, lastTaskButtonIdx);
                     }
@@ -223,7 +226,6 @@ document.addEventListener("DOMContentLoaded", function () {
             let lastTaskButtonIdx = null;
             let lastTaskButtonKid = null;
             let lastTaskButtonStartTime = null;
-            const MIN_TASK_TIME_MS = 15000; // 15 seconds
         
             // Attach event listeners to all task buttons
             document.querySelectorAll(".task-button[data-target-page]").forEach((button) => {
@@ -232,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 button.addEventListener("click", function () {
                     lastTaskButtonIdx = key; // <-- Use data-key, not idx
                     lastTaskButtonKid = kidId;
-                    lastTaskButtonStartTime = Date.now();
+                    lastTaskButtonStartTime = Date.now(); // Already correct
                     launchGameInModal(button.getAttribute("data-target-page"));
                 });
             });
