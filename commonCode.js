@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const today = new Date().toISOString().slice(0, 10);
     const storedDate = localStorage.getItem('lastCheckboxReset');
     if (storedDate !== today) {
-        document.querySelectorAll('.chore-checkbox').forEach(checkbox => {
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
             checkbox.checked = false;
         });
         localStorage.setItem('lastCheckboxReset', today);
