@@ -151,6 +151,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (storedDate !== today) {
         document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
             checkbox.checked = false;
+            localStorage.removeItem(checkbox.id); // <-- clear persisted state
+            //if that doesn't work, just call: resetAllProgressIfRequested();
         });
         localStorage.setItem('lastCheckboxReset', today);
     }

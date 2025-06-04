@@ -1,6 +1,7 @@
 let gameData = [];
 let currentIndex = 0;
 let correctCount = 0;
+let wrongCount = 0; // <-- Add this line
 let maxQuestions = 10;
 
 
@@ -106,31 +107,46 @@ function showQuestion() {
 function handleChoice(choice, correctAnswer) {
     const messageContainer = document.getElementById("messageContainer");
 
+    // Disable all choice buttons immediately
+    const choicesDiv = document.getElementById("choices");
+    Array.from(choicesDiv.querySelectorAll("button")).forEach(btn => btn.disabled = true);
+
     if (choice === correctAnswer) {
         messageContainer.innerHTML = "⭐ Correct!";
         correctCount++;
         updateStarCount();
-        
 
         // Move to the next question
         currentIndex++;
         saveProgress();
 
         if (correctCount < maxQuestions) {
-          setTimeout(showQuestion, 1000); // Show the next question after 1 second
+            setTimeout(showQuestion, 1000); // Show the next question after 1 second
         } else {
             endGame();
         }
-
-        
     } else {
-        messageContainer.innerHTML = `☹️ Incorrect! The correct answer is: ${correctAnswer}`;
-        setTimeout(() => {
-            messageContainer.innerHTML = "";
-            currentIndex++;
-            saveProgress();
-            showQuestion();
-        }, 2000); // Show the next question after 2 seconds
+        wrongCount++; // <-- Increment wrong count
+        if (wrongCount >= 5) {
+            messageContainer.innerHTML = "You got 5 wrong, you must start over!";
+            setTimeout(() => {
+                // Reset everything
+                correctCount = 0;
+                wrongCount = 0;
+                currentIndex = 0;
+                updateStarCount();
+                saveProgress();
+                showQuestion();
+            }, 2000);
+        } else {
+            messageContainer.innerHTML = `☹️ Incorrect! The correct answer is: ${correctAnswer}`;
+            setTimeout(() => {
+                messageContainer.innerHTML = "";
+                currentIndex++;
+                saveProgress();
+                showQuestion();
+            }, 2000); // Show the next question after 2 seconds
+        }
     }
 }
 
