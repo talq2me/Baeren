@@ -63,7 +63,7 @@ function unlockNextPiece(kidId, buttonKey) {
     let bonusProgress = parseInt(localStorage.getItem(bonusStorageKey) || "0", 10);
 
     // Determine if this is a bonus task
-    const el = document.querySelector(`[data-reveal-code="true"][data-kid="${kidId}"][data-key="${buttonKey}"], [data-reveal-code="true"][data-key="${buttonKey}"]`);
+    const el = document.querySelector(`[data-reveal-code="true"][data-key="${buttonKey}"]`);
     const isBonus = el && el.classList.contains('bonus-task');
 
     if (isBonus) {
@@ -77,12 +77,10 @@ function unlockNextPiece(kidId, buttonKey) {
     localStorage.setItem(unlockKey, "1");
     updateCodeDisplay();
 
-    // Find all progress buttons in the correct order
-    const revealButtons = Array.from(document.querySelectorAll('.button.required[data-reveal-code="true"]'));
-    const button = document.querySelector(`.button.required[data-reveal-code="true"][data-key="${buttonKey}"]`);
-if (button) {
-    button.classList.add('completed');
-}
+    // Mark ALL buttons with this data-key as completed (task, video, non-task, etc)
+    document.querySelectorAll(`.button[data-key="${buttonKey}"]`).forEach(btn => {
+        btn.classList.add('completed');
+    });
 }
 
 function resetAllProgressIfRequested() {
@@ -154,17 +152,14 @@ function updateCodeDisplay() {
 document.addEventListener('DOMContentLoaded', function () {
     if (resetAllProgressIfRequested()) return;
 
-    // Ensure all DOM manipulation (show/hide tasks) is done before this line!
     updateCodeDisplay();
 
-    // Mark completed task buttons as .completed after reload
     const codeDisplay = document.getElementById("codeDisplay");
     const kid = codeDisplay ? codeDisplay.getAttribute("data-kid") : "kid1";
     const today = new Date().toISOString().slice(0, 10);
 
-    // --- TASK BUTTONS ---
-    const revealButtons = Array.from(document.querySelectorAll('.button.required[data-reveal-code="true"]'));
-    revealButtons.forEach((button) => {
+    // Mark ALL buttons with data-key as completed if unlocked
+    document.querySelectorAll('.button[data-key]').forEach((button) => {
         const key = button.getAttribute('data-key');
         const unlockKey = `unlocked_${key}_${kid}_${today}`;
         if (localStorage.getItem(unlockKey)) {
