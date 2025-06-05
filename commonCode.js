@@ -43,8 +43,9 @@ function exitFullyKiosk(){
             alert("Sorry, that's not the right PIN.");
             return;
         }
-        fully.enableMaintenanceMode()
-        //fully.unlockKiosk()
+        fully.unlockKiosk();
+        fully.enableMaintenanceMode();
+        //
         //fully.exitKioskMode();
     } else {
         console.warn("Fully Kiosk is not available.");
@@ -54,7 +55,7 @@ function exitFullyKiosk(){
 function resumeFullyKiosk() {
     if (typeof fully !== "undefined") {
         fully.disableMaintenanceMode();
-        //fully.lockKiosk()
+        fully.lockKiosk();
         //fully.setDefaultLauncher();
         //fully.startURL(); // Go back to your site
     } else {
