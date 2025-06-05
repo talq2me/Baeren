@@ -5,11 +5,17 @@ let lastTaskButtonKid = null;
 let lastTaskButtonStartTime = null;
 
 function reward(timeInMins) {
-    const rewardTime = timeInMins * 60 * 1000; // Convert minutes to milliseconds
+    const rewardTime = timeInMins * 60 * 1000;
     if (typeof fully !== "undefined") {
-        fully.startApplication("com.netflix.mediaclient"); // 🚀 Launch Netflix app
+        fully.startApplication("com.netflix.mediaclient");
         setTimeout(() => {
-            fully.startURL();      // 🔁 Go back to your site after timeInMins min
+            if (typeof fully.killApp === "function") {
+                fully.killApp("com.netflix.mediaclient"); // Kill Netflix app
+            }
+            if (typeof fully.bringToFront === "function") {
+                fully.bringToFront(); // Bring Fully to front
+            }
+            fully.startURL(); // Go back to your site
         }, rewardTime);
     } else {
         console.warn("Fully Kiosk is not available.");
