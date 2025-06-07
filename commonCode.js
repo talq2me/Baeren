@@ -19,7 +19,31 @@ function reward(timeInMins) {
         }, rewardTime);
     } else {
         console.warn("Fully Kiosk is not available.");
+
     }
+}
+
+function rewardNetflixWeb(timeInMins) {
+    const rewardTime = timeInMins * 60 * 1000;
+    // Open Netflix in a new tab/window
+    const netflixWindow = window.open("https://www.netflix.com", "_blank");
+
+    setTimeout(() => {
+        // Try to close the Netflix tab/window if possible
+        if (netflixWindow && !netflixWindow.closed) {
+            netflixWindow.close();
+        }
+        // Regain focus on this page
+        window.focus();
+
+        // Optionally, reload the startURL (if using Fully Kiosk or want to force a page)
+        if (typeof fully !== "undefined" && typeof fully.startURL === "function") {
+            fully.startURL();
+        } else {
+            // As a fallback, reload the current page
+            // window.location.reload();
+        }
+    }, rewardTime);
 }
 
 function pokemonGo() {
