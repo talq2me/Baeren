@@ -4,7 +4,7 @@ let lastTaskButtonIdx = null;
 let lastTaskButtonKid = null;
 let lastTaskButtonStartTime = null;
 
-function reward(timeInMins) {
+function rewardOld(timeInMins) {
     const rewardTime = timeInMins * 60 * 1000;
     if (typeof fully !== "undefined") {
         fully.startApplication("com.netflix.mediaclient");
@@ -23,7 +23,7 @@ function reward(timeInMins) {
     }
 }
 
-function rewardNetflixWeb(timeInMins) {
+function reward(timeInMins) {
     const rewardTime = timeInMins * 60 * 1000;
     // Open Netflix in a new tab/window
     const netflixWindow = window.open("https://www.netflix.com", "_blank");
