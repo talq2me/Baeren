@@ -26,11 +26,15 @@ function reward(timeInMins) {
 function rewardTasker(minutes)  {
     if (typeof fully !== "undefined") {
       alert("Intent sent to Tasker for " + minutes + " minutes");
-      fully.sendIntent(
+      fully.runShellCommand(
+        "am broadcast -a com.baerened.LAUNCH_NETFLIX --es minutes " + minutes,
+        false  // runAsRoot
+     );
+      /* fully.sendIntent(
         "com.baerened.LAUNCH_NETFLIX", // this must match Tasker profile
         "", "", "", 
         "minutes=" + minutes
-      );
+      ); */
     } else {
       alert("Fully interface not available");
     }
