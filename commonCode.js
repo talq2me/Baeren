@@ -29,8 +29,9 @@ function rewardTasker(timeInMins) {
             const rewardTime = timeInMins;
             // Build the intent URL with extras
             const intentUrl = `tasker://secondary?task=${encodeURIComponent(taskName)}&rewardMinutes=${encodeURIComponent(rewardTime)}`;
+            document.getElementById('status').innerText = 
+            `Great job! Awarded ${minutes} minutes of Netflix time!`;
             window.location.href = intentUrl; // Send intent to Tasker
-            console.warn("Netflix Reward initiated.");
  }
 
 
