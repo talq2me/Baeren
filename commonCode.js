@@ -25,7 +25,7 @@ function reward(timeInMins) {
 
 function rewardTasker(minutes)  {
     if (typeof fully !== "undefined") {
-      alert("Intent shell command sent to Tasker for " + minutes + " minutes");
+      alert("Wtf sent to Tasker for " + minutes + " minutes");
       /* fully.runShellCommand(
         "am broadcast -a com.baerened.LAUNCH_NETFLIX --es minutes " + minutes,
         false  // runAsRoot
