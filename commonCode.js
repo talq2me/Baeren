@@ -23,7 +23,16 @@ function reward(timeInMins) {
     }
 }
 
-function rewardTasker(timeInMins) {
+function rewardTasker(minutes) {
+  fully.sendIntent(
+    "com.baerened.LAUNCH_NETFLIX", // Intent action you set in Tasker
+    "", "", "", // URI, MIME, Extras MIME
+    "minutes=" + minutes // Dynamic wait time
+  );
+}
+
+
+function rewardTaskerOld(timeInMins) {
             // Define the Tasker task name and reward time
             const taskName = 'NetflixReward';
             const rewardTime = timeInMins;
@@ -32,6 +41,7 @@ function rewardTasker(timeInMins) {
             document.getElementById('status').innerText = 
             `Great job! Awarded ${minutes} minutes of Netflix time!`;
             window.location.href = intentUrl; // Send intent to Tasker
+
  }
 
 
