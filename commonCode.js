@@ -4,7 +4,7 @@ let lastTaskButtonIdx = null;
 let lastTaskButtonKid = null;
 let lastTaskButtonStartTime = null;
 
-function rewardOld(timeInMins) {
+function reward(timeInMins) {
     const rewardTime = timeInMins * 60 * 1000;
     if (typeof fully !== "undefined") {
         fully.startApplication("com.netflix.mediaclient");
@@ -23,7 +23,9 @@ function rewardOld(timeInMins) {
     }
 }
 
-function reward(timeInMins) {
+
+//this one only works on non android tablets because netflix web will not work on android tablets.
+function rewardNetflixWeb(timeInMins) {
     const rewardTime = timeInMins * 60 * 1000;
     // Open Netflix in a new tab/window
     const netflixWindow = window.open("https://www.netflix.com", "_blank");
