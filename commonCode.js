@@ -25,7 +25,7 @@ function reward(timeInMins) {
 
 function rewardTasker(timeInMins) {
             // Define the Tasker task name and reward time
-            const taskName = 'LaunchNetflixReward';
+            const taskName = 'NetflixReward';
             const rewardTime = timeInMins;
             // Build the intent URL with extras
             const intentUrl = `tasker://secondary?task=${encodeURIComponent(taskName)}&rewardMinutes=${encodeURIComponent(rewardTime)}`;
