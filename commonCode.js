@@ -23,13 +23,18 @@ function reward(timeInMins) {
     }
 }
 
-function rewardTasker(minutes) {
-  fully.sendIntent(
-    "com.baerened.LAUNCH_NETFLIX", // Intent action you set in Tasker
-    "", "", "", // URI, MIME, Extras MIME
-    "minutes=" + minutes // Dynamic wait time
-  );
-}
+function rewardTasker(minutes)  {
+    if (typeof fully !== "undefined") {
+      fully.sendIntent(
+        "com.baerened.LAUNCH_NETFLIX", // this must match Tasker profile
+        "", "", "", 
+        "minutes=" + minutes
+      );
+      alert("Intent sent to Tasker for " + minutes + " minutes");
+    } else {
+      alert("Fully interface not available");
+    }
+  }
 
 
 function rewardTaskerOld(timeInMins) {
