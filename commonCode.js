@@ -30,11 +30,16 @@ function rewardTasker(minutes)  {
         "am broadcast -a com.baerened.LAUNCH_NETFLIX --es minutes " + minutes,
         false  // runAsRoot
      ); */
-       fully.sendIntent(
+     /*   fully.sendIntent(
         "com.baerened.LAUNCH_NETFLIX", // this must match Tasker profile
         "", "", "", 
         "minutes=" + minutes
-      ); 
+      );  */
+      fetch("http://127.0.0.1:8765/trigger_task?minutes=" + minutes)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+
     } else {
       alert("Fully interface not available");
     }
