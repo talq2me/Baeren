@@ -44,6 +44,19 @@
         }
     }
 </script>
+<button onclick="launchNetflix()">Start Netflix (5 Min)</button>
+<p id="status"></p>
+<script>
+    function launchNetflix() {
+        try {
+            window.location.href = 'netflix://';
+            document.getElementById('status').innerText = 'Attempting to launch Netflix...';
+        } catch (error) {
+            document.getElementById('status').innerText = 'Error: ' + error.message;
+            alert('Error launching Netflix: ' + error.message);
+        }
+    }
+</script>
 
     </div>
 </body>
