@@ -25,8 +25,11 @@ function reward(timeInMins) {
 
 function rewardTasker(minutes)  {
     if (typeof fully !== "undefined") {
-      alert("heck sent to Tasker for " + minutes + " minutes");
-      fully.runShellCommand("echo test", false);
+      alert("try again sent to Tasker for " + minutes + " minutes");
+      fetch('http://127.0.0.1:1981/netflixreward?minutes=' + minutes)
+  .then(response => console.log('Netflix reward triggered'))
+  .catch(error => console.error('Error:', error));
+
 
       /* fully.runShellCommand(
         "am broadcast -a com.baerened.LAUNCH_NETFLIX --es minutes " + minutes,
