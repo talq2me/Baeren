@@ -31,8 +31,7 @@
     function awardReward(minutes) {
         if (window.fully && window.fully.writeFile) {
             window.fully.writeFile('/sdcard/reward_minutes.txt', minutes.toString(), false);
-            document.getElementById('status').innerText = 
-                `Great job! Awarded ${minutes} minutes of Netflix time!`;
+            alert(`Awarded ${minutes} minute(s) of reward time.`);
         } else {
             alert('Fully Kiosk file access not available');
         }
