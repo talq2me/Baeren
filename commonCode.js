@@ -25,8 +25,8 @@ function reward(timeInMins) {
 
 function rewardTasker(minutes)  {
   //  if (typeof fully !== "undefined") {
-      alert("not fully sent to Tasker for " + minutes + " minutes");
-      fetch('http://127.0.0.1:1981/netflixreward?minutes=' + minutes)
+      alert("1821 Tasker for " + minutes + " minutes");
+      fetch('http://127.0.0.1:1821/netflixreward?minutes=' + minutes)
   .then(response => console.log('Netflix reward triggered'))
   .catch(error => console.error('Error:', error));
 
