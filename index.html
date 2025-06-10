@@ -33,7 +33,7 @@
         <button class="button" onclick="kioskSettings()">Kiosk Config</button> -->
         <button class="button" onclick="rewardNetflixWeb(1)">new 1 min</button>
         <button class="button" onclick="awardReward(1)">(1 Min Download)</button>
-<p id="status"></p>
+
 <script>
     function awardReward(minutes) {
         if (typeof fully !== "undefined" ) {
@@ -44,13 +44,21 @@
         }
     }
 </script>
-<button onclick="launchNetflix()">Start Netflix (5 Min)</button>
+<button onclick="launchNetflix(5)">Start Netflix (5 Min)</button>
 <p id="status"></p>
 <script>
-    function launchNetflix() {
+    function launchNetflix(minutes) {
         try {
-            window.location.href = 'netflix://';
+            const intentUrl = 'intent://#Intent;package=com.netflix.mediaclient;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;end';
+            window.location.href = intentUrl;
             document.getElementById('status').innerText = 'Attempting to launch Netflix...';
+            // Start timer (for testing, may pause)
+            setTimeout(() => {
+                document.getElementById('status').innerText = 'Timer done, should return to PWA';
+                alert('Netflix time up!');
+                // Try returning to PWA
+                window.location.href = 'https://talq2me.github.io/Baeren/index.html';
+            }, minutes * 60 * 1000);
         } catch (error) {
             document.getElementById('status').innerText = 'Error: ' + error.message;
             alert('Error launching Netflix: ' + error.message);
