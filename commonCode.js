@@ -25,8 +25,8 @@ function reward(timeInMins) {
 
 function rewardTasker(minutes)  {
   //  if (typeof fully !== "undefined") {
-    alert('Before fetch 1');
-    fetch('http://127.0.0.1:1821/netflixreward')//?minutes=' + minutes')
+    alert('Before fetch ip');
+    fetch('http://192.168.3.146:1821/netflixreward')//?minutes=' + minutes')
         .then(response => {
             console.log('Netflix reward triggered');
             alert('After fetch - Success');
