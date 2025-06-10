@@ -4,6 +4,12 @@ let lastTaskButtonIdx = null;
 let lastTaskButtonKid = null;
 let lastTaskButtonStartTime = null;
 
+if ('serviceWorker' in navigator && !navigator.serviceWorker.controller) {
+    navigator.serviceWorker.register('/Baeren/sw.js', { updateViaCache: 'none', scope: '/Baeren/' })
+        .then(reg => console.log('Service Worker registered'))
+        .catch(err => console.log('Service Worker error:', err.message));
+}
+
 function reward(timeInMins) {
     const rewardTime = timeInMins * 60 * 1000;
     if (typeof fully !== "undefined") {
