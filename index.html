@@ -25,7 +25,19 @@
         <button class="button" onclick="resumeFullyKiosk()">Resume Kiosk</button>
         <button class="button" onclick="kioskSettings()">Kiosk Config</button> -->
         <button class="button" onclick="rewardTasker(1)">Reward 1 min</button>
-        
+        <button onclick="awardReward(1)">Finish Task (1 Min Reward)</button>
+<p id="status"></p>
+<script>
+    function awardReward(minutes) {
+        if (window.fully && window.fully.writeFile) {
+            window.fully.writeFile('/sdcard/reward_minutes.txt', minutes.toString(), false);
+            document.getElementById('status').innerText = 
+                `Great job! Awarded ${minutes} minutes of Netflix time!`;
+        } else {
+            alert('Fully Kiosk file access not available');
+        }
+    }
+</script>
 
     </div>
 </body>
