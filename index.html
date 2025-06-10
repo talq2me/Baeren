@@ -25,12 +25,12 @@
         <button class="button" onclick="resumeFullyKiosk()">Resume Kiosk</button>
         <button class="button" onclick="kioskSettings()">Kiosk Config</button> -->
         <button class="button" onclick="rewardTasker(1)">Reward 1 min</button>
-        <button class="button" onclick="awardReward(1)">(1 Min Docs)</button>
+        <button class="button" onclick="awardReward(1)">(1 Min Down)</button>
 <p id="status"></p>
 <script>
     function awardReward(minutes) {
         if (typeof fully !== "undefined" ) {
-            fully.writeFile('/storage/emulated/0/Documents/reward_minutes.txt', minutes.toString());
+            fully.writeFile('/storage/emulated/0/Downloads/reward_minutes.txt', minutes.toString());
             alert(`Awarded ${minutes} minute(s) of reward time.`);
         } else {
             alert('Fully Kiosk file access not available');
