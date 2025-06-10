@@ -24,8 +24,8 @@ function reward(timeInMins) {
 }
 
 function rewardTasker(minutes)  {
-    if (typeof fully !== "undefined") {
-      alert("try again sent to Tasker for " + minutes + " minutes");
+  //  if (typeof fully !== "undefined") {
+      alert("not fully sent to Tasker for " + minutes + " minutes");
       fetch('http://127.0.0.1:1981/netflixreward?minutes=' + minutes)
   .then(response => console.log('Netflix reward triggered'))
   .catch(error => console.error('Error:', error));
@@ -54,9 +54,9 @@ function rewardTasker(minutes)  {
     ); */
 
 
-    } else {
+   /*  } else {
       alert("Fully interface not available");
-    }
+    } */
   }
 
 
