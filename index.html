@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baeren-Ed</title>
     <link rel="stylesheet" href="styles.css">
     <script src="commonCode.js" defer></script>
+
+</head>
 </head>
 <body>
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+            .then(reg => console.log('Service Worker registered'))
+            .catch(err => console.log('Service Worker error:', err));
+    }
+</script>
     <div>
         <button id="home" class="button" onclick="location.href='index.html'">⌂ Home</button>
         <button id="gr3Button" class="button" onclick="location.href='homework/GR3.html'">Gr. 3</button>
