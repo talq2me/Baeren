@@ -25,7 +25,7 @@ function reward(timeInMins) {
 
 function rewardTasker(minutes)  {
     if (typeof fully !== "undefined") {
-      alert("Wtf sent to Tasker for " + minutes + " minutes");
+      alert("omg sent to Tasker for " + minutes + " minutes");
       /* fully.runShellCommand(
         "am broadcast -a com.baerened.LAUNCH_NETFLIX --es minutes " + minutes,
         false  // runAsRoot
@@ -35,10 +35,19 @@ function rewardTasker(minutes)  {
         "", "", "", 
         "minutes=" + minutes
       );  */
-      fetch("http://127.0.0.1:8765/trigger_task?minutes=" + minutes)
+/*       fetch("http://127.0.0.1:8765/trigger_task?minutes=" + minutes)
   .then(response => response.json())
   .then(data => console.log(data))
-  .catch(error => console.error('Error:', error));
+  .catch(error => console.error('Error:', error)); */
+  fully.startIntent(
+        "com.baerened.LAUNCH_NETFLIX", // Intent URI (package and activity)
+        "android.intent.action.VIEW",   // Intent action
+        "text/plain",                   // MIME type
+        "Hello from Fully Kiosk!",      // Data (optional)
+        "minutes=" + minutes,           // Extras (optional)
+        false                           // Wait for result (optional)
+    );
+
 
     } else {
       alert("Fully interface not available");
