@@ -30,6 +30,7 @@ function rewardTasker(minutes)  {
   .then(response => console.log('Netflix reward triggered'))
   .catch(error => console.error('Error:', error));
 
+      alert("Done " + error + " minutes");
 
       /* fully.runShellCommand(
         "am broadcast -a com.baerened.LAUNCH_NETFLIX --es minutes " + minutes,
