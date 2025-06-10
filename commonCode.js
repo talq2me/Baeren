@@ -25,7 +25,9 @@ function reward(timeInMins) {
 
 function rewardTasker(minutes)  {
     if (typeof fully !== "undefined") {
-      alert("omg sent to Tasker for " + minutes + " minutes");
+      alert("heck sent to Tasker for " + minutes + " minutes");
+      fully.runShellCommand("echo test", false);
+
       /* fully.runShellCommand(
         "am broadcast -a com.baerened.LAUNCH_NETFLIX --es minutes " + minutes,
         false  // runAsRoot
@@ -39,14 +41,14 @@ function rewardTasker(minutes)  {
   .then(response => response.json())
   .then(data => console.log(data))
   .catch(error => console.error('Error:', error)); */
-  fully.startIntent(
+/*   fully.startIntent(
         "com.baerened.LAUNCH_NETFLIX", // Intent URI (package and activity)
         "android.intent.action.VIEW",   // Intent action
         "text/plain",                   // MIME type
         "Hello from Fully Kiosk!",      // Data (optional)
         "minutes=" + minutes,           // Extras (optional)
         false                           // Wait for result (optional)
-    );
+    ); */
 
 
     } else {
