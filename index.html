@@ -31,7 +31,7 @@
     function awardReward(minutes) {
         if (typeof fully !== "undefined" ) {
             alert(`Awarded ${minutes} minute(s) of reward time.`);
-            window.fully.writeFile('/sdcard/reward_minutes.txt', minutes.toString(), false);
+            fully.writeFile('/sdcard/reward_minutes.txt', minutes.toString(), false);
         } else {
             alert('Fully Kiosk file access not available');
         }
