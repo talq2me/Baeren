@@ -25,8 +25,14 @@ function reward(timeInMins) {
 
 function rewardTasker(minutes)  {
   //  if (typeof fully !== "undefined") {
-    alert('Before fetch ip');
-    fetch('http://192.168.3.146:1821/netflixreward')//?minutes=' + minutes')
+    alert('Before fetch');
+
+        // Fully Kiosk intent URL for launching Tasker task
+        const intentUrl = 'intent://#Intent;package=net.dinglisch.android.taskerm;action=net.dinglisch.android.tasker.ACTION_TASK;extra=task:NetflixReward;extra=par1:' + encodeURIComponent(minutes) + ';end';
+        window.location.href = intentUrl;
+        alert('After fetch');
+
+/*     fetch('http://192.168.3.146:1821/netflixreward')//?minutes=' + minutes')
         .then(response => {
             console.log('Netflix reward triggered');
             alert('After fetch - Success');
@@ -34,7 +40,7 @@ function rewardTasker(minutes)  {
         .catch(error => {
             console.error('Error:', error);
             alert('After fetch - Error: ' + error.message);
-        });
+        }); */
 
 
       /* fully.runShellCommand(
