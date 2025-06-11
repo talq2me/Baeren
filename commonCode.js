@@ -10,7 +10,7 @@ if ('serviceWorker' in navigator && !navigator.serviceWorker.controller) {
         .catch(err => console.log('Service Worker error:', err.message));
 }
 
-function rewardworking(timeInMins) {
+function reward(timeInMins) {
     const rewardTime = timeInMins * 60 * 1000;
     if (typeof fully !== "undefined") {
         fully.startApplication("com.netflix.mediaclient");
@@ -30,7 +30,7 @@ function rewardworking(timeInMins) {
 }
 
 
-function reward(timeInMins) {
+function rewardBlocks(timeInMins) {
     const rewardTime = timeInMins * 60 * 1000;
     if (typeof fully !== "undefined") {
         fully.startApplication("com.talq2me.netflixreward");//, { minutes: timeInMins.toString() }); // Launch Netflix Reward app
