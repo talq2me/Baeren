@@ -95,8 +95,8 @@ function rewardTaskerOld(timeInMins) {
 function rewardNetflixWeb(timeInMins) {
     const rewardTime = timeInMins * 60 * 1000;
     // Open Netflix in a new tab/window
-    const netflixWindow = window.open("intent://#Intent;package=com.netflix.mediaclient;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;end", "_blank");
-
+    const netflixWindow = window.open("intent://#Intent;package=com.talq2me.netflixreward;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;end", "_blank");
+    
     setTimeout(() => {
         // Try to close the Netflix tab/window if possible
         if (netflixWindow && !netflixWindow.closed) {
