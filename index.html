@@ -44,12 +44,12 @@
         }
     }
 </script>
-<button onclick="launchNetflix(5)">Start Netflix </button>
+<button onclick="launchNetflix(5)"> Netflix </button>
 <p id="status"></p>
 <script>
     function launchNetflix(minutes) {
         try {
-            const intentUrl = 'intent://open#Intent;package=com.netflix.mediaclient;action=android.intent.action.VIEW;end';
+            const intentUrl = 'intent://#Intent;scheme=netflix;package=com.netflix.mediaclient;end';
             window.location.href = intentUrl;
             document.getElementById('status').innerText = 'Attempting to launch Netflix...';
         } catch (error) {
