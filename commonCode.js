@@ -33,7 +33,7 @@ function rewardworking(timeInMins) {
 function reward(timeInMins) {
     const rewardTime = timeInMins * 60 * 1000;
     if (typeof fully !== "undefined") {
-        fully.startApplication("com.talq2me.netflixreward", { minutes: timeInMins.toString() }); // Launch Netflix Reward app
+        fully.startApplication("com.talq2me.netflixreward");//, { minutes: timeInMins.toString() }); // Launch Netflix Reward app
 
     } else {
         console.warn("Fully Kiosk is not available.");
