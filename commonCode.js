@@ -34,9 +34,9 @@ function reward(timeInMins) {
     const minutes = timeInMins * 60 * 1000;
     try {
                      if (typeof fully !== 'undefined') {
-                         console.log('Calling startApplication with part1:', minutes);
+                         alert("Calling startApplication with part1:" + minutes.toString());
                          fully.startApplication('com.talq2me.netflixreward', { part1: minutes.toString() });
-                         document.getElementById('status').innerText = `Launching NetflixReward for ${minutes} min`;
+                         alert("Launching NetflixReward for " + minutes + " min");
                      } else {
                          throw new Error('Fully Kiosk not available');
                      }
