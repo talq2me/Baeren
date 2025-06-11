@@ -31,14 +31,20 @@ function rewardworking(timeInMins) {
 
 
 function reward(timeInMins) {
-    const rewardTime = timeInMins * 60 * 1000;
-    if (typeof fully !== "undefined") {
-        fully.startApplication("com.talq2me.netflixreward", { part1: timeInMins.toString() }); // Launch Netflix Reward app
-
-    } else {
-        console.warn("Fully Kiosk is not available.");
-
-    }
+    const minutes = timeInMins * 60 * 1000;
+    try {
+                     if (typeof fully !== 'undefined') {
+                         console.log('Calling startApplication with part1:', minutes);
+                         fully.startApplication('com.talq2me.netflixreward', { part1: minutes.toString() });
+                         document.getElementById('status').innerText = `Launching NetflixReward for ${minutes} min`;
+                     } else {
+                         throw new Error('Fully Kiosk not available');
+                     }
+                 } catch (error) {
+                     console.error('Fully error:', error);
+                     document.getElementById('status').innerText = 'Error: ' + error.message;
+                     alert('Error launching NetflixReward: ' + error.message);
+                 }
 }
 
 
