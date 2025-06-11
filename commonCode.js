@@ -10,38 +10,35 @@ if ('serviceWorker' in navigator && !navigator.serviceWorker.controller) {
         .catch(err => console.log('Service Worker error:', err.message));
 }
 
-function reward(timeInMins) {
+function rewardworking(timeInMins) {
     const rewardTime = timeInMins * 60 * 1000;
-    try {
-        if (typeof fully !== 'undefined') {
-            console.log('Before startApplicationWithIntent, package: com.talq2me.netflixreward, part1:', minutes);
-            fully.startApplicationWithIntent({
-                packageName: 'com.talq2me.netflixreward',
-                action: 'android.intent.action.MAIN',
-                category: 'android.intent.category.LAUNCHER',
-                extras: JSON.stringify({ part1: minutes.toString() })
-            });
-            console.log('After startApplicationWithIntent');
-            document.getElementById('status').innerText = `Launching NetflixReward for ${minutes} min`;
-        } else {
-            throw new Error('Fully Kiosk not available');
-        }
-    } catch (error) {
-        console.error('Fully error:', error);
-        document.getElementById('status').innerText = 'Error: ' + error.message;
-        alert('Error launching NetflixReward: ' + error.message);
+    if (typeof fully !== "undefined") {
+        fully.startApplication("com.netflix.mediaclient");
+        setTimeout(() => {
+            if (typeof fully.killApp === "function") {
+                fully.killApp("com.netflix.mediaclient"); // Kill Netflix app
+            }
+            if (typeof fully.bringToFront === "function") {
+                fully.bringToFront(); // Bring Fully to front
+            }
+            fully.startURL(); // Go back to your site
+        }, rewardTime);
+    } else {
+        console.warn("Fully Kiosk is not available.");
+
     }
 }
 
 
-function rewardtaskerapp(timeInMins) {
-    const minutes = timeInMins;
-   
-                     if (typeof fully !== 'undefined') {
-                         fully.startApplication('com.talq2me.netflixreward');
-                     } else {
-                         throw new Error('Fully Kiosk not available');
-                     }
+function reward(timeInMins) {
+    const rewardTime = timeInMins * 60 * 1000;
+    if (typeof fully !== "undefined") {
+        fully.startApplication("com.talq2me.netflixreward");//, { minutes: timeInMins.toString() }); // Launch Netflix Reward app
+
+    } else {
+        console.warn("Fully Kiosk is not available.");
+
+    }
 }
 
 
