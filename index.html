@@ -44,17 +44,17 @@
         }
     }
 </script>
-<button onclick="launchNetflix(5)"> Netflix </button>
+<button onclick="launchNetflix(5)"> Netflix Task</button>
 <p id="status"></p>
 <script>
     function launchNetflix(minutes) {
         try {
-            const intentUrl = 'intent://#Intent;scheme=netflix;package=com.netflix.mediaclient;end';
+            const intentUrl = 'intent://#Intent;action=net.dinglisch.android.tasker.ACTION_TASK;package=net.dinglisch.android.tasker;component=net.dinglisch.android.tasker/.Tasker;S.taskName=NetflixReward;end';
             window.location.href = intentUrl;
-            document.getElementById('status').innerText = 'Attempting to launch Netflix...';
+            document.getElementById('status').innerText = 'Launching NetflixReward...';
         } catch (error) {
             document.getElementById('status').innerText = 'Error: ' + error.message;
-            alert('Error launching Netflix: ' + error.message);
+            alert('Error launching NetflixReward: ' + error.message);
         }
     }
 </script>
