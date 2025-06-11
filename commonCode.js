@@ -10,7 +10,7 @@ if ('serviceWorker' in navigator && !navigator.serviceWorker.controller) {
         .catch(err => console.log('Service Worker error:', err.message));
 }
 
-function reward(timeInMins) {
+function rewardold(timeInMins) {
     const rewardTime = timeInMins * 60 * 1000;
     if (typeof fully !== "undefined") {
         fully.startApplication("com.netflix.mediaclient");
@@ -30,11 +30,15 @@ function reward(timeInMins) {
 }
 
 
-function rewardBlocks(timeInMins) {
-    const rewardTime = timeInMins * 60 * 1000;
+function reward(timeInMins) {
     if (typeof fully !== "undefined") {
-        fully.startApplication("com.talq2me.netflixreward");//, { minutes: timeInMins.toString() }); // Launch Netflix Reward app
-
+        if (timeInMins === 15) {
+            fully.startApplication("com.talq2me.netflixreward15"); // Launch Netflix Reward 15 app
+        } else if (timeInMins === 30) {
+            fully.startApplication("com.talq2me.netflixreward30"); // Launch Netflix Reward 30 app
+        } else {
+            alert("Please choose a chunk of 15 or 30 minutes."); // alert
+        }
     } else {
         console.warn("Fully Kiosk is not available.");
 
@@ -42,7 +46,7 @@ function rewardBlocks(timeInMins) {
 }
 
 
-function rewardTasker(minutes)  {
+/* function rewardTasker(minutes)  {
   //  if (typeof fully !== "undefined") {
     alert('Before fetch');
 
@@ -87,9 +91,10 @@ function rewardTasker(minutes)  {
 
    /*  } else {
       alert("Fully interface not available");
-    } */
-  }
-
+    } 
+  } 
+    */
+/* 
 
 function rewardTaskerOld(timeInMins) {
             // Define the Tasker task name and reward time
@@ -181,7 +186,9 @@ function kioskSettings() {
     } else {
         console.warn("Fully Kiosk is not available.");
     }
-}
+} */
+
+
 document.addEventListener("DOMContentLoaded", function () {
     if (typeof fully !== "undefined") {
         // Hide Back and Home buttons if running in Fully Kiosk Browser
