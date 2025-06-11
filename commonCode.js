@@ -31,7 +31,7 @@ function rewardworking(timeInMins) {
 
 
 function reward(timeInMins) {
-    const minutes = timeInMins * 60 * 1000;
+    const minutes = timeInMins;
     try {
                      if (typeof fully !== 'undefined') {
                          alert("Calling startApplication with part1:" + minutes.toString());
