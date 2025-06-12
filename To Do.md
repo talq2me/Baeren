@@ -1,5 +1,17 @@
 # To Do
 
+
+- install apks on other two tablets grant display over, battery optimize
+- remove fully from display over, battery optimize, device admin
+- install kids place and setup app drawer. Set all permissions and display over, battery optimize, device admin.
+- set no recent apps in kids place.
+- set as default launcher
+- import settings for fully kiosk
+- ignore message about permissions.
+- 
+
+
+
 - reward time closing netflix?
 - checkboxes not resetting
 

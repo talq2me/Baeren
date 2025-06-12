@@ -108,14 +108,12 @@ function resetAllProgressIfRequested() {
 
 function updateCodeDisplay() {
     const codeDisplay = document.getElementById("codeDisplay");
-    //const rewardBtn = document.getElementById("rewardBtn");
     const rewardBtn15 = document.getElementById("rewardBtn15");
     const rewardBtn30 = document.getElementById("rewardBtn30");
     if (!codeDisplay) return;
     const kid = codeDisplay.getAttribute("data-kid");
     if (!kid) {
         codeDisplay.textContent = "Progress: 0/0";
-        //if (rewardBtn) rewardBtn.style.display = "none";
         if (rewardBtn15) rewardBtn15.style.display = "none";
         if (rewardBtn30) rewardBtn30.style.display = "none";
         return;
@@ -131,27 +129,29 @@ function updateCodeDisplay() {
     let overrideMinutes = parseInt(localStorage.getItem(overrideKey) || "0", 10);
     const totalTasks = countVisibleRevealCodeElements();
     const totalBonusTasks = countVisibleBonusTasks();
-    const rewardMinutes = (progress + bonusProgress) * 5 + overrideMinutes - rewardUsed;
+    let rewardMinutes = (progress + bonusProgress) * 5 + overrideMinutes - rewardUsed;
 
     codeDisplay.textContent =
         `Progress: ${progress}/${totalTasks}  ~  Rewards: ${Math.max(rewardMinutes,0)} mins`;
 
-    // Show/hide reward buttons and set their actions
+    // Remove previous click handlers to avoid stacking
+    if (rewardBtn15) rewardBtn15.onclick = null;
+    if (rewardBtn30) rewardBtn30.onclick = null;
 
-    // if (rewardBtn) {
-    //     if (rewardMinutes > 0) {
-    //         rewardBtn.style.display = "";
-    //         rewardBtn.textContent = `Reward (${rewardMinutes} min${rewardMinutes > 1 ? "s" : ""})`;
-    //         rewardBtn.onclick = function() {
-    //             // Deduct all available reward minutes
-    //             localStorage.setItem(rewardUsedKey, (rewardUsed + rewardMinutes).toString());
-    //             updateCodeDisplay();
-    //             reward(rewardMinutes); // <-- Call the reward function from commonCode.js
-    //         };
-    //     } else {
-    //         rewardBtn.style.display = "none";
-    //     }
-    // }
+    // Show/hide reward buttons and set their actions
+    if (rewardBtn30) {
+        if (rewardMinutes >= 30) {
+            rewardBtn30.style.display = "";
+            rewardBtn30.textContent = `Reward 30`;
+            rewardBtn30.onclick = function() {
+                localStorage.setItem(rewardUsedKey, (rewardUsed + 30).toString());
+                updateCodeDisplay();
+                reward(30);
+            };
+        } else {
+            rewardBtn30.style.display = "none";
+        }
+    }
 
     if (rewardBtn15) {
         if (rewardMinutes >= 15) {
@@ -164,20 +164,6 @@ function updateCodeDisplay() {
             };
         } else {
             rewardBtn15.style.display = "none";
-        }
-    }
-
-    if (rewardBtn30) {
-        if (rewardMinutes >= 30) {
-            rewardBtn30.style.display = "";
-            rewardBtn30.textContent = `Reward 30`;
-            rewardBtn30.onclick = function() {
-                localStorage.setItem(rewardUsedKey, (rewardUsed + 30).toString());
-                updateCodeDisplay();
-                reward(30);
-            };
-        } else {
-            rewardBtn30.style.display = "none";
         }
     }
 }
