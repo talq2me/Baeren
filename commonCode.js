@@ -48,6 +48,15 @@ function reward(timeInMins) {
 }
 
 
+function launchApp(appname, timeInMins) {
+    if (typeof fully !== "undefined") {
+            fully.startApplication(appname); // Launch app
+    } else {
+        // Launch app via intent if not in Fully Kiosk
+        window.location.href = "intent://launch?pkg=" + appname + "&minutes=" + timeInMins + "#Intent;scheme=http;end";
+    }
+}
+
 /* function rewardTasker(minutes)  {
   //  if (typeof fully !== "undefined") {
     alert('Before fetch');

@@ -53,11 +53,11 @@
         <!--button class="button required task-button weekday-only" data-reveal-code="true" data-target-page="../engSpelling/engSpelling.html">Spelling</button>
         <button class="button required task-button " data-reveal-code="true" data-target-page="../dictee/dictee.html">Dictée</button-->
         <button data-key="10" class="button required non-task" data-reveal-code="true"
-            onclick="if (typeof fully !== 'undefined' && fully.startApplication) { fully.startApplication('com.google.android.apps.seekh'); } else { window.location.href = 'intent://launch?pkg=com.google.android.apps.seekh&minutes=0#Intent;scheme=http;end'; }">
+            onclick="launchApp('com.google.android.apps.seekh');">
             Google Read Along
         </button>
         <button data-key="11" class="button required non-task" data-reveal-code="true" 
-             onclick="if (typeof fully !== 'undefined' && fully.startApplication) { fully.startApplication('com.duolingo'); } else { window.location.href = 'intent://launch?pkg=com.duolingo&minutes=0#Intent;scheme=http;end'; }">
+             onclick="launchApp('com.duolingo');">
              Duo Lingo
         </button>
     </div>
