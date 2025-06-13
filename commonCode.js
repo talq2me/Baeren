@@ -190,12 +190,33 @@ function kioskSettings() {
 
 
 document.addEventListener("DOMContentLoaded", function () {
+    // Hide Back and Home buttons if running in Fully Kiosk Browser
     if (typeof fully !== "undefined") {
-        // Hide Back and Home buttons if running in Fully Kiosk Browser
         document.querySelectorAll("button[onclick*='goBack()'], button[onclick*=\"location.href='../index.html'\"]").forEach(btn => {
             btn.style.display = "none";
         });
     }
+
+    // Reset checkboxes for new day BEFORE restoring their state
+    const today = new Date().toISOString().slice(0, 10);
+    const storedDate = localStorage.getItem('lastCheckboxReset');
+    if (storedDate !== today) {
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.checked = false;
+            localStorage.removeItem(checkbox.id);
+        });
+        localStorage.setItem('lastCheckboxReset', today);
+    }
+
+    // Now restore checkbox state and attach change listeners
+    const checkboxes = document.querySelectorAll("input[type='checkbox']");
+    checkboxes.forEach(checkbox => {
+        const isChecked = localStorage.getItem(checkbox.id) === "true";
+        checkbox.checked = isChecked;
+        checkbox.addEventListener("change", () => {
+            localStorage.setItem(checkbox.id, checkbox.checked);
+        });
+    });
 
     // Show/hide controls for the day
     showControlsForDay();
@@ -244,7 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Checkbox state logic
+/*     // Checkbox state logic
     const checkboxes = document.querySelectorAll("input[type='checkbox']");
     checkboxes.forEach(checkbox => {
         const isChecked = localStorage.getItem(checkbox.id) === "true";
@@ -252,7 +273,7 @@ document.addEventListener("DOMContentLoaded", function () {
         checkbox.addEventListener("change", () => {
             localStorage.setItem(checkbox.id, checkbox.checked);
         });
-    });
+    }); */
 
     // Non-task required buttons that reveal code
     const revealButtons = Array.from(document.querySelectorAll('.button.required[data-reveal-code="true"]'));
@@ -268,18 +289,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Reset checkboxes for new day
-    const today = new Date().toISOString().slice(0, 10);
-    const storedDate = localStorage.getItem('lastCheckboxReset');
-    if (storedDate !== today) {
-        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-            checkbox.checked = false;
-            localStorage.removeItem(checkbox.id); // <-- clear persisted state
-            //if that doesn't work, just call: 
-            resetAllProgressIfRequested();
-        });
-        localStorage.setItem('lastCheckboxReset', today);
-    }
+
 });
 
 function openNewWindow(url) {
