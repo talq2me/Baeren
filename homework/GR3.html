@@ -53,10 +53,13 @@
         <!--button class="button required task-button weekday-only" data-reveal-code="true" data-target-page="../engSpelling/engSpelling.html">Spelling</button>
         <button class="button required task-button " data-reveal-code="true" data-target-page="../dictee/dictee.html">Dictée</button-->
         <button data-key="10" class="button required non-task" data-reveal-code="true"
-            onclick="if (typeof fully !== 'undefined' && fully.startApplication) { fully.startApplication('com.google.android.apps.seekh'); } else { openNewWindow('https://readalong.google.com'); }">
+            onclick="if (typeof fully !== 'undefined' && fully.startApplication) { fully.startApplication('com.google.android.apps.seekh'); } else { window.location.href = 'intent://launch?pkg=com.google.android.apps.seekh&minutes=-1#Intent;scheme=http;end'; }">
             Google Read Along
         </button>
-        <button data-key="11" class="button required non-task" data-reveal-code="true" onclick="openNewWindow('https://www.duolingo.com/learn')">Duo Lingo</button>
+        <button data-key="11" class="button required non-task" data-reveal-code="true" 
+             onclick="if (typeof fully !== 'undefined' && fully.startApplication) { fully.startApplication('com.duolingo'); } else { window.location.href = 'intent://launch?pkg=com.duolingo&minutes=-1#Intent;scheme=http;end'; }">
+             Duo Lingo
+        </button>
     </div>
     
     
@@ -77,8 +80,26 @@
     
     <div class="div-container">
         <!-- Iframe sites (like Google Classroom) -->
-        <button data-key="17" class="button" data-show-days="sat,sun,mon,tue,wed,thu" onclick="openNewWindow('https://classroom.google.com/c/NjkwODgwNjg3NDIx')">French Google Classroom</button>
-        <button data-key="18" class="button" data-show-days="sat,sun,mon,tue,wed,thu" onclick="openNewWindow('https://classroom.google.com/c/NzA5MDk2MDA2ODY3')">English Google Classroom</button>
+        <button data-key="17" class="button" data-show-days="sat,sun,mon,tue,wed,thu" 
+        onclick="
+            if (typeof fully !== 'undefined' && fully.startApplication) {
+            // In Fully Kiosk: open the web page in Fully
+            window.location.href = 'https://classroom.google.com/c/NjkwODgwNjg3NDIx';
+            } else {
+            // Not in Fully: launch the Classroom app via intent
+            window.location.href = 'intent://launch?pkg=com.google.android.apps.classroom#Intent;scheme=http;end';
+            }
+        ">French Google Classroom</button>
+        <button data-key="18" class="button" data-show-days="sat,sun,mon,tue,wed,thu" 
+        onclick="
+            if (typeof fully !== 'undefined' && fully.startApplication) {
+            // In Fully Kiosk: open the web page in Fully
+            window.location.href = 'https://classroom.google.com/c/NzA5MDk2MDA2ODY3';
+            } else {
+            // Not in Fully: launch the Classroom app via intent
+            window.location.href = 'intent://launch?pkg=com.google.android.apps.classroom#Intent;scheme=http;end';
+            }
+        ">English Google Classroom</button>
         <!--required task on fridays-->
         <button data-key="19" class="button required non-task" data-show-days="fri" data-reveal-code="true" onclick="openNewWindow('https://classroom.google.com/c/NjkwODgwNjg3NDIx')">French Google Classroom</button>
         <button data-key="20" class="button required non-task" data-show-days="fri" data-reveal-code="true" onclick="openNewWindow('https://classroom.google.com/c/NzA5MDk2MDA2ODY3')">English Google Classroom</button>
@@ -125,7 +146,6 @@
     </div>  
     
     
-  <button class="button" onclick="window.location.href='fully://launcher'">Apps</button>
     
     <h1>My Bonus Work</h1>
     <div id="bonusWork" class="div-container">
