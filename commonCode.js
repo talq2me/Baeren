@@ -40,7 +40,9 @@ function reward(timeInMins) {
             alert("Please choose a chunk of 15 or 30 minutes."); // alert
         }
     } else {
-        console.warn("Fully Kiosk is not available.");
+        
+        // Launch Netflix app via intent if not in Fully Kiosk
+        window.location.href = "intent://launch?pkg=com.netflix.mediaclient&minutes=" + timeInMins + "#Intent;scheme=http;end";
 
     }
 }
