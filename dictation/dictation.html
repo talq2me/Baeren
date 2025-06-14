@@ -60,10 +60,13 @@
                     revealSpan.textContent = "";
 
                      if (typeof AndroidTTS !== 'undefined') {
-                        
-                        if (jsonFile === 'french.json') {lang = "fr"}
-                        else {lang="en"};
-                        alert(lang)
+                          if (jsonFile === 'french.json') {
+                            lang = "fr";
+                        } else {
+                            lang = "en";
+                        }
+
+                        alert("TTS lang: " + lang + jsonFile); // This should always show if AndroidTTS is defined
                         enqueueTTS(word, lang);
                         /* enqueueTTS(sentence, lang, () => {
                             checkButton.style.display = "inline-block";
