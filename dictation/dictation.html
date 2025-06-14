@@ -59,10 +59,25 @@
                     checkButton.style.display = "none";
                     revealSpan.textContent = "";
 
-                    enqueueTTS(word, lang);
-                    enqueueTTS(sentence, lang, () => {
-                        checkButton.style.display = "inline-block";
+                     if (typeof AndroidTTS !== 'undefined' && typeof AndroidTTS.speak === 'function') {
+                        
+                        if (jsonFile === 'french.json') {lang = "fr"}
+                        else {lang="en"};
+                        enqueueTTS(word, lang);
+                        enqueueTTS(sentence, lang, () => {
+                            checkButton.style.display = "inline-block";
+                        });
+                    } else {
+                    readText(word, lang, () => {
+                        setTimeout(() => {
+                            readText(sentence, lang, () => {
+                                setTimeout(() => {
+                                    checkButton.style.display = "inline-block";
+                                }, 1000);
+                            });
+                        }, 1000); // 1 second pause between word and sentence
                     });
+                    }
                 };
 
                 checkButton.onclick = function() {
