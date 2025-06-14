@@ -332,8 +332,11 @@ function showControlsForDay() {
 
 let ttsQueue = [];
 let ttsInProgress = false;
+let currentTTSCallback = null;
 
 function enqueueTTS(text, lang, onEnd = null) {
+    if (lang === "en-US") lang = "en";
+    if (lang === "fr-FR") lang = "fr";
     ttsQueue.push({ text, lang, onEnd });
     processTTSQueue();
 }
@@ -343,35 +346,28 @@ function processTTSQueue() {
 
     const { text, lang, onEnd } = ttsQueue.shift();
     ttsInProgress = true;
+    currentTTSCallback = onEnd;
 
-    // This is only for Android
     if (typeof AndroidTTS !== 'undefined') {
-        window.onTTSFinish = () => {
-            ttsInProgress = false;
-            if (typeof onEnd === 'function') onEnd();
-            processTTSQueue(); // Continue to next in queue
-        };
         AndroidTTS.speak(text, lang);
     } else {
-        // Fallback for browser speechSynthesis
+        // fallback for browser
         const utter = new SpeechSynthesisUtterance(text);
         utter.lang = lang;
         utter.volume = 1;
         utter.pitch = 1;
         utter.rate = 0.8;
-
         utter.onend = () => {
             ttsInProgress = false;
             if (typeof onEnd === 'function') onEnd();
+            currentTTSCallback = null;
             processTTSQueue();
         };
-
         window.speechSynthesis.speak(utter);
     }
 }
 
-
-// Called by Kotlin when speech is finished
+// Called by Kotlin after TTS finishes
 function onTTSFinish() {
     ttsInProgress = false;
     if (typeof currentTTSCallback === 'function') {
@@ -381,7 +377,6 @@ function onTTSFinish() {
     processTTSQueue();
 }
 
-let currentTTSCallback = null;
 
 // Update readText to store callback like before
 function readText(text, lang = "en-US", onEnd = null) {
@@ -407,14 +402,6 @@ function readText(text, lang = "en-US", onEnd = null) {
     utter.volume = 1;
     if (typeof onEnd === "function") utter.onend = onEnd;
     window.speechSynthesis.speak(utter);
-  }
-}
-
-function onTTSFinish() {
-  if (typeof window.__onTTSFinish === "function") {
-    const callback = window.__onTTSFinish;
-    window.__onTTSFinish = null;
-    callback();
   }
 }
 
