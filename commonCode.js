@@ -331,26 +331,39 @@ function showControlsForDay() {
 
 
 let ttsQueue = [];
-let isSpeaking = false;
+let ttsBusy = false;
 
-function enqueueTTS(text, lang = "en-US", onEnd = null) {
-  ttsQueue.push({ text, lang, onEnd });
-  if (!isSpeaking) processTTSQueue();
+function enqueueTTS(text, lang = "en", onEnd = null) {
+    ttsQueue.push({ text, lang, onEnd });
+    processTTSQueue();
 }
 
 function processTTSQueue() {
-  if (ttsQueue.length === 0) {
-    isSpeaking = false;
-    return;
-  }
+    if (ttsBusy || ttsQueue.length === 0) return;
 
-  const { text, lang, onEnd } = ttsQueue.shift();
-  isSpeaking = true;
+    const { text, lang, onEnd } = ttsQueue.shift();
+    ttsBusy = true;
 
-  readText(text, lang, () => {
-    if (typeof onEnd === "function") onEnd();
-    processTTSQueue();
-  });
+    if (typeof AndroidTTS !== 'undefined' && typeof AndroidTTS.speak === 'function') {
+        AndroidTTS.speak(text, lang);
+
+        // Android side will call AndroidTTS.onTTSComplete() when it's done.
+        AndroidTTS._onComplete = () => {
+            ttsBusy = false;
+            if (typeof onEnd === 'function') onEnd();
+            processTTSQueue();
+        };
+    } else {
+        // fallback: Web browser TTS
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = lang;
+        utter.onend = () => {
+            ttsBusy = false;
+            if (typeof onEnd === 'function') onEnd();
+            processTTSQueue();
+        };
+        window.speechSynthesis.speak(utter);
+    }
 }
 
 // Update readText to store callback like before
