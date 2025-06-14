@@ -64,9 +64,9 @@
                         if (jsonFile === 'french.json') {lang = "fr"}
                         else {lang="en"};
                         enqueueTTS(word, lang);
-                        enqueueTTS(sentence, lang, () => {
+                        /* enqueueTTS(sentence, lang, () => {
                             checkButton.style.display = "inline-block";
-                        });
+                        }); */
                     } else {
                     readText(word, lang, () => {
                         setTimeout(() => {
