@@ -64,6 +64,7 @@
 
                         /* readText(word, lang);
                         readText(sentence, lang); */
+                        let lang = (jsonFile === 'french.json') ? "fr" : "en";
                         enqueueTTS(word, lang);
                         enqueueTTS(sentence, lang, () => {
                             checkButton.style.display = "inline-block";

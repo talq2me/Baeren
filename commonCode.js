@@ -331,35 +331,49 @@ function showControlsForDay() {
 
 
 let ttsQueue = [];
-let isSpeaking = false;
+let ttsInProgress = false;
 
-function enqueueTTS(text, lang, onDone = null) {
-    ttsQueue.push({ text, lang, onDone });
+function enqueueTTS(text, lang, onEnd = null) {
+    ttsQueue.push({ text, lang, onEnd });
     processTTSQueue();
 }
 
 function processTTSQueue() {
-    if (isSpeaking || ttsQueue.length === 0) return;
+    if (ttsInProgress || ttsQueue.length === 0) return;
 
-    const { text, lang, onDone } = ttsQueue.shift();
-    isSpeaking = true;
-    currentTTSCallback = onDone;
+    const { text, lang, onEnd } = ttsQueue.shift();
+    ttsInProgress = true;
 
+    // This is only for Android
     if (typeof AndroidTTS !== 'undefined') {
+        window.onTTSFinish = () => {
+            ttsInProgress = false;
+            if (typeof onEnd === 'function') onEnd();
+            processTTSQueue(); // Continue to next in queue
+        };
         AndroidTTS.speak(text, lang);
     } else {
-        // fallback for browsers
-        readText(text, lang, () => {
-            isSpeaking = false;
-            if (onDone) onDone();
+        // Fallback for browser speechSynthesis
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = lang;
+        utter.volume = 1;
+        utter.pitch = 1;
+        utter.rate = 0.8;
+
+        utter.onend = () => {
+            ttsInProgress = false;
+            if (typeof onEnd === 'function') onEnd();
             processTTSQueue();
-        });
+        };
+
+        window.speechSynthesis.speak(utter);
     }
 }
 
+
 // Called by Kotlin when speech is finished
 function onTTSFinish() {
-    isSpeaking = false;
+    ttsInProgress = false;
     if (typeof currentTTSCallback === 'function') {
         currentTTSCallback();
     }
