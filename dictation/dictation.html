@@ -60,9 +60,10 @@
                     revealSpan.textContent = "";
 
                      if (typeof AndroidTTS !== 'undefined') {
-                        alert("android tts")
+                        
                         if (jsonFile === 'french.json') {lang = "fr"}
                         else {lang="en"};
+                        alert(lang)
                         enqueueTTS(word, lang);
                         /* enqueueTTS(sentence, lang, () => {
                             checkButton.style.display = "inline-block";
