@@ -329,42 +329,63 @@ function showControlsForDay() {
     });
 }
 
-function readText(text, lang = "en-US", onEnd = null) {
-    if (typeof fully !== "undefined" && typeof fully.textToSpeech === "function") {
-        if (lang === "en-US") lang = "en";
-        if (lang === "fr-FR") lang = "fr";
-        fully.textToSpeech(text, lang);
 
-        if (typeof onEnd === "function") {
-            const duration = Math.min(Math.max(text.length * 60, 1000), 6000);
-            setTimeout(onEnd, duration);
-        }
-    } 
-    else if (typeof AndroidTTS !== 'undefined') {
-        if (lang === "en-US") lang = "en";
-        if (lang === "fr-FR") lang = "fr";
+let ttsQueue = [];
+let isSpeaking = false;
 
-        window.__onTTSFinish = onEnd;  // Save the callback
-        AndroidTTS.speak(text, lang); // This will trigger `window.onTTSFinish()` from Android when done
-    } 
-    else {
-        window.speechSynthesis.cancel();
-        let utter = new SpeechSynthesisUtterance(text);
-        utter.lang = lang;
-        utter.rate = 0.8;
-        utter.pitch = 1;
-        utter.volume = 1;
-        if (typeof onEnd === "function") utter.onend = onEnd;
-        window.speechSynthesis.speak(utter);
-    }
+function enqueueTTS(text, lang = "en-US", onEnd = null) {
+  ttsQueue.push({ text, lang, onEnd });
+  if (!isSpeaking) processTTSQueue();
 }
 
-// This will be called from Android when TTS finishes
-function onTTSFinish() {
-    if (typeof window.__onTTSFinish === "function") {
-        window.__onTTSFinish();
-        window.__onTTSFinish = null; // Clear after use
+function processTTSQueue() {
+  if (ttsQueue.length === 0) {
+    isSpeaking = false;
+    return;
+  }
+
+  const { text, lang, onEnd } = ttsQueue.shift();
+  isSpeaking = true;
+
+  readText(text, lang, () => {
+    if (typeof onEnd === "function") onEnd();
+    processTTSQueue();
+  });
+}
+
+// Update readText to store callback like before
+function readText(text, lang = "en-US", onEnd = null) {
+  if (typeof fully !== "undefined" && typeof fully.textToSpeech === "function") {
+    if (lang === "en-US") lang = "en";
+    if (lang === "fr-FR") lang = "fr";
+    fully.textToSpeech(text, lang);
+    if (typeof onEnd === "function") {
+      const duration = Math.min(Math.max(text.length * 60, 1000), 6000);
+      setTimeout(onEnd, duration);
     }
+  } else if (typeof AndroidTTS !== 'undefined') {
+    if (lang === "en-US") lang = "en";
+    if (lang === "fr-FR") lang = "fr";
+    window.__onTTSFinish = onEnd;
+    AndroidTTS.speak(text, lang);
+  } else {
+    window.speechSynthesis.cancel();
+    let utter = new SpeechSynthesisUtterance(text);
+    utter.lang = lang;
+    utter.rate = 0.8;
+    utter.pitch = 1;
+    utter.volume = 1;
+    if (typeof onEnd === "function") utter.onend = onEnd;
+    window.speechSynthesis.speak(utter);
+  }
+}
+
+function onTTSFinish() {
+  if (typeof window.__onTTSFinish === "function") {
+    const callback = window.__onTTSFinish;
+    window.__onTTSFinish = null;
+    callback();
+  }
 }
 
 

@@ -59,14 +59,11 @@
                     checkButton.style.display = "none";
                     revealSpan.textContent = "";
 
-                    readText(word, lang, () => {
-                        setTimeout(() => {
-                            readText(sentence, lang, () => {
-                                setTimeout(() => {
-                                    checkButton.style.display = "inline-block";
-                                }, 1000);
-                            });
-                        }, 1000); // 1 second pause between word and sentence
+                    enqueueTTS(word, lang);
+                    enqueueTTS(sentence, lang, () => {
+                    setTimeout(() => {
+                        checkButton.style.display = "inline-block";
+                    }, 1000);
                     });
                 };
 
