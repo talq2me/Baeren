@@ -341,6 +341,7 @@ function readText(text, lang = "en-US", onEnd = null) {
             setTimeout(onEnd, duration);
         }
     } else {
+        alert("TTS");
         window.speechSynthesis.cancel();
         let utter = new SpeechSynthesisUtterance(text);
         utter.lang = lang;
