@@ -331,27 +331,23 @@ function showControlsForDay() {
 
 function readText(text, lang = "en-US", onEnd = null) {
     if (typeof fully !== "undefined" && typeof fully.textToSpeech === "function") {
-        // Fully Kiosk uses "en" for English, "fr" for French, etc.
         if (lang === "en-US") lang = "en";
         if (lang === "fr-FR") lang = "fr";
         fully.textToSpeech(text, lang);
+
         if (typeof onEnd === "function") {
-            // Estimate: 60ms per character, min 1s, max 6s
             const duration = Math.min(Math.max(text.length * 60, 1000), 6000);
             setTimeout(onEnd, duration);
         }
     } 
     else if (typeof AndroidTTS !== 'undefined') {
-        
         if (lang === "en-US") lang = "en";
         if (lang === "fr-FR") lang = "fr";
-        AndroidTTS.speak(text, lang); // French
-        // or
-        AndroidTTS.speak(text, lang); // English
-    }
-    //normal webbrowser
+
+        window.__onTTSFinish = onEnd;  // Save the callback
+        AndroidTTS.speak(text, lang); // This will trigger `window.onTTSFinish()` from Android when done
+    } 
     else {
-        alert("TTS");
         window.speechSynthesis.cancel();
         let utter = new SpeechSynthesisUtterance(text);
         utter.lang = lang;
@@ -362,6 +358,15 @@ function readText(text, lang = "en-US", onEnd = null) {
         window.speechSynthesis.speak(utter);
     }
 }
+
+// This will be called from Android when TTS finishes
+function onTTSFinish() {
+    if (typeof window.__onTTSFinish === "function") {
+        window.__onTTSFinish();
+        window.__onTTSFinish = null; // Clear after use
+    }
+}
+
 
 // Function to launch the game in the modal
 function launchGameInModal(gameUrl) {
