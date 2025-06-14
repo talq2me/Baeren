@@ -62,7 +62,8 @@
                      if (typeof AndroidTTS !== 'undefined') {
                         alert("TTS lang: " + lang + jsonFile); // This should always show if AndroidTTS is defined
 
-                        enqueueTTS(word, lang);
+                        readText(word, lang);
+                        readText(sentence, lang);
                         /* enqueueTTS(sentence, lang, () => {
                             checkButton.style.display = "inline-block";
                         }); */
