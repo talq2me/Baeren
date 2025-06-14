@@ -331,40 +331,43 @@ function showControlsForDay() {
 
 
 let ttsQueue = [];
-let ttsBusy = false;
+let isSpeaking = false;
 
-function enqueueTTS(text, lang = "en", onEnd = null) {
-    ttsQueue.push({ text, lang, onEnd });
+function enqueueTTS(text, lang, onDone = null) {
+    ttsQueue.push({ text, lang, onDone });
     processTTSQueue();
 }
 
 function processTTSQueue() {
-    if (ttsBusy || ttsQueue.length === 0) return;
+    if (isSpeaking || ttsQueue.length === 0) return;
 
-    const { text, lang, onEnd } = ttsQueue.shift();
-    ttsBusy = true;
+    const { text, lang, onDone } = ttsQueue.shift();
+    isSpeaking = true;
+    currentTTSCallback = onDone;
 
-    if (typeof AndroidTTS !== 'undefined' && typeof AndroidTTS.speak === 'function') {
+    if (typeof AndroidTTS !== 'undefined') {
         AndroidTTS.speak(text, lang);
-
-        // Android side will call AndroidTTS.onTTSComplete() when it's done.
-        AndroidTTS._onComplete = () => {
-            ttsBusy = false;
-            if (typeof onEnd === 'function') onEnd();
-            processTTSQueue();
-        };
     } else {
-        // fallback: Web browser TTS
-        const utter = new SpeechSynthesisUtterance(text);
-        utter.lang = lang;
-        utter.onend = () => {
-            ttsBusy = false;
-            if (typeof onEnd === 'function') onEnd();
+        // fallback for browsers
+        readText(text, lang, () => {
+            isSpeaking = false;
+            if (onDone) onDone();
             processTTSQueue();
-        };
-        window.speechSynthesis.speak(utter);
+        });
     }
 }
+
+// Called by Kotlin when speech is finished
+function onTTSFinish() {
+    isSpeaking = false;
+    if (typeof currentTTSCallback === 'function') {
+        currentTTSCallback();
+    }
+    currentTTSCallback = null;
+    processTTSQueue();
+}
+
+let currentTTSCallback = null;
 
 // Update readText to store callback like before
 function readText(text, lang = "en-US", onEnd = null) {
