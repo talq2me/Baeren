@@ -330,7 +330,7 @@ function showControlsForDay() {
 }
 
 function readText(text, lang = "en-US", onEnd = null) {
-    if (typeof fully !== "undefined" && typeof fully.textToSpeech === "function") {
+  /*   if (typeof fully !== "undefined" && typeof fully.textToSpeech === "function") {
         // Fully Kiosk uses "en" for English, "fr" for French, etc.
         if (lang === "en-US") lang = "en";
         if (lang === "fr-FR") lang = "fr";
@@ -340,7 +340,7 @@ function readText(text, lang = "en-US", onEnd = null) {
             const duration = Math.min(Math.max(text.length * 60, 1000), 6000);
             setTimeout(onEnd, duration);
         }
-    } else {
+    } else { */
         alert("TTS");
         window.speechSynthesis.cancel();
         let utter = new SpeechSynthesisUtterance(text);
@@ -350,7 +350,7 @@ function readText(text, lang = "en-US", onEnd = null) {
         utter.volume = 1;
         if (typeof onEnd === "function") utter.onend = onEnd;
         window.speechSynthesis.speak(utter);
-    }
+ /*    } */
 }
 
 // Function to launch the game in the modal
