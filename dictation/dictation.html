@@ -59,8 +59,8 @@
                     checkButton.style.display = "none";
                     revealSpan.textContent = "";
 
-                     if (typeof AndroidTTS !== 'undefined' && typeof AndroidTTS.speak === 'function') {
-                        
+                     if (typeof AndroidTTS !== 'undefined') {
+                        alert("android tts")
                         if (jsonFile === 'french.json') {lang = "fr"}
                         else {lang="en"};
                         enqueueTTS(word, lang);
