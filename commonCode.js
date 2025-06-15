@@ -336,42 +336,43 @@ let ttsInProgress = false;
 function enqueueTTS(text, lang, onEnd = null) {
     if (lang === "en-US") lang = "en";
     if (lang === "fr-FR") lang = "fr";
+
     ttsQueue.push({ text, lang, onEnd });
     processTTSQueue();
 }
 
 function processTTSQueue() {
-    if (ttsInProgress || ttsQueue.length === 0) return;
+    if (ttsInProgress || ttsQueue.length === 0) {
+        return;
+    }
 
     const { text, lang, onEnd } = ttsQueue.shift();
-    ttsInProgress = true;
     window.__currentTTSCallback = onEnd;
+    ttsInProgress = true;
 
-    if (typeof AndroidTTS !== 'undefined') {
+    try {
         AndroidTTS.speak(text, lang);
-    } else {
-        const utter = new SpeechSynthesisUtterance(text);
-        utter.lang = lang;
-        utter.rate = 0.8;
-        utter.onend = () => {
-            ttsInProgress = false;
-            if (onEnd) onEnd();
-            processTTSQueue();
-        };
-        speechSynthesis.speak(utter);
+    } catch (e) {
+        console.error("Error calling AndroidTTS.speak:", e);
+        ttsInProgress = false;
+        if (typeof onEnd === "function") onEnd();
+        processTTSQueue();
     }
 }
 
-// Called by Kotlin
 function onTTSFinish() {
     alert("JS onTTSFinish");
     ttsInProgress = false;
+
     if (typeof window.__currentTTSCallback === "function") {
         window.__currentTTSCallback();
     }
     window.__currentTTSCallback = null;
+
+    // Process next in queue
     processTTSQueue();
 }
+
 
 
 
