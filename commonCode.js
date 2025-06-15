@@ -415,7 +415,7 @@ function readText(text, lang = "en-US", onEnd = null) {
   } else if (typeof AndroidTTS !== 'undefined') {
     if (lang === "en-US") lang = "en";
     if (lang === "fr-FR") lang = "fr";
-    window.__onTTSFinish = onEnd;
+    
     AndroidTTS.speak(text, lang);
   } else {
     window.speechSynthesis.cancel();

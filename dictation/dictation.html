@@ -19,7 +19,20 @@
         return url.searchParams.get(name) || def;
     }
 
- 
+ function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function waitInWebView() {
+    try {
+        document.getElementById('status').textContent = 'Starting...';
+        await wait(2000); // Wait 2 seconds
+        document.getElementById('status').textContent = 'Done after 2 seconds!';
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
     // Main logic
     async function loadWords() {
         const jsonFile = getParam("jsonFile");
@@ -60,7 +73,7 @@
                     revealSpan.textContent = "";
 
                      if (typeof AndroidTTS !== 'undefined') {
-                            console.log("Button clicked, enqueuing TTS");
+                           /*  console.log("Button clicked, enqueuing TTS");
                             enqueueTTS("Bonjour", "fr", () => {
                                 console.log("Finished speaking 'Bonjour'");
                             });
@@ -71,10 +84,11 @@
                                 } catch (e) {
                                     console.error("Error showing check button:", e);
                                 }
-                            });
+                            }); */
 
-                        /* readText(word, lang);
-                        readText(sentence, lang); */
+                        readText(word, lang);
+                        waitInWebView();
+                        readText(sentence, lang); 
                         
                        /*  enqueueTTS(word, lang);
                         enqueueTTS(sentence, lang, () => {
