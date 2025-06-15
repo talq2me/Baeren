@@ -335,6 +335,8 @@ let ttsInProgress = false;
 let currentTTSCallback = null;
 
 function enqueueTTS(text, lang, onEnd = null) {
+    alert("enqueue "); // This should always show if AndroidTTS is defined
+
     if (lang === "en-US") lang = "en";
     if (lang === "fr-FR") lang = "fr";
     ttsQueue.push({ text, lang, onEnd });
