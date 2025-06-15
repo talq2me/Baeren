@@ -60,14 +60,18 @@
                     revealSpan.textContent = "";
 
                      if (typeof AndroidTTS !== 'undefined') {
-                        console.log("Button clicked, enqueuing TTS");
-                        enqueueTTS("Bonjour", "fr", () => {
-                            console.log("Finished speaking 'Bonjour'");
-                        });
-                        enqueueTTS("Je m'appelle Baeren", "fr", () => {
-                            console.log("Finished speaking sentence");
-                            document.querySelector("#checkButton").style.display = "inline-block";
-                        });
+                            console.log("Button clicked, enqueuing TTS");
+                            enqueueTTS("Bonjour", "fr", () => {
+                                console.log("Finished speaking 'Bonjour'");
+                            });
+                            enqueueTTS("Je m'appelle Baeren", "fr", () => {
+                                console.log("Finished speaking sentence");
+                                try {
+                                    document.querySelector("#checkButton").style.display = "inline-block";
+                                } catch (e) {
+                                    console.error("Error showing check button:", e);
+                                }
+                            });
 
                         /* readText(word, lang);
                         readText(sentence, lang); */

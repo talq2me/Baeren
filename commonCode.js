@@ -328,6 +328,8 @@ function showControlsForDay() {
         }
     });
 }
+
+
 let ttsQueue = [];
 let ttsInProgress = false;
 
@@ -349,37 +351,53 @@ function processTTSQueue() {
     ttsInProgress = true;
     console.log(`Processing TTS: text="${text}", lang="${lang}"`);
 
-    if (typeof AndroidTTS !== 'undefined') {
-        window.onTTSFinish = () => {
-            console.log(`TTS finished for text="${text}"`);
-            ttsInProgress = false;
-            if (typeof onEnd === 'function') {
-                console.log('Calling onEnd callback');
-                onEnd();
-            }
-            processTTSQueue();
-        };
-        AndroidTTS.speak(text, lang);
-    } else {
-        console.log('Falling back to Web Speech API');
-        const utter = new SpeechSynthesisUtterance(text);
-        utter.lang = lang;
-        utter.rate = 0.8;
-        utter.pitch = 1;
-        utter.volume = 1;
-        utter.onend = () => {
-            console.log(`Web Speech finished for text="${text}"`);
-            ttsInProgress = false;
-            if (typeof onEnd === 'function') {
-                console.log('Calling onEnd callback');
-                onEnd();
-            }
-            processTTSQueue();
-        };
-        speechSynthesis.speak(utter);
+    try {
+        if (typeof AndroidTTS !== 'undefined') {
+            console.log('Using AndroidTTS bridge');
+            window.onTTSFinish = () => {
+                console.log(`TTS finished for text="${text}"`);
+                ttsInProgress = false;
+                if (typeof onEnd === 'function') {
+                    console.log('Calling onEnd callback');
+                    try {
+                        onEnd();
+                    } catch (e) {
+                        console.error('Error in onEnd callback:', e);
+                    }
+                }
+                console.log('Advancing TTS queue');
+                processTTSQueue();
+            };
+            AndroidTTS.speak(text, lang);
+        } else {
+            console.log('Falling back to Web Speech API');
+            const utter = new SpeechSynthesisUtterance(text);
+            utter.lang = lang;
+            utter.rate = 0.8;
+            utter.pitch = 1;
+            utter.volume = 1;
+            utter.onend = () => {
+                console.log(`Web Speech finished for text="${text}"`);
+                ttsInProgress = false;
+                if (typeof onEnd === 'function') {
+                    console.log('Calling onEnd callback');
+                    try {
+                        onEnd();
+                    } catch (e) {
+                        console.error('Error in onEnd callback:', e);
+                    }
+                }
+                console.log('Advancing TTS queue');
+                processTTSQueue();
+            };
+            speechSynthesis.speak(utter);
+        }
+    } catch (e) {
+        console.error('Error in processTTSQueue:', e);
+        ttsInProgress = false;
+        processTTSQueue(); // Attempt to recover
     }
 }
-
 
 
 
