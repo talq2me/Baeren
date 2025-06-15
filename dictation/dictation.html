@@ -68,32 +68,31 @@ async function waitInWebView() {
                 revealSpan.style.fontWeight = "bold";
                 revealSpan.style.fontSize = "24px";
 
-                button.onclick = function() {
+                button.onclick = async function() {
                     checkButton.style.display = "none";
                     revealSpan.textContent = "";
 
                      if (typeof AndroidTTS !== 'undefined') {
-                           /*  console.log("Button clicked, enqueuing TTS");
-                            enqueueTTS("Bonjour", "fr", () => {
-                                console.log("Finished speaking 'Bonjour'");
-                            });
-                            enqueueTTS("Je m'appelle Baeren", "fr", () => {
-                                console.log("Finished speaking sentence");
-                                try {
-                                    document.querySelector("#checkButton").style.display = "inline-block";
-                                } catch (e) {
-                                    console.error("Error showing check button:", e);
-                                }
-                            }); */
+                        try {
+                            // Use a Promise to handle readText callback
+                            const readTextAsync = (text, lang) => {
+                                return new Promise((resolve) => {
+                                    readText(text, lang, () => resolve());
+                                });
+                            };
 
-                        readText(word, lang);
-                        waitInWebView();
-                        readText(sentence, lang); 
-                        
-                       /*  enqueueTTS(word, lang);
-                        enqueueTTS(sentence, lang, () => {
+                            // Speak word, wait for completion
+                            await readTextAsync(word, lang);
+                            // Optional: Add a short delay if needed (e.g., for natural pause)
+                            await wait(500); // 0.5 second pause
+                            // Speak sentence, wait for completion
+                            await readTextAsync(sentence, lang);
+                            // Show button
                             checkButton.style.display = "inline-block";
-                        }); */
+                        } catch (error) {
+                            console.error("Error in TTS sequence:", error);
+                            checkButton.style.display = "inline-block";
+                        }
                     } else {
                     readText(word, lang, () => {
                         setTimeout(() => {
