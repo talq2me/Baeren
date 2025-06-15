@@ -60,10 +60,11 @@
                     revealSpan.textContent = "";
 
                      if (typeof AndroidTTS !== 'undefined') {
-                        enqueueTTS("bonjour", "fr");
-                        enqueueTTS("je m'appelle Marie", "fr", () => {
-                        console.log("done");
+                        enqueueTTS("Bonjour", "fr");
+                        enqueueTTS("Je m'appelle Baeren", "fr", () => {
+                            document.querySelector("#checkButton").style.display = "inline-block";
                         });
+
                         /* readText(word, lang);
                         readText(sentence, lang); */
                         
