@@ -369,8 +369,8 @@ function processTTSQueue() {
     }
 }
 
-// Called by Kotlin after TTS finishes
 function onTTSFinish() {
+    alert("✅ JS onTTSFinish triggered");
     ttsInProgress = false;
     if (typeof currentTTSCallback === 'function') {
         currentTTSCallback();
@@ -378,6 +378,7 @@ function onTTSFinish() {
     currentTTSCallback = null;
     processTTSQueue();
 }
+
 
 
 // Update readText to store callback like before
