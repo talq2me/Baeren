@@ -364,6 +364,7 @@ function processTTSQueue() {
 
 // Called by Kotlin
 function onTTSFinish() {
+    alert("JS onTTSFinish");
     ttsInProgress = false;
     if (typeof window.__currentTTSCallback === "function") {
         window.__currentTTSCallback();
