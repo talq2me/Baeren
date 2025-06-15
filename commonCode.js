@@ -348,26 +348,37 @@ function processTTSQueue() {
 
     const { text, lang, onEnd } = ttsQueue.shift();
     ttsInProgress = true;
-    currentTTSCallback = onEnd;
 
+    // Android bridge
     if (typeof AndroidTTS !== 'undefined') {
-        AndroidTTS.speak(text, lang);
+        window.onTTSFinish = () => {
+            ttsInProgress = false;
+            if (typeof onEnd === 'function') onEnd();
+            setTimeout(() => processTTSQueue(), 100); // ✅ small delay before next
+        };
+
+        // ✅ Add short delay before speak
+        setTimeout(() => {
+            AndroidTTS.speak(text, lang);
+        }, 100); // ← You can try 200ms if needed
     } else {
-        // fallback for browser
+        // Fallback for browser
         const utter = new SpeechSynthesisUtterance(text);
         utter.lang = lang;
         utter.volume = 1;
         utter.pitch = 1;
         utter.rate = 0.8;
+
         utter.onend = () => {
             ttsInProgress = false;
             if (typeof onEnd === 'function') onEnd();
-            currentTTSCallback = null;
             processTTSQueue();
         };
+
         window.speechSynthesis.speak(utter);
     }
 }
+
 
 function onTTSFinish() {
     alert("✅ JS onTTSFinish triggered");
