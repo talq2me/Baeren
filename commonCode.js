@@ -332,11 +332,8 @@ function showControlsForDay() {
 
 let ttsQueue = [];
 let ttsInProgress = false;
-let currentTTSCallback = null;
 
 function enqueueTTS(text, lang, onEnd = null) {
-    alert("enqueue "); // This should always show if AndroidTTS is defined
-
     if (lang === "en-US") lang = "en";
     if (lang === "fr-FR") lang = "fr";
     ttsQueue.push({ text, lang, onEnd });
@@ -348,47 +345,33 @@ function processTTSQueue() {
 
     const { text, lang, onEnd } = ttsQueue.shift();
     ttsInProgress = true;
+    window.__currentTTSCallback = onEnd;
 
-    // Android bridge
     if (typeof AndroidTTS !== 'undefined') {
-        window.onTTSFinish = () => {
-            ttsInProgress = false;
-            if (typeof onEnd === 'function') onEnd();
-            setTimeout(() => processTTSQueue(), 100); // ✅ small delay before next
-        };
-
-        // ✅ Add short delay before speak
-        setTimeout(() => {
-            AndroidTTS.speak(text, lang);
-        }, 100); // ← You can try 200ms if needed
+        AndroidTTS.speak(text, lang);
     } else {
-        // Fallback for browser
         const utter = new SpeechSynthesisUtterance(text);
         utter.lang = lang;
-        utter.volume = 1;
-        utter.pitch = 1;
         utter.rate = 0.8;
-
         utter.onend = () => {
             ttsInProgress = false;
-            if (typeof onEnd === 'function') onEnd();
+            if (onEnd) onEnd();
             processTTSQueue();
         };
-
-        window.speechSynthesis.speak(utter);
+        speechSynthesis.speak(utter);
     }
 }
 
-
+// Called by Kotlin
 function onTTSFinish() {
-    alert("✅ JS onTTSFinish triggered");
     ttsInProgress = false;
-    if (typeof currentTTSCallback === 'function') {
-        currentTTSCallback();
+    if (typeof window.__currentTTSCallback === "function") {
+        window.__currentTTSCallback();
     }
-    currentTTSCallback = null;
+    window.__currentTTSCallback = null;
     processTTSQueue();
 }
+
 
 
 

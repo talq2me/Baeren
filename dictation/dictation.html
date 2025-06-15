@@ -60,13 +60,17 @@
                     revealSpan.textContent = "";
 
                      if (typeof AndroidTTS !== 'undefined') {
-                        
+                        enqueueTTS("bonjour", "fr");
+                        enqueueTTS("je m'appelle Marie", "fr", () => {
+                        console.log("done");
+                        });
                         /* readText(word, lang);
                         readText(sentence, lang); */
-                        enqueueTTS(word, lang);
+                        
+                       /*  enqueueTTS(word, lang);
                         enqueueTTS(sentence, lang, () => {
                             checkButton.style.display = "inline-block";
-                        });
+                        }); */
                     } else {
                     readText(word, lang, () => {
                         setTimeout(() => {
