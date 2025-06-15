@@ -74,20 +74,10 @@ async function waitInWebView() {
 
                      if (typeof AndroidTTS !== 'undefined') {
                         try {
-                            // Use a Promise to handle readText callback
-                            const readTextAsync = (text, lang) => {
-                                return new Promise((resolve) => {
-                                    readText(text, lang, () => resolve());
-                                });
-                            };
-
-                            // Speak word, wait for completion
-                            await readTextAsync(word, lang);
-                            // Optional: Add a short delay if needed (e.g., for natural pause)
-                            await wait(500); // 0.5 second pause
-                            // Speak sentence, wait for completion
-                            await readTextAsync(sentence, lang);
-                            // Show button
+                            readText(word, lang);
+                            await wait(3000); // Adjust based on word duration
+                            readText(sentence, lang);
+                            await wait(3000); // Adjust based on sentence duration
                             checkButton.style.display = "inline-block";
                         } catch (error) {
                             console.error("Error in TTS sequence:", error);
