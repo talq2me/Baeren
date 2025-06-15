@@ -328,46 +328,57 @@ function showControlsForDay() {
         }
     });
 }
-
-
 let ttsQueue = [];
 let ttsInProgress = false;
 
 function enqueueTTS(text, lang, onEnd = null) {
     if (lang === "en-US") lang = "en";
     if (lang === "fr-FR") lang = "fr";
+    console.log(`Enqueuing TTS: text="${text}", lang="${lang}"`);
     ttsQueue.push({ text, lang, onEnd });
     processTTSQueue();
 }
 
 function processTTSQueue() {
-    if (ttsInProgress || ttsQueue.length === 0) return;
+    if (ttsInProgress || ttsQueue.length === 0) {
+        console.log(`Queue processing skipped: inProgress=${ttsInProgress}, queueLength=${ttsQueue.length}`);
+        return;
+    }
 
     const { text, lang, onEnd } = ttsQueue.shift();
     ttsInProgress = true;
+    console.log(`Processing TTS: text="${text}", lang="${lang}"`);
 
     if (typeof AndroidTTS !== 'undefined') {
         window.onTTSFinish = () => {
+            console.log(`TTS finished for text="${text}"`);
             ttsInProgress = false;
-            if (typeof onEnd === 'function') onEnd();
-            processTTSQueue(); // Proceed to next
+            if (typeof onEnd === 'function') {
+                console.log('Calling onEnd callback');
+                onEnd();
+            }
+            processTTSQueue();
         };
         AndroidTTS.speak(text, lang);
     } else {
+        console.log('Falling back to Web Speech API');
         const utter = new SpeechSynthesisUtterance(text);
         utter.lang = lang;
         utter.rate = 0.8;
         utter.pitch = 1;
         utter.volume = 1;
         utter.onend = () => {
+            console.log(`Web Speech finished for text="${text}"`);
             ttsInProgress = false;
-            if (typeof onEnd === 'function') onEnd();
+            if (typeof onEnd === 'function') {
+                console.log('Calling onEnd callback');
+                onEnd();
+            }
             processTTSQueue();
         };
         speechSynthesis.speak(utter);
     }
 }
-
 
 
 

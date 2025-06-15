@@ -60,8 +60,12 @@
                     revealSpan.textContent = "";
 
                      if (typeof AndroidTTS !== 'undefined') {
-                        enqueueTTS("Bonjour", "fr");
+                        console.log("Button clicked, enqueuing TTS");
+                        enqueueTTS("Bonjour", "fr", () => {
+                            console.log("Finished speaking 'Bonjour'");
+                        });
                         enqueueTTS("Je m'appelle Baeren", "fr", () => {
+                            console.log("Finished speaking sentence");
                             document.querySelector("#checkButton").style.display = "inline-block";
                         });
 
