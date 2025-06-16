@@ -53,18 +53,29 @@ async function loadGame() {
 }
 
 
-function playSound() {
+async function playSound() {
     const urlParams = new URLSearchParams(window.location.search);
     const gameTitle = urlParams.get("title");
 
     if (gameTitle === "Sound Parts Game") {
         const word = currentItem.word;
         const selectedPart = currentItem.selectedPart;
-
-        // Use TTS to repeat the instruction
-        readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en-US', () => {
-            setTimeout(() => playWordSlowly(currentItem.pronunciation), 250);
-        });
+         // Use TTS to say "Spell the word <word>"
+        if (typeof AndroidTTS !== 'undefined') {
+                        try {
+                            readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en');
+                            await wait(7000); // Adjust based on word duration
+                            playWordSlowly(currentItem.pronunciation)
+                        } catch (error) {
+                            console.error("Error in TTS sequence:", error);
+                        }
+        } else { 
+            //regular browser 
+            // Use TTS to repeat the instruction
+            readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en-US', () => {
+                setTimeout(() => playWordSlowly(currentItem.pronunciation), 250);
+            });
+        }
     } else if (gameTitle === "Sight Word Game") {
         const word = currentItem.word;
 
@@ -83,15 +94,26 @@ function playSound() {
         const word = currentItem.word;
 
         // Use TTS to say "Spell the word <word>"
+        if (typeof AndroidTTS !== 'undefined') {
+                        try {
+                            readText(`Spell the word ${word}.`, 'en');
+                            await wait(5000); // Adjust based on word duration
+                            playWordSlowly(currentItem.pronunciation)
+                        } catch (error) {
+                            console.error("Error in TTS sequence:", error);
+                        }
+        } else { 
+        //regular browser               
         readText(`Spell the word ${word}.`, 'en-US', () => {
             setTimeout(() => playWordSlowly(currentItem.pronunciation), 500);
         });
+    }
     } else if (useAudioFiles && currentItem.audio) {
         // Play the audio file specified in the current item
         new Audio(currentItem.audio).play();
     } else if (useTTS && currentItem.word) {
         // Use TTS to speak the word
-        speakText(currentItem.word);
+        readText(currentItem.word);
     } else {
         console.error("No audio or TTS data available for the current item.");
     }
