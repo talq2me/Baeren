@@ -64,7 +64,9 @@ async function playSound() {
         if (typeof AndroidTTS !== 'undefined') {
                         try {
                             readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en');
+                            alert("before await");
                             await wait(7000); // Adjust based on word duration
+                            alert("after await");
                             playWordSlowly(currentItem.pronunciation)
                         } catch (error) {
                             console.error("Error in TTS sequence:", error);
@@ -257,7 +259,9 @@ async function nextRound() {
         if (typeof AndroidTTS !== 'undefined') {
                         try {
                             readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en');
+                            alert("before await");
                             await wait(7000); // Adjust based on word duration
+                            alert("after await");
                             playWordSlowly(currentItem.pronunciation)
                         } catch (error) {
                             console.error("Error in TTS sequence:", error);
