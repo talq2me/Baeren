@@ -221,7 +221,7 @@ function highlightCorrectAnswer() {
     feedback.innerText = `Correct word: ${correctChoice}`;
 }
 
-function nextRound() {
+async function nextRound() {
     currentItem = getRandomItem();
 
     const urlParams = new URLSearchParams(window.location.search);
@@ -253,10 +253,22 @@ function nextRound() {
         // Show the inline SVG icon for the sound part
         showSoundPartIcon(selectedPart);
 
-        // Use TTS to say the instruction
-        readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en-US', () => {
-            setTimeout(() => playWordSlowly(currentItem.pronunciation), 250);
-        });
+         // Use TTS to say "Spell the word <word>"
+        if (typeof AndroidTTS !== 'undefined') {
+                        try {
+                            readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en');
+                            await wait(7000); // Adjust based on word duration
+                            playWordSlowly(currentItem.pronunciation)
+                        } catch (error) {
+                            console.error("Error in TTS sequence:", error);
+                        }
+        } else { 
+            //regular browser 
+            // Use TTS to say the instruction
+            readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en-US', () => {
+                setTimeout(() => playWordSlowly(currentItem.pronunciation), 250);
+            });
+        }
     } else if (gameTitle === "Sight Word Game") {
         // Special logic for Sight Word Game
         const messageContainer = document.getElementById("messageContainer");
@@ -287,10 +299,21 @@ function nextRound() {
         // Display the instruction
         messageContainer.innerText = `Spell the word "${word}".`;
 
-        // Use TTS to say "Spell the word <word>"
-        readText(`Spell the word ${word}.`, 'en-US', () => {
-            setTimeout(() => playWordSlowly(currentItem.pronunciation), 500);
-        });
+        if (typeof AndroidTTS !== 'undefined') {
+                        try {
+                            readText(`Spell the word ${word}.`, 'en');
+                            await wait(5000); // Adjust based on word duration
+                            playWordSlowly(currentItem.pronunciation)
+                        } catch (error) {
+                            console.error("Error in TTS sequence:", error);
+                        }
+        } else { 
+            //regular browser  
+            // Use TTS to say "Spell the word <word>"
+            readText(`Spell the word ${word}.`, 'en-US', () => {
+                setTimeout(() => playWordSlowly(currentItem.pronunciation), 500);
+            });
+        }
     } else {
         // For other games, play the instructions using playSound
         playSound();
