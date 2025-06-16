@@ -64,7 +64,7 @@ async function playSound() {
         if (typeof AndroidTTS !== 'undefined') {
                         try {
                             readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en');
-                            await wait(3000); // Adjust based on word duration
+                            //await wait(3000); // Adjust based on word duration
                             playWordSlowly(currentItem.pronunciation)
                         } catch (error) {
                             console.error("Error in TTS sequence:", error);
@@ -97,7 +97,7 @@ async function playSound() {
         if (typeof AndroidTTS !== 'undefined') {
                         try {
                             readText(`Spell the word ${word}.`, 'en');
-                            await wait(3000); // Adjust based on word duration
+                            //await wait(3000); // Adjust based on word duration
                             playWordSlowly(currentItem.pronunciation)
                         } catch (error) {
                             console.error("Error in TTS sequence:", error);
@@ -248,7 +248,7 @@ async function nextRound() {
         currentItem.originalChoices = [...currentItem.choices];
 
         // Display the instruction
-        messageContainer.innerText = `Find the ${selectedPart} sound in the word "${word}".`;
+        //messageContainer.innerText = `Find the ${selectedPart} sound in the word "${word}".`;
 
         // Show the inline SVG icon for the sound part
         showSoundPartIcon(selectedPart);
@@ -257,7 +257,7 @@ async function nextRound() {
         if (typeof AndroidTTS !== 'undefined') {
                         try {
                             readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en');
-                            await wait(3000); // Adjust based on word duration
+                            //await wait(3000); // Adjust based on word duration
                             playWordSlowly(currentItem.pronunciation)
                         } catch (error) {
                             console.error("Error in TTS sequence:", error);
@@ -275,7 +275,7 @@ async function nextRound() {
         const word = currentItem.word;
 
         // Display the instruction
-        messageContainer.innerText = `Find the word "${word}".`;
+        //messageContainer.innerText = `Find the word "${word}".`;
 
         readText(`Find the word ${word}.`); // Use TTS to read the instruction
     } else if (gameTitle === "French Word Game") {
@@ -284,7 +284,7 @@ async function nextRound() {
         const word = currentItem.word;
 
         // Display the instruction
-        messageContainer.innerText = `Find the word "${word}".`;
+        //messageContainer.innerText = `Find the word "${word}".`;
 
         readText(`Find the word`, 'en-US', () => {
             setTimeout(() => {
@@ -297,12 +297,12 @@ async function nextRound() {
         const word = currentItem.word;
 
         // Display the instruction
-        messageContainer.innerText = `Spell the word "${word}".`;
+        //messageContainer.innerText = `Spell the word "${word}".`;
 
         if (typeof AndroidTTS !== 'undefined') {
                         try {
                             readText(`Spell the word ${word}.`, 'en');
-                            await wait(3000); // Adjust based on word duration
+                            //await wait(3000); // Adjust based on word duration
                             playWordSlowly(currentItem.pronunciation)
                         } catch (error) {
                             console.error("Error in TTS sequence:", error);
