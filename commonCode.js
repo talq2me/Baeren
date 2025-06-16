@@ -57,6 +57,10 @@ function launchApp(appname, timeInMins) {
     }
 }
 
+function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 /* function rewardTasker(minutes)  {
   //  if (typeof fully !== "undefined") {
     alert('Before fetch');
