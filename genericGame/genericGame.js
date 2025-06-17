@@ -64,7 +64,7 @@ async function playSound() {
         if (typeof AndroidTTS !== 'undefined') {
                         try {
                             readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en');
-                            await wait(2000); // Adjust based on word duration
+                            await wait(3000); // Adjust based on word duration
                             playWordSlowly(currentItem.pronunciation)
                         } catch (error) {
                             console.error("Error in TTS sequence:", error);
@@ -97,7 +97,7 @@ async function playSound() {
         if (typeof AndroidTTS !== 'undefined') {
                         try {
                             readText(`Spell the word ${word}.`, 'en');
-                            await wait(2000); // Adjust based on word duration
+                            await wait(3000); // Adjust based on word duration
                             playWordSlowly(currentItem.pronunciation)
                         } catch (error) {
                             console.error("Error in TTS sequence:", error);
@@ -257,7 +257,7 @@ async function nextRound() {
         if (typeof AndroidTTS !== 'undefined') {
                         try {
                             readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en');
-                            await wait(2000); // Adjust based on word duration
+                            await wait(3000); // Adjust based on word duration
                             playWordSlowly(currentItem.pronunciation)
                         } catch (error) {
                             console.error("Error in TTS sequence:", error);
@@ -302,7 +302,7 @@ async function nextRound() {
         if (typeof AndroidTTS !== 'undefined') {
                         try {
                             readText(`Spell the word ${word}.`, 'en');
-                            await wait(2000); // Adjust based on word duration
+                            await wait(3000); // Adjust based on word duration
                             playWordSlowly(currentItem.pronunciation)
                         } catch (error) {
                             console.error("Error in TTS sequence:", error);
