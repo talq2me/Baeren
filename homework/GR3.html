@@ -88,18 +88,14 @@
        <div id="homework" class="div-container">
         <ul id="checklist">          
             <li data-show-days="mon,tue,thu,fri,sat,sun">
-                <input data-key="21"  type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item0">
+                <input data-key="21"  type="checkbox" class="chore-checkbox" data-reveal-code="false" id="item0">
                 <span class="chore-text" onclick="readText('Play Piano')">Piano 🔊</span>
             </li>
             <li data-show-days="mon,tue,thu,fri,sun">
-                <input data-key="22" type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item1">
+                <input data-key="22" type="checkbox" class="chore-checkbox" data-reveal-code="false" id="item1">
                 <span class="chore-text" onclick="readText('22 regular pushups, 5 knuckle pushups')" >Pushes 22 reg & 5 knuc 🔊</span>
                 <br>
                 <img src="https://media.giphy.com/media/mGWBjz74fn404BWUl4/giphy.gif?cid=ecf05e476pxqqc6cbon5ir86ggdqlsxc76d3ms0nhqklyspt&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Funny Cat GIF"> 
-            </li>  
-             <li>
-                <input data-key="23" type="checkbox" class="chore-checkbox" data-reveal-code="true" id="item4">
-                <span class="chore-text" onclick="readText('English Book Report draw one chapter summary')">English Book Report <br>(draw 1 chapter <br>summary) 🔊</span>
             </li> 
         </ul>
     </div>   
@@ -107,19 +103,19 @@
     <div id="chores" class="div-container">
         <ul id="checklist">
             <li data-show-days="mon,tue,wed,thu,fri">
-                <input data-key="24" type="checkbox" data-reveal-code="true" id="item1">
+                <input data-key="24" type="checkbox" data-reveal-code="false" id="item1">
                 <span class="chore-text" onclick="readText('Unpack bag')">Unpack bag 🔊</span>
             </li>
             <li data-show-days="mon,tue,wed,thu,fri">
-                <input data-key="25" type="checkbox" data-reveal-code="true" id="item2">
+                <input data-key="25" type="checkbox" data-reveal-code="false" id="item2">
                 <span class="chore-text" onclick="readText('Pack lunch')">Pack lunch 🔊</span>
             </li>
             <li data-show-days="sun,mon,tue">
-                <input data-key="26" type="checkbox" data-reveal-code="true" id="item3">
+                <input data-key="26" type="checkbox" data-reveal-code="false" id="item3">
                 <span class="chore-text" onclick="readText('Laundry')">Laundry 🔊</span>
             </li>
             <li>
-                <input data-key="27" type="checkbox" data-reveal-code="true" id="item4">
+                <input data-key="27" type="checkbox" data-reveal-code="false" id="item4">
                 <span class="chore-text" onclick="readText('Pajamas')">Pajamas 🔊</span>
             </li>
         </ul>
@@ -129,6 +125,7 @@
     
     <h1>My Bonus Work</h1>
     <div id="bonusWork" class="div-container">
+
         <button data-key="28" class="button bonus-task video-button" data-reveal-code="true" data-json-file="../alphaBlocks.json" data-selection-mode="sequential">AlphaBlocks</button>     
         <button data-key="29" class="button bonus-task video-button" data-reveal-code="true" data-json-file="../caillouVideos.json" data-selection-mode="sequential">Caillou</button>     
         <button data-key="30" class="button bonus-task video-button" data-reveal-code="true" data-json-file="../billNye.json" data-selection-mode="sequential">Bill Nye</button>    
@@ -140,6 +137,9 @@
         <button data-key="35" class="button bonus-task task-button" data-reveal-code="true" data-target-page="../mathgame/gr3math.html?jsonFile=gr3math.json&title=General%20Math%20Game&useAudioFiles=false&useTTS=false">General Math Game</button>
         <button data-key="36" class="button bonus-task task-button" data-reveal-code="true" data-target-page="../mathgame/gr3math.html?jsonFile=gr3mixedproblems.json&title=Mixed%20Math%20Game&useAudioFiles=false&useTTS=false">Mixed Math Game</button>
         <button data-key="37" class="button bonus-task task-button" data-reveal-code="true" data-target-page="../mathgame/gr3math.html?jsonFile=gr3wordproblems.json&title=Word%20Problems%20Math%20Game&useAudioFiles=false&useTTS=false">Word Problems Math Game</button>
+        <button data-key="38" class="button bonus-task task-button" data-reveal-code="true" onclick="openNewWindow('https://www.tynker.com/hour-of-code/')">Tynker Games</button>
+        <button data-key="39" class="button bonus-task task-button" data-reveal-code="true" onclick="openNewWindow('https://arcade.makecode.com')">Arcade Games</button>
+        <button data-key="40" class="button bonus-task task-button" data-reveal-code="true" data-target-page="https://blockly.games/maze?lang=en&level=1">Blockly Games</button>
     </div>
 
     <h1>My Rewards</h1>
