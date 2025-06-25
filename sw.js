@@ -15,8 +15,9 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-    // Network-only, no caching
-    event.respondWith(
-        fetch(event.request, { cache: 'no-store' })
-    );
+  event.respondWith(
+    fetch(event.request).catch(() => {
+      return new Response('Offline or fetch failed', { status: 503 });
+    })
+  );
 });
