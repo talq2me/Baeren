@@ -146,7 +146,8 @@ function updateCodeDisplay() {
             rewardBtn30.onclick = function() {
                 localStorage.setItem(rewardUsedKey, (rewardUsed + 30).toString());
                 updateCodeDisplay();
-                reward(30);
+                //reward(30);
+                launchApp('com.netflix.mediaclient', 30);
             };
         } else {
             rewardBtn30.style.display = "none";
@@ -160,7 +161,8 @@ function updateCodeDisplay() {
             rewardBtn15.onclick = function() {
                 localStorage.setItem(rewardUsedKey, (rewardUsed + 15).toString());
                 updateCodeDisplay();
-                reward(15);
+                //reward(15);
+                launchApp('com.netflix.mediaclient', 15);
             };
         } else {
             rewardBtn15.style.display = "none";

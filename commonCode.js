@@ -43,6 +43,8 @@ function reward(timeInMins) {
         
         // Launch Netflix app via intent if not in Fully Kiosk
         window.location.href = "intent://launch?pkg=com.netflix.mediaclient&minutes=" + timeInMins + "#Intent;scheme=http;end";
+        //send usage report to parent
+        window.location.href = "intent://sendusagereport";
 
     }
 }
