@@ -472,3 +472,13 @@ window.addEventListener("message", function (event) {
         }
     }
 });
+
+let startTime = Date.now();
+
+window.addEventListener("beforeunload", () => {
+    const duration = Math.round((Date.now() - startTime) / 1000); // in seconds
+    const page = window.location.pathname.split("/").pop();
+    if (window.AndroidUsageTracker) {
+        window.AndroidUsageTracker.logVisit(page, duration);
+    }
+});
