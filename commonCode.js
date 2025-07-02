@@ -351,15 +351,15 @@ function showNumberPadPrompt({ title, maxLength = 3, onSubmit, allowZero = false
     modal.id = 'pinPadModal';
     modal.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);z-index:9999;display:flex;align-items:center;justify-content:center;';
     modal.innerHTML = `
-      <div style="background:#fff;padding:24px 16px 16px 16px;border-radius:12px;box-shadow:0 2px 16px #0003;min-width:260px;display:flex;flex-direction:column;align-items:center;">
+      <div style="background:#fff;padding:24px 16px 16px 16px;border-radius:12px;box-shadow:0 2px 16px #0003;min-width:260px;display:flex;flex-direction:column;align-items:center;position:relative;">
+        <button id="pinPadCancel" aria-label="Cancel" style="position:absolute;top:8px;right:8px;font-size:1.3em;background:none;border:none;cursor:pointer;">✖</button>
         <h2 style="margin:0 0 12px 0;font-size:1.2em;">${title}</h2>
         <input id="pinPadInput" type="password" inputmode="numeric" maxlength="${maxLength}" style="font-size:2em;text-align:center;width:100%;margin-bottom:12px;letter-spacing:0.3em;" readonly />
         <div id="pinPadButtons" style="display:grid;grid-template-columns:repeat(3,60px);gap:8px;margin-bottom:12px;"></div>
         <div style="display:flex;gap:8px;width:100%;justify-content:center;">
-          <button id="pinPadDelete" style="padding:8px 16px;font-size:1em;">Delete</button>
-          <button id="pinPadEnter" style="padding:8px 16px;font-size:1em;">Enter</button>
+          <button id="pinPadDelete" style="padding:8px 16px;font-size:1.3em;">⌫</button>
+          <button id="pinPadEnter" style="padding:8px 16px;font-size:1.3em;">⏎</button>
         </div>
-        <button id="pinPadCancel" style="margin-top:10px;font-size:0.9em;">Cancel</button>
       </div>
     `;
     document.body.appendChild(modal);
