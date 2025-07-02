@@ -51,159 +51,16 @@ function reward(timeInMins) {
 
 
 function launchApp(appname, timeInMins) {
-    if (typeof fully !== "undefined") {
-            fully.startApplication(appname); // Launch app
-    } else {
-        // Launch app via intent if not in Fully Kiosk
-        window.location.href = "intent://launch?pkg=" + appname + "&minutes=" + timeInMins + "#Intent;scheme=http;end";
-    }
+    // Launch app via intent to communicate with Android app for whitelist management
+    window.location.href = "intent://launch?pkg=" + appname + "&minutes=" + timeInMins + "#Intent;scheme=http;end";
+    //send usage report to parent
+    window.location.href = "intent://sendusagereport";
 }
 
 function wait(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-/* function rewardTasker(minutes)  {
-  //  if (typeof fully !== "undefined") {
-    alert('Before fetch');
-
-        // Fully Kiosk intent URL for launching Tasker task
-        const intentUrl = 'intent://#Intent;package=net.dinglisch.android.taskerm;action=net.dinglisch.android.tasker.ACTION_TASK;extra=task:NetflixReward;extra=par1:' + encodeURIComponent(minutes) + ';end';
-        window.location.href = intentUrl;
-        alert('After fetch');
-
-/*     fetch('http://192.168.3.146:1821/netflixreward')//?minutes=' + minutes')
-        .then(response => {
-            console.log('Netflix reward triggered');
-            alert('After fetch - Success');
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('After fetch - Error: ' + error.message);
-        }); */
-
-
-      /* fully.runShellCommand(
-        "am broadcast -a com.baerened.LAUNCH_NETFLIX --es minutes " + minutes,
-        false  // runAsRoot
-     ); */
-     /*   fully.sendIntent(
-        "com.baerened.LAUNCH_NETFLIX", // this must match Tasker profile
-        "", "", "", 
-        "minutes=" + minutes
-      );  */
-/*       fetch("http://127.0.0.1:8765/trigger_task?minutes=" + minutes)
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error('Error:', error)); */
-/*   fully.startIntent(
-        "com.baerened.LAUNCH_NETFLIX", // Intent URI (package and activity)
-        "android.intent.action.VIEW",   // Intent action
-        "text/plain",                   // MIME type
-        "Hello from Fully Kiosk!",      // Data (optional)
-        "minutes=" + minutes,           // Extras (optional)
-        false                           // Wait for result (optional)
-    ); */
-
-
-   /*  } else {
-      alert("Fully interface not available");
-    } 
-  } 
-    */
-/* 
-
-function rewardTaskerOld(timeInMins) {
-            // Define the Tasker task name and reward time
-            const taskName = 'NetflixReward';
-            const rewardTime = timeInMins;
-            // Build the intent URL with extras
-            const intentUrl = `tasker://secondary?task=${encodeURIComponent(taskName)}&rewardMinutes=${encodeURIComponent(rewardTime)}`;
-            document.getElementById('status').innerText = 
-            `Great job! Awarded ${minutes} minutes of Netflix time!`;
-            window.location.href = intentUrl; // Send intent to Tasker
-
- }
-
-
-//this one only works on non android tablets because netflix web will not work on android tablets.
-function rewardNetflixWeb(timeInMins) {
-    const rewardTime = timeInMins * 60 * 1000;
-    // Open Netflix in a new tab/window
-    const netflixWindow = window.open("intent://#Intent;package=com.talq2me.netflixreward;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;end", "_blank");
-    
-    setTimeout(() => {
-        // Try to close the Netflix tab/window if possible
-        if (netflixWindow && !netflixWindow.closed) {
-            netflixWindow.close();
-        }
-        // Regain focus on this page
-        window.focus();
-
-        // Optionally, reload the startURL (if using Fully Kiosk or want to force a page)
-        if (typeof fully !== "undefined" && typeof fully.startURL === "function") {
-            fully.startURL();
-        } else {
-            // As a fallback, reload the current page
-            // window.location.reload();
-        }
-    }, rewardTime);
-}
-
-function pokemonGo() {
-    const rewardTime = 60 * 60 * 1000; // Convert 60 minutes to milliseconds
-    if (typeof fully !== "undefined") {
-        fully.startApplication("com.nianticlabs.pokemongo"); // 🚀 Launch pokemon go app
-        setTimeout(() => {
-            fully.startURL();      // 🔁 Go back to your site after timeInMins min
-        }, rewardTime);
-    } else {
-        console.warn("Fully Kiosk is not available.");
-    }
-}
-
-function exitFullyKiosk(){
-    if (typeof fully !== "undefined") {
-        
-        const userPIN = prompt("Enter Parent PIN:");
-
-        if (userPIN !== pin) {
-            alert("Sorry, that's not the right PIN.");
-            return;
-        }
-        fully.unlockKiosk();
-        fully.enableMaintenanceMode();
-        //
-        //fully.exitKioskMode();
-    } else {
-        console.warn("Fully Kiosk is not available.");
-    }
-}
-
-function resumeFullyKiosk() {
-    if (typeof fully !== "undefined") {
-        fully.disableMaintenanceMode();
-        fully.lockKiosk();
-        //fully.setDefaultLauncher();
-        //fully.startURL(); // Go back to your site
-    } else {
-        console.warn("Fully Kiosk is not available.");
-    }
-}
-
-function kioskSettings() {
-    if (typeof fully !== "undefined") {
-        const userPIN = prompt("Enter Parent PIN:");
-
-        if (userPIN !== pin) {
-            alert("Sorry, that's not the right PIN.");
-            return;
-        }
-        fully.openSettings();
-    } else {
-        console.warn("Fully Kiosk is not available.");
-    }
-} */
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -262,23 +119,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const kid = document.getElementById("codeDisplay")?.getAttribute("data-kid") || "kid1";
     if (overrideBtn) {
         overrideBtn.addEventListener('click', function () {
-            const userPIN = prompt("Parent PIN:");
-            if (userPIN !== pin) {
-                alert("Sorry, that's not the right PIN.");
-                return;
-            }
-            let mins = prompt("How many extra minutes would you like to grant?");
-            mins = parseInt(mins, 10);
-            if (isNaN(mins) || mins <= 0) {
-                alert("Please enter a valid number of minutes.");
-                return;
-            }
-            const today = new Date().toISOString().slice(0, 10);
-            const overrideKey = `override_${kid}_${today}`;
-            let current = parseInt(localStorage.getItem(overrideKey) || "0", 10);
-            localStorage.setItem(overrideKey, (current + mins).toString());
-            alert(`Granted ${mins} extra minutes!`);
-            updateCodeDisplay();
+            requestParentPin(function(userPIN) {
+                if (userPIN !== pin) {
+                    alert("Sorry, that's not the right PIN.");
+                    return;
+                }
+                requestRewardMinutes(function(mins) {
+                    if (mins === null) return;
+                    const today = new Date().toISOString().slice(0, 10);
+                    const overrideKey = `override_${kid}_${today}`;
+                    let current = parseInt(localStorage.getItem(overrideKey) || "0", 10);
+                    localStorage.setItem(overrideKey, (current + mins).toString());
+                    alert(`Granted ${mins} extra minutes!`);
+                    updateCodeDisplay();
+                });
+            });
         });
     }
 
@@ -484,3 +339,108 @@ window.addEventListener("beforeunload", () => {
         window.AndroidUsageTracker.logVisit(page, duration);
     }
 });
+
+// --- Generalized Number Pad Modal ---
+function showNumberPadPrompt({ title, maxLength = 3, onSubmit, allowZero = false }) {
+    // Remove any existing modal
+    const oldModal = document.getElementById('pinPadModal');
+    if (oldModal) oldModal.remove();
+
+    // Create modal elements
+    const modal = document.createElement('div');
+    modal.id = 'pinPadModal';
+    modal.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);z-index:9999;display:flex;align-items:center;justify-content:center;';
+    modal.innerHTML = `
+      <div style="background:#fff;padding:24px 16px 16px 16px;border-radius:12px;box-shadow:0 2px 16px #0003;min-width:260px;display:flex;flex-direction:column;align-items:center;">
+        <h2 style="margin:0 0 12px 0;font-size:1.2em;">${title}</h2>
+        <input id="pinPadInput" type="password" inputmode="numeric" maxlength="${maxLength}" style="font-size:2em;text-align:center;width:100%;margin-bottom:12px;letter-spacing:0.3em;" readonly />
+        <div id="pinPadButtons" style="display:grid;grid-template-columns:repeat(3,60px);gap:8px;margin-bottom:12px;"></div>
+        <div style="display:flex;gap:8px;width:100%;justify-content:center;">
+          <button id="pinPadDelete" style="padding:8px 16px;font-size:1em;">Delete</button>
+          <button id="pinPadEnter" style="padding:8px 16px;font-size:1em;">Enter</button>
+        </div>
+        <button id="pinPadCancel" style="margin-top:10px;font-size:0.9em;">Cancel</button>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    const input = modal.querySelector('#pinPadInput');
+    const buttons = modal.querySelector('#pinPadButtons');
+    const deleteBtn = modal.querySelector('#pinPadDelete');
+    const enterBtn = modal.querySelector('#pinPadEnter');
+    const cancelBtn = modal.querySelector('#pinPadCancel');
+
+    // Create number buttons
+    for (let i = 1; i <= 9; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        btn.style.cssText = 'font-size:1.3em;padding:12px 0;';
+        btn.onclick = () => {
+            if (input.value.length < maxLength) input.value += i;
+        };
+        buttons.appendChild(btn);
+    }
+    // Zero button
+    const zeroBtn = document.createElement('button');
+    zeroBtn.textContent = '0';
+    zeroBtn.style.cssText = 'font-size:1.3em;padding:12px 0;grid-column:2/3;';
+    zeroBtn.onclick = () => {
+        if (input.value.length < maxLength) input.value += '0';
+    };
+    buttons.appendChild(document.createElement('div'));
+    buttons.appendChild(zeroBtn);
+    buttons.appendChild(document.createElement('div'));
+
+    deleteBtn.onclick = () => {
+        input.value = input.value.slice(0, -1);
+    };
+    enterBtn.onclick = () => {
+        const val = input.value;
+        if (val.length > 0 && (allowZero || parseInt(val, 10) > 0)) {
+            document.body.removeChild(modal);
+            onSubmit(val);
+        }
+    };
+    cancelBtn.onclick = () => {
+        document.body.removeChild(modal);
+        onSubmit(null);
+    };
+}
+
+// --- PIN Prompt Logic ---
+function requestParentPin(onPinEntered) {
+    if (window.Android && typeof window.Android.showPinPrompt === 'function') {
+        // Call Android's PIN prompt
+        window.onPinResult = function(pin) {
+            onPinEntered(pin);
+        };
+        window.Android.showPinPrompt();
+    } else {
+        // Fallback: show custom HTML PIN pad
+        showHtmlPinPad(onPinEntered);
+    }
+}
+
+function showHtmlPinPad(onPinEntered) {
+    showNumberPadPrompt({
+        title: "Enter Parent PIN",
+        maxLength: 8,
+        onSubmit: onPinEntered
+    });
+}
+
+function requestRewardMinutes(onMinutesEntered) {
+    showNumberPadPrompt({
+        title: "How many extra minutes?",
+        maxLength: 3,
+        onSubmit: (val) => {
+            if (val === null) return onMinutesEntered(null);
+            const mins = parseInt(val, 10);
+            if (isNaN(mins) || mins <= 0) {
+                alert("Please enter a valid number of minutes.");
+                return requestRewardMinutes(onMinutesEntered); // Retry
+            }
+            onMinutesEntered(mins);
+        }
+    });
+}

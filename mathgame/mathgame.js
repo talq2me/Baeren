@@ -130,12 +130,11 @@ function handleChoice(choice, correctAnswer) {
         if (wrongCount >= 5) {
             messageContainer.innerHTML = "You got 5 wrong, you must start over!";
             setTimeout(() => {
-                // Reset everything
+                // Reset only the counts, but keep the progress position
                 correctCount = 0;
                 wrongCount = 0;
-                currentIndex = 0;
                 updateStarCount();
-                saveProgress();
+                // Don't reset currentIndex or saveProgress - keep the current position
                 showQuestion();
             }, 2000);
         } else {
@@ -179,6 +178,10 @@ function endGame() {
   if (messageContainer) {
       messageContainer.innerHTML = "Congratulations! You've completed the game!";
   }
+
+  // Reset progress for next time
+  currentIndex = 0;
+  saveProgress();
 
   // Notify parent window that the game is completed
   window.parent.postMessage({ type: "gameCompleted" }, "*");
