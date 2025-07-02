@@ -5,6 +5,7 @@ let useTTS = false;
 let useAudioFiles = false;
 let userInput = []; // Store user input for spelling games
 let maxQuestions;
+let currentIndex = 0; // Track the current question index for progress
 
 
 // Load game data and initialize the game
@@ -16,8 +17,8 @@ async function loadGame() {
     useAudioFiles = urlParams.get("useAudioFiles") === "true";
 
     //update maxQuestions based on the game title
-    if (gameTitle === "French Word Game" ){
-        maxQuestions = 5; // French Game has fewer questions
+    if (gameTitle === "French Word Game" || gameTitle === "French Syllable Game"){
+        maxQuestions = 5; // French Games have fewer questions
     } else {
         maxQuestions = 10; // Default for other games
     }
@@ -37,7 +38,7 @@ async function loadGame() {
     // Hide Submit and Delete buttons for games that don't use them
     if (gameTitle === "French Game" || gameTitle === "Sight Word Game" || 
         gameTitle === "Letter Sound Game" || gameTitle === "Sound Parts Game" ||
-        gameTitle === "French Word Game") {
+        gameTitle === "French Word Game" || gameTitle === "French Syllable Game") {
         document.getElementById("submitBtn").style.display = "none";
         document.getElementById("delete-btn").style.display = "none";
     }
@@ -45,6 +46,16 @@ async function loadGame() {
     try {
         const response = await fetch(jsonFile);
         gameData = await response.json();
+        
+        // Load the current index from localStorage
+        const storageKey = `genericgame_index_${jsonFile}`;
+        currentIndex = parseInt(localStorage.getItem(storageKey) || "0", 10);
+        
+        // Wrap around to the beginning if we've reached the end
+        if (currentIndex >= gameData.length) {
+            currentIndex = 0;
+        }
+        
         nextRound(); // Instructions will be handled in nextRound
     } catch (error) {
         console.error("Error loading game data:", error);
@@ -90,6 +101,12 @@ async function playSound() {
                 readText(` ${word}.`, 'fr-FR');
            
 
+    } else if (gameTitle === "French Syllable Game") {
+        const word = currentItem.word;
+
+        // Use French TTS to speak the word
+        readText(word, 'fr-FR');
+
     } else if (gameTitle === "Spelling Game") {
         const word = currentItem.word;
 
@@ -126,7 +143,7 @@ function handleChoice(choice) {
     // For games without a Submit button, check the word immediately
     if (gameTitle === "Sound Parts Game" || gameTitle === "Sight Word Game" || 
         gameTitle === "French Game" || gameTitle === "Letter Sound Game" ||
-        gameTitle === "French Word Game") {
+        gameTitle === "French Word Game" || gameTitle === "French Syllable Game") {
         const feedback = document.getElementById("messageContainer");
 
         // Determine the correct choice
@@ -149,7 +166,16 @@ function handleChoice(choice) {
             correctCount++;
             updateStarCount();
             if (correctCount < maxQuestions) {
-                setTimeout(nextRound, 1000); // Proceed to the next round after 1 second
+                // Move to the next question
+                currentIndex++;
+                saveProgress();
+                
+                // For Spelling Game, Sound Parts Game, and French Syllable Game, proceed immediately without delay
+                if (gameTitle === "Spelling Game" || gameTitle === "Sound Parts Game" || gameTitle === "French Syllable Game") {
+                    nextRound();
+                } else {
+                    setTimeout(nextRound, 1000); // Proceed to the next round after 1 second
+                }
             } else {
                 endGame();
             }
@@ -158,6 +184,9 @@ function handleChoice(choice) {
             highlightCorrectAnswer();
             setTimeout(() => {
                 feedback.innerHTML = "";
+                // Move to the next question even for incorrect answers
+                currentIndex++;
+                saveProgress();
                 nextRound();
             }, 2000); // Proceed to the next round after 2 seconds
         }
@@ -172,13 +201,24 @@ function handleChoice(choice) {
 function handleSubmit() {
     const feedback = document.getElementById("messageContainer");
     const userWord = userInput.join("");
+    const urlParams = new URLSearchParams(window.location.search);
+    const gameTitle = urlParams.get("title");
 
     if (userWord === currentItem.word) {
         feedback.innerHTML = "⭐ Correct!";
         correctCount++;
         updateStarCount();
         if (correctCount < maxQuestions) {
-            setTimeout(nextRound, 1000);
+            // Move to the next question
+            currentIndex++;
+            saveProgress();
+            
+            // For Spelling Game, Sound Parts Game, and French Syllable Game, proceed immediately without delay
+            if (gameTitle === "Spelling Game" || gameTitle === "Sound Parts Game" || gameTitle === "French Syllable Game") {
+                nextRound();
+            } else {
+                setTimeout(nextRound, 1000);
+            }
         } else {
             endGame();
         }
@@ -187,6 +227,9 @@ function handleSubmit() {
         highlightCorrectAnswer();
         setTimeout(() => {
             feedback.innerHTML = "";
+            // Move to the next question even for incorrect answers
+            currentIndex++;
+            saveProgress();
             nextRound();
         }, 2000);
     }
@@ -222,13 +265,14 @@ function highlightCorrectAnswer() {
 }
 
 async function nextRound() {
-    currentItem = getRandomItem();
-
+    // Get the current item based on the current index
+    currentItem = gameData[currentIndex];
+    
     const urlParams = new URLSearchParams(window.location.search);
     const gameTitle = urlParams.get("title");
 
-    // Ensure the word is included in the choices array for Sight Word Game
-    if (gameTitle === "Sight Word Game" && !currentItem.choices.includes(currentItem.word)) {
+    // Ensure the word is included in the choices array for Sight Word Game and French Syllable Game
+    if ((gameTitle === "Sight Word Game" || gameTitle === "French Syllable Game") && !currentItem.choices.includes(currentItem.word)) {
         currentItem.choices.push(currentItem.word);
     }
 
@@ -417,8 +461,18 @@ function updateStarCount() {
     starCount.innerText = `⭐ ${correctCount} / ${maxQuestions}`;
 }
 
+// Save the user's progress to localStorage
+function saveProgress() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const jsonFile = urlParams.get("jsonFile");
+    const storageKey = `genericgame_index_${jsonFile}`;
+    localStorage.setItem(storageKey, currentIndex.toString());
+}
+
 function resetGame() {
     correctCount = 0;
+    currentIndex = 0; // Reset to the beginning
+    saveProgress(); // Save the reset progress
     updateStarCount();
     document.getElementById("messageContainer").innerHTML = "";
     document.getElementById("choices").innerHTML = "";
@@ -430,6 +484,11 @@ function endGame() {
     document.getElementById("choices").innerHTML = "<h2>Game Over! 🎉</h2>";
     document.getElementById("playButton").innerText = "Play Again";
     document.getElementById("messageContainer").innerHTML = "Congratulations! You've completed the game!";
+    
+    // Reset progress for next time
+    currentIndex = 0;
+    saveProgress();
+    
     // Notify parent window that the game is completed
     window.parent.postMessage({ type: "gameCompleted" }, "*");
 }
