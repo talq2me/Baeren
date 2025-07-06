@@ -422,3 +422,10 @@ input[type="checkbox"] {
     align-items: center;
     text-align: center;
 }
+
+.button.selected {
+    background: #ffe066 !important;
+    color: #222 !important;
+    border: 2px solid #ff8c00 !important;
+    box-shadow: 0 0 8px #ff8c00;
+}

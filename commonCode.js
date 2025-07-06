@@ -64,9 +64,34 @@ function wait(ms) {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Hide Back and Home buttons if running in Fully Kiosk Browser
-    if (typeof fully !== "undefined") {
-        document.querySelectorAll("button[onclick*='goBack()'], button[onclick*=\"location.href='../index.html'\"]").forEach(btn => {
+    // Hide Back and Home buttons if running in Android WebView or Fully Kiosk Browser
+    function isAndroidWebView() {
+        // Check for Fully Kiosk Browser
+        if (typeof fully !== "undefined") {
+            return true;
+        }
+        
+        // Check for Android WebView user agent
+        const userAgent = navigator.userAgent.toLowerCase();
+        if (userAgent.includes('android') && userAgent.includes('wv')) {
+            return true;
+        }
+        
+        // Check for Android WebView specific features
+        if (window.Android && typeof window.Android !== 'undefined') {
+            return true;
+        }
+        
+        // Check for Android intent support
+        if (typeof window.AndroidInterface !== 'undefined') {
+            return true;
+        }
+        
+        return false;
+    }
+    
+    if (isAndroidWebView()) {
+        document.querySelectorAll("button[onclick*='goBack()'], button[onclick*='history.back()'], button[onclick*=\"location.href='../index.html'\"]").forEach(btn => {
             btn.style.display = "none";
         });
     }
@@ -156,6 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
             button.addEventListener("click", function () {
                 if (typeof unlockNextPiece === "function" && key) {
                     unlockNextPiece(kidId, key);
+                    updateBonusWorkVisibility();
                 }
             });
         }
@@ -443,4 +469,28 @@ function requestRewardMinutes(onMinutesEntered) {
             onMinutesEntered(mins);
         }
     });
+}
+
+
+function updateBonusWorkVisibility() {
+    // Count required buttons and checkboxes
+    const requiredButtons = document.querySelectorAll('.button.required[data-reveal-code="true"]');
+    const requiredCheckboxes = document.querySelectorAll('input[type="checkbox"].required[data-reveal-code="true"]');
+    const allRequired = [...requiredButtons, ...requiredCheckboxes];
+
+    // Check if all required tasks are completed
+    const allCompleted = allRequired.every(el => {
+        if (el.tagName === 'BUTTON') {
+            return el.classList.contains('completed');
+        } else if (el.type === 'checkbox') {
+            return el.checked;
+        }
+        return false;
+    });
+
+    // Show/hide the bonus work section
+    const bonusSection = document.getElementById('bonusWork');
+    if (bonusSection) {
+        bonusSection.style.display = allCompleted ? 'block' : 'none';
+    }
 }

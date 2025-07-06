@@ -7,6 +7,118 @@ let userInput = []; // Store user input for spelling games
 let maxQuestions;
 let currentIndex = 0; // Track the current question index for progress
 
+// --- Story Mode Support ---
+let isStoryMode = false;
+let storyData = [];
+let currentStoryIndex = 0;
+let currentQuestionIndex = 0;
+let storyTTSActive = false;
+let ttsUtterance = null;
+
+// --- Word boundary support detection ---
+let ttsWordBoundarySupported = null;
+
+// --- AndroidTTS callback integration ---
+let ttsFinishCallback = null;
+function onTTSFinish() {
+    if (typeof ttsFinishCallback === 'function') {
+        ttsFinishCallback();
+        ttsFinishCallback = null;
+    }
+}
+
+// Helper: Check if loaded data is in story mode format
+function isStoryGameData(data) {
+    return Array.isArray(data) && data.length > 0 && data[0].story && Array.isArray(data[0].questions);
+}
+
+// Helper: Split text into spans for word highlighting
+function splitTextToSpans(text) {
+    return text.split(/(\s+)/).map((word, i) => `<span data-word-idx="${i}">${word}</span>`).join("");
+}
+
+// Helper: Highlight a word by index
+function highlightWord(container, charIndex) {
+    // Find the span that contains the charIndex
+    let total = 0;
+    const spans = Array.from(container.querySelectorAll('span[data-word-idx]'));
+    for (let i = 0; i < spans.length; i++) {
+        const len = spans[i].textContent.length;
+        if (charIndex < total + len) {
+            spans.forEach(span => span.classList.remove('tts-highlight'));
+            spans[i].classList.add('tts-highlight');
+            break;
+        }
+        total += len;
+    }
+}
+
+// Helper: Estimate speech duration (ms) for AndroidTTS fallback
+function estimateSpeechDuration(text, lang) {
+    // Roughly 150ms per word, minimum 1s, max 8s
+    const wordCount = text.trim().split(/\s+/).length;
+    return Math.max(1000, Math.min(wordCount * 150, 8000));
+}
+
+// Helper: Speak text with word highlighting (with slower French rate)
+function speakWithHighlight(text, lang, container, onend) {
+    // AndroidTTS integration
+    if (typeof AndroidTTS !== 'undefined' && typeof AndroidTTS.speak === 'function') {
+        container.classList.add('tts-highlight');
+        AndroidTTS.speak(text, lang);
+        // Use callback if available, fallback to timer if not called in time
+        let finished = false;
+        ttsFinishCallback = () => {
+            if (!finished) {
+                finished = true;
+                container.classList.remove('tts-highlight');
+                if (onend) onend();
+            }
+        };
+        // Fallback: remove highlight after estimated duration if callback not called
+        setTimeout(() => {
+            if (!finished) {
+                finished = true;
+                container.classList.remove('tts-highlight');
+                if (onend) onend();
+                ttsFinishCallback = null;
+            }
+        }, estimateSpeechDuration(text, lang) + 500);
+        return;
+    }
+    // Web Speech API fallback
+    if (!window.speechSynthesis) return;
+    if (ttsUtterance) window.speechSynthesis.cancel();
+    container.innerHTML = splitTextToSpans(text);
+    ttsUtterance = new SpeechSynthesisUtterance(text);
+    ttsUtterance.lang = lang;
+    ttsUtterance.rate = (lang === 'fr-FR') ? 0.8 : 0.95;
+    let boundaryFired = false;
+    ttsUtterance.onboundary = function(event) {
+        boundaryFired = true;
+        ttsWordBoundarySupported = true;
+        highlightWord(container, event.charIndex);
+    };
+    ttsUtterance.onstart = function() {
+        if (ttsWordBoundarySupported === false) {
+            container.classList.add('tts-highlight');
+        } else {
+            highlightWord(container, 0);
+        }
+    };
+    ttsUtterance.onend = function() {
+        Array.from(container.querySelectorAll('span[data-word-idx]')).forEach(span => {
+            span.classList.remove('tts-highlight');
+        });
+        container.classList.remove('tts-highlight');
+        if (onend) onend();
+        if (ttsWordBoundarySupported === null) {
+            ttsWordBoundarySupported = boundaryFired;
+            if (!boundaryFired) ttsWordBoundarySupported = false;
+        }
+    };
+    window.speechSynthesis.speak(ttsUtterance);
+}
 
 // Load game data and initialize the game
 async function loadGame() {
@@ -15,6 +127,13 @@ async function loadGame() {
     const gameTitle = urlParams.get("title");
     useTTS = urlParams.get("useTTS") === "true";
     useAudioFiles = urlParams.get("useAudioFiles") === "true";
+    maxQuestions = 10;
+    correctCount = 0;
+    currentIndex = 0;
+    currentStoryIndex = 0;
+    currentQuestionIndex = 0;
+    document.getElementById("gameTitle").innerText = gameTitle || '';
+    updateStarCount();
 
     //update maxQuestions based on the game title
     if (gameTitle === "French Word Game" || gameTitle === "French Syllable Game"){
@@ -24,16 +143,6 @@ async function loadGame() {
     }
 
     console.log("Loading JSON file:", jsonFile); // Debugging
-    updateStarCount(); // Draw the 0/maxQuestions stars
-
-    if (!jsonFile || !gameTitle) {
-        console.error("Missing required parameters: jsonFile or title");
-        document.getElementById("messageContainer").innerText = "Error: Missing game data.";
-        return;
-    }
-
-    // Set the game title
-    document.getElementById("gameTitle").innerText = gameTitle;
 
     // Hide Submit and Delete buttons for games that don't use them
     if (gameTitle === "French Game" || gameTitle === "Sight Word Game" || 
@@ -45,24 +154,27 @@ async function loadGame() {
 
     try {
         const response = await fetch(jsonFile);
-        gameData = await response.json();
-        
-        // Load the current index from localStorage
-        const storageKey = `genericgame_index_${jsonFile}`;
-        currentIndex = parseInt(localStorage.getItem(storageKey) || "0", 10);
-        
-        // Wrap around to the beginning if we've reached the end
-        if (currentIndex >= gameData.length) {
-            currentIndex = 0;
+        const data = await response.json();
+        if (isStoryGameData(data)) {
+            isStoryMode = true;
+            storyData = data;
+            // Always use 10 for maxQuestions in story mode for consistency
+            maxQuestions = 10;
+            showStoryQuestion();
+        } else {
+            isStoryMode = false;
+            gameData = data;
+            // ... existing code for non-story games ...
+            const storageKey = `genericgame_index_${jsonFile}`;
+            currentIndex = parseInt(localStorage.getItem(storageKey) || "0", 10);
+            if (currentIndex >= gameData.length) currentIndex = 0;
+            nextRound();
         }
-        
-        nextRound(); // Instructions will be handled in nextRound
     } catch (error) {
         console.error("Error loading game data:", error);
         document.getElementById("messageContainer").innerText = "Error loading game data.";
     }
 }
-
 
 async function playSound() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -491,6 +603,156 @@ function endGame() {
     
     // Notify parent window that the game is completed
     window.parent.postMessage({ type: "gameCompleted" }, "*");
+}
+
+// Helper: Split story into sentences and render each in its own span
+function renderStorySentences(storyText, container) {
+    // Split on period, exclamation, or question mark followed by space or end
+    const sentences = storyText.match(/[^.!?]+[.!?]+/g) || [storyText];
+    container.innerHTML = sentences.map((s, i) =>
+        `<span class="story-sentence" data-sentence-idx="${i}">${splitTextToSpans(s.trim())}</span>`
+    ).join(' ');
+    return sentences.map(s => s.trim());
+}
+
+// Helper: Speak each sentence in sequence, highlighting as it goes
+function speakStorySentences(sentences, container, lang, onend) {
+    let idx = 0;
+    function speakNext() {
+        if (idx >= sentences.length) {
+            if (onend) onend();
+            return;
+        }
+        const sentenceSpan = container.querySelector(`[data-sentence-idx='${idx}']`);
+        speakWithHighlight(sentences[idx], lang, sentenceSpan, () => {
+            idx++;
+            speakNext();
+        });
+    }
+    speakNext();
+}
+
+// --- Story Mode Main Logic ---
+function showStoryQuestion() {
+    const storyObj = storyData[currentStoryIndex];
+    const questionObj = storyObj.questions[currentQuestionIndex];
+    // Render story
+    const storyDiv = document.getElementById("storyContainer");
+    let storySentences = [storyObj.story];
+    if (storyDiv) {
+        if (useTTS) {
+            storySentences = renderStorySentences(storyObj.story, storyDiv);
+        } else {
+            storyDiv.innerHTML = storyObj.story;
+        }
+    }
+    // Render question
+    const questionDiv = document.getElementById("questionContainer");
+    if (questionDiv) {
+        questionDiv.innerHTML = useTTS ? splitTextToSpans(questionObj.question) : questionObj.question;
+    }
+    // Randomize choices and track correct answer index
+    let choices = questionObj.choices.slice();
+    // Fisher-Yates shuffle
+    for (let i = choices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [choices[i], choices[j]] = [choices[j], choices[i]];
+    }
+    const correctAnswer = questionObj.answer;
+    const correctIdx = choices.indexOf(correctAnswer);
+    // Store for submitStoryAnswer
+    showStoryQuestion._choices = choices;
+    showStoryQuestion._correctIdx = correctIdx;
+    // Render choices
+    const choicesDiv = document.getElementById("choices");
+    choicesDiv.innerHTML = '';
+    choices.forEach((choice, idx) => {
+        const btn = document.createElement("button");
+        btn.innerText = choice;
+        btn.className = "button";
+        btn.onclick = () => selectStoryChoice(idx);
+        choicesDiv.appendChild(btn);
+    });
+    // Clear any previous selection highlight
+    selectedStoryChoice = null;
+    Array.from(choicesDiv.children).forEach(btn => btn.classList.remove('selected'));
+    // Show submit button
+    const submitBtn = document.getElementById("submitBtn");
+    submitBtn.style.display = "inline-block";
+    submitBtn.onclick = submitStoryAnswer;
+    // Play button logic for story mode
+    const playBtn = document.getElementById("playButton");
+    if (useTTS && playBtn) {
+        playBtn.onclick = function() {
+            speakStorySentences(storySentences, storyDiv, 'fr-FR', () => {
+                setTimeout(() => speakWithHighlight(questionObj.question, 'fr-FR', questionDiv), 400);
+            });
+        };
+    }
+    // Clear feedback
+    document.getElementById("messageContainer").innerHTML = '';
+    // TTS logic
+    if (useTTS) {
+        speakStorySentences(storySentences, storyDiv, 'fr-FR', () => {
+            setTimeout(() => speakWithHighlight(questionObj.question, 'fr-FR', questionDiv), 400);
+        });
+    }
+    // Update stars
+    updateStarCount();
+}
+
+let selectedStoryChoice = null;
+function selectStoryChoice(idx) {
+    selectedStoryChoice = idx;
+    // Highlight only the selected button and keep it highlighted until another is clicked or next question
+    Array.from(document.getElementById("choices").children).forEach((btn, i) => {
+        if (i === idx) {
+            btn.classList.add("selected");
+        } else {
+            btn.classList.remove("selected");
+        }
+    });
+    // Play TTS for the selected answer if TTS is enabled
+    if (useTTS) {
+        const btn = document.getElementById("choices").children[idx];
+        speakWithHighlight(btn.innerText, 'fr-FR', btn);
+    }
+}
+
+function submitStoryAnswer() {
+    if (selectedStoryChoice === null) return;
+    const choices = showStoryQuestion._choices;
+    const correctIdx = showStoryQuestion._correctIdx;
+    const questionObj = storyData[currentStoryIndex].questions[currentQuestionIndex];
+    const feedback = document.getElementById("messageContainer");
+    if (selectedStoryChoice === correctIdx) {
+        feedback.innerHTML = "⭐ Correct!";
+        correctCount++;
+        updateStarCount();
+        setTimeout(nextStoryQuestion, 1200);
+    } else {
+        feedback.innerHTML = `☹️ Incorrect!<br>Correct answer: <b>${questionObj.answer}</b>`;
+        // Highlight correct answer
+        Array.from(document.getElementById("choices").children).forEach((btn, i) => {
+            if (i === correctIdx) btn.style.background = '#b2f2bb';
+        });
+        setTimeout(nextStoryQuestion, 2200);
+    }
+}
+
+function nextStoryQuestion() {
+    selectedStoryChoice = null;
+    // Move to next question or next story
+    currentQuestionIndex++;
+    if (currentQuestionIndex >= storyData[currentStoryIndex].questions.length) {
+        currentStoryIndex++;
+        currentQuestionIndex = 0;
+    }
+    if (currentStoryIndex >= storyData.length) {
+        endGame();
+    } else {
+        showStoryQuestion();
+    }
 }
 
 // Initialize the game on page load

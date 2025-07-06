@@ -1,0 +1,2217 @@
+[
+    {
+      "story": "Marie a un petit chat gris. Chaque matin, elle donne du lait à son chat. Le chat aime jouer dans le jardin et courir après les papillons.",
+      "questions": [
+        {
+          "question": "De quelle couleur est le chat de Marie ?",
+          "choices": ["Gris", "Noir", "Blanc", "Marron"],
+          "answer": "Gris"
+        },
+        {
+          "question": "Que fait Marie chaque matin ?",
+          "choices": [
+            "Elle donne du lait à son chat.",
+            "Elle va à l'école.",
+            "Elle joue avec son frère.",
+            "Elle lit un livre."
+          ],
+          "answer": "Elle donne du lait à son chat."
+        },
+        {
+          "question": "Où le chat aime-t-il jouer ?",
+          "choices": [
+            "Dans le jardin",
+            "Dans la maison",
+            "Dans la rue",
+            "Dans la cuisine"
+          ],
+          "answer": "Dans le jardin"
+        }
+      ]
+    },
+    {
+      "story": "Paul va à l'école à pied tous les jours. Il porte un sac à dos bleu. À l'école, il retrouve ses amis et apprend de nouvelles choses.",
+      "questions": [
+        {
+          "question": "Comment Paul va-t-il à l'école ?",
+          "choices": ["À pied", "En bus", "En voiture", "À vélo"],
+          "answer": "À pied"
+        },
+        {
+          "question": "De quelle couleur est le sac à dos de Paul ?",
+          "choices": ["Bleu", "Rouge", "Vert", "Noir"],
+          "answer": "Bleu"
+        },
+        {
+          "question": "Que fait Paul à l'école ?",
+          "choices": [
+            "Il apprend de nouvelles choses.",
+            "Il dort.",
+            "Il cuisine.",
+            "Il regarde la télévision."
+          ],
+          "answer": "Il apprend de nouvelles choses."
+        }
+      ]
+    },
+    {
+      "story": "Tom a un petit chien blanc qui s'appelle Max. Chaque jour, Tom promène Max dans le parc. Max aime courir et jouer avec les autres chiens.",
+      "questions": [
+        {
+          "question": "Comment s'appelle le chien de Tom ?",
+          "choices": ["Max", "Milo", "Oscar", "Léo"],
+          "answer": "Max"
+        },
+        {
+          "question": "Où Tom promène-t-il son chien ?",
+          "choices": ["Dans le parc", "À la maison", "À l'école", "Au marché"],
+          "answer": "Dans le parc"
+        },
+        {
+          "question": "Avec qui Max aime-t-il jouer ?",
+          "choices": ["Les autres chiens", "Les chats", "Les oiseaux", "Les enfants"],
+          "answer": "Les autres chiens"
+        }
+      ]
+    },
+    {
+      "story": "Julie adore les fleurs. Elle plante des roses et des tulipes dans le jardin. Elle arrose ses fleurs tous les matins.",
+      "questions": [
+        {
+          "question": "Qu'est-ce que Julie aime ?",
+          "choices": ["Les fleurs", "Les voitures", "Les poissons", "Les livres"],
+          "answer": "Les fleurs"
+        },
+        {
+          "question": "Quelles fleurs Julie plante-t-elle ?",
+          "choices": ["Roses et tulipes", "Marguerites et lys", "Orchidées et pivoines", "Violettes et jonquilles"],
+          "answer": "Roses et tulipes"
+        },
+        {
+          "question": "Quand Julie arrose-t-elle ses fleurs ?",
+          "choices": ["Le matin", "Le soir", "À midi", "La nuit"],
+          "answer": "Le matin"
+        }
+      ]
+    },
+    {
+      "story": "Léo va à la piscine avec son papa le samedi. Il nage dans l'eau et joue avec un ballon. Après la baignade, ils mangent une glace.",
+      "questions": [
+        {
+          "question": "Où Léo va-t-il le samedi ?",
+          "choices": ["À la piscine", "Au cinéma", "À l'école", "Au zoo"],
+          "answer": "À la piscine"
+        },
+        {
+          "question": "Avec qui Léo va-t-il à la piscine ?",
+          "choices": ["Son papa", "Sa maman", "Son frère", "Sa sœur"],
+          "answer": "Son papa"
+        },
+        {
+          "question": "Que mangent-ils après la baignade ?",
+          "choices": ["Une glace", "Un gâteau", "Une pomme", "Un sandwich"],
+          "answer": "Une glace"
+        }
+      ]
+    },
+    {
+      "story": "Anna aime aller à la bibliothèque. Elle choisit un livre et s'assoit pour lire. Parfois, elle lit des histoires à son petit frère.",
+      "questions": [
+        {
+          "question": "Où Anna aime-t-elle aller ?",
+          "choices": ["À la bibliothèque", "Au parc", "À la piscine", "Au marché"],
+          "answer": "À la bibliothèque"
+        },
+        {
+          "question": "Qu'est-ce qu'Anna fait à la bibliothèque ?",
+          "choices": ["Elle lit un livre", "Elle joue au ballon", "Elle mange une glace", "Elle dessine"],
+          "answer": "Elle lit un livre"
+        },
+        {
+          "question": "À qui Anna lit-elle parfois des histoires ?",
+          "choices": ["À son petit frère", "À sa maman", "À son chat", "À son amie"],
+          "answer": "À son petit frère"
+        }
+      ]
+    },
+    {
+      "story": "Lucas a une bicyclette rouge. Il fait du vélo dans la rue devant sa maison. Il porte toujours un casque pour être en sécurité.",
+      "questions": [
+        {
+          "question": "De quelle couleur est la bicyclette de Lucas ?",
+          "choices": ["Rouge", "Bleue", "Verte", "Jaune"],
+          "answer": "Rouge"
+        },
+        {
+          "question": "Où Lucas fait-il du vélo ?",
+          "choices": ["Dans la rue", "Dans le jardin", "À l'école", "Au parc"],
+          "answer": "Dans la rue"
+        },
+        {
+          "question": "Qu'est-ce que Lucas porte pour être en sécurité ?",
+          "choices": ["Un casque", "Des lunettes", "Un chapeau", "Des gants"],
+          "answer": "Un casque"
+        }
+      ]
+    },
+    {
+      "story": "Mia prépare un gâteau avec sa maman. Elles cassent des œufs, ajoutent du sucre et mélangent la pâte. Le gâteau sent très bon quand il cuit.",
+      "questions": [
+        {
+          "question": "Avec qui Mia prépare-t-elle un gâteau ?",
+          "choices": ["Sa maman", "Son papa", "Sa sœur", "Son frère"],
+          "answer": "Sa maman"
+        },
+        {
+          "question": "Qu'est-ce qu'elles ajoutent à la pâte ?",
+          "choices": ["Du sucre", "Du sel", "Du lait", "Du chocolat"],
+          "answer": "Du sucre"
+        },
+        {
+          "question": "Comment sent le gâteau quand il cuit ?",
+          "choices": ["Très bon", "Très mauvais", "Très fort", "Très doux"],
+          "answer": "Très bon"
+        }
+      ]
+    },
+    {
+      "story": "Nina a un poisson rouge qui nage dans un bocal. Elle lui donne à manger tous les matins. Le poisson aime faire des bulles.",
+      "questions": [
+        {
+          "question": "Quel animal a Nina ?",
+          "choices": ["Un poisson rouge", "Un chat", "Un chien", "Un oiseau"],
+          "answer": "Un poisson rouge"
+        },
+        {
+          "question": "Où nage le poisson ?",
+          "choices": ["Dans un bocal", "Dans la mer", "Dans la baignoire", "Dans la piscine"],
+          "answer": "Dans un bocal"
+        },
+        {
+          "question": "Que fait le poisson ?",
+          "choices": ["Il fait des bulles", "Il saute", "Il chante", "Il dort"],
+          "answer": "Il fait des bulles"
+        }
+      ]
+    },
+    {
+      "story": "Samir va au marché avec son papa. Ils achètent des pommes et des bananes. Samir aide à porter le sac de fruits.",
+      "questions": [
+        {
+          "question": "Avec qui Samir va-t-il au marché ?",
+          "choices": ["Son papa", "Sa maman", "Sa sœur", "Son ami"],
+          "answer": "Son papa"
+        },
+        {
+          "question": "Qu'achètent-ils au marché ?",
+          "choices": ["Des pommes et des bananes", "Des jouets", "Des vêtements", "Des livres"],
+          "answer": "Des pommes et des bananes"
+        },
+        {
+          "question": "Qu'est-ce que Samir porte ?",
+          "choices": ["Le sac de fruits", "Un ballon", "Un livre", "Un parapluie"],
+          "answer": "Le sac de fruits"
+        }
+      ]
+    },
+    {
+      "story": "Léa adore les oiseaux. Elle regarde les moineaux voler dans le ciel. Parfois, elle leur donne des miettes de pain.",
+      "questions": [
+        {
+          "question": "Qu'est-ce que Léa aime ?",
+          "choices": ["Les oiseaux", "Les poissons", "Les chiens", "Les chats"],
+          "answer": "Les oiseaux"
+        },
+        {
+          "question": "Quels oiseaux Léa regarde-t-elle ?",
+          "choices": ["Les moineaux", "Les canards", "Les poules", "Les cygnes"],
+          "answer": "Les moineaux"
+        },
+        {
+          "question": "Que donne Léa aux oiseaux ?",
+          "choices": ["Des miettes de pain", "Des graines", "Des fruits", "Du fromage"],
+          "answer": "Des miettes de pain"
+        }
+      ]
+    },
+    {
+      "story": "Hugo joue au ballon dans le jardin. Il court très vite et rit beaucoup. Sa sœur joue avec lui.",
+      "questions": [
+        {
+          "question": "Où Hugo joue-t-il au ballon ?",
+          "choices": ["Dans le jardin", "Dans la rue", "À l'école", "Dans la maison"],
+          "answer": "Dans le jardin"
+        },
+        {
+          "question": "Avec qui Hugo joue-t-il ?",
+          "choices": ["Sa sœur", "Son frère", "Son papa", "Son ami"],
+          "answer": "Sa sœur"
+        },
+        {
+          "question": "Que fait Hugo en jouant ?",
+          "choices": ["Il rit", "Il pleure", "Il chante", "Il dort"],
+          "answer": "Il rit"
+        }
+      ]
+    },
+    {
+      "story": "Clara aime dessiner des fleurs. Elle utilise des crayons de couleur. Elle montre ses dessins à sa maman.",
+      "questions": [
+        {
+          "question": "Qu'est-ce que Clara aime dessiner ?",
+          "choices": ["Des fleurs", "Des voitures", "Des maisons", "Des animaux"],
+          "answer": "Des fleurs"
+        },
+        {
+          "question": "Avec quoi Clara dessine-t-elle ?",
+          "choices": ["Des crayons de couleur", "Des feutres", "Des pinceaux", "Des stylos"],
+          "answer": "Des crayons de couleur"
+        },
+        {
+          "question": "À qui Clara montre-t-elle ses dessins ?",
+          "choices": ["Sa maman", "Son papa", "Sa sœur", "Son frère"],
+          "answer": "Sa maman"
+        }
+      ]
+    },
+    {
+      "story": "Omar a une voiture rouge en jouet. Il la fait rouler sur le sol. Il aime jouer avec ses amis.",
+      "questions": [
+        {
+          "question": "Quel jouet a Omar ?",
+          "choices": ["Une voiture rouge", "Un train", "Un avion", "Un bateau"],
+          "answer": "Une voiture rouge"
+        },
+        {
+          "question": "Où Omar fait-il rouler sa voiture ?",
+          "choices": ["Sur le sol", "Sur la table", "Sur le lit", "Sur le canapé"],
+          "answer": "Sur le sol"
+        },
+        {
+          "question": "Avec qui Omar aime-t-il jouer ?",
+          "choices": ["Ses amis", "Son frère", "Sa sœur", "Son oncle"],
+          "answer": "Ses amis"
+        }
+      ]
+    },
+    {
+      "story": "Zoé va à la boulangerie avec sa maman. Elle choisit un pain au chocolat. Elle dit merci à la boulangère.",
+      "questions": [
+        {
+          "question": "Où Zoé va-t-elle avec sa maman ?",
+          "choices": ["À la boulangerie", "À la piscine", "Au parc", "À l'école"],
+          "answer": "À la boulangerie"
+        },
+        {
+          "question": "Qu'est-ce que Zoé choisit ?",
+          "choices": ["Un pain au chocolat", "Un croissant", "Un gâteau", "Une baguette"],
+          "answer": "Un pain au chocolat"
+        },
+        {
+          "question": "Que dit Zoé à la boulangère ?",
+          "choices": ["Merci", "Bonjour", "Au revoir", "S'il vous plaît"],
+          "answer": "Merci"
+        }
+      ]
+    },
+    {
+      "story": "Malo aime écouter de la musique. Il met son casque et danse dans sa chambre. Sa chanson préférée est joyeuse.",
+      "questions": [
+        {
+          "question": "Qu'est-ce que Malo aime écouter ?",
+          "choices": ["De la musique", "Des histoires", "La radio", "La télévision"],
+          "answer": "De la musique"
+        },
+        {
+          "question": "Où Malo danse-t-il ?",
+          "choices": ["Dans sa chambre", "Dans la cuisine", "Dans le salon", "Dans le jardin"],
+          "answer": "Dans sa chambre"
+        },
+        {
+          "question": "Comment est sa chanson préférée ?",
+          "choices": ["Joyeuse", "Triste", "Lente", "Rapide"],
+          "answer": "Joyeuse"
+        }
+      ]
+    },
+    {
+      "story": "Lina prépare une salade de fruits. Elle coupe des pommes, des bananes et des oranges. Elle partage la salade avec sa famille.",
+      "questions": [
+        {
+          "question": "Qu'est-ce que Lina prépare ?",
+          "choices": ["Une salade de fruits", "Un gâteau", "Une soupe", "Une pizza"],
+          "answer": "Une salade de fruits"
+        },
+        {
+          "question": "Quels fruits Lina coupe-t-elle ?",
+          "choices": ["Pommes, bananes, oranges", "Poires, fraises, raisins", "Melons, kiwis, citrons", "Cerises, abricots, prunes"],
+          "answer": "Pommes, bananes, oranges"
+        },
+        {
+          "question": "Avec qui Lina partage-t-elle la salade ?",
+          "choices": ["Sa famille", "Ses amis", "Son voisin", "Sa maîtresse"],
+          "answer": "Sa famille"
+        }
+      ]
+    },
+    {
+      "story": "Émile va à la montagne avec ses parents. Il fait un bonhomme de neige. Il boit un chocolat chaud après avoir joué.",
+      "questions": [
+        {
+          "question": "Où Émile va-t-il avec ses parents ?",
+          "choices": ["À la montagne", "À la mer", "À la campagne", "À la ville"],
+          "answer": "À la montagne"
+        },
+        {
+          "question": "Qu'est-ce qu'Émile fait dans la neige ?",
+          "choices": ["Un bonhomme de neige", "Un château de sable", "Un dessin", "Un feu de camp"],
+          "answer": "Un bonhomme de neige"
+        },
+        {
+          "question": "Que boit Émile après avoir joué ?",
+          "choices": ["Un chocolat chaud", "Un jus d'orange", "Un thé", "Un café"],
+          "answer": "Un chocolat chaud"
+        }
+      ]
+    },
+    {
+      "story": "Sarah a une jolie robe bleue. Elle la porte pour aller à l'anniversaire de son amie. Elle danse et chante avec les autres enfants.",
+      "questions": [
+        {
+          "question": "De quelle couleur est la robe de Sarah ?",
+          "choices": ["Bleue", "Rouge", "Verte", "Jaune"],
+          "answer": "Bleue"
+        },
+        {
+          "question": "Pourquoi Sarah porte-t-elle sa robe ?",
+          "choices": ["Pour un anniversaire", "Pour aller à l'école", "Pour dormir", "Pour faire du sport"],
+          "answer": "Pour un anniversaire"
+        },
+        {
+          "question": "Que fait Sarah à la fête ?",
+          "choices": ["Elle danse et chante", "Elle lit", "Elle nage", "Elle cuisine"],
+          "answer": "Elle danse et chante"
+        }
+      ]
+    },
+    {
+      "story": "Yanis aime les animaux de la ferme. Il visite une ferme et voit des vaches, des moutons et des poules. Il donne du foin aux animaux.",
+      "questions": [
+        {
+          "question": "Quels animaux Yanis voit-il à la ferme ?",
+          "choices": ["Vaches, moutons, poules", "Chiens, chats, lapins", "Lions, tigres, ours", "Poissons, oiseaux, serpents"],
+          "answer": "Vaches, moutons, poules"
+        },
+        {
+          "question": "Où Yanis va-t-il ?",
+          "choices": ["À la ferme", "Au zoo", "À la plage", "À la montagne"],
+          "answer": "À la ferme"
+        },
+        {
+          "question": "Que donne Yanis aux animaux ?",
+          "choices": ["Du foin", "Du pain", "Des fruits", "Du lait"],
+          "answer": "Du foin"
+        }
+      ]
+    },
+    {
+      "story": "Lola va à la plage avec sa famille. Elle construit un château de sable. Elle ramasse aussi des coquillages.",
+      "questions": [
+        {
+          "question": "Où Lola va-t-elle avec sa famille ?",
+          "choices": ["À la plage", "À la montagne", "Au parc", "À la piscine"],
+          "answer": "À la plage"
+        },
+        {
+          "question": "Qu'est-ce que Lola construit ?",
+          "choices": ["Un château de sable", "Un bonhomme de neige", "Une cabane", "Un pont"],
+          "answer": "Un château de sable"
+        },
+        {
+          "question": "Que ramasse Lola ?",
+          "choices": ["Des coquillages", "Des cailloux", "Des feuilles", "Des fleurs"],
+          "answer": "Des coquillages"
+        }
+      ]
+    },
+    {
+      "story": "Noé fait du vélo dans le parc. Il porte un casque bleu. Il s'arrête pour boire de l'eau.",
+      "questions": [
+        {
+          "question": "Où Noé fait-il du vélo ?",
+          "choices": ["Dans le parc", "Dans la rue", "À l'école", "Dans la maison"],
+          "answer": "Dans le parc"
+        },
+        {
+          "question": "De quelle couleur est le casque de Noé ?",
+          "choices": ["Bleu", "Rouge", "Vert", "Noir"],
+          "answer": "Bleu"
+        },
+        {
+          "question": "Que fait Noé après avoir roulé ?",
+          "choices": ["Il boit de l'eau", "Il mange une pomme", "Il lit un livre", "Il joue au ballon"],
+          "answer": "Il boit de l'eau"
+        }
+      ]
+    },
+    {
+      "story": "Maya a un lapin blanc. Elle lui donne des carottes. Le lapin aime sauter dans l'herbe.",
+      "questions": [
+        {
+          "question": "Quel animal a Maya ?",
+          "choices": ["Un lapin blanc", "Un chat noir", "Un chien brun", "Un oiseau bleu"],
+          "answer": "Un lapin blanc"
+        },
+        {
+          "question": "Que donne Maya à son lapin ?",
+          "choices": ["Des carottes", "Des pommes", "Du pain", "Du lait"],
+          "answer": "Des carottes"
+        },
+        {
+          "question": "Où le lapin aime-t-il sauter ?",
+          "choices": ["Dans l'herbe", "Dans la maison", "Dans la rue", "Dans la forêt"],
+          "answer": "Dans l'herbe"
+        }
+      ]
+    },
+    {
+      "story": "Pauline va au cinéma avec son frère. Ils regardent un film drôle. Après le film, ils mangent du pop-corn.",
+      "questions": [
+        {
+          "question": "Où Pauline va-t-elle avec son frère ?",
+          "choices": ["Au cinéma", "Au parc", "À la piscine", "À l'école"],
+          "answer": "Au cinéma"
+        },
+        {
+          "question": "Quel genre de film regardent-ils ?",
+          "choices": ["Un film drôle", "Un film triste", "Un film d'action", "Un film d'horreur"],
+          "answer": "Un film drôle"
+        },
+        {
+          "question": "Que mangent-ils après le film ?",
+          "choices": ["Du pop-corn", "Des bonbons", "Des pommes", "Des glaces"],
+          "answer": "Du pop-corn"
+        }
+      ]
+    },
+    {
+      "story": "Simon aime les puzzles. Il assemble les pièces pour former une image. Il montre le puzzle fini à sa maman.",
+      "questions": [
+        {
+          "question": "Qu'est-ce que Simon aime ?",
+          "choices": ["Les puzzles", "Les livres", "Les voitures", "Les poupées"],
+          "answer": "Les puzzles"
+        },
+        {
+          "question": "Que fait Simon avec les pièces ?",
+          "choices": ["Il assemble les pièces", "Il les jette", "Il les cache", "Il les mange"],
+          "answer": "Il assemble les pièces"
+        },
+        {
+          "question": "À qui Simon montre-t-il le puzzle fini ?",
+          "choices": ["Sa maman", "Son papa", "Son frère", "Sa sœur"],
+          "answer": "Sa maman"
+        }
+      ]
+    },
+    {
+      "story": "Julie a une grande boîte de crayons. Elle colorie un dessin de soleil. Elle prête ses crayons à son ami.",
+      "questions": [
+        {
+          "question": "Qu'a Julie ?",
+          "choices": ["Une grande boîte de crayons", "Un livre", "Un ballon", "Un gâteau"],
+          "answer": "Une grande boîte de crayons"
+        },
+        {
+          "question": "Qu'est-ce que Julie colorie ?",
+          "choices": ["Un dessin de soleil", "Un dessin de chat", "Un dessin de maison", "Un dessin de fleur"],
+          "answer": "Un dessin de soleil"
+        },
+        {
+          "question": "À qui Julie prête-t-elle ses crayons ?",
+          "choices": ["Son ami", "Sa sœur", "Son frère", "Sa cousine"],
+          "answer": "Son ami"
+        }
+      ]
+    },
+    {
+      "story": "Martin va à la bibliothèque. Il choisit un livre sur les dinosaures. Il lit le livre à la maison.",
+      "questions": [
+        {
+          "question": "Où Martin va-t-il ?",
+          "choices": ["À la bibliothèque", "Au parc", "À la piscine", "Au marché"],
+          "answer": "À la bibliothèque"
+        },
+        {
+          "question": "Quel livre Martin choisit-il ?",
+          "choices": ["Un livre sur les dinosaures", "Un livre sur les chats", "Un livre sur les voitures", "Un livre sur les fleurs"],
+          "answer": "Un livre sur les dinosaures"
+        },
+        {
+          "question": "Où Martin lit-il le livre ?",
+          "choices": ["À la maison", "À l'école", "Au parc", "À la bibliothèque"],
+          "answer": "À la maison"
+        }
+      ]
+    },
+    {
+      "story": "Élise fait un gâteau au chocolat avec sa grand-mère. Elles cassent des œufs et mélangent la pâte. Le gâteau sent très bon.",
+      "questions": [
+        {
+          "question": "Avec qui Élise fait-elle un gâteau ?",
+          "choices": ["Sa grand-mère", "Sa maman", "Son papa", "Sa sœur"],
+          "answer": "Sa grand-mère"
+        },
+        {
+          "question": "Quel type de gâteau font-elles ?",
+          "choices": ["Au chocolat", "À la vanille", "Aux pommes", "À la fraise"],
+          "answer": "Au chocolat"
+        },
+        {
+          "question": "Comment sent le gâteau ?",
+          "choices": ["Très bon", "Très mauvais", "Très fort", "Très doux"],
+          "answer": "Très bon"
+        }
+      ]
+    },
+    {
+      "story": "Camille a un hamster qui s'appelle Biscotte. Elle nettoie la cage de Biscotte chaque semaine. Le hamster aime courir dans sa roue.",
+      "questions": [
+        {
+          "question": "Quel animal a Camille ?",
+          "choices": ["Un hamster", "Un chat", "Un chien", "Un lapin"],
+          "answer": "Un hamster"
+        },
+        {
+          "question": "Comment s'appelle le hamster ?",
+          "choices": ["Biscotte", "Caramel", "Chocolat", "Noisette"],
+          "answer": "Biscotte"
+        },
+        {
+          "question": "Qu'aime faire le hamster ?",
+          "choices": ["Courir dans sa roue", "Nager", "Voler", "Sauter sur le lit"],
+          "answer": "Courir dans sa roue"
+        }
+      ]
+    },
+    {
+      "story": "Jules va à la plage avec sa famille. Il construit un château de sable et ramasse des coquillages. Il nage aussi dans la mer.",
+      "questions": [
+        {
+          "question": "Où Jules va-t-il avec sa famille ?",
+          "choices": ["À la plage", "À la montagne", "Au parc", "À la piscine"],
+          "answer": "À la plage"
+        },
+        {
+          "question": "Que construit Jules ?",
+          "choices": ["Un château de sable", "Un bonhomme de neige", "Une cabane", "Un pont"],
+          "answer": "Un château de sable"
+        },
+        {
+          "question": "Que ramasse Jules ?",
+          "choices": ["Des coquillages", "Des cailloux", "Des feuilles", "Des fleurs"],
+          "answer": "Des coquillages"
+        }
+      ]
+    },
+    {
+      "story": "Lina adore les fraises. Elle aide sa maman à cueillir des fraises dans le jardin. Elles font une tarte aux fraises ensemble.",
+      "questions": [
+        {
+          "question": "Quel fruit Lina aime-t-elle ?",
+          "choices": ["Les fraises", "Les pommes", "Les bananes", "Les oranges"],
+          "answer": "Les fraises"
+        },
+        {
+          "question": "Où Lina cueille-t-elle des fraises ?",
+          "choices": ["Dans le jardin", "Au marché", "À l'école", "Dans la cuisine"],
+          "answer": "Dans le jardin"
+        },
+        {
+          "question": "Que font Lina et sa maman avec les fraises ?",
+          "choices": ["Une tarte", "Une soupe", "Un gâteau", "Un jus"],
+          "answer": "Une tarte"
+        }
+      ]
+    },
+    {
+      "story": "Maxime a un cerf-volant rouge. Il le fait voler dans le parc quand il y a du vent. Son ami Paul l'aide à tenir la ficelle.",
+      "questions": [
+        {
+          "question": "De quelle couleur est le cerf-volant de Maxime ?",
+          "choices": ["Rouge", "Bleu", "Vert", "Jaune"],
+          "answer": "Rouge"
+        },
+        {
+          "question": "Où Maxime fait-il voler son cerf-volant ?",
+          "choices": ["Dans le parc", "Dans la maison", "À l'école", "Dans la rue"],
+          "answer": "Dans le parc"
+        },
+        {
+          "question": "Qui aide Maxime ?",
+          "choices": ["Paul", "Lucas", "Emma", "Zoé"],
+          "answer": "Paul"
+        }
+      ]
+    },
+    {
+      "story": "Sophie aime les puzzles. Elle assemble les pièces pour former une image de chat. Elle montre le puzzle fini à son papa.",
+      "questions": [
+        {
+          "question": "Qu'aime faire Sophie ?",
+          "choices": ["Les puzzles", "La peinture", "La danse", "Le chant"],
+          "answer": "Les puzzles"
+        },
+        {
+          "question": "Quelle image Sophie assemble-t-elle ?",
+          "choices": ["Un chat", "Un chien", "Un oiseau", "Un lapin"],
+          "answer": "Un chat"
+        },
+        {
+          "question": "À qui Sophie montre-t-elle le puzzle ?",
+          "choices": ["Son papa", "Sa maman", "Sa sœur", "Son frère"],
+          "answer": "Son papa"
+        }
+      ]
+    },
+    {
+      "story": "Nicolas va au marché avec sa grand-mère. Il choisit des tomates et des carottes. Ils préparent une soupe ensemble.",
+      "questions": [
+        {
+          "question": "Avec qui Nicolas va-t-il au marché ?",
+          "choices": ["Sa grand-mère", "Sa maman", "Son papa", "Son oncle"],
+          "answer": "Sa grand-mère"
+        },
+        {
+          "question": "Quels légumes Nicolas choisit-il ?",
+          "choices": ["Tomates et carottes", "Pommes de terre et poireaux", "Courgettes et aubergines", "Oignons et poivrons"],
+          "answer": "Tomates et carottes"
+        },
+        {
+          "question": "Que préparent-ils ensemble ?",
+          "choices": ["Une soupe", "Une tarte", "Un gâteau", "Une salade"],
+          "answer": "Une soupe"
+        }
+      ]
+    },
+    {
+      "story": "Élise a une boîte de crayons de couleur. Elle dessine un arc-en-ciel sur une feuille blanche. Elle offre son dessin à sa maîtresse.",
+      "questions": [
+        {
+          "question": "Qu'a Élise ?",
+          "choices": ["Une boîte de crayons de couleur", "Un livre", "Un ballon", "Un gâteau"],
+          "answer": "Une boîte de crayons de couleur"
+        },
+        {
+          "question": "Qu'est-ce qu'Élise dessine ?",
+          "choices": ["Un arc-en-ciel", "Un chat", "Une maison", "Un arbre"],
+          "answer": "Un arc-en-ciel"
+        },
+        {
+          "question": "À qui Élise offre-t-elle son dessin ?",
+          "choices": ["Sa maîtresse", "Sa maman", "Son papa", "Son frère"],
+          "answer": "Sa maîtresse"
+        }
+      ]
+    },
+    {
+      "story": "Pauline va à la montagne en hiver. Elle fait un bonhomme de neige avec son frère. Ils boivent du chocolat chaud après avoir joué.",
+      "questions": [
+        {
+          "question": "Où Pauline va-t-elle en hiver ?",
+          "choices": ["À la montagne", "À la mer", "Au parc", "À la piscine"],
+          "answer": "À la montagne"
+        },
+        {
+          "question": "Que fait Pauline avec son frère ?",
+          "choices": ["Un bonhomme de neige", "Un gâteau", "Un dessin", "Un puzzle"],
+          "answer": "Un bonhomme de neige"
+        },
+        {
+          "question": "Que boivent-ils après avoir joué ?",
+          "choices": ["Du chocolat chaud", "Du jus d'orange", "Du lait", "Du thé"],
+          "answer": "Du chocolat chaud"
+        }
+      ]
+    },
+    {
+      "story": "Léo a un ballon jaune. Il joue au foot avec ses amis dans la cour de récréation. Il marque un but et tout le monde applaudit.",
+      "questions": [
+        {
+          "question": "De quelle couleur est le ballon de Léo ?",
+          "choices": ["Jaune", "Rouge", "Bleu", "Vert"],
+          "answer": "Jaune"
+        },
+        {
+          "question": "À quel jeu Léo joue-t-il ?",
+          "choices": ["Au foot", "Au basket", "À la marelle", "Au tennis"],
+          "answer": "Au foot"
+        },
+        {
+          "question": "Que fait tout le monde quand Léo marque un but ?",
+          "choices": ["Ils applaudissent", "Ils crient", "Ils chantent", "Ils dansent"],
+          "answer": "Ils applaudissent"
+        }
+      ]
+    },
+    {
+      "story": "Manon va au zoo avec sa classe. Elle voit des lions, des girafes et des singes. Elle prend des photos avec son appareil.",
+      "questions": [
+        {
+          "question": "Où Manon va-t-elle avec sa classe ?",
+          "choices": ["Au zoo", "Au musée", "À la piscine", "Au cinéma"],
+          "answer": "Au zoo"
+        },
+        {
+          "question": "Quels animaux Manon voit-elle ?",
+          "choices": ["Lions, girafes, singes", "Chiens, chats, lapins", "Poissons, oiseaux, serpents", "Vaches, moutons, poules"],
+          "answer": "Lions, girafes, singes"
+        },
+        {
+          "question": "Avec quoi Manon prend-elle des photos ?",
+          "choices": ["Un appareil", "Un téléphone", "Une tablette", "Un ordinateur"],
+          "answer": "Un appareil"
+        }
+      ]
+    },
+    {
+      "story": "Clémentine aime écouter des histoires le soir. Sa maman lui lit un livre avant de dormir. Clémentine fait de beaux rêves.",
+      "questions": [
+        {
+          "question": "Qu'aime faire Clémentine le soir ?",
+          "choices": ["Écouter des histoires", "Jouer au ballon", "Dessiner", "Regarder la télévision"],
+          "answer": "Écouter des histoires"
+        },
+        {
+          "question": "Qui lit un livre à Clémentine ?",
+          "choices": ["Sa maman", "Son papa", "Sa sœur", "Son frère"],
+          "answer": "Sa maman"
+        },
+        {
+          "question": "Que fait Clémentine après l'histoire ?",
+          "choices": ["Elle fait de beaux rêves", "Elle mange", "Elle joue", "Elle chante"],
+          "answer": "Elle fait de beaux rêves"
+        }
+      ]
+    },
+    {
+      "story": "Bastien a une tortue qui s'appelle Coco. Il lui donne de la salade à manger. Coco aime se reposer au soleil.",
+      "questions": [
+        {
+          "question": "Quel animal a Bastien ?",
+          "choices": ["Une tortue", "Un chien", "Un chat", "Un poisson"],
+          "answer": "Une tortue"
+        },
+        {
+          "question": "Comment s'appelle la tortue ?",
+          "choices": ["Coco", "Lulu", "Titi", "Dodo"],
+          "answer": "Coco"
+        },
+        {
+          "question": "Qu'aime faire la tortue ?",
+          "choices": ["Se reposer au soleil", "Nager dans la mer", "Courir dans le jardin", "Voler dans le ciel"],
+          "answer": "Se reposer au soleil"
+        }
+      ]
+    },
+    {
+      "story": "Amandine va à la bibliothèque le mercredi. Elle choisit un livre de contes. Elle lit le livre à son petit frère.",
+      "questions": [
+        {
+          "question": "Où Amandine va-t-elle le mercredi ?",
+          "choices": ["À la bibliothèque", "Au parc", "À la piscine", "Au marché"],
+          "answer": "À la bibliothèque"
+        },
+        {
+          "question": "Quel livre Amandine choisit-elle ?",
+          "choices": ["Un livre de contes", "Un livre de cuisine", "Un livre de maths", "Un livre d'anglais"],
+          "answer": "Un livre de contes"
+        },
+        {
+          "question": "À qui Amandine lit-elle le livre ?",
+          "choices": ["Son petit frère", "Sa maman", "Son papa", "Sa cousine"],
+          "answer": "Son petit frère"
+        }
+      ]
+    },
+    {
+      "story": "Victor a un poisson rouge dans un bocal. Il lui donne à manger tous les jours. Le poisson nage vite dans l'eau.",
+      "questions": [
+        {
+          "question": "Quel animal a Victor ?",
+          "choices": ["Un poisson rouge", "Un chat", "Un chien", "Un lapin"],
+          "answer": "Un poisson rouge"
+        },
+        {
+          "question": "Où vit le poisson ?",
+          "choices": ["Dans un bocal", "Dans la mer", "Dans la piscine", "Dans la rivière"],
+          "answer": "Dans un bocal"
+        },
+        {
+          "question": "Que fait le poisson ?",
+          "choices": ["Il nage vite", "Il saute", "Il vole", "Il marche"],
+          "answer": "Il nage vite"
+        }
+      ]
+    },
+    {
+      "story": "Émilie aime les fleurs du jardin. Elle arrose les roses et les tulipes. Elle cueille une fleur pour sa maman.",
+      "questions": [
+        {
+          "question": "Qu'a Émilie dans le jardin ?",
+          "choices": ["Les fleurs", "Les arbres", "Les oiseaux", "Les papillons"],
+          "answer": "Les fleurs"
+        },
+        {
+          "question": "Quelles fleurs Émilie arrose-t-elle ?",
+          "choices": ["Roses et tulipes", "Marguerites et lys", "Orchidées et pivoines", "Violettes et jonquilles"],
+          "answer": "Roses et tulipes"
+        },
+        {
+          "question": "Pour qui Émilie cueille-t-elle une fleur ?",
+          "choices": ["Sa maman", "Son papa", "Sa sœur", "Son frère"],
+          "answer": "Sa maman"
+        }
+      ]
+    },
+    {
+      "story": "Antoine va à la piscine avec son cousin. Ils nagent et jouent avec un ballon. Après, ils mangent une glace.",
+      "questions": [
+        {
+          "question": "Avec qui Antoine va-t-il à la piscine ?",
+          "choices": ["Son cousin", "Son frère", "Sa sœur", "Son ami"],
+          "answer": "Son cousin"
+        },
+        {
+          "question": "Avec quoi jouent-ils dans l'eau ?",
+          "choices": ["Un ballon", "Un bateau", "Un seau", "Un livre"],
+          "answer": "Un ballon"
+        },
+        {
+          "question": "Que mangent-ils après la piscine ?",
+          "choices": ["Une glace", "Un gâteau", "Une pomme", "Un sandwich"],
+          "answer": "Une glace"
+        }
+      ]
+    },
+    {
+      "story": "Chloé a un lapin blanc. Elle lui donne des carottes à manger. Le lapin aime sauter dans l'herbe.",
+      "questions": [
+        {
+          "question": "Quel animal a Chloé ?",
+          "choices": ["Un lapin blanc", "Un chat noir", "Un chien brun", "Un oiseau bleu"],
+          "answer": "Un lapin blanc"
+        },
+        {
+          "question": "Que donne Chloé à son lapin ?",
+          "choices": ["Des carottes", "Des pommes", "Du pain", "Du lait"],
+          "answer": "Des carottes"
+        },
+        {
+          "question": "Où le lapin aime-t-il sauter ?",
+          "choices": ["Dans l'herbe", "Dans la maison", "Dans la rue", "Dans la forêt"],
+          "answer": "Dans l'herbe"
+        }
+      ]
+    },
+    {
+      "story": "Gabriel va au parc avec son papa. Il fait du toboggan et de la balançoire. Il rit beaucoup en jouant.",
+      "questions": [
+        {
+          "question": "Où Gabriel va-t-il avec son papa ?",
+          "choices": ["Au parc", "À la piscine", "Au marché", "À l'école"],
+          "answer": "Au parc"
+        },
+        {
+          "question": "Quelles activités fait Gabriel ?",
+          "choices": ["Toboggan et balançoire", "Natation et vélo", "Lecture et écriture", "Cuisine et peinture"],
+          "answer": "Toboggan et balançoire"
+        },
+        {
+          "question": "Que fait Gabriel en jouant ?",
+          "choices": ["Il rit", "Il pleure", "Il chante", "Il dort"],
+          "answer": "Il rit"
+        }
+      ]
+    },
+    {
+      "story": "Mélanie a un oiseau bleu dans une cage. Elle lui donne des graines chaque matin. L'oiseau chante de jolies chansons.",
+      "questions": [
+        {
+          "question": "Quel animal a Mélanie ?",
+          "choices": ["Un oiseau bleu", "Un chat noir", "Un chien brun", "Un lapin blanc"],
+          "answer": "Un oiseau bleu"
+        },
+        {
+          "question": "Où vit l'oiseau ?",
+          "choices": ["Dans une cage", "Dans un bocal", "Dans un panier", "Dans un lit"],
+          "answer": "Dans une cage"
+        },
+        {
+          "question": "Que fait l'oiseau ?",
+          "choices": ["Il chante", "Il nage", "Il saute", "Il court"],
+          "answer": "Il chante"
+        }
+      ]
+    },
+    {
+      "story": "Benoît va à la boulangerie avec sa maman. Il choisit une baguette et un croissant. Ils mangent le pain au petit-déjeuner.",
+      "questions": [
+        {
+          "question": "Où Benoît va-t-il avec sa maman ?",
+          "choices": ["À la boulangerie", "Au marché", "À la piscine", "Au parc"],
+          "answer": "À la boulangerie"
+        },
+        {
+          "question": "Qu'est-ce que Benoît choisit ?",
+          "choices": ["Une baguette et un croissant", "Un gâteau et une tarte", "Un pain au chocolat et une brioche", "Un sandwich et une pizza"],
+          "answer": "Une baguette et un croissant"
+        },
+        {
+          "question": "Quand mangent-ils le pain ?",
+          "choices": ["Au petit-déjeuner", "Au dîner", "Au goûter", "Au déjeuner"],
+          "answer": "Au petit-déjeuner"
+        }
+      ]
+    },
+    {
+      "story": "Sami a une voiture télécommandée. Il la fait rouler dans le salon. Son chat regarde la voiture avec curiosité.",
+      "questions": [
+        {
+          "question": "Quel jouet a Sami ?",
+          "choices": ["Une voiture télécommandée", "Un train électrique", "Un avion", "Un bateau"],
+          "answer": "Une voiture télécommandée"
+        },
+        {
+          "question": "Où Sami fait-il rouler la voiture ?",
+          "choices": ["Dans le salon", "Dans la cuisine", "Dans le jardin", "Dans la rue"],
+          "answer": "Dans le salon"
+        },
+        {
+          "question": "Qui regarde la voiture ?",
+          "choices": ["Le chat", "Le chien", "La sœur", "Le papa"],
+          "answer": "Le chat"
+        }
+      ]
+    },
+    {
+      "story": "Julie va au marché avec sa grand-mère. Elle achète des pommes, des poires et des raisins. Elle aide à porter le panier.",
+      "questions": [
+        {
+          "question": "Avec qui Julie va-t-elle au marché ?",
+          "choices": ["Sa grand-mère", "Sa maman", "Son papa", "Son frère"],
+          "answer": "Sa grand-mère"
+        },
+        {
+          "question": "Quels fruits Julie achète-t-elle ?",
+          "choices": ["Pommes, poires, raisins", "Bananes, oranges, fraises", "Melons, cerises, abricots", "Pêches, prunes, kiwis"],
+          "answer": "Pommes, poires, raisins"
+        },
+        {
+          "question": "Qu'est-ce que Julie aide à porter ?",
+          "choices": ["Le panier", "Le sac", "La valise", "Le livre"],
+          "answer": "Le panier"
+        }
+      ]
+    },
+    {
+      "story": "Arthur aime les trains. Il regarde les trains passer à la gare avec son papa. Il compte les wagons de chaque train.",
+      "questions": [
+        {
+          "question": "Qu'est-ce qu'Arthur aime ?",
+          "choices": ["Les trains", "Les voitures", "Les avions", "Les bateaux"],
+          "answer": "Les trains"
+        },
+        {
+          "question": "Où Arthur regarde-t-il les trains ?",
+          "choices": ["À la gare", "À la maison", "Au parc", "À l'école"],
+          "answer": "À la gare"
+        },
+        {
+          "question": "Que fait Arthur avec les trains ?",
+          "choices": ["Il compte les wagons", "Il dessine les trains", "Il monte dans les trains", "Il nettoie les trains"],
+          "answer": "Il compte les wagons"
+        }
+      ]
+    },
+    {
+      "story": "Léon a une casquette verte. Il la porte quand il joue dehors au soleil. Sa maman lui dit de ne pas l'oublier.",
+      "questions": [
+        {
+          "question": "De quelle couleur est la casquette de Léon ?",
+          "choices": ["Verte", "Bleue", "Rouge", "Jaune"],
+          "answer": "Verte"
+        },
+        {
+          "question": "Quand Léon porte-t-il sa casquette ?",
+          "choices": ["Quand il joue dehors", "Quand il dort", "Quand il mange", "Quand il lit"],
+          "answer": "Quand il joue dehors"
+        },
+        {
+          "question": "Qui rappelle à Léon de ne pas oublier la casquette ?",
+          "choices": ["Sa maman", "Son papa", "Sa sœur", "Son ami"],
+          "answer": "Sa maman"
+        }
+      ]
+    },
+    {
+      "story": "Nora va à la fête d'anniversaire de son amie. Elle offre un cadeau et mange du gâteau. Elle joue à des jeux avec les autres enfants.",
+      "questions": [
+        {
+          "question": "Pourquoi Nora va-t-elle à la fête ?",
+          "choices": ["Pour l'anniversaire de son amie", "Pour Noël", "Pour Pâques", "Pour la rentrée"],
+          "answer": "Pour l'anniversaire de son amie"
+        },
+        {
+          "question": "Qu'offre Nora à son amie ?",
+          "choices": ["Un cadeau", "Un livre", "Un dessin", "Un ballon"],
+          "answer": "Un cadeau"
+        },
+        {
+          "question": "Que mange Nora à la fête ?",
+          "choices": ["Du gâteau", "Des bonbons", "Des fruits", "Des glaces"],
+          "answer": "Du gâteau"
+        }
+      ]
+    },
+    {
+      "story": "Oscar a une collection de billes. Il joue aux billes avec ses amis dans la cour. Il gagne souvent des billes bleues.",
+      "questions": [
+        {
+          "question": "Qu'a Oscar ?",
+          "choices": ["Une collection de billes", "Une collection de timbres", "Une collection de cartes", "Une collection de voitures"],
+          "answer": "Une collection de billes"
+        },
+        {
+          "question": "Avec qui Oscar joue-t-il aux billes ?",
+          "choices": ["Ses amis", "Son frère", "Sa sœur", "Son papa"],
+          "answer": "Ses amis"
+        },
+        {
+          "question": "Quelles billes Oscar gagne-t-il souvent ?",
+          "choices": ["Des billes bleues", "Des billes rouges", "Des billes vertes", "Des billes jaunes"],
+          "answer": "Des billes bleues"
+        }
+      ]
+    },
+    {
+      "story": "Lila va au cirque avec sa famille. Elle regarde les clowns et les acrobates. Elle mange de la barbe à papa.",
+      "questions": [
+        {
+          "question": "Où Lila va-t-elle avec sa famille ?",
+          "choices": ["Au cirque", "Au zoo", "Au cinéma", "Au musée"],
+          "answer": "Au cirque"
+        },
+        {
+          "question": "Quels artistes Lila regarde-t-elle ?",
+          "choices": ["Clowns et acrobates", "Musiciens et chanteurs", "Peintres et sculpteurs", "Danseurs et acteurs"],
+          "answer": "Clowns et acrobates"
+        },
+        {
+          "question": "Qu'est-ce que Lila mange au cirque ?",
+          "choices": ["De la barbe à papa", "Du pop-corn", "Des bonbons", "Des glaces"],
+          "answer": "De la barbe à papa"
+        }
+      ]
+    },
+    {
+      "story": "Simon a un tambour. Il joue de la musique dans sa chambre. Sa petite sœur danse en l'écoutant.",
+      "questions": [
+        {
+          "question": "Quel instrument Simon a-t-il ?",
+          "choices": ["Un tambour", "Une guitare", "Un piano", "Un violon"],
+          "answer": "Un tambour"
+        },
+        {
+          "question": "Où Simon joue-t-il de la musique ?",
+          "choices": ["Dans sa chambre", "Dans le salon", "Dans la cuisine", "Dans le jardin"],
+          "answer": "Dans sa chambre"
+        },
+        {
+          "question": "Que fait la petite sœur de Simon ?",
+          "choices": ["Elle danse", "Elle chante", "Elle lit", "Elle dessine"],
+          "answer": "Elle danse"
+        }
+      ]
+    },
+    {
+      "story": "Eva va à la bibliothèque le samedi. Elle emprunte un livre sur les dinosaures. Elle lit le livre à la maison.",
+      "questions": [
+        {
+          "question": "Où Eva va-t-elle le samedi ?",
+          "choices": ["À la bibliothèque", "Au parc", "À la piscine", "Au marché"],
+          "answer": "À la bibliothèque"
+        },
+        {
+          "question": "Quel livre Eva emprunte-t-elle ?",
+          "choices": ["Un livre sur les dinosaures", "Un livre sur les chats", "Un livre sur les fleurs", "Un livre sur les voitures"],
+          "answer": "Un livre sur les dinosaures"
+        },
+        {
+          "question": "Où Eva lit-elle le livre ?",
+          "choices": ["À la maison", "À l'école", "Au parc", "À la bibliothèque"],
+          "answer": "À la maison"
+        }
+      ]
+    },
+    {
+      "story": "Romain va à la piscine avec son cousin. Ils nagent et jouent avec un ballon. Après, ils mangent une glace.",
+      "questions": [
+        {
+          "question": "Avec qui Romain va-t-il à la piscine ?",
+          "choices": ["Son cousin", "Son frère", "Sa sœur", "Son ami"],
+          "answer": "Son cousin"
+        },
+        {
+          "question": "Avec quoi jouent-ils dans l'eau ?",
+          "choices": ["Un ballon", "Un bateau", "Un seau", "Un livre"],
+          "answer": "Un ballon"
+        },
+        {
+          "question": "Que mangent-ils après la piscine ?",
+          "choices": ["Une glace", "Un gâteau", "Une pomme", "Un sandwich"],
+          "answer": "Une glace"
+        }
+      ]
+    },
+    {
+      "story": "Clara a un parapluie jaune. Elle l'utilise quand il pleut. Elle saute dans les flaques d'eau avec ses bottes.",
+      "questions": [
+        {
+          "question": "De quelle couleur est le parapluie de Clara ?",
+          "choices": ["Jaune", "Rouge", "Bleu", "Vert"],
+          "answer": "Jaune"
+        },
+        {
+          "question": "Quand Clara utilise-t-elle son parapluie ?",
+          "choices": ["Quand il pleut", "Quand il neige", "Quand il fait chaud", "Quand il vente"],
+          "answer": "Quand il pleut"
+        },
+        {
+          "question": "Avec quoi Clara saute-t-elle dans les flaques ?",
+          "choices": ["Ses bottes", "Ses chaussures", "Ses chaussettes", "Ses sandales"],
+          "answer": "Ses bottes"
+        }
+      ]
+    },
+    {
+      "story": "Mathis va au parc avec son chien. Il lance un bâton et le chien le rapporte. Ils rentrent à la maison fatigués mais contents.",
+      "questions": [
+        {
+          "question": "Avec qui Mathis va-t-il au parc ?",
+          "choices": ["Son chien", "Son chat", "Son frère", "Sa sœur"],
+          "answer": "Son chien"
+        },
+        {
+          "question": "Que lance Mathis ?",
+          "choices": ["Un bâton", "Un ballon", "Un frisbee", "Une pierre"],
+          "answer": "Un bâton"
+        },
+        {
+          "question": "Comment rentrent-ils à la maison ?",
+          "choices": ["Fatigués mais contents", "Tristes", "En colère", "Malades"],
+          "answer": "Fatigués mais contents"
+        }
+      ]
+    },
+    {
+      "story": "Zoé fait un dessin pour sa mamie. Elle utilise des feutres de toutes les couleurs. Sa mamie est très contente du dessin.",
+      "questions": [
+        {
+          "question": "Pour qui Zoé fait-elle un dessin ?",
+          "choices": ["Sa mamie", "Sa maman", "Son papa", "Son frère"],
+          "answer": "Sa mamie"
+        },
+        {
+          "question": "Avec quoi Zoé fait-elle le dessin ?",
+          "choices": ["Des feutres", "Des crayons", "Des pinceaux", "Des stylos"],
+          "answer": "Des feutres"
+        },
+        {
+          "question": "Comment est la mamie de Zoé ?",
+          "choices": ["Très contente", "Triste", "Fâchée", "Fatiguée"],
+          "answer": "Très contente"
+        }
+      ]
+    },
+    {
+      "story": "Paul a une trottinette rouge. Il roule sur le trottoir devant sa maison. Il porte un casque pour sa sécurité.",
+      "questions": [
+        {
+          "question": "De quelle couleur est la trottinette de Paul ?",
+          "choices": ["Rouge", "Bleue", "Verte", "Jaune"],
+          "answer": "Rouge"
+        },
+        {
+          "question": "Où Paul roule-t-il avec sa trottinette ?",
+          "choices": ["Sur le trottoir", "Dans la rue", "Dans le jardin", "À l'école"],
+          "answer": "Sur le trottoir"
+        },
+        {
+          "question": "Qu'est-ce que Paul porte pour sa sécurité ?",
+          "choices": ["Un casque", "Des lunettes", "Un chapeau", "Des gants"],
+          "answer": "Un casque"
+        }
+      ]
+    },
+    {
+      "story": "Léna va au marché avec sa maman. Elle choisit des fraises et des cerises. Elles font une tarte aux fruits ensemble.",
+      "questions": [
+        {
+          "question": "Avec qui Léna va-t-elle au marché ?",
+          "choices": ["Sa maman", "Sa sœur", "Son papa", "Son frère"],
+          "answer": "Sa maman"
+        },
+        {
+          "question": "Quels fruits Léna choisit-elle ?",
+          "choices": ["Des fraises et des cerises", "Des pommes et des poires", "Des bananes et des oranges", "Des melons et des raisins"],
+          "answer": "Des fraises et des cerises"
+        },
+        {
+          "question": "Que font-elles avec les fruits ?",
+          "choices": ["Une tarte", "Une soupe", "Un gâteau", "Un jus"],
+          "answer": "Une tarte"
+        }
+      ]
+    },
+    {
+      "story": "Nathan va à la montagne avec son papa. Ils font une promenade et regardent les marmottes. Ils mangent un pique-nique sur l'herbe.",
+      "questions": [
+        {
+          "question": "Où Nathan va-t-il avec son papa ?",
+          "choices": ["À la montagne", "À la mer", "Au parc", "À la piscine"],
+          "answer": "À la montagne"
+        },
+        {
+          "question": "Quels animaux regardent-ils ?",
+          "choices": ["Les marmottes", "Les vaches", "Les moutons", "Les chevaux"],
+          "answer": "Les marmottes"
+        },
+        {
+          "question": "Où mangent-ils le pique-nique ?",
+          "choices": ["Sur l'herbe", "Sur la plage", "Dans la voiture", "Dans la maison"],
+          "answer": "Sur l'herbe"
+        }
+      ]
+    },
+    {
+      "story": "Élodie a un petit poisson orange. Elle change l'eau de son bocal chaque semaine. Le poisson aime nager en rond.",
+      "questions": [
+        {
+          "question": "De quelle couleur est le poisson d'Élodie ?",
+          "choices": ["Orange", "Bleu", "Vert", "Rouge"],
+          "answer": "Orange"
+        },
+        {
+          "question": "Où vit le poisson ?",
+          "choices": ["Dans un bocal", "Dans une cage", "Dans un panier", "Dans un lit"],
+          "answer": "Dans un bocal"
+        },
+        {
+          "question": "Que fait le poisson ?",
+          "choices": ["Il nage en rond", "Il saute", "Il vole", "Il court"],
+          "answer": "Il nage en rond"
+        }
+      ]
+    },
+    {
+      "story": "Bastien va au parc avec sa cousine. Ils font de la balançoire et du toboggan. Ils mangent un goûter sur un banc.",
+      "questions": [
+        {
+          "question": "Avec qui Bastien va-t-il au parc ?",
+          "choices": ["Sa cousine", "Son frère", "Sa sœur", "Son papa"],
+          "answer": "Sa cousine"
+        },
+        {
+          "question": "Quelles activités font-ils au parc ?",
+          "choices": ["Balançoire et toboggan", "Natation et vélo", "Lecture et écriture", "Cuisine et peinture"],
+          "answer": "Balançoire et toboggan"
+        },
+        {
+          "question": "Où mangent-ils le goûter ?",
+          "choices": ["Sur un banc", "Sur l'herbe", "Dans la voiture", "Dans la maison"],
+          "answer": "Sur un banc"
+        }
+      ]
+    },
+    {
+      "story": "Louna adore les papillons. Elle en observe dans le jardin avec une loupe. Elle dessine les plus jolis dans son cahier.",
+      "questions": [
+        {
+          "question": "Qu'est-ce que Louna aime observer ?",
+          "choices": ["Les papillons", "Les oiseaux", "Les poissons", "Les chiens"],
+          "answer": "Les papillons"
+        },
+        {
+          "question": "Avec quoi Louna observe-t-elle les papillons ?",
+          "choices": ["Une loupe", "Un microscope", "Un télescope", "Des jumelles"],
+          "answer": "Une loupe"
+        },
+        {
+          "question": "Où Louna dessine-t-elle les papillons ?",
+          "choices": ["Dans son cahier", "Sur le mur", "Sur la table", "Sur la porte"],
+          "answer": "Dans son cahier"
+        }
+      ]
+    },
+    {
+      "story": "Malo va à la fête foraine avec son oncle. Il fait un tour de grande roue et mange une barbe à papa. Il gagne un petit nounours.",
+      "questions": [
+        {
+          "question": "Avec qui Malo va-t-il à la fête foraine ?",
+          "choices": ["Son oncle", "Son papa", "Sa tante", "Sa sœur"],
+          "answer": "Son oncle"
+        },
+        {
+          "question": "Quel manège Malo fait-il ?",
+          "choices": ["La grande roue", "Le train fantôme", "Les autos tamponneuses", "Le carrousel"],
+          "answer": "La grande roue"
+        },
+        {
+          "question": "Quel cadeau Malo gagne-t-il ?",
+          "choices": ["Un petit nounours", "Une voiture", "Un ballon", "Un chapeau"],
+          "answer": "Un petit nounours"
+        }
+      ]
+    },
+    {
+      "story": "Sacha a une boîte de Lego. Il construit une maison et une voiture. Il montre ses créations à sa maman.",
+      "questions": [
+        {
+          "question": "Avec quoi Sacha joue-t-il ?",
+          "choices": ["Des Lego", "Des Playmobil", "Des billes", "Des cartes"],
+          "answer": "Des Lego"
+        },
+        {
+          "question": "Qu'est-ce que Sacha construit ?",
+          "choices": ["Une maison et une voiture", "Un train et un avion", "Un bateau et un bus", "Un château et un pont"],
+          "answer": "Une maison et une voiture"
+        },
+        {
+          "question": "À qui Sacha montre-t-il ses créations ?",
+          "choices": ["Sa maman", "Son papa", "Sa sœur", "Son frère"],
+          "answer": "Sa maman"
+        }
+      ]
+    },
+    {
+      "story": "Lison va à la bibliothèque avec son papa. Elle choisit un livre d'images. Elle regarde les dessins et raconte l'histoire à son doudou.",
+      "questions": [
+        {
+          "question": "Avec qui Lison va-t-elle à la bibliothèque ?",
+          "choices": ["Son papa", "Sa maman", "Sa sœur", "Son frère"],
+          "answer": "Son papa"
+        },
+        {
+          "question": "Quel livre Lison choisit-elle ?",
+          "choices": ["Un livre d'images", "Un livre de cuisine", "Un livre de maths", "Un livre d'anglais"],
+          "answer": "Un livre d'images"
+        },
+        {
+          "question": "À qui Lison raconte-t-elle l'histoire ?",
+          "choices": ["Son doudou", "Sa maman", "Son papa", "Sa cousine"],
+          "answer": "Son doudou"
+        }
+      ]
+    },
+    {
+      "story": "Yanis va à la ferme avec sa classe. Il caresse un agneau et donne du foin aux chèvres. Il boit un verre de lait frais.",
+      "questions": [
+        {
+          "question": "Quel animal Yanis caresse-t-il ?",
+          "choices": ["Un agneau", "Un cheval", "Un cochon", "Un chien"],
+          "answer": "Un agneau"
+        },
+        {
+          "question": "Que donne Yanis aux chèvres ?",
+          "choices": ["Du foin", "Du pain", "Des pommes", "Des carottes"],
+          "answer": "Du foin"
+        },
+        {
+          "question": "Qu'est-ce que Yanis boit ?",
+          "choices": ["Un verre de lait frais", "Un jus d'orange", "Un chocolat chaud", "Un thé"],
+          "answer": "Un verre de lait frais"
+        }
+      ]
+    },
+    {
+      "story": "Nina a une robe à fleurs. Elle la porte pour aller à la fête de l'école. Elle danse avec ses amis.",
+      "questions": [
+        {
+          "question": "Quel vêtement Nina porte-t-elle ?",
+          "choices": ["Une robe à fleurs", "Un pantalon bleu", "Un short vert", "Une jupe rouge"],
+          "answer": "Une robe à fleurs"
+        },
+        {
+          "question": "Pourquoi Nina porte-t-elle sa robe ?",
+          "choices": ["Pour la fête de l'école", "Pour dormir", "Pour aller à la piscine", "Pour faire du sport"],
+          "answer": "Pour la fête de l'école"
+        },
+        {
+          "question": "Avec qui Nina danse-t-elle ?",
+          "choices": ["Ses amis", "Sa sœur", "Son frère", "Sa cousine"],
+          "answer": "Ses amis"
+        }
+      ]
+    },
+    {
+      "story": "Léo va au marché avec sa maman. Il choisit des pommes rouges et des poires jaunes. Ils font une compote ensemble.",
+      "questions": [
+        {
+          "question": "Avec qui Léo va-t-il au marché ?",
+          "choices": ["Sa maman", "Son papa", "Sa sœur", "Son frère"],
+          "answer": "Sa maman"
+        },
+        {
+          "question": "Quels fruits Léo choisit-il ?",
+          "choices": ["Pommes rouges et poires jaunes", "Bananes et oranges", "Melons et raisins", "Cerises et fraises"],
+          "answer": "Pommes rouges et poires jaunes"
+        },
+        {
+          "question": "Que font-ils avec les fruits ?",
+          "choices": ["Une compote", "Une tarte", "Un gâteau", "Un jus"],
+          "answer": "Une compote"
+        }
+      ]
+    },
+    {
+      "story": "Maël a un chapeau bleu. Il le porte quand il fait chaud. Il joue au ballon avec ses amis dans le jardin.",
+      "questions": [
+        {
+          "question": "De quelle couleur est le chapeau de Maël ?",
+          "choices": ["Bleu", "Rouge", "Vert", "Jaune"],
+          "answer": "Bleu"
+        },
+        {
+          "question": "Quand Maël porte-t-il son chapeau ?",
+          "choices": ["Quand il fait chaud", "Quand il pleut", "Quand il neige", "Quand il fait froid"],
+          "answer": "Quand il fait chaud"
+        },
+        {
+          "question": "Avec qui Maël joue-t-il au ballon ?",
+          "choices": ["Ses amis", "Son frère", "Sa sœur", "Son papa"],
+          "answer": "Ses amis"
+        }
+      ]
+    },
+    {
+      "story": "Lila va à la piscine avec sa cousine. Elles nagent et jouent avec un ballon. Après, elles mangent une glace.",
+      "questions": [
+        {
+          "question": "Avec qui Lila va-t-elle à la piscine ?",
+          "choices": ["Sa cousine", "Sa sœur", "Son frère", "Son amie"],
+          "answer": "Sa cousine"
+        },
+        {
+          "question": "Avec quoi jouent-elles dans l'eau ?",
+          "choices": ["Un ballon", "Un bateau", "Un seau", "Un livre"],
+          "answer": "Un ballon"
+        },
+        {
+          "question": "Que mangent-elles après la piscine ?",
+          "choices": ["Une glace", "Un gâteau", "Une pomme", "Un sandwich"],
+          "answer": "Une glace"
+        }
+      ]
+    },
+    {
+      "story": "Oscar a un train électrique. Il le fait rouler sur les rails dans sa chambre. Il invite son ami à jouer avec lui.",
+      "questions": [
+        {
+          "question": "Quel jouet Oscar a-t-il ?",
+          "choices": ["Un train électrique", "Une voiture", "Un avion", "Un bateau"],
+          "answer": "Un train électrique"
+        },
+        {
+          "question": "Où Oscar fait-il rouler le train ?",
+          "choices": ["Dans sa chambre", "Dans le salon", "Dans la cuisine", "Dans le jardin"],
+          "answer": "Dans sa chambre"
+        },
+        {
+          "question": "Qui Oscar invite-t-il à jouer ?",
+          "choices": ["Son ami", "Sa sœur", "Son frère", "Sa cousine"],
+          "answer": "Son ami"
+        }
+      ]
+    },
+    {
+      "story": "Zoé va à la montagne avec sa famille. Elle fait une promenade et ramasse des fleurs. Elle prend des photos du paysage.",
+      "questions": [
+        {
+          "question": "Où Zoé va-t-elle avec sa famille ?",
+          "choices": ["À la montagne", "À la mer", "Au parc", "À la piscine"],
+          "answer": "À la montagne"
+        },
+        {
+          "question": "Que ramasse Zoé ?",
+          "choices": ["Des fleurs", "Des cailloux", "Des feuilles", "Des coquillages"],
+          "answer": "Des fleurs"
+        },
+        {
+          "question": "Que fait Zoé avec un appareil photo ?",
+          "choices": ["Elle prend des photos", "Elle dessine", "Elle lit", "Elle cuisine"],
+          "answer": "Elle prend des photos"
+        }
+      ]
+    },
+    {
+      "story": "Paul va à la bibliothèque avec son papa. Il choisit un livre sur les animaux. Il lit le livre à la maison.",
+      "questions": [
+        {
+          "question": "Avec qui Paul va-t-il à la bibliothèque ?",
+          "choices": ["Son papa", "Sa maman", "Sa sœur", "Son frère"],
+          "answer": "Son papa"
+        },
+        {
+          "question": "Quel livre Paul choisit-il ?",
+          "choices": ["Un livre sur les animaux", "Un livre sur les voitures", "Un livre sur les fleurs", "Un livre sur les maisons"],
+          "answer": "Un livre sur les animaux"
+        },
+        {
+          "question": "Où Paul lit-il le livre ?",
+          "choices": ["À la maison", "À l'école", "Au parc", "À la bibliothèque"],
+          "answer": "À la maison"
+        }
+      ]
+    },
+    {
+      "story": "Léna a un chat gris. Elle joue avec lui dans le salon. Le chat aime chasser une petite balle.",
+      "questions": [
+        {
+          "question": "De quelle couleur est le chat de Léna ?",
+          "choices": ["Gris", "Noir", "Blanc", "Roux"],
+          "answer": "Gris"
+        },
+        {
+          "question": "Où Léna joue-t-elle avec son chat ?",
+          "choices": ["Dans le salon", "Dans la cuisine", "Dans le jardin", "Dans la chambre"],
+          "answer": "Dans le salon"
+        },
+        {
+          "question": "Qu'aime chasser le chat ?",
+          "choices": ["Une petite balle", "Un oiseau", "Un papillon", "Un poisson"],
+          "answer": "Une petite balle"
+        }
+      ]
+    },
+    {
+      "story": "Marius va au zoo avec sa classe. Il voit des lions, des girafes et des singes. Il prend des photos avec son appareil.",
+      "questions": [
+        {
+          "question": "Où Marius va-t-il avec sa classe ?",
+          "choices": ["Au zoo", "Au musée", "À la piscine", "Au cinéma"],
+          "answer": "Au zoo"
+        },
+        {
+          "question": "Quels animaux Marius voit-il ?",
+          "choices": ["Lions, girafes, singes", "Chiens, chats, lapins", "Poissons, oiseaux, serpents", "Vaches, moutons, poules"],
+          "answer": "Lions, girafes, singes"
+        },
+        {
+          "question": "Avec quoi Marius prend-il des photos ?",
+          "choices": ["Un appareil", "Un téléphone", "Une tablette", "Un ordinateur"],
+          "answer": "Un appareil"
+        }
+      ]
+    },
+    {
+      "story": "Émilie fait un gâteau au chocolat avec sa maman. Elles cassent des œufs et mélangent la pâte. Le gâteau sent très bon.",
+      "questions": [
+        {
+          "question": "Avec qui Émilie fait-elle un gâteau ?",
+          "choices": ["Sa maman", "Son papa", "Sa sœur", "Son frère"],
+          "answer": "Sa maman"
+        },
+        {
+          "question": "Quel type de gâteau font-elles ?",
+          "choices": ["Au chocolat", "À la vanille", "Aux pommes", "À la fraise"],
+          "answer": "Au chocolat"
+        },
+        {
+          "question": "Comment sent le gâteau ?",
+          "choices": ["Très bon", "Très mauvais", "Très fort", "Très doux"],
+          "answer": "Très bon"
+        }
+      ]
+    },
+    {
+      "story": "Sami a une petite voiture rouge. Il la fait rouler sur le tapis du salon. Sa sœur applaudit quand la voiture va vite.",
+      "questions": [
+        {
+          "question": "De quelle couleur est la voiture de Sami ?",
+          "choices": ["Rouge", "Bleue", "Verte", "Jaune"],
+          "answer": "Rouge"
+        },
+        {
+          "question": "Où Sami fait-il rouler la voiture ?",
+          "choices": ["Sur le tapis du salon", "Dans le jardin", "Sur la table", "Dans la cuisine"],
+          "answer": "Sur le tapis du salon"
+        },
+        {
+          "question": "Que fait la sœur de Sami ?",
+          "choices": ["Elle applaudit", "Elle chante", "Elle lit", "Elle dort"],
+          "answer": "Elle applaudit"
+        }
+      ]
+    },
+    {
+      "story": "Élodie a un petit poisson orange. Elle change l'eau de son bocal chaque semaine. Le poisson aime nager en rond.",
+      "questions": [
+        {
+          "question": "De quelle couleur est le poisson d'Élodie ?",
+          "choices": ["Orange", "Bleu", "Vert", "Rouge"],
+          "answer": "Orange"
+        },
+        {
+          "question": "Où vit le poisson ?",
+          "choices": ["Dans un bocal", "Dans une cage", "Dans un panier", "Dans un lit"],
+          "answer": "Dans un bocal"
+        },
+        {
+          "question": "Que fait le poisson ?",
+          "choices": ["Il nage en rond", "Il saute", "Il vole", "Il court"],
+          "answer": "Il nage en rond"
+        }
+      ]
+    },
+    {
+      "story": "Bastien va au parc avec sa cousine. Ils font de la balançoire et du toboggan. Ils mangent un goûter sur un banc.",
+      "questions": [
+        {
+          "question": "Avec qui Bastien va-t-il au parc ?",
+          "choices": ["Sa cousine", "Son frère", "Sa sœur", "Son papa"],
+          "answer": "Sa cousine"
+        },
+        {
+          "question": "Quelles activités font-ils au parc ?",
+          "choices": ["Balançoire et toboggan", "Natation et vélo", "Lecture et écriture", "Cuisine et peinture"],
+          "answer": "Balançoire et toboggan"
+        },
+        {
+          "question": "Où mangent-ils le goûter ?",
+          "choices": ["Sur un banc", "Sur l'herbe", "Dans la voiture", "Dans la maison"],
+          "answer": "Sur un banc"
+        }
+      ]
+    },
+    {
+      "story": "Louna adore les papillons. Elle en observe dans le jardin avec une loupe. Elle dessine les plus jolis dans son cahier.",
+      "questions": [
+        {
+          "question": "Qu'est-ce que Louna aime observer ?",
+          "choices": ["Les papillons", "Les oiseaux", "Les poissons", "Les chiens"],
+          "answer": "Les papillons"
+        },
+        {
+          "question": "Avec quoi Louna observe-t-elle les papillons ?",
+          "choices": ["Une loupe", "Un microscope", "Un télescope", "Des jumelles"],
+          "answer": "Une loupe"
+        },
+        {
+          "question": "Où Louna dessine-t-elle les papillons ?",
+          "choices": ["Dans son cahier", "Sur le mur", "Sur la table", "Sur la porte"],
+          "answer": "Dans son cahier"
+        }
+      ]
+    },
+    {
+      "story": "Malo va à la fête foraine avec son oncle. Il fait un tour de grande roue et mange une barbe à papa. Il gagne un petit nounours.",
+      "questions": [
+        {
+          "question": "Avec qui Malo va-t-il à la fête foraine ?",
+          "choices": ["Son oncle", "Son papa", "Sa tante", "Sa sœur"],
+          "answer": "Son oncle"
+        },
+        {
+          "question": "Quel manège Malo fait-il ?",
+          "choices": ["La grande roue", "Le train fantôme", "Les autos tamponneuses", "Le carrousel"],
+          "answer": "La grande roue"
+        },
+        {
+          "question": "Quel cadeau Malo gagne-t-il ?",
+          "choices": ["Un petit nounours", "Une voiture", "Un ballon", "Un chapeau"],
+          "answer": "Un petit nounours"
+        }
+      ]
+    },
+    {
+      "story": "Sacha a une boîte de Lego. Il construit une maison et une voiture. Il montre ses créations à sa maman.",
+      "questions": [
+        {
+          "question": "Avec quoi Sacha joue-t-il ?",
+          "choices": ["Des Lego", "Des Playmobil", "Des billes", "Des cartes"],
+          "answer": "Des Lego"
+        },
+        {
+          "question": "Qu'est-ce que Sacha construit ?",
+          "choices": ["Une maison et une voiture", "Un train et un avion", "Un bateau et un bus", "Un château et un pont"],
+          "answer": "Une maison et une voiture"
+        },
+        {
+          "question": "À qui Sacha montre-t-il ses créations ?",
+          "choices": ["Sa maman", "Son papa", "Sa sœur", "Son frère"],
+          "answer": "Sa maman"
+        }
+      ]
+    },
+    {
+      "story": "Lison va à la bibliothèque avec son papa. Elle choisit un livre d'images. Elle regarde les dessins et raconte l'histoire à son doudou.",
+      "questions": [
+        {
+          "question": "Avec qui Lison va-t-elle à la bibliothèque ?",
+          "choices": ["Son papa", "Sa maman", "Sa sœur", "Son frère"],
+          "answer": "Son papa"
+        },
+        {
+          "question": "Quel livre Lison choisit-elle ?",
+          "choices": ["Un livre d'images", "Un livre de cuisine", "Un livre de maths", "Un livre d'anglais"],
+          "answer": "Un livre d'images"
+        },
+        {
+          "question": "À qui Lison raconte-t-elle l'histoire ?",
+          "choices": ["Son doudou", "Sa maman", "Son papa", "Sa cousine"],
+          "answer": "Son doudou"
+        }
+      ]
+    },
+    {
+      "story": "Yanis va à la ferme avec sa classe. Il caresse un agneau et donne du foin aux chèvres. Il boit un verre de lait frais.",
+      "questions": [
+        {
+          "question": "Quel animal Yanis caresse-t-il ?",
+          "choices": ["Un agneau", "Un cheval", "Un cochon", "Un chien"],
+          "answer": "Un agneau"
+        },
+        {
+          "question": "Que donne Yanis aux chèvres ?",
+          "choices": ["Du foin", "Du pain", "Des pommes", "Des carottes"],
+          "answer": "Du foin"
+        },
+        {
+          "question": "Qu'est-ce que Yanis boit ?",
+          "choices": ["Un verre de lait frais", "Un jus d'orange", "Un chocolat chaud", "Un thé"],
+          "answer": "Un verre de lait frais"
+        }
+      ]
+    },
+    {
+      "story": "Nina a une robe à fleurs. Elle la porte pour aller à la fête de l'école. Elle danse avec ses amis.",
+      "questions": [
+        {
+          "question": "Quel vêtement Nina porte-t-elle ?",
+          "choices": ["Une robe à fleurs", "Un pantalon bleu", "Un short vert", "Une jupe rouge"],
+          "answer": "Une robe à fleurs"
+        },
+        {
+          "question": "Pourquoi Nina porte-t-elle sa robe ?",
+          "choices": ["Pour la fête de l'école", "Pour dormir", "Pour aller à la piscine", "Pour faire du sport"],
+          "answer": "Pour la fête de l'école"
+        },
+        {
+          "question": "Avec qui Nina danse-t-elle ?",
+          "choices": ["Ses amis", "Sa sœur", "Son frère", "Sa cousine"],
+          "answer": "Ses amis"
+        }
+      ]
+    },
+    {
+      "story": "Léo va au marché avec sa maman. Il choisit des pommes rouges et des poires jaunes. Ils font une compote ensemble.",
+      "questions": [
+        {
+          "question": "Avec qui Léo va-t-il au marché ?",
+          "choices": ["Sa maman", "Son papa", "Sa sœur", "Son frère"],
+          "answer": "Sa maman"
+        },
+        {
+          "question": "Quels fruits Léo choisit-il ?",
+          "choices": ["Pommes rouges et poires jaunes", "Bananes et oranges", "Melons et raisins", "Cerises et fraises"],
+          "answer": "Pommes rouges et poires jaunes"
+        },
+        {
+          "question": "Que font-ils avec les fruits ?",
+          "choices": ["Une compote", "Une tarte", "Un gâteau", "Un jus"],
+          "answer": "Une compote"
+        }
+      ]
+    },
+    {
+      "story": "Maël a un chapeau bleu. Il le porte quand il fait chaud. Il joue au ballon avec ses amis dans le jardin.",
+      "questions": [
+        {
+          "question": "De quelle couleur est le chapeau de Maël ?",
+          "choices": ["Bleu", "Rouge", "Vert", "Jaune"],
+          "answer": "Bleu"
+        },
+        {
+          "question": "Quand Maël porte-t-il son chapeau ?",
+          "choices": ["Quand il fait chaud", "Quand il pleut", "Quand il neige", "Quand il fait froid"],
+          "answer": "Quand il fait chaud"
+        },
+        {
+          "question": "Avec qui Maël joue-t-il au ballon ?",
+          "choices": ["Ses amis", "Son frère", "Sa sœur", "Son papa"],
+          "answer": "Ses amis"
+        }
+      ]
+    },
+    {
+      "story": "Lila va à la piscine avec sa cousine. Elles nagent et jouent avec un ballon. Après, elles mangent une glace.",
+      "questions": [
+        {
+          "question": "Avec qui Lila va-t-elle à la piscine ?",
+          "choices": ["Sa cousine", "Sa sœur", "Son frère", "Son amie"],
+          "answer": "Sa cousine"
+        },
+        {
+          "question": "Avec quoi jouent-elles dans l'eau ?",
+          "choices": ["Un ballon", "Un bateau", "Un seau", "Un livre"],
+          "answer": "Un ballon"
+        },
+        {
+          "question": "Que mangent-elles après la piscine ?",
+          "choices": ["Une glace", "Un gâteau", "Une pomme", "Un sandwich"],
+          "answer": "Une glace"
+        }
+      ]
+    },
+    {
+      "story": "Oscar a un train électrique. Il le fait rouler sur les rails dans sa chambre. Il invite son ami à jouer avec lui.",
+      "questions": [
+        {
+          "question": "Quel jouet Oscar a-t-il ?",
+          "choices": ["Un train électrique", "Une voiture", "Un avion", "Un bateau"],
+          "answer": "Un train électrique"
+        },
+        {
+          "question": "Où Oscar fait-il rouler le train ?",
+          "choices": ["Dans sa chambre", "Dans le salon", "Dans la cuisine", "Dans le jardin"],
+          "answer": "Dans sa chambre"
+        },
+        {
+          "question": "Qui Oscar invite-t-il à jouer ?",
+          "choices": ["Son ami", "Sa sœur", "Son frère", "Sa cousine"],
+          "answer": "Son ami"
+        }
+      ]
+    },
+    {
+      "story": "Zoé va à la montagne avec sa famille. Elle fait une promenade et ramasse des fleurs. Elle prend des photos du paysage.",
+      "questions": [
+        {
+          "question": "Où Zoé va-t-elle avec sa famille ?",
+          "choices": ["À la montagne", "À la mer", "Au parc", "À la piscine"],
+          "answer": "À la montagne"
+        },
+        {
+          "question": "Que ramasse Zoé ?",
+          "choices": ["Des fleurs", "Des cailloux", "Des feuilles", "Des coquillages"],
+          "answer": "Des fleurs"
+        },
+        {
+          "question": "Que fait Zoé avec un appareil photo ?",
+          "choices": ["Elle prend des photos", "Elle dessine", "Elle lit", "Elle cuisine"],
+          "answer": "Elle prend des photos"
+        }
+      ]
+    },
+    {
+      "story": "Paul va à la bibliothèque avec son papa. Il choisit un livre sur les animaux. Il lit le livre à la maison.",
+      "questions": [
+        {
+          "question": "Avec qui Paul va-t-il à la bibliothèque ?",
+          "choices": ["Son papa", "Sa maman", "Sa sœur", "Son frère"],
+          "answer": "Son papa"
+        },
+        {
+          "question": "Quel livre Paul choisit-il ?",
+          "choices": ["Un livre sur les animaux", "Un livre sur les voitures", "Un livre sur les fleurs", "Un livre sur les maisons"],
+          "answer": "Un livre sur les animaux"
+        },
+        {
+          "question": "Où Paul lit-il le livre ?",
+          "choices": ["À la maison", "À l'école", "Au parc", "À la bibliothèque"],
+          "answer": "À la maison"
+        }
+      ]
+    },
+    {
+      "story": "Léna a un chat gris. Elle joue avec lui dans le salon. Le chat aime chasser une petite balle.",
+      "questions": [
+        {
+          "question": "De quelle couleur est le chat de Léna ?",
+          "choices": ["Gris", "Noir", "Blanc", "Roux"],
+          "answer": "Gris"
+        },
+        {
+          "question": "Où Léna joue-t-elle avec son chat ?",
+          "choices": ["Dans le salon", "Dans la cuisine", "Dans le jardin", "Dans la chambre"],
+          "answer": "Dans le salon"
+        },
+        {
+          "question": "Qu'aime chasser le chat ?",
+          "choices": ["Une petite balle", "Un oiseau", "Un papillon", "Un poisson"],
+          "answer": "Une petite balle"
+        }
+      ]
+    },
+    {
+      "story": "Marius va au zoo avec sa classe. Il voit des lions, des girafes et des singes. Il prend des photos avec son appareil.",
+      "questions": [
+        {
+          "question": "Où Marius va-t-il avec sa classe ?",
+          "choices": ["Au zoo", "Au musée", "À la piscine", "Au cinéma"],
+          "answer": "Au zoo"
+        },
+        {
+          "question": "Quels animaux Marius voit-il ?",
+          "choices": ["Lions, girafes, singes", "Chiens, chats, lapins", "Poissons, oiseaux, serpents", "Vaches, moutons, poules"],
+          "answer": "Lions, girafes, singes"
+        },
+        {
+          "question": "Avec quoi Marius prend-il des photos ?",
+          "choices": ["Un appareil", "Un téléphone", "Une tablette", "Un ordinateur"],
+          "answer": "Un appareil"
+        }
+      ]
+    },
+    {
+      "story": "Émilie fait un gâteau au chocolat avec sa maman. Elles cassent des œufs et mélangent la pâte. Le gâteau sent très bon.",
+      "questions": [
+        {
+          "question": "Avec qui Émilie fait-elle un gâteau ?",
+          "choices": ["Sa maman", "Son papa", "Sa sœur", "Son frère"],
+          "answer": "Sa maman"
+        },
+        {
+          "question": "Quel type de gâteau font-elles ?",
+          "choices": ["Au chocolat", "À la vanille", "Aux pommes", "À la fraise"],
+          "answer": "Au chocolat"
+        },
+        {
+          "question": "Comment sent le gâteau ?",
+          "choices": ["Très bon", "Très mauvais", "Très fort", "Très doux"],
+          "answer": "Très bon"
+        }
+      ]
+    },
+    {
+      "story": "Sami a une petite voiture rouge. Il la fait rouler sur le tapis du salon. Sa sœur applaudit quand la voiture va vite.",
+      "questions": [
+        {
+          "question": "De quelle couleur est la voiture de Sami ?",
+          "choices": ["Rouge", "Bleue", "Verte", "Jaune"],
+          "answer": "Rouge"
+        },
+        {
+          "question": "Où Sami fait-il rouler la voiture ?",
+          "choices": ["Sur le tapis du salon", "Dans le jardin", "Sur la table", "Dans la cuisine"],
+          "answer": "Sur le tapis du salon"
+        },
+        {
+          "question": "Que fait la sœur de Sami ?",
+          "choices": ["Elle applaudit", "Elle chante", "Elle lit", "Elle dort"],
+          "answer": "Elle applaudit"
+        }
+      ]
+    },
+    {
+      "story": "Élodie a un petit poisson orange. Elle change l'eau de son bocal chaque semaine. Le poisson aime nager en rond.",
+      "questions": [
+        {
+          "question": "De quelle couleur est le poisson d'Élodie ?",
+          "choices": ["Orange", "Bleu", "Vert", "Rouge"],
+          "answer": "Orange"
+        },
+        {
+          "question": "Où vit le poisson ?",
+          "choices": ["Dans un bocal", "Dans une cage", "Dans un panier", "Dans un lit"],
+          "answer": "Dans un bocal"
+        },
+        {
+          "question": "Que fait le poisson ?",
+          "choices": ["Il nage en rond", "Il saute", "Il vole", "Il court"],
+          "answer": "Il nage en rond"
+        }
+      ]
+    },
+    {
+      "story": "Bastien va au parc avec sa cousine. Ils font de la balançoire et du toboggan. Ils mangent un goûter sur un banc.",
+      "questions": [
+        {
+          "question": "Avec qui Bastien va-t-il au parc ?",
+          "choices": ["Sa cousine", "Son frère", "Sa sœur", "Son papa"],
+          "answer": "Sa cousine"
+        },
+        {
+          "question": "Quelles activités font-ils au parc ?",
+          "choices": ["Balançoire et toboggan", "Natation et vélo", "Lecture et écriture", "Cuisine et peinture"],
+          "answer": "Balançoire et toboggan"
+        },
+        {
+          "question": "Où mangent-ils le goûter ?",
+          "choices": ["Sur un banc", "Sur l'herbe", "Dans la voiture", "Dans la maison"],
+          "answer": "Sur un banc"
+        }
+      ]
+    },
+    {
+      "story": "Louna adore les papillons. Elle en observe dans le jardin avec une loupe. Elle dessine les plus jolis dans son cahier.",
+      "questions": [
+        {
+          "question": "Qu'est-ce que Louna aime observer ?",
+          "choices": ["Les papillons", "Les oiseaux", "Les poissons", "Les chiens"],
+          "answer": "Les papillons"
+        },
+        {
+          "question": "Avec quoi Louna observe-t-elle les papillons ?",
+          "choices": ["Une loupe", "Un microscope", "Un télescope", "Des jumelles"],
+          "answer": "Une loupe"
+        },
+        {
+          "question": "Où Louna dessine-t-elle les papillons ?",
+          "choices": ["Dans son cahier", "Sur le mur", "Sur la table", "Sur la porte"],
+          "answer": "Dans son cahier"
+        }
+      ]
+    },
+    {
+      "story": "Malo va à la fête foraine avec son oncle. Il fait un tour de grande roue et mange une barbe à papa. Il gagne un petit nounours.",
+      "questions": [
+        {
+          "question": "Avec qui Malo va-t-il à la fête foraine ?",
+          "choices": ["Son oncle", "Son papa", "Sa tante", "Sa sœur"],
+          "answer": "Son oncle"
+        },
+        {
+          "question": "Quel manège Malo fait-il ?",
+          "choices": ["La grande roue", "Le train fantôme", "Les autos tamponneuses", "Le carrousel"],
+          "answer": "La grande roue"
+        },
+        {
+          "question": "Quel cadeau Malo gagne-t-il ?",
+          "choices": ["Un petit nounours", "Une voiture", "Un ballon", "Un chapeau"],
+          "answer": "Un petit nounours"
+        }
+      ]
+    },
+    {
+      "story": "Sacha a une boîte de Lego. Il construit une maison et une voiture. Il montre ses créations à sa maman.",
+      "questions": [
+        {
+          "question": "Avec quoi Sacha joue-t-il ?",
+          "choices": ["Des Lego", "Des Playmobil", "Des billes", "Des cartes"],
+          "answer": "Des Lego"
+        },
+        {
+          "question": "Qu'est-ce que Sacha construit ?",
+          "choices": ["Une maison et une voiture", "Un train et un avion", "Un bateau et un bus", "Un château et un pont"],
+          "answer": "Une maison et une voiture"
+        },
+        {
+          "question": "À qui Sacha montre-t-il ses créations ?",
+          "choices": ["Sa maman", "Son papa", "Sa sœur", "Son frère"],
+          "answer": "Sa maman"
+        }
+      ]
+    },
+    {
+      "story": "Lison va à la bibliothèque avec son papa. Elle choisit un livre d'images. Elle regarde les dessins et raconte l'histoire à son doudou.",
+      "questions": [
+        {
+          "question": "Avec qui Lison va-t-elle à la bibliothèque ?",
+          "choices": ["Son papa", "Sa maman", "Sa sœur", "Son frère"],
+          "answer": "Son papa"
+        },
+        {
+          "question": "Quel livre Lison choisit-elle ?",
+          "choices": ["Un livre d'images", "Un livre de cuisine", "Un livre de maths", "Un livre d'anglais"],
+          "answer": "Un livre d'images"
+        },
+        {
+          "question": "À qui Lison raconte-t-elle l'histoire ?",
+          "choices": ["Son doudou", "Sa maman", "Son papa", "Sa cousine"],
+          "answer": "Son doudou"
+        }
+      ]
+    },
+    {
+      "story": "Lucie va au parc avec son grand-père. Elle ramasse des feuilles et des marrons. Ils font un bouquet ensemble.",
+      "questions": [
+        {
+          "question": "Avec qui Lucie va-t-elle au parc ?",
+          "choices": ["Son grand-père", "Sa maman", "Son frère", "Sa cousine"],
+          "answer": "Son grand-père"
+        },
+        {
+          "question": "Qu'est-ce que Lucie ramasse ?",
+          "choices": ["Des feuilles et des marrons", "Des fleurs et des cailloux", "Des pommes et des poires", "Des coquillages et des pierres"],
+          "answer": "Des feuilles et des marrons"
+        },
+        {
+          "question": "Que font-ils avec les feuilles ?",
+          "choices": ["Un bouquet", "Un gâteau", "Un dessin", "Un puzzle"],
+          "answer": "Un bouquet"
+        }
+      ]
+    },
+    {
+      "story": "Adrien a un ballon bleu. Il joue au foot avec ses amis dans la cour de l'école. Il marque un but et tout le monde applaudit.",
+      "questions": [
+        {
+          "question": "De quelle couleur est le ballon d'Adrien ?",
+          "choices": ["Bleu", "Rouge", "Vert", "Jaune"],
+          "answer": "Bleu"
+        },
+        {
+          "question": "À quel jeu Adrien joue-t-il ?",
+          "choices": ["Au foot", "Au basket", "À la marelle", "Au tennis"],
+          "answer": "Au foot"
+        },
+        {
+          "question": "Que fait tout le monde quand Adrien marque un but ?",
+          "choices": ["Ils applaudissent", "Ils crient", "Ils chantent", "Ils dansent"],
+          "answer": "Ils applaudissent"
+        }
+      ]
+    },
+    {
+      "story": "Maya va à la bibliothèque avec sa classe. Elle choisit un livre d'images. Elle lit le livre à sa petite sœur le soir.",
+      "questions": [
+        {
+          "question": "Où Maya va-t-elle avec sa classe ?",
+          "choices": ["À la bibliothèque", "Au parc", "À la piscine", "Au marché"],
+          "answer": "À la bibliothèque"
+        },
+        {
+          "question": "Quel livre Maya choisit-elle ?",
+          "choices": ["Un livre d'images", "Un livre de cuisine", "Un livre de maths", "Un livre d'anglais"],
+          "answer": "Un livre d'images"
+        },
+        {
+          "question": "À qui Maya lit-elle le livre ?",
+          "choices": ["Sa petite sœur", "Sa maman", "Son papa", "Sa cousine"],
+          "answer": "Sa petite sœur"
+        }
+      ]
+    },
+    {
+      "story": "Nolan a un chapeau vert. Il le porte quand il fait chaud. Il joue au ballon avec ses amis dans le jardin.",
+      "questions": [
+        {
+          "question": "De quelle couleur est le chapeau de Nolan ?",
+          "choices": ["Vert", "Rouge", "Bleu", "Jaune"],
+          "answer": "Vert"
+        },
+        {
+          "question": "Quand Nolan porte-t-il son chapeau ?",
+          "choices": ["Quand il fait chaud", "Quand il pleut", "Quand il neige", "Quand il fait froid"],
+          "answer": "Quand il fait chaud"
+        },
+        {
+          "question": "Avec qui Nolan joue-t-il au ballon ?",
+          "choices": ["Ses amis", "Son frère", "Sa sœur", "Son papa"],
+          "answer": "Ses amis"
+        }
+      ]
+    }
+  ]
