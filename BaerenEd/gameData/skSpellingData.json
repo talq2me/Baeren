@@ -1,0 +1,857 @@
+[
+    {
+        "word": "champ",
+        "choices": ["ch", "am", "p", "um", "sh"],
+        "pronunciation": {
+            "beginning": ["../sounds/en/ch.wav"],
+            "middle":  ["../sounds/en/a.wav","../sounds/en/m.wav"],
+            "ending":  ["../sounds/en/p.wav"]
+          }
+    },
+    {
+        "word": "ship",
+        "choices": ["sh", "i", "p", "k", "sh"],
+        "pronunciation": {
+            "beginning": ["../sounds/en/sh.wav"],
+            "middle":  ["../sounds/en/ih.wav"],
+            "ending":  ["../sounds/en/p.wav"]
+          }
+    },
+    {
+        "word": "flat",
+        "choices": ["fl", "a", "t", "k", "e"],
+        "pronunciation": {
+            "beginning": ["../sounds/en/f.wav","../sounds/en/l.wav"],
+            "middle":  ["../sounds/en/a.wav"],
+            "ending":  ["../sounds/en/t.wav"]
+          }
+    },
+    {
+        "word": "stamp",
+        "choices": ["st", "am", "p", "sh", "t"],
+        "pronunciation": {
+            "beginning": ["../sounds/en/s.wav","../sounds/en/t.wav"],
+            "middle":  ["../sounds/en/a.wav","../sounds/en/m.wav"],
+            "ending":  ["../sounds/en/p.wav"]
+          }
+    },
+    {
+        "word": "crash",
+        "choices": ["cr", "a", "sh", "ch", "ck"],
+        "pronunciation": {
+            "beginning": ["../sounds/en/k.wav","../sounds/en/er.wav"],
+            "middle":  ["../sounds/en/a.wav"],
+            "ending":  ["../sounds/en/sh.wav"]
+          }
+    },
+    {
+        "word": "cat",
+        "choices": ["c", "a", "t", "b", "m"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/k.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/t.wav"]
+        }
+      },
+      {
+        "word": "dog",
+        "choices": ["d", "o", "g", "t", "p"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/d.wav"],
+          "middle": ["../sounds/en/aw.wav"],
+          "ending": ["../sounds/en/g.wav"]
+        }
+      },
+      {
+        "word": "sun",
+        "choices": ["s", "u", "n", "t", "m"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/s.wav"],
+          "middle": ["../sounds/en/uh.wav"],
+          "ending": ["../sounds/en/n.wav"]
+        }
+      },
+      {
+        "word": "pig",
+        "choices": ["p", "i", "g", "b", "d"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/p.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/g.wav"]
+        }
+      },
+      {
+        "word": "bat",
+        "choices": ["b", "a", "t", "c", "p"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/b.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/t.wav"]
+        }
+      },
+      {
+        "word": "hat",
+        "choices": ["h", "a", "t", "p", "n"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/h.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/t.wav"]
+        }
+      },
+      {
+        "word": "net",
+        "choices": ["n", "e", "t", "g", "m"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/n.wav"],
+          "middle": ["../sounds/en/eh.wav"],
+          "ending": ["../sounds/en/t.wav"]
+        }
+      },
+      {
+        "word": "top",
+        "choices": ["t", "o", "p", "b", "s"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/t.wav"],
+          "middle": ["../sounds/en/aw.wav"],
+          "ending": ["../sounds/en/p.wav"]
+        }
+      },
+      {
+        "word": "bug",
+        "choices": ["b", "u", "g", "p", "n"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/b.wav"],
+          "middle": ["../sounds/en/uh.wav"],
+          "ending": ["../sounds/en/g.wav"]
+        }
+      },
+      {
+        "word": "map",
+        "choices": ["m", "a", "p", "b", "f"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/m.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/p.wav"]
+        }
+      },
+      {
+        "word": "jam",
+        "choices": ["j", "a", "m", "ch", "d"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/j.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/m.wav"]
+        }
+      },
+      {
+        "word": "zip",
+        "choices": ["z", "i", "p", "t", "n"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/z.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/p.wav"]
+        }
+      },
+      {
+        "word": "hen",
+        "choices": ["h", "e", "n", "t", "b"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/h.wav"],
+          "middle": ["../sounds/en/eh.wav"],
+          "ending": ["../sounds/en/n.wav"]
+        }
+      },
+      {
+        "word": "log",
+        "choices": ["l", "o", "g", "d", "p"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/l.wav"],
+          "middle": ["../sounds/en/aw.wav"],
+          "ending": ["../sounds/en/g.wav"]
+        }
+      },
+      {
+        "word": "run",
+        "choices": ["r", "u", "n", "s", "d"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/r.wav"],
+          "middle": ["../sounds/en/uh.wav"],
+          "ending": ["../sounds/en/n.wav"]
+        }
+      },
+      {
+        "word": "bed",
+        "choices": ["b", "e", "d", "p", "t"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/b.wav"],
+          "middle": ["../sounds/en/eh.wav"],
+          "ending": ["../sounds/en/d.wav"]
+        }
+      },
+      {
+        "word": "fig",
+        "choices": ["f", "i", "g", "b", "m"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/f.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/g.wav"]
+        }
+      },
+      {
+        "word": "cup",
+        "choices": ["c", "u", "p", "m", "f"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/k.wav"],
+          "middle": ["../sounds/en/uh.wav"],
+          "ending": ["../sounds/en/p.wav"]
+        }
+      },
+      {
+        "word": "man",
+        "choices": ["m", "a", "n", "t", "c"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/m.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/n.wav"]
+        }
+      },
+      {
+        "word": "pan",
+        "choices": ["p", "a", "n", "m", "g"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/p.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/n.wav"]
+        }
+      },
+      {
+        "word": "rat",
+        "choices": ["r", "a", "t", "b", "d"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/r.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/t.wav"]
+        }
+      },
+      {
+        "word": "hop",
+        "choices": ["h", "o", "p", "m", "d"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/h.wav"],
+          "middle": ["../sounds/en/aw.wav"],
+          "ending": ["../sounds/en/p.wav"]
+        }
+      },
+      {
+        "word": "kit",
+        "choices": ["k", "i", "t", "b", "f"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/k.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/t.wav"]
+        }
+      },
+      {
+        "word": "wig",
+        "choices": ["w", "i", "g", "m", "s"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/w.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/g.wav"]
+        }
+      },
+      {
+        "word": "box",
+        "choices": ["b", "o", "x", "g", "z"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/b.wav"],
+          "middle": ["../sounds/en/aw.wav"],
+          "ending": ["../sounds/en/x.wav"]
+        }
+      },
+      {
+        "word": "yak",
+        "choices": ["y", "a", "k", "d", "b"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/y.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/k.wav"]
+        }
+      },
+      {
+        "word": "van",
+        "choices": ["v", "a", "n", "m", "t"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/v.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/n.wav"]
+        }
+      },
+      {
+        "word": "gum",
+        "choices": ["g", "u", "m", "b", "f"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/g.wav"],
+          "middle": ["../sounds/en/uh.wav"],
+          "ending": ["../sounds/en/m.wav"]
+        }
+      },
+      {
+        "word": "fox",
+        "choices": ["f", "o", "x", "t", "p"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/f.wav"],
+          "middle": ["../sounds/en/aw.wav"],
+          "ending": ["../sounds/en/x.wav"]
+        }
+      },
+      {
+        "word": "cab",
+        "choices": ["c", "a", "b", "d", "t"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/k.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/b.wav"]
+        }
+      },
+      {
+        "word": "jam",
+        "choices": ["j", "a", "m", "n", "p"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/j.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/m.wav"]
+        }
+      },
+      {
+        "word": "dig",
+        "choices": ["d", "i", "g", "t", "b"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/d.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/g.wav"]
+        }
+      },
+      {
+        "word": "rug",
+        "choices": ["r", "u", "g", "t", "p"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/r.wav"],
+          "middle": ["../sounds/en/uh.wav"],
+          "ending": ["../sounds/en/g.wav"]
+        }
+      },
+      {
+        "word": "cap",
+        "choices": ["c", "a", "p", "b", "m"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/k.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/p.wav"]
+        }
+      },
+      {
+        "word": "sad",
+        "choices": ["s", "a", "d", "n", "p"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/s.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/d.wav"]
+        }
+      },
+      {
+        "word": "bed",
+        "choices": ["b", "e", "d", "f", "p"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/b.wav"],
+          "middle": ["../sounds/en/eh.wav"],
+          "ending": ["../sounds/en/d.wav"]
+        }
+      },
+      {
+        "word": "fin",
+        "choices": ["f", "i", "n", "t", "b"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/f.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/n.wav"]
+        }
+      },
+      {
+        "word": "mud",
+        "choices": ["m", "u", "d", "b", "f"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/m.wav"],
+          "middle": ["../sounds/en/uh.wav"],
+          "ending": ["../sounds/en/d.wav"]
+        }
+      },
+      {
+        "word": "pet",
+        "choices": ["p", "e", "t", "r", "b"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/p.wav"],
+          "middle": ["../sounds/en/eh.wav"],
+          "ending": ["../sounds/en/t.wav"]
+        }
+      },
+      {
+        "word": "kit",
+        "choices": ["k", "i", "t", "p", "m"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/k.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/t.wav"]
+        }
+      },
+      {
+        "word": "hop",
+        "choices": ["h", "o", "p", "m", "n"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/h.wav"],
+          "middle": ["../sounds/en/aw.wav"],
+          "ending": ["../sounds/en/p.wav"]
+        }
+      },
+      {
+        "word": "red",
+        "choices": ["r", "e", "d", "b", "t"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/r.wav"],
+          "middle": ["../sounds/en/eh.wav"],
+          "ending": ["../sounds/en/d.wav"]
+        }
+      },
+      {
+        "word": "bat",
+        "choices": ["b", "a", "t", "p", "s"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/b.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/t.wav"]
+        }
+      },
+      {
+        "word": "web",
+        "choices": ["w", "e", "b", "d", "m"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/w.wav"],
+          "middle": ["../sounds/en/eh.wav"],
+          "ending": ["../sounds/en/b.wav"]
+        }
+      },
+      {
+        "word": "bud",
+        "choices": ["b", "u", "d", "p", "m"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/b.wav"],
+          "middle": ["../sounds/en/uh.wav"],
+          "ending": ["../sounds/en/d.wav"]
+        }
+      },
+      {
+        "word": "leg",
+        "choices": ["l", "e", "g", "p", "t"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/l.wav"],
+          "middle": ["../sounds/en/eh.wav"],
+          "ending": ["../sounds/en/g.wav"]
+        }
+      },
+      {
+        "word": "dot",
+        "choices": ["d", "o", "t", "b", "r"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/d.wav"],
+          "middle": ["../sounds/en/aw.wav"],
+          "ending": ["../sounds/en/t.wav"]
+        }
+      },
+      {
+        "word": "ten",
+        "choices": ["t", "e", "n", "f", "b"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/t.wav"],
+          "middle": ["../sounds/en/eh.wav"],
+          "ending": ["../sounds/en/n.wav"]
+        }
+      },
+      {
+        "word": "zip",
+        "choices": ["z", "i", "p", "r", "f"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/z.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/p.wav"]
+        }
+      },
+      {
+        "word": "jug",
+        "choices": ["j", "u", "g", "d", "n"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/j.wav"],
+          "middle": ["../sounds/en/uh.wav"],
+          "ending": ["../sounds/en/g.wav"]
+        }
+      },
+      {
+        "word": "tan",
+        "choices": ["t", "a", "n", "b", "r"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/t.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/n.wav"]
+        }
+      },
+      {
+        "word": "vet",
+        "choices": ["v", "e", "t", "m", "d"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/v.wav"],
+          "middle": ["../sounds/en/eh.wav"],
+          "ending": ["../sounds/en/t.wav"]
+        }
+      },
+      {
+        "word": "gap",
+        "choices": ["g", "a", "p", "t", "m"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/g.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/p.wav"]
+        }
+      },
+      {
+        "word": "yes",
+        "choices": ["y", "e", "s", "t", "b"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/y.wav"],
+          "middle": ["../sounds/en/eh.wav"],
+          "ending": ["../sounds/en/s.wav"]
+        }
+      },
+      {
+        "word": "ham",
+        "choices": ["h", "a", "m", "n", "p"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/h.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/m.wav"]
+        }
+      },
+      {
+        "word": "cub",
+        "choices": ["c", "u", "b", "t", "p"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/k.wav"],
+          "middle": ["../sounds/en/uh.wav"],
+          "ending": ["../sounds/en/b.wav"]
+        }
+      },
+      {
+        "word": "wag",
+        "choices": ["w", "a", "g", "p", "t"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/w.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/g.wav"]
+        }
+      },
+      {
+        "word": "bib",
+        "choices": ["b", "i", "b", "d", "t"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/b.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/b.wav"]
+        }
+      },
+      {
+        "word": "dip",
+        "choices": ["d", "i", "p", "r", "s"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/d.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/p.wav"]
+        }
+      },
+      {
+        "word": "ship",
+        "choices": ["sh", "i", "p", "a"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/sh.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/p.wav"]
+        }
+      },
+      {
+        "word": "chat",
+        "choices": ["ch", "a", "t", "p"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/ch.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/t.wav"]
+        }
+      },
+      {
+        "word": "frog",
+        "choices": ["fr", "o", "g", "t"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/f.wav", "../sounds/en/r.wav"],
+          "middle": ["../sounds/en/aw.wav"],
+          "ending": ["../sounds/en/g.wav"]
+        }
+      },
+      {
+        "word": "trap",
+        "choices": ["tr", "a", "p", "b"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/t.wav", "../sounds/en/r.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/p.wav"]
+        }
+      },
+      {
+        "word": "clap",
+        "choices": ["cl", "a", "p", "s"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/k.wav", "../sounds/en/l.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/p.wav"]
+        }
+      },
+      {
+        "word": "stop",
+        "choices": ["st", "o", "p", "b"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/s.wav", "../sounds/en/t.wav"],
+          "middle": ["../sounds/en/aw.wav"],
+          "ending": ["../sounds/en/p.wav"]
+        }
+      },
+      {
+        "word": "drip",
+        "choices": ["dr", "i", "p", "m"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/d.wav", "../sounds/en/r.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/p.wav"]
+        }
+      },
+      {
+        "word": "flag",
+        "choices": ["fl", "a", "g", "t"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/f.wav", "../sounds/en/l.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/g.wav"]
+        }
+      },
+      {
+        "word": "grin",
+        "choices": ["gr", "i", "n", "s"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/g.wav", "../sounds/en/r.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/n.wav"]
+        }
+      },
+      {
+        "word": "plan",
+        "choices": ["pl", "a", "n", "b"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/p.wav", "../sounds/en/l.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/n.wav"]
+        }
+      },
+      {
+        "word": "snip",
+        "choices": ["sn", "i", "p", "t"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/s.wav", "../sounds/en/n.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/p.wav"]
+        }
+      },
+      {
+        "word": "clam",
+        "choices": ["cl", "a", "m", "n"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/k.wav", "../sounds/en/l.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/m.wav"]
+        }
+      },
+      {
+        "word": "twig",
+        "choices": ["tw","i", "g", "b"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/t.wav", "../sounds/en/w.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/g.wav"]
+        }
+      },
+      {
+        "word": "thin",
+        "choices": ["th", "i", "n", "d"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/th.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/n.wav"]
+        }
+      },
+      {
+        "word": "bake",
+        "choices": ["b", "a", "ke", "t"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/b.wav"],
+          "middle": ["../sounds/en/ay.wav"],
+          "ending": ["../sounds/en/k.wav"]
+        }
+      },
+      {
+        "word": "back",
+        "choices": ["b", "a", "ck", "t"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/b.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/k.wav"]
+        }
+      },
+      {
+        "word": "ride",
+        "choices": ["r", "i", "de", "n"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/r.wav"],
+          "middle": ["../sounds/en/eye.wav"],
+          "ending": ["../sounds/en/d.wav"]
+        }
+      },
+      {
+        "word": "like",
+        "choices": ["l", "i", "ke", "p"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/l.wav"],
+          "middle": ["../sounds/en/eye.wav"],
+          "ending": ["../sounds/en/k.wav"]
+        }
+      },
+      {
+        "word": "cube",
+        "choices": ["c", "u", "be", "r"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/k.wav"],
+          "middle": ["../sounds/en/you.wav"],
+          "ending": ["../sounds/en/b.wav"]
+        }
+      },
+      {
+        "word": "brag",
+        "choices": ["br", "a", "g", "n"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/b.wav", "../sounds/en/r.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/g.wav"]
+        }
+      },
+      {
+        "word": "glad",
+        "choices": ["gl",  "a", "d", "t"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/g.wav", "../sounds/en/l.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/d.wav"]
+        }
+      },
+      {
+        "word": "skid",
+        "choices": ["sk", "i", "d", "b"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/s.wav", "../sounds/en/k.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/d.wav"]
+        }
+      },
+      {
+        "word": "sled",
+        "choices": ["sl", "e", "d", "m"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/s.wav", "../sounds/en/l.wav"],
+          "middle": ["../sounds/en/eh.wav"],
+          "ending": ["../sounds/en/d.wav"]
+        }
+      },
+      {
+        "word": "flip",
+        "choices": ["fl", "i", "p", "n"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/f.wav", "../sounds/en/l.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/p.wav"]
+        }
+      },
+      {
+        "word": "smog",
+        "choices": ["sm", "o", "g", "b"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/s.wav", "../sounds/en/m.wav"],
+          "middle": ["../sounds/en/aw.wav"],
+          "ending": ["../sounds/en/g.wav"]
+        }
+      },
+      {
+        "word": "trap",
+        "choices": ["tr", "a", "p", "d"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/t.wav", "../sounds/en/r.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/p.wav"]
+        }
+      },
+      {
+        "word": "sled",
+        "choices": ["sl", "e", "d", "t"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/s.wav", "../sounds/en/l.wav"],
+          "middle": ["../sounds/en/eh.wav"],
+          "ending": ["../sounds/en/d.wav"]
+        }
+      },
+      {
+        "word": "spit",
+        "choices": ["sp", "i", "t", "m"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/s.wav", "../sounds/en/p.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/t.wav"]
+        }
+      },
+      {
+        "word": "crab",
+        "choices": ["cr", "a", "b", "t"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/k.wav", "../sounds/en/r.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/b.wav"]
+        }
+      },
+      {
+        "word": "skin",
+        "choices": ["sk", "i", "n", "r"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/s.wav", "../sounds/en/k.wav"],
+          "middle": ["../sounds/en/ih.wav"],
+          "ending": ["../sounds/en/n.wav"]
+        }
+      },
+      {
+        "word": "flag",
+        "choices": ["fl", "a", "g", "d"],
+        "pronunciation": {
+          "beginning": ["../sounds/en/f.wav", "../sounds/en/l.wav"],
+          "middle": ["../sounds/en/a.wav"],
+          "ending": ["../sounds/en/g.wav"]
+        }
+      }
+]

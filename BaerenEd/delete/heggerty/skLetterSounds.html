@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu d'association audio</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <h1>Match the Sound to the Text!</h1>
+    <div id="kid" data-kid="kid1"></div>
+    <button id="playButton" class="button">Play Sound</button>
+    <div id="choices"></div>
+    <div id="stars"></div>
+    <div id="feedback" class="feedback"></div>
+
+    
+    <!-- This need to be here to ensure html fully loads before we try to run scripts that access the html elements -->
+    <script src="../codeGenerator/unlockCodePiece.js"></script>
+    <!--script src="../common.js"></script-->
+    
+    <!--below should go in skLetterSounds.js and be referenced above-->
+    <script>
+        let correctCount = 0;
+        let soundData = {};
+        let currentSound = {};
+
+        async function loadData() {
+            try {
+                const response = await fetch("skLetterSounds.json");
+                soundData = await response.json();
+                nextRound();
+                document.getElementById("playButton").addEventListener("click", playSound);
+
+            } catch (error) {
+                console.error("Error loading audio:", error);
+            }
+        }
+
+        function getRandomSound() {
+            return soundData[Math.floor(Math.random() * soundData.length)];
+        }
+
+        function playSound() {
+            if (correctCount >= 1) {
+                resetGame();
+            } else {
+                new Audio(currentSound.audio).play();
+            }
+        }
+
+        function handleChoice(choice) {
+            const feedback = document.getElementById("feedback");
+            if (choice === currentSound.correctWord) {
+                feedback.innerHTML = "⭐";
+                correctCount++;
+                document.getElementById("stars").innerHTML += "⭐";
+                if (correctCount < 10) {
+                    setTimeout(nextRound, 1000);
+                } else {
+                    showGameOverScreen();
+                }
+            } else {
+                feedback.innerHTML = "☹️";
+                highlightCorrectAnswer();
+                setTimeout(() => {
+                    feedback.innerHTML = "";
+                    nextRound();
+                }, 2000);
+            }
+        }
+
+        function showGameOverScreen() {
+            const messageDiv = document.getElementById("messageContainer");
+            document.getElementById("choices").innerHTML = "<h2>Game Over! 🎉</h2>";
+            document.getElementById("playButton").innerText = "Play Again";
+
+            const submitBtn = document.getElementById("submitBtn");
+            if (submitBtn) submitBtn.style.display = 'none';
+
+            const replayBtn = document.getElementById("replayBtn");
+            if (replayBtn) replayBtn.style.display = 'none';
+
+            // Notify the parent window that the game is completed
+            window.parent.postMessage({ type: "gameCompleted" }, "*");
+        }
+
+        function highlightCorrectAnswer() {
+            document.querySelectorAll(".button").forEach(btn => {
+                if (btn.innerText === currentSound.correctWord) {
+                    btn.style.backgroundColor = "lightgreen";
+                    setTimeout(() => btn.style.backgroundColor = "#6ac2ff", 2000);
+                }
+            });
+        }
+
+        function nextRound() {
+            currentSound = getRandomSound();
+            updateChoices(currentSound.choices);
+            document.getElementById("feedback").innerHTML = "";
+        }
+
+        function updateChoices(choices) {
+            const choicesDiv = document.getElementById("choices");
+            choicesDiv.innerHTML = "";
+            choices.sort(() => Math.random() - 0.5);
+            choices.forEach(choice => {
+                const btn = document.createElement("button");
+                btn.innerText = choice;
+                btn.className = "button";
+                btn.onclick = () => handleChoice(choice);
+                choicesDiv.appendChild(btn);
+            });
+        }
+
+        function resetGame() {
+            correctCount = 0;
+            document.getElementById("stars").innerHTML = "";
+            document.getElementById("feedback").innerHTML = "";
+            document.getElementById("choices").innerHTML = "";
+            document.getElementById("playButton").innerText = "Play Sound";
+            nextRound();
+        }
+
+        window.onload = loadData;
+    </script>
+</body>
+</html>

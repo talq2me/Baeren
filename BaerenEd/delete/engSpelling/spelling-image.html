@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Word Reader</title>
+    <style>
+        .button-container {
+            margin: 20px;
+        }
+        button {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button class="button" onclick="location.href='https://talq2me.github.io/Baeren/index.html'">⌂ Home</button>
+    <div id="buttonContainer" class="button-container"></div>
+
+    <!-- Include Tesseract.js from CDN -->
+    <script src="https://unpkg.com/tesseract.js@4.0.0/dist/tesseract.min.js"></script>
+    <script>
+        let selectedVoice;
+
+        function setVoice() {
+            const voices = window.speechSynthesis.getVoices();
+            
+            // Try to find a high-quality English voice
+            selectedVoice = voices.find(voice =>
+                voice.lang.startsWith('en') && voice.name.toLowerCase().includes('natural')
+            ) || voices.find(voice =>
+                voice.lang.startsWith('en') && voice.default
+            ) || voices[0]; // Fallback if none found
+        }
+
+        window.speechSynthesis.onvoiceschanged = setVoice;
+        setVoice(); // Initial voice selection
+
+        // Wait for the page to load
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // Load and recognize text from the image
+                const { data: { text } } = await Tesseract.recognize(
+                    'spelling.png',
+                    'eng',
+                    { logger: m => console.log(m) }
+                );
+
+                // Split the text into words and filter out empty strings
+                const words = text.split(/\s+/).filter(word => word.trim() !== '');
+
+                // Get the container for buttons
+                const container = document.getElementById('buttonContainer');
+
+                // Create buttons for each word
+                words.forEach((word, index) => {
+                    const button = document.createElement('button');
+                    // Set button text to number only (index + 1)
+                    button.textContent = index + 1;
+
+                    // Add click event to speak the word
+                    button.addEventListener('click', () => {
+                        const utterance = new SpeechSynthesisUtterance(word);
+                        utterance.voice = selectedVoice;
+                        utterance.lang = 'en-US';
+                        window.speechSynthesis.speak(utterance);
+                    });
+
+                    // Add button to container
+                    container.appendChild(button);
+                });
+
+            } catch (error) {
+                console.error('Error processing image:', error);
+                alert('Error processing the image. Please make sure spelling.png exists in the same folder.');
+            }
+        });
+    </script>
+</body>
+</html>

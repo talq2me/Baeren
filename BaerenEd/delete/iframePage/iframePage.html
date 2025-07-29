@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iFrame Page</title>
+    <style>
+        iframe {
+            width: 100%;
+            height: 1000px;
+            border: none;
+        }
+    </style>
+    
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../common.js" defer></script>
+</head>
+<body>
+    <button class="button" onclick="goBack()">&lt; Back</button>
+    <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
+    <h2>Loaded Page</h2>
+    <iframe class="iframe" style="height: 1000px;" id="dynamicIframe" src=""></iframe>
+
+
+    <script>
+        // Function to get the URL parameter
+        function getQueryParam(param) {
+            let params = new URLSearchParams(window.location.search);
+            return params.get(param);
+        }
+
+        // Function to go back to the previous page
+        function goBack() {
+            if (document.referrer) {
+                window.location.href = document.referrer; // Takes you back to the referring page
+            } else {
+                window.history.back(); // Fallback method
+            }
+        }
+
+        // Get URL from query parameters
+        let urlToLoad = getQueryParam('url');
+        if (urlToLoad) {
+            document.getElementById('dynamicIframe').src = urlToLoad;
+        } else {
+            document.getElementById('dynamicIframe').src = "about:blank";
+        }
+    </script>
+
+</body>
+</html>

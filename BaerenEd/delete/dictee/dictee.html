@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictée</title>
+    <link rel="stylesheet" href="../styles.css">
+    <!--script src="../common.js" defer></script-->
+</head>
+<body>
+    <button class="button" onclick="closeModalAndGoBack()">&lt; Back</button>
+    <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
+    <h1>Dictée</h1>
+    <div id="buttonContainer" ></div>
+
+    <script>
+        function readText(text, lang = "en-US", onEnd = null) {
+    if (typeof fully !== "undefined" && typeof fully.textToSpeech === "function") {
+        if (lang === "en-US") {
+            lang = "en"; // Fully Kiosk uses "en" for English
+        }    
+        else if (lang === "fr-FR") {
+            lang = "fr"; // Fully Kiosk uses "fr" for French
+        }
+        fully.textToSpeech(text, lang);
+        // Fully Kiosk does not support a callback, so estimate duration
+        if (typeof onEnd === "function") {
+            // Estimate: 150ms per character, min 1s, max 6s
+            const duration = Math.min(Math.max(text.length * 150, 1000), 6000);
+            setTimeout(onEnd, duration);
+        }
+    } else {
+        //cancel any previous speech
+        window.speechSynthesis.cancel();
+        let utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = lang;
+        utterance.rate = 0.6;
+        utterance.pitch = 1;
+        utterance.volume = 1;
+        if (typeof onEnd === "function") {
+            utterance.onend = onEnd;
+        }
+        window.speechSynthesis.speak(utterance);
+    }
+}
+
+        async function loadWords() {
+            try {
+                let response = await fetch('words-fr.txt');
+                let text = await response.text();
+
+                let lines = text.split(';').map(line => line.trim()).filter(line => line !== "");
+
+                let container = document.getElementById('buttonContainer');
+
+                lines.forEach((line, index) => {
+                    // Create a wrapper div for each line
+                    let lineDiv = document.createElement('div');
+                    lineDiv.style.marginBottom = "12px";
+
+                    let button = document.createElement('button');
+                    button.textContent = index + 1;
+                    button.classList.add('button');
+
+                    let checkButton = document.createElement('button');
+                    checkButton.textContent = "Check";
+                    checkButton.classList.add('button');
+                    checkButton.style.display = "none";
+
+                    let revealSpan = document.createElement('span');
+                    revealSpan.style.marginLeft = "10px";
+                    revealSpan.style.fontWeight = "bold";
+                    revealSpan.style.fontSize = "24px";
+
+                    button.addEventListener('click', () => {
+                        window.speechSynthesis.cancel();
+                        checkButton.style.display = "none";
+                        revealSpan.textContent = "";
+
+                        let utter = new SpeechSynthesisUtterance(line);
+                        utter.lang = 'fr-FR';
+                        utter.rate = 0.8;
+                        utter.pitch = 1;
+                        utter.volume = 1;
+
+                        utter.onend = () => {
+                            setTimeout(() => {
+                                checkButton.style.display = "inline-block";
+                            }, 3000);
+                        };
+
+                        window.speechSynthesis.speak(utter);
+                    });
+
+                    checkButton.addEventListener('click', () => {
+                        revealSpan.textContent = line;
+                    });
+
+                    lineDiv.appendChild(button);
+                    lineDiv.appendChild(checkButton);
+                    lineDiv.appendChild(revealSpan);
+                    container.appendChild(lineDiv);
+                });
+
+            } catch (error) {
+                console.error('Error loading words:', error);
+                alert('Error loading words. Ensure \"words-fr.txt\" exists and is formatted correctly.');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadWords);
+
+        function closeModalAndGoBack() {
+            window.parent.postMessage({ type: "closeModal" }, "*")
+        }
+    </script>
+</body>
+</html>

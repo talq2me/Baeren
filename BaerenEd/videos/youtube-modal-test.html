@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube Modal Test</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f0f0;
+      margin: 0;
+      padding: 2em;
+    }
+    button {
+      padding: 1em 2em;
+      font-size: 1.2em;
+    }
+    #youtubeModal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.95);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    #ytPlayer {
+      width: 90vw;
+      height: 50vw;
+      max-height: 80vh;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>YouTube Modal Player Test</h1>
+  <button id="launchBtn">Pl Video</button>
+
+<iframe
+  allow = "autoplay; encrypted-media"
+  src="https://www.youtube.com/embed/ImAhDUiKbac"
+  frameborder="0"
+  allowfullscreen="true">
+</iframe>
+
+  <!-- Modal Container -->
+  <div id="youtubeModal">
+    <div id="ytPlayer"></div>
+  </div>
+
+  <!-- Load YouTube Iframe API -->
+  <script>
+    let player;
+    let modal = document.getElementById("youtubeModal");
+
+    // Load the YouTube Iframe API
+    let tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
+
+    function onYouTubeIframeAPIReady() {
+      // No need to create the player yet; will do on button click
+    }
+
+    function openModalWithVideo(videoId) {
+      modal.style.display = "flex";
+
+      // Remove any previous iframe
+      document.getElementById("ytPlayer").innerHTML = "";
+
+      // Create new player
+      player = new YT.Player("ytPlayer", {
+        videoId: videoId,
+        events: {
+          onStateChange: function (event) {
+            if (event.data === YT.PlayerState.ENDED) {
+              closeModal();
+            }
+          }
+        },
+        playerVars: {
+          autoplay: 0,
+          controls: 1,
+          rel: 0,
+          modestbranding: 1,
+          fs: 1
+        }
+      });
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+      if (player && typeof player.destroy === "function") {
+        player.destroy();
+      }
+    }
+
+    document.getElementById("launchBtn").addEventListener("click", function () {
+      openModalWithVideo("WtOJNFS7rbk"); // Replace with your video ID
+    });
+  </script>
+
+</body>
+</html>

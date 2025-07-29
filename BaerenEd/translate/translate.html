@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translate French to English</title>
+    <link rel="stylesheet" href="../styles.css">
+    <!--script src="../common.js" defer></script-->
+</head>
+<body>
+    <button class="button" onclick="closeModalAndGoBack()">&lt; Back</button>
+    <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
+    <h1>Translate French to English</h1>
+
+    <!-- Accent buttons -->
+    <div id="accentButtons">
+        <button class="buttontight" onclick="insertCharacter('é')">é</button>
+        <button class="buttontight" onclick="insertCharacter('è')">è</button>
+        <button class="buttontight" onclick="insertCharacter('à')">à</button>
+        <button class="buttontight" onclick="insertCharacter('ê')">ê</button>
+        <button class="buttontight" onclick="insertCharacter('ç')">ç</button>
+        <button class="buttontight" onclick="insertCharacter('ô')">ô</button>
+        <button class="buttontight" onclick="insertCharacter('ù')">ù</button>
+        <button class="buttontight" onclick="insertCharacter('â')">â</button>
+        <button class="buttontight" onclick="insertCharacter('î')">î</button>
+    </div>
+    <br>
+    <!-- Text area to input French text -->
+    <textarea id="inputText" style="width: 440px;" class="textinput" placeholder="Type in French here..."></textarea>
+    <br>
+
+    <!-- Translate Button -->
+    <button id="translateBtn" class="button" onclick="translateText()">Translate</button>
+    <br>
+
+    <!-- Text area to display the translated text -->
+    <textarea id="outputText" style="width: 440px;" class="textinput" placeholder="Translation will appear here..." readonly></textarea>
+
+    <script>
+        // MyMemory API endpoint (no API key required)
+        const apiEndpoint = 'https://api.mymemory.translated.net/get';
+
+        // Function to translate text
+        async function translateText() {
+            const textToTranslate = document.getElementById("inputText").value.trim();
+
+            // Ensure there is text to translate
+            if (!textToTranslate) {
+                alert('Please enter text to translate.');
+                return;
+            }
+
+            const url = `${apiEndpoint}?q=${encodeURIComponent(textToTranslate)}&langpair=fr|en`;
+
+            try {
+                console.log("Sending request to MyMemory...");
+                // Make the GET request to the MyMemory API
+                const response = await fetch(url);
+
+                console.log("Response received from API.");
+
+                // Check if response was successful
+                if (!response.ok) {
+                    console.error("Error response:", response);
+                    throw new Error('Translation failed.');
+                }
+
+                // Parse the response JSON
+                const data = await response.json();
+                console.log("Translation data:", data);
+
+                // Show the translated text in the output area
+                document.getElementById("outputText").value = data.responseData.translatedText;
+            } catch (error) {
+                console.error("Error during translation:", error);
+                alert('There was an error with the translation. Please try again later.');
+            }
+        }
+
+        // Function to insert accented character into the input box
+        function insertCharacter(character) {
+            const inputText = document.getElementById("inputText");
+            inputText.value += character;
+            inputText.focus();
+        }
+
+        
+        function closeModalAndGoBack() {
+            window.parent.postMessage({ type: "closeModal" }, "*")
+        }
+    </script>
+</body>
+</html>

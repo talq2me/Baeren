@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dictation</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../commonCode.js" defer></script>
+</head>
+<body>
+    <button class="button" onclick="history.back()">&lt; Back</button>
+    <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
+    <h1>Dictation</h1>
+    <div id="buttonContainer"></div>
+
+    <script>
+    // Helper: get URL parameters
+    function getParam(name, def = "") {
+        const url = new URL(window.location.href);
+        return url.searchParams.get(name) || def;
+    }
+
+/*  function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+} */
+
+async function waitInWebView() {
+    try {
+        document.getElementById('status').textContent = 'Starting...';
+        await wait(2000); // Wait 2 seconds
+        document.getElementById('status').textContent = 'Done after 2 seconds!';
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+    // Main logic
+    async function loadWords() {
+        const jsonFile = getParam("jsonFile");
+        const lang = getParam("lang", "en-US");
+
+        if (!jsonFile) {
+            alert("No jsonFile parameter provided!");
+            return;
+        }
+
+        try {
+            const response = await fetch(jsonFile);
+            const words = await response.json(); // Expecting [{ "word": "...", "sentence": "..." }, ...]
+            const container = document.getElementById('buttonContainer');
+
+            words.forEach((item, index) => {
+                const { word, sentence } = item;
+
+                const lineDiv = document.createElement('div');
+                lineDiv.style.marginBottom = "12px";
+
+                const button = document.createElement('button');
+                button.textContent = index + 1;
+                button.classList.add('button');
+
+                const checkButton = document.createElement('button');
+                checkButton.textContent = "Check";
+                checkButton.classList.add('button');
+                checkButton.style.display = "none";
+
+                const revealSpan = document.createElement('span');
+                revealSpan.style.marginLeft = "10px";
+                revealSpan.style.fontWeight = "bold";
+                revealSpan.style.fontSize = "24px";
+
+                button.onclick = async function() {
+                    checkButton.style.display = "none";
+                    revealSpan.textContent = "";
+
+                     if (typeof AndroidTTS !== 'undefined') {
+                        try {
+                            readText(word, lang);
+                            await wait(3000); // Adjust based on word duration
+                            readText(sentence, lang);
+                            await wait(3000); // Adjust based on sentence duration
+                            checkButton.style.display = "inline-block";
+                        } catch (error) {
+                            console.error("Error in TTS sequence:", error);
+                            checkButton.style.display = "inline-block";
+                        }
+                    } else {
+                    readText(word, lang, () => {
+                        setTimeout(() => {
+                            readText(sentence, lang, () => {
+                                setTimeout(() => {
+                                    checkButton.style.display = "inline-block";
+                                }, 1000);
+                            });
+                        }, 1000); // 1 second pause between word and sentence
+                    });
+                    }
+                };
+
+                checkButton.onclick = function() {
+                    revealSpan.textContent = word;
+
+                    // If this is the last word, show a Close button
+                    if (index === words.length - 1) {
+                        // Create the Close button if it doesn't exist
+                        let closeBtn = document.getElementById('dictationCloseBtn');
+                        if (!closeBtn) {
+                            // Add a line break before the button
+                            lineDiv.appendChild(document.createElement('br'));
+
+                            closeBtn = document.createElement('button');
+                            closeBtn.id = 'dictationCloseBtn';
+                            closeBtn.textContent = 'Close';
+                            closeBtn.className = 'button';
+                            closeBtn.style.marginLeft = "20px";
+                            closeBtn.onclick = function() {
+                                if (window.parent && window.parent !== window) {
+                                    window.parent.postMessage({ type: "gameCompleted" }, "*");
+                                }
+                            };
+                            lineDiv.appendChild(closeBtn);
+                        }
+                        closeBtn.style.display = 'inline-block';
+                    }
+                };
+
+                lineDiv.appendChild(button);
+                lineDiv.appendChild(checkButton);
+                lineDiv.appendChild(revealSpan);
+                container.appendChild(lineDiv);
+            });
+        } catch (error) {
+            console.error('Error loading words:', error);
+            alert('Error loading words. Ensure the JSON file exists and is formatted correctly.');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadWords);
+    </script>
+</body>
+</html>

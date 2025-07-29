@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Audio Match Game</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../common.js" defer></script>
+</head>
+<body>
+    <button class="button" onclick="goBack()">&lt; Back</button>
+    <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
+    <h1>Match the Sound to the Word!</h1>
+    <button class="button" id="playButton" onclick="playSound()">Play Sound</button>
+    <div id="choices"></div>
+    <div id="stars"></div>
+    <div id="feedback" class="feedback"></div>
+    
+    <script>
+        let correctCount = 0;
+        let soundData = [];
+        let currentWordData = {};
+
+        async function loadData() {
+            try {
+                const response = await fetch("englishData.json");
+                soundData = await response.json();
+                nextRound();
+            } catch (error) {
+                console.error("Error loading sound data:", error);
+            }
+        }
+
+        // Function to get a random word object from the JSON data
+        function getRandomWord() {
+            return soundData[Math.floor(Math.random() * soundData.length)];
+        }
+
+        // Function to play the correct word using TTS
+        function playSound() {
+            const utterance = new SpeechSynthesisUtterance(currentWordData.correctWord);
+            
+            utterance.lang = "en-US"; // You can change this for other languages (e.g., "fr-FR" for French)
+            
+            // Adjust the rate (speed) of the speech (1 is normal speed, 0.5 is slower)
+            utterance.rate = 0.5;  // Set it to a value less than 1 for slower speech
+
+            // Optionally, you can adjust the pitch and volume as well
+            utterance.pitch = 1;   // Normal pitch, range from 0 to 2
+            utterance.volume = 1;  // Volume, range from 0 to 1
+            
+            speechSynthesis.speak(utterance);
+            //common.readText(currentWordData.correctWord);
+        }
+
+        // Function to handle when the user selects a choice
+        function handleChoice(choice) {
+            const feedback = document.getElementById("feedback");
+            if (choice === currentWordData.correctWord) {
+                feedback.innerHTML = "⭐";
+                correctCount++;
+                document.getElementById("stars").innerHTML += "⭐";
+                if (correctCount < 1) {
+                    setTimeout(nextRound, 1000);
+                } else {
+                    document.getElementById("choices").innerHTML = "<h2>Game Over! 🎉</h2>";
+                    const playButton = document.getElementById("playButton");
+                    playButton.innerHTML = "Play Again";
+                    playButton.setAttribute("onclick", "resetGame()");
+                    // Send a message to the parent window when the game is completed
+                    window.parent.postMessage({ type: "gameCompleted" }, "*");
+                }
+            } else {
+                feedback.innerHTML = "☹️";
+                highlightCorrectAnswer();
+                setTimeout(() => {
+                    feedback.innerHTML = "";
+                    nextRound();
+                }, 2000);
+            }
+        }
+
+        // Function to highlight the correct answer when the player gets it wrong
+        function highlightCorrectAnswer() {
+            document.querySelectorAll(".button").forEach(btn => {
+                if (btn.innerText === currentWordData.correctWord) {
+                    btn.style.backgroundColor = "lightgreen";
+                    setTimeout(() => btn.style.backgroundColor = "#6ac2ff", 2000);
+                }
+            });
+        }
+
+        // Function to move to the next round
+        function nextRound() {
+            currentWordData = getRandomWord();
+            updateChoices(currentWordData.choicesList);
+            document.getElementById("feedback").innerHTML = "";
+            const playButton = document.getElementById("playButton");
+            playButton.innerHTML = "Play Sound";
+            playButton.setAttribute("onclick", "playSound()");
+        }
+
+        // Function to update the choices dynamically based on the choicesList from the JSON file
+        function updateChoices(choices) {
+            const choicesDiv = document.getElementById("choices");
+            choicesDiv.innerHTML = "";
+
+            // Ensure the correct word is included and randomly place it within the choices
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            choices.splice(randomIndex, 0, currentWordData.correctWord); // Insert the correct word at a random position
+
+            choices.sort(() => Math.random() - 0.5); // Shuffle the choices for added randomness
+
+            choices.forEach(choice => {
+                const btn = document.createElement("button");
+                btn.innerText = choice;
+                btn.className = "button";
+                btn.onclick = () => handleChoice(choice);
+                choicesDiv.appendChild(btn);
+            });
+        }
+
+        // Function to reset the game and restart
+        function resetGame() {
+            correctCount = 0;
+            document.getElementById("stars").innerHTML = "";
+            document.getElementById("feedback").innerHTML = "";
+            const playButton = document.getElementById("playButton");
+            playButton.innerHTML = "Play Sound";
+            playButton.setAttribute("onclick", "playSound()");
+            nextRound();
+        }
+
+        // Start the game when the page loads
+        window.onload = loadData;
+    </script>
+</body>
+</html>

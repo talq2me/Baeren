@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Code Checker</title>
+    <script src="../codeGenerator/unlockCodePiece.js"></script>
+</head>
+<body>
+    <h1>Daily Code Checker</h1>
+    <input id="kidInput" placeholder="Enter kid1 or kid2">
+    <button onclick="checkCode()">Check Code</button>
+
+    <p id="result"></p>
+
+    <script>
+        function checkCode() {
+            const kidId = document.getElementById("kidInput").value.trim();
+            const codes = getTodayCodes();
+            const result = codes[kidId] || "Kid not found.";
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handwriting Practice</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../commonCode.js"></script>
+    <style>
+        .game-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .lined-paper {
+            background: white;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+            width: 100%;
+            min-width: 100%;
+        }
+        
+        .paper-lines {
+            position: relative;
+            min-height: 120px;
+        }
+        
+        .paper-lines::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: 
+                linear-gradient(to bottom, transparent 0%, transparent 9px, #1e90ff 9px, #1e90ff 11px, transparent 11px, transparent 28px, #87ceeb 28px, #87ceeb 30px, transparent 30px, transparent 47px, #87ceeb 47px, #87ceeb 49px, transparent 49px, transparent 64px, #1e90ff 64px, #1e90ff 66px, transparent 66px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .sentence-container {
+            position: relative;
+            z-index: 1;
+            padding: 0 10px;
+            width: 100%;
+            min-width: 100%;
+        }
+        
+        .sentence-text {
+            font-family: 'Comic Sans MS', 'Chalkboard', 'Arial Rounded MT Bold', sans-serif;
+            font-size: 48px;
+            line-height: 60px;
+            color: #333;
+            text-align: center;
+            padding: 0 10px;
+            position: relative;
+            z-index: 1;
+            margin-top: 0; /* Reset margin */
+            width: 100%;
+            min-width: 100%;
+            white-space: nowrap;
+        }
+        
+        .sentence-text .tall-letter {
+            font-size: 48px;
+            line-height: 60px;
+            color: #333;
+            font-weight: normal;
+            vertical-align: baseline;
+            font-family: 'Comic Sans MS', 'Chalkboard', 'Arial Rounded MT Bold', sans-serif;
+            /* Tall letters go from top line to second line from bottom */
+        }
+        
+        .sentence-text .descender {
+            font-size: 48px;
+            line-height: 60px;
+            color: #333;
+            font-weight: normal;
+            vertical-align: baseline;
+            /* Descender letters go from bottom line to second line from top */
+        }
+        
+        .sentence-text .normal {
+            font-size: 48px;
+            line-height: 60px;
+            color: #333;
+            font-weight: normal;
+            vertical-align: baseline;
+            /* Normal letters go between the two middle lines */
+        }
+        
+        .legend {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+        
+        .legend-item {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        
+        .legend-tall {
+            color: #333;
+            font-weight: normal;
+        }
+        
+        .legend-descender {
+            color: #333;
+            font-weight: normal;
+        }
+        
+        .legend-normal {
+            color: #333;
+            font-weight: normal;
+        }
+        
+        .close-button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button class="button" onclick="history.back()">&lt; Back</button>
+    <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
+    
+    <div class="game-container">
+        <h1>Handwriting Practice</h1>
+        
+        <div class="legend">
+            <span class="legend-item">
+                <span class="legend-tall">Tall letters</span> (b, d, f, h, k, l, t) - go from top line to second line from bottom
+            </span>
+            <span class="legend-item">
+                <span class="legend-normal">Normal letters</span> (a, c, e, i, m, n, o, r, s, u, v, w, x, z) - go between the two middle lines
+            </span>
+            <span class="legend-item">
+                <span class="legend-descender">Descender letters</span> (g, j, p, q, y) - go from bottom line to second line from top
+            </span>
+        </div>
+        
+        <div class="lined-paper">
+            <div class="paper-lines">
+                <div class="sentence-container">
+                    <div class="sentence-text" id="sentenceText">
+                        <!-- Sentence will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="close-button">
+            <button class="button green-button" onclick="closeGame()">I'm Done Writing</button>
+        </div>
+    </div>
+
+    <script>
+        // Load sentences from JSON file
+        let dailySentences = [];
+        
+        async function loadSentences() {
+            try {
+                console.log('Loading sentences from JSON...');
+                const response = await fetch('handwritingSentences.json');
+                console.log('Response status:', response.status);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                console.log('Loaded sentences:', data);
+                dailySentences = data.sentences;
+                displaySentence();
+            } catch (error) {
+                console.error('Error loading sentences:', error);
+                // Fallback sentences if JSON fails to load
+                dailySentences = [
+                    "The quick brown fox jumps over the lazy dog.",
+                    "My cat likes to sleep in the warm sunshine.",
+                    "We went to the park and played on the swings."
+                ];
+                displaySentence();
+            }
+        }
+
+        // Letter classification for proper sizing
+        const tallLetters = ['b', 'd', 'f', 'h', 'k', 'l', 't'];
+        const descenderLetters = ['g', 'j', 'p', 'q', 'y'];
+        const normalLetters = ['a', 'c', 'e', 'i', 'm', 'n', 'o', 'r', 's', 'u', 'v', 'w', 'x', 'z'];
+
+        function formatSentenceWithSizing(sentence) {
+            let formattedSentence = '';
+            
+            for (let i = 0; i < sentence.length; i++) {
+                const char = sentence[i];
+                const lowerChar = char.toLowerCase();
+                
+                if (tallLetters.includes(lowerChar)) {
+                    formattedSentence += `<span class="tall-letter">${char}</span>`;
+                } else if (descenderLetters.includes(lowerChar)) {
+                    formattedSentence += `<span class="descender">${char}</span>`;
+                } else if (lowerChar === ' ') {
+                    formattedSentence += ' ';
+                } else {
+                    formattedSentence += `<span class="normal">${char}</span>`;
+                }
+            }
+            
+            return formattedSentence;
+        }
+
+        function displaySentence() {
+            const sentence = getDailySentence();
+            const formattedSentence = formatSentenceWithSizing(sentence);
+            document.getElementById('sentenceText').innerHTML = formattedSentence;
+        }
+
+        function getDailySentence() {
+            // Get today's date and use it to select a sentence
+            const today = new Date();
+            const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+            const sentenceIndex = dayOfYear % dailySentences.length;
+            console.log('Day of year:', dayOfYear, 'Sentence index:', sentenceIndex, 'Total sentences:', dailySentences.length);
+            return dailySentences[sentenceIndex];
+        }
+
+        function closeGame() {
+            // Send game completed message to parent window
+            if (window.parent && window.parent !== window) {
+                window.parent.postMessage({ type: 'gameCompleted' }, '*');
+            }
+            
+            // Close modal and return to launching page
+            if (window.parent && window.parent !== window) {
+                // We're in an iframe, close the modal
+                window.parent.postMessage({ type: 'closeModal' }, '*');
+            } else {
+                // We're not in an iframe, go back
+                history.back();
+            }
+        }
+
+        // Initialize the game
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSentences();
+        });
+    </script>
+</body>
+</html> 

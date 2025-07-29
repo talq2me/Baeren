@@ -1,0 +1,1294 @@
+[
+    {
+      "correctWord": "a",
+      "choicesList": ["an", "at", "in", "on"]
+    },
+    {
+      "correctWord": "and",
+      "choicesList": ["end", "add", "band", "sand"]
+    },
+    {
+      "correctWord": "big",
+      "choicesList": ["bag", "dig", "pig", "bug"]
+    },
+    {
+      "correctWord": "can",
+      "choicesList": ["cat", "cap", "man", "ran"]
+    },
+    {
+      "correctWord": "come",
+      "choicesList": ["some", "home", "game", "gum"]
+    },
+    {
+      "correctWord": "for",
+      "choicesList": ["far", "form", "four", "fort"]
+    },
+    {
+      "correctWord": "help",
+      "choicesList": ["hop", "held", "hemp", "yelp"]
+    },
+    {
+      "correctWord": "here",
+      "choicesList": ["her", "hare", "hire", "hero"]
+    },
+    {
+      "correctWord": "I",
+      "choicesList": ["in", "if", "is", "it"]
+    },
+    {
+      "correctWord": "is",
+      "choicesList": ["his", "it", "as", "us"]
+    },
+    {
+      "correctWord": "jump",
+      "choicesList": ["lump", "bump", "pump", "dump"]
+    },
+    {
+      "correctWord": "make",
+      "choicesList": ["take", "lake", "bake", "wake"]
+    },
+    {
+      "correctWord": "not",
+      "choicesList": ["dot", "hot", "lot", "net"]
+    },
+    {
+      "correctWord": "one",
+      "choicesList": ["none", "bone", "cone", "gone"]
+    },
+    {
+      "correctWord": "play",
+      "choicesList": ["plan", "stay", "pray", "clay"]
+    },
+    {
+      "correctWord": "run",
+      "choicesList": ["fun", "bun", "rug", "rub"]
+    },
+    {
+      "correctWord": "see",
+      "choicesList": ["bee", "seed", "seek", "seem"]
+    },
+    {
+      "correctWord": "the",
+      "choicesList": ["then", "them", "they", "that"]
+    },
+    {
+      "correctWord": "to",
+      "choicesList": ["do", "go", "so", "no"]
+    },
+    {
+      "correctWord": "we",
+      "choicesList": ["me", "he", "be", "she"]
+    },
+    {
+      "correctWord": "you",
+      "choicesList": ["your", "young", "yup", "use"]
+    },
+    {
+      "correctWord": "go",
+      "choicesList": ["got", "get", "give", "guy"]
+    },
+    {
+      "correctWord": "it",
+      "choicesList": ["if", "in", "is", "at"]
+    },
+    {
+      "correctWord": "me",
+      "choicesList": ["my", "may", "mean", "men"]
+    },
+    {
+      "correctWord": "up",
+      "choicesList": ["cup", "pup", "map", "tap"]
+    },
+    {
+      "correctWord": "about",
+      "choicesList": ["shout", "doubt", "sprout", "scout"]
+    },
+    {
+      "correctWord": "after",
+      "choicesList": ["faster", "master", "chapter", "actor"]
+    },
+    {
+      "correctWord": "again",
+      "choicesList": ["gain", "begin", "against", "brain"]
+    },
+    {
+      "correctWord": "any",
+      "choicesList": ["many", "penny", "funny", "tiny"]
+    },
+    {
+      "correctWord": "ask",
+      "choicesList": ["mask", "task", "flask", "risk"]
+    },
+    {
+      "correctWord": "because",
+      "choicesList": ["pause", "cause", "house", "blouse"]
+    },
+    {
+      "correctWord": "before",
+      "choicesList": ["store", "shore", "explore", "score"]
+    },
+    {
+      "correctWord": "best",
+      "choicesList": ["rest", "nest", "chest", "pest"]
+    },
+    {
+      "correctWord": "both",
+      "choicesList": ["cloth", "moth", "sloth", "broth"]
+    },
+    {
+      "correctWord": "could",
+      "choicesList": ["would", "should", "cloud", "count"]
+    },
+    {
+      "correctWord": "does",
+      "choicesList": ["goes", "toes", "dress", "dust"]
+    },
+    {
+      "correctWord": "every",
+      "choicesList": ["very", "heavy", "berry", "merry"]
+    },
+    {
+      "correctWord": "first",
+      "choicesList": ["thirst", "burst", "worst", "shirt"]
+    },
+    {
+      "correctWord": "found",
+      "choicesList": ["round", "sound", "bound", "pound"]
+    },
+    {
+      "correctWord": "great",
+      "choicesList": ["gate", "crate", "treat", "grape"]
+    },
+    {
+      "correctWord": "know",
+      "choicesList": ["snow", "grow", "throw", "glow"]
+    },
+    {
+      "correctWord": "little",
+      "choicesList": ["brittle", "middle", "fiddle", "riddle"]
+    },
+    {
+      "correctWord": "long",
+      "choicesList": ["song", "strong", "belong", "wrong"]
+    },
+    {
+      "correctWord": "many",
+      "choicesList": ["penny", "tiny", "funny", "bunny"]
+    },
+    {
+      "correctWord": "more",
+      "choicesList": ["store", "shore", "explore", "score"]
+    },
+    {
+      "correctWord": "over",
+      "choicesList": ["cover", "hover", "lover", "mover"]
+    },
+    {
+      "correctWord": "small",
+      "choicesList": ["stall", "tall", "call", "wall"]
+    },
+    {
+      "correctWord": "their",
+      "choicesList": ["they", "where", "stare", "scare"]
+    },
+    {
+      "correctWord": "these",
+      "choicesList": ["those", "three", "theme", "cheese"]
+    },
+    {
+      "correctWord": "very",
+      "choicesList": ["every", "berry", "cherry", "merry"]
+    },
+    {
+      "correctWord": "walk",
+      "choicesList": ["talk", "chalk", "stalk", "balk"]
+    },
+    {
+      "correctWord": "write",
+      "choicesList": ["white", "quite", "might", "kite"]
+    },
+    {
+      "correctWord": "then",
+      "choicesList": ["them", "than", "that", "this"]
+    },
+    {
+      "correctWord": "they",
+      "choicesList": ["the", "they're", "there", "thou"]
+    },
+    {
+      "correctWord": "that",
+      "choicesList": ["this", "than", "these", "those"]
+    },
+    {
+      "correctWord": "this",
+      "choicesList": ["these", "there", "that", "thin"]
+    },
+    {
+      "correctWord": "come",
+      "choicesList": ["some", "home", "game", "gum"]
+    },
+    {
+      "correctWord": "play",
+      "choicesList": ["day", "may", "say", "stay"]
+    },
+    {
+      "correctWord": "run",
+      "choicesList": ["fun", "sun", "bun", "gun"]
+    },
+    {
+      "correctWord": "see",
+      "choicesList": ["bee", "knee", "tree", "key"]
+    },
+    {
+      "correctWord": "big",
+      "choicesList": ["dig", "fig", "wig", "jig"]
+    },
+    {
+      "correctWord": "make",
+      "choicesList": ["lake", "take", "bake", "rake"]
+    },
+    {
+      "correctWord": "red",
+      "choicesList": ["bed", "led", "fed", "wed"]
+    },
+    {
+      "correctWord": "look",
+      "choicesList": ["book", "cook", "hook", "took"]
+    },
+    {
+      "correctWord": "blue",
+      "choicesList": ["clue", "glue", "true", "stew"]
+    },
+    {
+      "correctWord": "help",
+      "choicesList": ["yelp", "kelp", "pulp", "gulp"]
+    },
+    {
+      "correctWord": "jump",
+      "choicesList": ["bump", "lump", "hump", "pump"]
+    },
+    {
+      "correctWord": "away",
+      "choicesList": ["gray", "clay", "tray", "bay"]
+    },
+    {
+      "correctWord": "down",
+      "choicesList": ["brown", "crown", "town", "frown"]
+    },
+    {
+      "correctWord": "yellow",
+      "choicesList": ["mellow", "pillow", "shallow", "bellow"]
+    },
+    {
+      "correctWord": "ride",
+      "choicesList": ["hide", "wide", "slide", "bride"]
+    },
+    {
+      "correctWord": "like",
+      "choicesList": ["bike", "hike", "spike", "strike"]
+    },
+    {
+      "correctWord": "funny",
+      "choicesList": ["bunny", "sunny", "money", "runny"]
+    },
+    {
+      "correctWord": "find",
+      "choicesList": ["kind", "mind", "wind", "blind"]
+    },
+    {
+      "correctWord": "pretty",
+      "choicesList": ["gritty", "witty", "city", "ditty"]
+    },
+    {
+      "correctWord": "good",
+      "choicesList": ["wood", "hood", "stood", "could"]
+    },
+    {
+      "correctWord": "me",
+      "choicesList": ["he", "we", "be", "she"]
+    },
+    {
+      "correctWord": "you",
+      "choicesList": ["zoo", "boo", "shoe", "do"]
+    },
+    {
+      "correctWord": "not",
+      "choicesList": ["got", "hot", "pot", "dot"]
+    },
+    {
+      "correctWord": "it",
+      "choicesList": ["bit", "kit", "lit", "sit"]
+    },
+    {
+      "correctWord": "can",
+      "choicesList": ["man", "pan", "tan", "fan"]
+    },
+    {
+      "correctWord": "my",
+      "choicesList": ["by", "cry", "fly", "try"]
+    },
+    {
+      "correctWord": "we",
+      "choicesList": ["me", "be", "she", "he"]
+    },
+    {
+      "correctWord": "said",
+      "choicesList": ["paid", "laid", "maid", "raid"]
+    },
+    {
+      "correctWord": "she",
+      "choicesList": ["bee", "knee", "see", "tree"]
+    },
+    {
+      "correctWord": "go",
+      "choicesList": ["so", "no", "low", "show"]
+    },
+    {
+      "correctWord": "up",
+      "choicesList": ["cup", "pup", "yup", "sup"]
+    },
+    {
+      "correctWord": "is",
+      "choicesList": ["his", "this", "kiss", "miss"]
+    },
+    {
+      "correctWord": "am",
+      "choicesList": ["ham", "ram", "clam", "slam"]
+    },
+    {
+      "correctWord": "yes",
+      "choicesList": ["mess", "guess", "dress", "less"]
+    },
+    {
+      "correctWord": "no",
+      "choicesList": ["go", "so", "toe", "low"]
+    },
+    {
+      "correctWord": "do",
+      "choicesList": ["to", "zoo", "who", "too"]
+    },
+    {
+      "correctWord": "be",
+      "choicesList": ["we", "me", "he", "she"]
+    },
+    {
+      "correctWord": "on",
+      "choicesList": ["gone", "don", "con", "ton"]
+    },
+    {
+      "correctWord": "all",
+      "choicesList": ["ball", "call", "tall", "fall"]
+    },
+    {
+      "correctWord": "are",
+      "choicesList": ["bar", "car", "far", "star"]
+    },
+    {
+      "correctWord": "get",
+      "choicesList": ["pet", "bet", "net", "wet"]
+    },
+    {
+      "correctWord": "new",
+      "choicesList": ["few", "stew", "blew", "chew"]
+    },
+    {
+      "correctWord": "now",
+      "choicesList": ["how", "cow", "plow", "wow"]
+    },
+    {
+      "correctWord": "eat",
+      "choicesList": ["seat", "neat", "heat", "treat"]
+    },
+    {
+      "correctWord": "ask",
+      "choicesList": ["task", "mask", "flask", "bask"]
+    },
+    {
+      "correctWord": "take",
+      "choicesList": ["cake", "rake", "lake", "fake"]
+    },
+    {
+      "correctWord": "give",
+      "choicesList": ["live", "hive", "dive", "five"]
+    },
+    {
+      "correctWord": "brown",
+      "choicesList": ["clown", "crown", "frown", "town"]
+    },
+    {
+      "correctWord": "black",
+      "choicesList": ["back", "snack", "track", "crack"]
+    },
+    {
+      "correctWord": "white",
+      "choicesList": ["kite", "bite", "sight", "write"]
+    },
+    {
+      "correctWord": "must",
+      "choicesList": ["rust", "dust", "trust", "bust"]
+    },
+    {
+      "correctWord": "soon",
+      "choicesList": ["moon", "noon", "spoon", "loon"]
+    },
+    {
+      "correctWord": "came",
+      "choicesList": ["same", "name", "tame", "blame"]
+    },
+    {
+      "correctWord": "into",
+      "choicesList": ["onto", "unto", "pseudo", "info"]
+    },
+    {
+      "correctWord": "over",
+      "choicesList": ["clover", "rover", "hover", "cover"]
+    },
+    {
+      "correctWord": "after",
+      "choicesList": ["laughter", "chapter", "rafters", "crafter"]
+    },
+    {
+      "correctWord": "where",
+      "choicesList": ["there", "share", "care", "dare"]
+    },
+    {
+      "correctWord": "went",
+      "choicesList": ["bent", "tent", "sent", "rent"]
+    },
+    {
+      "correctWord": "our",
+      "choicesList": ["hour", "flower", "power", "sour"]
+    },
+    {
+      "correctWord": "out",
+      "choicesList": ["shout", "pout", "scout", "doubt"]
+    },{
+      "correctWord": "was",
+      "choicesList": ["buzz", "fuzz", "does", "jazz"]
+    },
+    {
+      "correctWord": "had",
+      "choicesList": ["bad", "dad", "mad", "pad"]
+    },
+    {
+      "correctWord": "an",
+      "choicesList": ["man", "pan", "fan", "tan"]
+    },
+    {
+      "correctWord": "by",
+      "choicesList": ["cry", "fly", "try", "sky"]
+    },
+    {
+      "correctWord": "her",
+      "choicesList": ["fur", "purr", "sir", "blur"]
+    },
+    {
+      "correctWord": "him",
+      "choicesList": ["rim", "slim", "dim", "grim"]
+    },
+    {
+      "correctWord": "his",
+      "choicesList": ["miss", "kiss", "this", "list"]
+    },
+    {
+      "correctWord": "let",
+      "choicesList": ["net", "pet", "jet", "vet"]
+    },
+    {
+      "correctWord": "man",
+      "choicesList": ["can", "ran", "tan", "van"]
+    },
+    {
+      "correctWord": "off",
+      "choicesList": ["cough", "loft", "soft", "moss"]
+    },
+    {
+      "correctWord": "old",
+      "choicesList": ["cold", "gold", "bold", "told"]
+    },
+    {
+      "correctWord": "open",
+      "choicesList": ["hopin", "token", "broken", "awoken"]
+    },
+    {
+      "correctWord": "put",
+      "choicesList": ["cut", "hut", "shut", "gut"]
+    },
+    {
+      "correctWord": "round",
+      "choicesList": ["sound", "pound", "found", "bound"]
+    },
+    {
+      "correctWord": "some",
+      "choicesList": ["gum", "drum", "sum", "thumb"]
+    },
+    {
+      "correctWord": "stop",
+      "choicesList": ["hop", "pop", "top", "mop"]
+    },
+    {
+      "correctWord": "thank",
+      "choicesList": ["bank", "tank", "rank", "crank"]
+    },
+    {
+      "correctWord": "them",
+      "choicesList": ["gem", "stem", "phlegm", "helm"]
+    },
+    {
+      "correctWord": "then",
+      "choicesList": ["when", "pen", "den", "ten"]
+    },
+    {
+      "correctWord": "walk",
+      "choicesList": ["talk", "chalk", "stalk", "balk"]
+    },
+    {
+      "correctWord": "well",
+      "choicesList": ["bell", "fell", "tell", "sell"]
+    },
+    {
+      "correctWord": "will",
+      "choicesList": ["hill", "fill", "chill", "drill"]
+    },
+    {
+      "correctWord": "with",
+      "choicesList": ["myth", "smith", "pith", "kith"]
+    },
+    {
+      "correctWord": "yes",
+      "choicesList": ["guess", "mess", "press", "dress"]
+    },
+    {
+      "correctWord": "name",
+      "choicesList": ["game", "same", "tame", "flame"]
+    },
+    {
+      "correctWord": "live",
+      "choicesList": ["give", "five", "dive", "drive"]
+    },
+    {
+      "correctWord": "home",
+      "choicesList": ["dome", "roam", "foam", "gnome"]
+    },
+    {
+      "correctWord": "every",
+      "choicesList": ["very", "cherry", "berry", "ferry"]
+    },
+    {
+      "correctWord": "could",
+      "choicesList": ["should", "would", "wood", "stood"]
+    },
+    {
+      "correctWord": "were",
+      "choicesList": ["fur", "purr", "blur", "cure"]
+    },
+    {
+      "correctWord": "ask",
+      "choicesList": ["mask", "task", "flask", "bask"]
+    },
+    {
+      "correctWord": "back",
+      "choicesList": ["pack", "snack", "lack", "track"]
+    },
+    {
+      "correctWord": "bring",
+      "choicesList": ["ring", "sting", "king", "thing"]
+    },
+    {
+      "correctWord": "call",
+      "choicesList": ["tall", "ball", "fall", "mall"]
+    },
+    {
+      "correctWord": "clean",
+      "choicesList": ["mean", "seen", "green", "queen"]
+    },
+    {
+      "correctWord": "cut",
+      "choicesList": ["hut", "shut", "gut", "nut"]
+    },
+    {
+      "correctWord": "done",
+      "choicesList": ["none", "sun", "ton", "run"]
+    },
+    {
+      "correctWord": "draw",
+      "choicesList": ["claw", "flaw", "saw", "paw"]
+    },
+    {
+      "correctWord": "drink",
+      "choicesList": ["sink", "wink", "think", "link"]
+    },
+    {
+      "correctWord": "fall",
+      "choicesList": ["mall", "tall", "call", "hall"]
+    },
+    {
+      "correctWord": "full",
+      "choicesList": ["pull", "dull", "bull", "null"]
+    },
+    {
+      "correctWord": "got",
+      "choicesList": ["hot", "lot", "pot", "not"]
+    },
+    {
+      "correctWord": "grow",
+      "choicesList": ["show", "snow", "throw", "glow"]
+    },
+    {
+      "correctWord": "hold",
+      "choicesList": ["cold", "gold", "bold", "fold"]
+    },
+    {
+      "correctWord": "if",
+      "choicesList": ["sniff", "cliff", "stiff", "whiff"]
+    },
+    {
+      "correctWord": "kind",
+      "choicesList": ["find", "blind", "mind", "grind"]
+    },
+    {
+      "correctWord": "laugh",
+      "choicesList": ["graph", "calf", "staff", "half"]
+    },
+    {
+      "correctWord": "light",
+      "choicesList": ["night", "tight", "flight", "bright"]
+    },
+    {
+      "correctWord": "long",
+      "choicesList": ["song", "wrong", "strong", "gong"]
+    },
+    {
+      "correctWord": "much",
+      "choicesList": ["touch", "such", "hutch", "clutch"]
+    },
+    {
+      "correctWord": "never",
+      "choicesList": ["clever", "forever", "whenever", "however"]
+    },
+    {
+      "correctWord": "only",
+      "choicesList": ["lonely", "slowly", "holy", "folly"]
+    },
+    {
+      "correctWord": "own",
+      "choicesList": ["loan", "cone", "bone", "tone"]
+    },
+    {
+      "correctWord": "pick",
+      "choicesList": ["brick", "stick", "kick", "lick"]
+    },
+    {
+      "correctWord": "read",
+      "choicesList": ["lead", "bead", "head", "fed"]
+    },
+    {
+      "correctWord": "show",
+      "choicesList": ["glow", "snow", "throw", "know"]
+    },
+    {
+      "correctWord": "sing",
+      "choicesList": ["wing", "thing", "king", "sting"]
+    },
+    {
+      "correctWord": "sit",
+      "choicesList": ["bit", "kit", "lit", "hit"]
+    },
+    {
+      "correctWord": "think",
+      "choicesList": ["link", "wink", "sink", "blink"]
+    },
+    {
+      "correctWord": "try",
+      "choicesList": ["cry", "fly", "sky", "spy"]
+    },
+    {
+      "correctWord": "again",
+      "choicesList": ["plain", "rain", "train", "main"]
+    },
+    {
+      "correctWord": "always",
+      "choicesList": ["hallways", "sideways", "nowadays", "runways"]
+    },
+    {
+      "correctWord": "best",
+      "choicesList": ["rest", "nest", "test", "guest"]
+    },
+    {
+      "correctWord": "both",
+      "choicesList": ["moth", "sloth", "growth", "froth"]
+    },
+    {
+      "correctWord": "buy",
+      "choicesList": ["guy", "cry", "sky", "my"]
+    },
+    {
+      "correctWord": "cold",
+      "choicesList": ["told", "gold", "bold", "fold"]
+    },
+    {
+      "correctWord": "does",
+      "choicesList": ["buzz", "fuzz", "was", "plus"]
+    },
+    {
+      "correctWord": "fast",
+      "choicesList": ["last", "past", "cast", "mast"]
+    },
+    {
+      "correctWord": "five",
+      "choicesList": ["hive", "dive", "live", "strive"]
+    },
+    {
+      "correctWord": "found",
+      "choicesList": ["ground", "pound", "sound", "bound"]
+    },
+    {
+      "correctWord": "gave",
+      "choicesList": ["save", "wave", "brave", "cave"]
+    },
+    {
+      "correctWord": "goes",
+      "choicesList": ["toes", "rose", "nose", "close"]
+    },
+    {
+      "correctWord": "green",
+      "choicesList": ["queen", "seen", "bean", "screen"]
+    },
+    {
+      "correctWord": "its",
+      "choicesList": ["bits", "hits", "sits", "fits"]
+    },
+    {
+      "correctWord": "keep",
+      "choicesList": ["deep", "sleep", "sheep", "leap"]
+    },
+    {
+      "correctWord": "left",
+      "choicesList": ["deft", "theft", "cleft", "lift"]
+    },
+    {
+      "correctWord": "made",
+      "choicesList": ["shade", "blade", "trade", "fade"]
+    },
+    {
+      "correctWord": "much",
+      "choicesList": ["touch", "such", "hutch", "clutch"]
+    },
+    {
+      "correctWord": "only",
+      "choicesList": ["lonely", "slowly", "holy", "wholly"]
+    },
+    {
+      "correctWord": "right",
+      "choicesList": ["night", "light", "tight", "fight"]
+    },
+    {
+      "correctWord": "sing",
+      "choicesList": ["wing", "ring", "king", "thing"]
+    },
+    {
+      "correctWord": "sit",
+      "choicesList": ["bit", "fit", "lit", "kit"]
+    },
+    {
+      "correctWord": "six",
+      "choicesList": ["mix", "fix", "kicks", "sticks"]
+    },
+    {
+      "correctWord": "small",
+      "choicesList": ["tall", "fall", "hall", "wall"]
+    },
+    {
+      "correctWord": "ten",
+      "choicesList": ["hen", "pen", "den", "men"]
+    },
+    {
+      "correctWord": "these",
+      "choicesList": ["please", "cheese", "breeze", "seize"]
+    },
+    {
+      "correctWord": "those",
+      "choicesList": ["close", "rose", "nose", "chose"]
+    },
+    {
+      "correctWord": "today",
+      "choicesList": ["play", "stay", "way", "clay"]
+    },
+    {
+      "correctWord": "under",
+      "choicesList": ["wonder", "blunder", "plunder", "thunder"]
+    },
+    {
+      "correctWord": "walk",
+      "choicesList": ["chalk", "talk", "stalk", "hawk"]
+    }, 
+    {
+      "correctWord": "after",
+      "choicesList": ["laughter", "craft her", "rafter", "chapter"]
+    },
+    {
+      "correctWord": "again",
+      "choicesList": ["rain", "train", "main", "plain"]
+    },
+    {
+      "correctWord": "an",
+      "choicesList": ["can", "fan", "man", "pan"]
+    },
+    {
+      "correctWord": "any",
+      "choicesList": ["many", "bunny", "sunny", "funny"]
+    },
+    {
+      "correctWord": "as",
+      "choicesList": ["has", "was", "has", "jazz"]
+    },
+    {
+      "correctWord": "ask",
+      "choicesList": ["mask", "task", "flask", "bask"]
+    },
+    {
+      "correctWord": "by",
+      "choicesList": ["my", "fly", "sky", "cry"]
+    },
+    {
+      "correctWord": "could",
+      "choicesList": ["would", "should", "good", "wood"]
+    },
+    {
+      "correctWord": "every",
+      "choicesList": ["heavy", "bevy", "chevy", "levy"]
+    },
+    {
+      "correctWord": "fly",
+      "choicesList": ["my", "cry", "sky", "why"]
+    },
+    {
+      "correctWord": "from",
+      "choicesList": ["some", "come", "home", "comb"]
+    },
+    {
+      "correctWord": "give",
+      "choicesList": ["live", "give", "shrive", "hive"]
+    },
+    {
+      "correctWord": "going",
+      "choicesList": ["showing", "glowing", "throwing", "knowing"]
+    },
+    {
+      "correctWord": "had",
+      "choicesList": ["mad", "sad", "bad", "rad"]
+    },
+    {
+      "correctWord": "has",
+      "choicesList": ["was", "has", "jazz", "has"]
+    },
+    {
+      "correctWord": "her",
+      "choicesList": ["sir", "fur", "stir", "spur"]
+    },
+    {
+      "correctWord": "him",
+      "choicesList": ["dim", "rim", "slim", "brim"]
+    },
+    {
+      "correctWord": "his",
+      "choicesList": ["this", "kiss", "miss", "bliss"]
+    },
+    {
+      "correctWord": "how",
+      "choicesList": ["now", "cow", "wow", "plow"]
+    },
+    {
+      "correctWord": "just",
+      "choicesList": ["rust", "bust", "dust", "trust"]
+    },
+    {
+      "correctWord": "know",
+      "choicesList": ["snow", "glow", "throw", "show"]
+    },
+    {
+      "correctWord": "let",
+      "choicesList": ["set", "bet", "net", "pet"]
+    },
+    {
+      "correctWord": "live",
+      "choicesList": ["give", "shrive", "hive", "rive"]
+    },
+    {
+      "correctWord": "may",
+      "choicesList": ["bay", "day", "say", "way"]
+    },
+    {
+      "correctWord": "of",
+      "choicesList": ["love", "shove", "above", "glove"]
+    },
+    {
+      "correctWord": "old",
+      "choicesList": ["cold", "gold", "bold", "fold"]
+    },
+    {
+      "correctWord": "once",
+      "choicesList": ["buns", "dunce", "months", "hunts"]
+    },
+    {
+      "correctWord": "open",
+      "choicesList": ["hopin", "mopin", "ropin", "sopin"]
+    },
+    {
+      "correctWord": "over",
+      "choicesList": ["lover", "clover", "hover", "rover"]
+    },
+    {
+      "correctWord": "put",
+      "choicesList": ["but", "cut", "hut", "nut"]
+    },
+    {
+      "correctWord": "round",
+      "choicesList": ["found", "bound", "sound", "ground"]
+    },
+    {
+      "correctWord": "some",
+      "choicesList": ["come", "home", "comb", "dome"]
+    },
+    {
+      "correctWord": "stop",
+      "choicesList": ["top", "pop", "mop", "shop"]
+    },
+    {
+      "correctWord": "take",
+      "choicesList": ["bake", "cake", "lake", "rake"]
+    },
+    {
+      "correctWord": "thank",
+      "choicesList": ["bank", "rank", "tank", "plank"]
+    },
+    {
+      "correctWord": "them",
+      "choicesList": ["gem", "hem", "stem", "rem"]
+    },
+    {
+      "correctWord": "then",
+      "choicesList": ["when", "men", "ten", "den"]
+    },
+    {
+      "correctWord": "think",
+      "choicesList": ["link", "wink", "sink", "blink"]
+    },
+    {
+      "correctWord": "walk",
+      "choicesList": ["talk", "chalk", "stalk", "balk"]
+    },
+    {
+      "correctWord": "were",
+      "choicesList": ["were", "where", "wear", "there"]
+    },
+    {
+      "correctWord": "when",
+      "choicesList": ["then", "men", "ten", "den"]
+    },
+    {
+      "correctWord": "what",
+      "choicesList": ["hat", "bat", "rat", "mat"]
+    },
+    {
+      "correctWord": "white",
+      "choicesList": ["kite", "bite", "site", "rite"]
+    },
+    {
+      "correctWord": "who",
+      "choicesList": ["do", "go", "no", "so"]
+    },
+    {
+      "correctWord": "will",
+      "choicesList": ["fill", "hill", "pill", "still"]
+    },
+    {
+      "correctWord": "with",
+      "choicesList": ["myth", "fifth", "smith", "lith"]
+    },
+    {
+      "correctWord": "yes",
+      "choicesList": ["mess", "guess", "press", "dress"]
+    },
+    {
+      "correctWord": "you",
+      "choicesList": ["too", "do", "go", "no"]
+    },
+    {
+      "correctWord": "your",
+      "choicesList": ["more", "bore", "store", "floor"]
+    },
+    {
+      "correctWord": "a",
+      "choicesList": ["ma", "pa", "fa", "la"]
+    },
+    {
+      "correctWord": "about",
+      "choicesList": ["shout", "doubt", "clout", "spout"]
+    },
+    {
+      "correctWord": "add",
+      "choicesList": ["sad", "mad", "rad", "bad"]
+    },
+    {
+      "correctWord": "after",
+      "choicesList": ["laughter", "rafter", "chapter", "faster"]
+    },
+    {
+      "correctWord": "again",
+      "choicesList": ["train", "plain", "rain", "main"]
+    },
+    {
+      "correctWord": "all",
+      "choicesList": ["fall", "ball", "mall", "call"]
+    },
+    {
+      "correctWord": "am",
+      "choicesList": ["ham", "ram", "clam", "jam"]
+    },
+    {
+      "correctWord": "an",
+      "choicesList": ["can", "man", "fan", "pan"]
+    },
+    {
+      "correctWord": "and",
+      "choicesList": ["sand", "band", "land", "hand"]
+    },
+    {
+      "correctWord": "away",
+      "choicesList": ["say", "play", "day", "bay"]
+    },
+    {
+      "correctWord": "be",
+      "choicesList": ["see", "me", "tree", "free"]
+    },
+    {
+      "correctWord": "because",
+      "choicesList": ["was", "has", "has", "does"]
+    },
+    {
+      "correctWord": "been",
+      "choicesList": ["seen", "green", "queen", "mean"]
+    },
+    {
+      "correctWord": "before",
+      "choicesList": ["more", "store", "bore", "floor"]
+    },
+    {
+      "correctWord": "best",
+      "choicesList": ["nest", "rest", "test", "west"]
+    },
+    {
+      "correctWord": "big",
+      "choicesList": ["fig", "dig", "wig", "jig"]
+    },
+    {
+      "correctWord": "can",
+      "choicesList": ["man", "pan", "fan", "ran"]
+    },
+    {
+      "correctWord": "come",
+      "choicesList": ["home", "some", "game", "gum"]
+    },
+    {
+      "correctWord": "could",
+      "choicesList": ["would", "should", "wood", "good"]
+    },
+    {
+      "correctWord": "day",
+      "choicesList": ["say", "way", "bay", "lay"]
+    },
+    {
+      "correctWord": "down",
+      "choicesList": ["town", "frown", "clown", "crown"]
+    },
+    {
+      "correctWord": "eat",
+      "choicesList": ["beat", "seat", "feet", "meet"]
+    },
+    {
+      "correctWord": "eight",
+      "choicesList": ["weight", "straight", "late", "bait"]
+    },
+    {
+      "correctWord": "even",
+      "choicesList": ["heaven", "seven", "given", "leaven"]
+    },
+    {
+      "correctWord": "fast",
+      "choicesList": ["last", "cast", "past", "mast"]
+    },
+    {
+      "correctWord": "find",
+      "choicesList": ["bind", "kind", "wind", "mind"]
+    },
+    {
+      "correctWord": "for",
+      "choicesList": ["more", "store", "bore", "floor"]
+    },
+    {
+      "correctWord": "from",
+      "choicesList": ["some", "come", "home", "comb"]
+    },
+    {
+      "correctWord": "get",
+      "choicesList": ["bet", "net", "let", "set"]
+    },
+    {
+      "correctWord": "give",
+      "choicesList": ["live", "shrive", "hive", "give"]
+    },
+    {
+      "correctWord": "go",
+      "choicesList": ["no", "so", "do", "to"]
+    },
+    {
+      "correctWord": "good",
+      "choicesList": ["would", "should", "could", "wood"]
+    },
+    {
+      "correctWord": "have",
+      "choicesList": ["save", "wave", "cave", "brave"]
+    },
+    {
+      "correctWord": "he",
+      "choicesList": ["see", "bee", "tree", "me"]
+    },
+    {
+      "correctWord": "help",
+      "choicesList": ["yelp", "kelp", "pelt", "melt"]
+    },
+    {
+      "correctWord": "here",
+      "choicesList": ["dear", "near", "fear", "tear"]
+    },
+    {
+      "correctWord": "how",
+      "choicesList": ["now", "cow", "wow", "plow"]
+    },
+    {
+      "correctWord": "I",
+      "choicesList": ["my", "by", "fly", "sky"]
+    },
+    {
+      "correctWord": "in",
+      "choicesList": ["bin", "pin", "sin", "win"]
+    },
+    {
+      "correctWord": "is",
+      "choicesList": ["his", "this", "miss", "kiss"]
+    },
+    {
+      "correctWord": "it",
+      "choicesList": ["bit", "hit", "sit", "fit"]
+    },
+    {
+      "correctWord": "jump",
+      "choicesList": ["bump", "pump", "lump", "dump"]
+    },
+    {
+      "correctWord": "little",
+      "choicesList": ["fiddle", "middle", "piddle", "widdle"]
+    },
+    {
+      "correctWord": "look",
+      "choicesList": ["book", "cook", "hook", "took"]
+    },
+    {
+      "correctWord": "make",
+      "choicesList": ["bake", "cake", "lake", "rake"]
+    },
+    {
+      "correctWord": "me",
+      "choicesList": ["see", "bee", "tree", "free"]
+    },
+    {
+      "correctWord": "my",
+      "choicesList": ["by", "fly", "sky", "cry"]
+    },
+    {
+      "correctWord": "not",
+      "choicesList": ["hot", "pot", "dot", "lot"]
+    },
+    {
+      "correctWord": "one",
+      "choicesList": ["stone", "cone", "loan", "tone"]
+    },
+    {
+      "correctWord": "play",
+      "choicesList": ["say", "way", "bay", "day"]
+    },
+    {
+      "correctWord": "red",
+      "choicesList": ["bed", "led", "shed", "spread"]
+    },
+    {
+      "correctWord": "run",
+      "choicesList": ["fun", "sun", "bun", "gun"]
+    },
+    {
+      "correctWord": "said",
+      "choicesList": ["bed", "led", "spread", "shed"]
+    },
+    {
+      "correctWord": "see",
+      "choicesList": ["bee", "tree", "free", "me"]
+    },
+    {
+      "correctWord": "she",
+      "choicesList": ["see", "tree", "free", "me"]
+    },
+    {
+      "correctWord": "the",
+      "choicesList": ["bee", "see", "tree", "me"]
+    },
+    {
+      "correctWord": "to",
+      "choicesList": ["do", "go", "no", "so"]
+    },
+    {
+      "correctWord": "two",
+      "choicesList": ["do", "go", "no", "so"]
+    },
+    {
+      "correctWord": "up",
+      "choicesList": ["cup", "pup", "tup", "sup"]
+    },
+    {
+      "correctWord": "we",
+      "choicesList": ["see", "bee", "tree", "me"]
+    },
+    {
+      "correctWord": "where",
+      "choicesList": ["there", "here", "care", "share"]
+    },
+    {
+      "correctWord": "yellow",
+      "choicesList": ["fellow", "mellow", "hello", "bellow"]
+    },
+    {
+      "correctWord": "you",
+      "choicesList": ["too", "do", "go", "no"]
+    },
+    {
+      "correctWord": "all",
+      "choicesList": ["ball", "call", "fall", "mall"]
+    },
+    {
+      "correctWord": "and",
+      "choicesList": ["sand", "hand", "land", "stand"]
+    },
+    {
+      "correctWord": "away",
+      "choicesList": ["say", "play", "stay", "day"]
+    },
+    {
+      "correctWord": "big",
+      "choicesList": ["dig", "fig", "wig", "jig"]
+    },
+    {
+      "correctWord": "blue",
+      "choicesList": ["glue", "true", "clue", "you"]
+    }
+  ]
+  

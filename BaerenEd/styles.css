@@ -1,0 +1,431 @@
+/* General body styling */
+body {
+    font-family: 'Comic Sans MS', 'Chalkboard', 'Arial Rounded MT Bold', sans-serif;
+    background-color: #fffcf9;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    color: #333;
+}
+
+/* Title styling */
+h1 {
+    font-size: 36px;
+    color: #ff8c00;
+    margin-bottom: 20px;
+}
+
+/* General button styling */
+button, .button, .task-button, .big-button {
+    font-family: inherit;
+    border: none;
+    width: auto;
+    border-radius: 15px;
+    cursor: pointer;
+    display: inline-block;
+    min-width: 0;
+    box-sizing: border-box;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 4px 8px 4px 0; /* optional: spacing between buttons */
+}
+
+/* Non-task buttons */
+.button {
+    padding: 20px 40px;
+    margin: 15px;
+    font-size: 24px;
+    background-color: #6ac2ff; /* Lighter blue */
+    color: white;
+}
+
+.buttontight {
+    padding: 20px 40px;
+    margin: 5px;
+    font-size: 24px;
+    background-color: #6ac2ff; /* Lighter blue */
+    color: white;
+}
+
+.button:hover {
+    background-color: #ff8c00; /* Orange hover effect */
+    transform: scale(1.05);
+}
+
+/* Task buttons */
+.required {
+    padding: 20px 40px;
+    margin: 15px;
+    font-size: 24px;
+    background-color: #1ea0fd; /* Darker blue */
+    color: white;
+}
+.button.completed {
+    background: #ccc !important;
+    color: #888 !important;
+    opacity: 0.7;
+}
+/* .button.completed,.button.task-button.completed,button.video-button.completed {
+    background-color: #888 !important;
+    color: #fff !important;
+    border-color: #888 !important;
+} */
+.task-button:hover {
+    background-color: #ff8c00; /* Orange hover effect */
+    transform: scale(1.05);
+}
+
+/* Big buttons */
+.big-button {
+    padding: 20px 40px;
+    font-size: 24px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.big-button:hover {
+    background-color: #3a8f3a; /* Darker green */
+    transform: scale(1.05);
+}
+
+/* Disabled button styling */
+button:disabled, .button:disabled, .task-button:disabled, .big-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Game text styling */
+.game-text {
+    padding: 20px 40px;
+    margin: 15px;
+    font-size: 24px;
+    background-color: #ff8c00;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Star feedback styling */
+#starCount {
+    font-size: 24px;
+    color: #ffcc00;
+    margin-top: 20px;
+}
+
+/* Containers */
+#promptContainer, #choices, #lowerButtonContainer, #messageContainer {
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+#choices {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#chosenText {
+    font-size: 24px; 
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Utility classes */
+.hidden {
+    display: none !important;
+}
+
+.center {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+.feedback {
+    font-size: 50px;
+    color: #ff8c00;
+    margin-top: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.stars {
+    font-size: 40px;
+    margin-top: 10px;
+    color: #ffcc00;
+}
+
+.feedback-container {
+    margin-top: 30px;
+}
+
+/* Pastel green submit button */
+#submit-btn {
+    background-color: #81C784;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#submit-btn:hover {
+    background-color: #69a06c;
+}
+
+#messageContainer {
+    font-size: 28px;
+    margin: 20px;
+    color: #333;
+}
+
+/* Animations for feedback */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 600px) {
+    .button {
+        font-size: 20px;
+        padding: 15px 30px;
+    }
+    .feedback {
+        font-size: 40px;
+    }
+    .stars {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 400px) {
+    .button {
+        font-size: 18px;
+        padding: 12px 25px;
+    }
+    .feedback {
+        font-size: 35px;
+    }
+    .stars {
+        font-size: 28px;
+    }
+}
+
+/*for spelling buttons and text fields*/
+.audioTextSubmitContainer {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+.textinput {
+    width: 240px;
+    height: 60px;
+    font-size: 24px;
+    margin: 5px;
+}
+
+.correct {
+    background-color: rgb(22, 211, 22); 
+    color: white;
+    font-size: 24px;
+    margin-left: 10px;
+}
+.incorrect {
+    background-color: red;
+    color: white;
+    font-size: 24px;
+    margin-left: 10px;
+}
+.correct,
+.incorrect {
+    pointer-events: none;
+}
+
+.correct:hover,
+.incorrect:hover {
+    background-color: inherit;
+    cursor: default;
+}
+
+/*dictee style vertical button container*/
+.columnButtonContainer {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Modal styling for videos */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    width: 80%;
+    max-width: 700px;
+}
+
+.modal-content.fullscreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#youtubePlayer {
+    width: 100vw;
+    height: 100vh;
+    border: none;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+iframe {
+    width: 100%;
+    height: 400px;
+}
+
+/* duological game */
+#sentence-container {
+    font-size: 24px;
+    min-height: 40px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+}
+
+.word-button {
+    padding: 5px 10px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.selected-word {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#word-bank, #user-answer {
+    margin: 20px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+#play-again {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#checklist li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 28px;
+    margin: 15px 0;
+    gap: 10px;
+}
+
+input[type="checkbox"] {
+    transform: scale(2);
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.chore-text {
+    font-size: 28px;
+    cursor: pointer;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+
+.chore-text:hover {
+    color: #ff8c00;
+}
+
+/* Button styling (for visual consistency) */
+.read-btn {
+    font-size: 24px;
+    padding: 10px;
+    border: none;
+    background-color: #6ac2ff;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.read-btn:hover {
+    background-color: #ff8c00;
+    transform: scale(1.1);
+}
+
+
+
+.div-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+}
+
+.button.selected {
+    background: #ffe066 !important;
+    color: #222 !important;
+    border: 2px solid #ff8c00 !important;
+    box-shadow: 0 0 8px #ff8c00;
+}

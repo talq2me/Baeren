@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>English Spelling</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <button class="button" onclick="history.back()">&lt; Back</button>
+    <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
+    <h1>English Spelling</h1>
+    <div id="buttonContainer"></div>
+
+    <script>
+    // Inline word list: [word, sentence]
+    const lines = [
+        ["hours", "You spend hours watching Netflix each day"],
+        ["towns", "There are a few towns around Waterloo"],
+        ["amount", "What was the amount of money I owe you"],
+        ["allows", "Your coat allows you to stay warm in the cold weather"],
+        ["brought", "You brought your lunch to school"],
+        ["hollow", "The cup is hollow"],
+        ["southern", "It is warm in the southern hemisphere"],
+        ["thought", "I thought you took your lunch to school today"],
+        ["bouquet", "Did you pick flowers for the bouquet?"],
+        ["mountain", "I can climb the mountain"],
+        ["sparrows", "I can hear the sparrows chirping"],
+        ["powerful", "The big dump truck is powerful"],
+        ["without", "Don't leave without your kungfu bag and staff"],
+        ["shower", "You should take a shower tonight"],
+        ["sought", "Ash sought to be the best pokemon trainer in the world"],
+        ["swallowed", "He swallowed his pills"],
+        ["thousand", "I had a thousand ideas of what we should do next"],
+        ["trouble", "Don't get in trouble or I'll be sad"],
+        ["although", "Although, I will still love you if you get in trouble"],
+        ["chowder", "Do you think you could eat clam chowder made of clams?"],
+        ["Ontario", "We live in the province of Ontario"],
+        ["Canadian", "We are Canadian because we were born in Canada"]
+    ];
+
+    // Voice selection (optional, for browser TTS)
+    let selectedVoice;
+    function setVoice() {
+        const voices = window.speechSynthesis.getVoices();
+        selectedVoice = voices.find(voice =>
+            voice.name.includes('Google US English')
+        ) || voices.find(voice =>
+            voice.name.includes('Google UK English Female')
+        ) || voices.find(voice =>
+            voice.name.includes('Microsoft') && voice.lang.startsWith('en')
+        ) || voices.find(voice =>
+            voice.lang.startsWith('en') && voice.default
+        ) || voices[0];
+    }
+    window.speechSynthesis.onvoiceschanged = setVoice;
+    setVoice();
+
+    // Render buttons
+    const container = document.getElementById('buttonContainer');
+    lines.forEach(([word, sentence], index) => {
+        const lineDiv = document.createElement('div');
+        lineDiv.style.marginBottom = "12px";
+
+        const button = document.createElement('button');
+        button.className = "button";
+        button.textContent = index + 1;
+
+        const checkButton = document.createElement('button');
+        checkButton.textContent = "Check";
+        checkButton.className = "button";
+        checkButton.style.display = "none";
+
+        const revealSpan = document.createElement('span');
+        revealSpan.style.marginLeft = "10px";
+        revealSpan.style.fontWeight = "bold";
+        revealSpan.style.fontSize = "24px";
+
+        button.onclick = function() {
+            checkButton.style.display = "none";
+            revealSpan.textContent = "";
+
+            // Use Fully Kiosk TTS if available
+            if (typeof fully !== "undefined" && typeof fully.textToSpeech === "function") {
+                fully.textToSpeech(word, "en-US");
+                setTimeout(() => {
+                    fully.textToSpeech(sentence, "en-US");
+                    setTimeout(() => {
+                        checkButton.style.display = "inline-block";
+                    }, 3000 + Math.max(1500, sentence.length * 60));
+                }, 1200);
+            } else {
+                window.speechSynthesis.cancel();
+                let speakWord = new SpeechSynthesisUtterance(word);
+                let speakSentence = new SpeechSynthesisUtterance(sentence);
+
+                [speakWord, speakSentence].forEach(utterance => {
+                    utterance.voice = selectedVoice;
+                    utterance.lang = 'en-US';
+                    utterance.rate = 0.8;
+                    utterance.pitch = 1;
+                    utterance.volume = 1;
+                });
+
+                speakSentence.onend = () => {
+                    setTimeout(() => {
+                        checkButton.style.display = "inline-block";
+                    }, 3000);
+                };
+
+                window.speechSynthesis.speak(speakWord);
+                window.speechSynthesis.speak(speakSentence);
+            }
+        };
+
+        checkButton.onclick = function() {
+            revealSpan.textContent = word;
+        };
+
+        lineDiv.appendChild(button);
+        lineDiv.appendChild(checkButton);
+        lineDiv.appendChild(revealSpan);
+        container.appendChild(lineDiv);
+    });
+    </script>
+</body>
+</html>

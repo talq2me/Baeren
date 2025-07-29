@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fullscreen Video Modal</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .modal {
+      display: flex;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+
+<div id="videoModal" class="modal">
+  <video id="myVideo" controls>
+    <source id="videoSource" src="" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
+
+<script>
+  function getQueryParam(name) {
+    return new URLSearchParams(window.location.search).get(name);
+  }
+
+  const video = document.getElementById('myVideo');
+  const videoSource = document.getElementById('videoSource');
+  const videoFile = getQueryParam('video');
+
+  if (videoFile) {
+    videoSource.src = videoFile;
+    video.load();
+    video.play();
+  } else {
+    alert('No video specified in URL. Use ?video=my-video.mp4');
+  }
+
+  // Auto-close modal when video ends
+  video.onended = function () {
+    document.getElementById('videoModal').style.display = 'none';
+    // Send message to parent window when video finishes
+    if (window.parent !== window) {
+      window.parent.postMessage({ type: "videoEnded" }, "*");
+    }
+  };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Baeren</string>
+    <string name="accessibility_description">App blocker to restrict apps outside reward time.</string>
+</resources>

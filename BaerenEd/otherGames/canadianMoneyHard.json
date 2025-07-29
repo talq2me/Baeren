@@ -1,0 +1,249 @@
+{
+  "questions": [
+    {
+      "coins": ["loonie"],
+      "correctAnswer": 1.00,
+      "answers": [1.00, 0.75, 1.25, 2.00]
+    },
+    {
+      "coins": ["toonie"],
+      "correctAnswer": 2.00,
+      "answers": [2.00, 1.50, 2.50, 3.00]
+    },
+    {
+      "coins": ["quarter", "quarter", "quarter"],
+      "correctAnswer": 0.75,
+      "answers": [0.75, 0.70, 0.80, 1.00]
+    },
+    {
+      "coins": ["dime", "dime", "dime", "dime", "dime"],
+      "correctAnswer": 0.50,
+      "answers": [0.50, 0.45, 0.55, 0.60]
+    },
+    {
+      "coins": ["quarter", "quarter", "dime", "dime"],
+      "correctAnswer": 0.70,
+      "answers": [0.70, 0.65, 0.75, 0.80]
+    },
+    {
+      "coins": ["loonie", "quarter"],
+      "correctAnswer": 1.25,
+      "answers": [1.25, 1.20, 1.30, 1.50]
+    },
+    {
+      "coins": ["loonie", "dime", "dime"],
+      "correctAnswer": 1.20,
+      "answers": [1.20, 1.15, 1.25, 1.30]
+    },
+    {
+      "coins": ["toonie", "quarter"],
+      "correctAnswer": 2.25,
+      "answers": [2.25, 2.20, 2.30, 2.50]
+    },
+    {
+      "coins": ["toonie", "dime", "dime"],
+      "correctAnswer": 2.20,
+      "answers": [2.20, 2.15, 2.25, 2.30]
+    },
+    {
+      "coins": ["loonie", "loonie"],
+      "correctAnswer": 2.00,
+      "answers": [2.00, 1.75, 2.25, 3.00]
+    },
+    {
+      "coins": ["quarter", "quarter", "quarter", "quarter"],
+      "correctAnswer": 1.00,
+      "answers": [1.00, 0.95, 1.05, 1.10]
+    },
+    {
+      "coins": ["dime", "dime", "dime", "dime", "dime", "dime"],
+      "correctAnswer": 0.60,
+      "answers": [0.60, 0.55, 0.65, 0.70]
+    },
+    {
+      "coins": ["loonie", "quarter", "quarter"],
+      "correctAnswer": 1.50,
+      "answers": [1.50, 1.45, 1.55, 1.60]
+    },
+    {
+      "coins": ["loonie", "dime", "dime", "dime"],
+      "correctAnswer": 1.30,
+      "answers": [1.30, 1.25, 1.35, 1.40]
+    },
+    {
+      "coins": ["toonie", "quarter", "quarter"],
+      "correctAnswer": 2.50,
+      "answers": [2.50, 2.45, 2.55, 2.60]
+    },
+    {
+      "coins": ["toonie", "dime", "dime", "dime"],
+      "correctAnswer": 2.30,
+      "answers": [2.30, 2.25, 2.35, 2.40]
+    },
+    {
+      "coins": ["loonie", "loonie", "quarter"],
+      "correctAnswer": 2.25,
+      "answers": [2.25, 2.20, 2.30, 2.50]
+    },
+    {
+      "coins": ["loonie", "loonie", "dime"],
+      "correctAnswer": 2.10,
+      "answers": [2.10, 2.05, 2.15, 2.20]
+    },
+    {
+      "coins": ["toonie", "loonie"],
+      "correctAnswer": 3.00,
+      "answers": [3.00, 2.75, 3.25, 4.00]
+    },
+    {
+      "coins": ["quarter", "quarter", "quarter", "quarter", "dime"],
+      "correctAnswer": 1.10,
+      "answers": [1.10, 1.05, 1.15, 1.20]
+    },
+    {
+      "coins": ["dime", "dime", "dime", "dime", "dime", "dime", "dime"],
+      "correctAnswer": 0.70,
+      "answers": [0.70, 0.65, 0.75, 0.80]
+    },
+    {
+      "coins": ["loonie", "quarter", "quarter", "dime"],
+      "correctAnswer": 1.60,
+      "answers": [1.60, 1.55, 1.65, 1.70]
+    },
+    {
+      "coins": ["loonie", "dime", "dime", "dime", "dime"],
+      "correctAnswer": 1.40,
+      "answers": [1.40, 1.35, 1.45, 1.50]
+    },
+    {
+      "coins": ["toonie", "quarter", "quarter", "dime"],
+      "correctAnswer": 2.60,
+      "answers": [2.60, 2.55, 2.65, 2.70]
+    },
+    {
+      "coins": ["toonie", "dime", "dime", "dime", "dime"],
+      "correctAnswer": 2.40,
+      "answers": [2.40, 2.35, 2.45, 2.50]
+    },
+    {
+      "coins": ["loonie", "loonie", "quarter", "quarter"],
+      "correctAnswer": 2.50,
+      "answers": [2.50, 2.45, 2.55, 2.60]
+    },
+    {
+      "coins": ["loonie", "loonie", "dime", "dime"],
+      "correctAnswer": 2.20,
+      "answers": [2.20, 2.15, 2.25, 2.30]
+    },
+    {
+      "coins": ["toonie", "loonie", "quarter"],
+      "correctAnswer": 3.25,
+      "answers": [3.25, 3.20, 3.30, 3.50]
+    },
+    {
+      "coins": ["toonie", "loonie", "dime"],
+      "correctAnswer": 3.10,
+      "answers": [3.10, 3.05, 3.15, 3.20]
+    },
+    {
+      "coins": ["quarter", "quarter", "quarter", "quarter", "quarter"],
+      "correctAnswer": 1.25,
+      "answers": [1.25, 1.20, 1.30, 1.35]
+    },
+    {
+      "coins": ["dime", "dime", "dime", "dime", "dime", "dime", "dime", "dime"],
+      "correctAnswer": 0.80,
+      "answers": [0.80, 0.75, 0.85, 0.90]
+    },
+    {
+      "coins": ["loonie", "quarter", "quarter", "quarter"],
+      "correctAnswer": 1.75,
+      "answers": [1.75, 1.70, 1.80, 1.85]
+    },
+    {
+      "coins": ["loonie", "dime", "dime", "dime", "dime", "dime"],
+      "correctAnswer": 1.50,
+      "answers": [1.50, 1.45, 1.55, 1.60]
+    },
+    {
+      "coins": ["toonie", "quarter", "quarter", "quarter"],
+      "correctAnswer": 2.75,
+      "answers": [2.75, 2.70, 2.80, 2.85]
+    },
+    {
+      "coins": ["toonie", "dime", "dime", "dime", "dime", "dime"],
+      "correctAnswer": 2.50,
+      "answers": [2.50, 2.45, 2.55, 2.60]
+    },
+    {
+      "coins": ["loonie", "loonie", "quarter", "quarter", "quarter"],
+      "correctAnswer": 2.75,
+      "answers": [2.75, 2.70, 2.80, 2.85]
+    },
+    {
+      "coins": ["loonie", "loonie", "dime", "dime", "dime"],
+      "correctAnswer": 2.30,
+      "answers": [2.30, 2.25, 2.35, 2.40]
+    },
+    {
+      "coins": ["toonie", "loonie", "quarter", "quarter"],
+      "correctAnswer": 3.50,
+      "answers": [3.50, 3.45, 3.55, 3.60]
+    },
+    {
+      "coins": ["toonie", "loonie", "dime", "dime"],
+      "correctAnswer": 3.20,
+      "answers": [3.20, 3.15, 3.25, 3.30]
+    },
+    {
+      "coins": ["quarter", "quarter", "quarter", "quarter", "quarter", "quarter"],
+      "correctAnswer": 1.50,
+      "answers": [1.50, 1.45, 1.55, 1.60]
+    },
+    {
+      "coins": ["dime", "dime", "dime", "dime", "dime", "dime", "dime", "dime", "dime"],
+      "correctAnswer": 0.90,
+      "answers": [0.90, 0.85, 0.95, 1.00]
+    },
+    {
+      "coins": ["loonie", "quarter", "quarter", "quarter", "quarter"],
+      "correctAnswer": 2.00,
+      "answers": [2.00, 1.95, 2.05, 2.10]
+    },
+    {
+      "coins": ["loonie", "dime", "dime", "dime", "dime", "dime", "dime"],
+      "correctAnswer": 1.60,
+      "answers": [1.60, 1.55, 1.65, 1.70]
+    },
+    {
+      "coins": ["toonie", "quarter", "quarter", "quarter", "quarter"],
+      "correctAnswer": 3.00,
+      "answers": [3.00, 2.95, 3.05, 3.10]
+    },
+    {
+      "coins": ["toonie", "dime", "dime", "dime", "dime", "dime", "dime"],
+      "correctAnswer": 2.60,
+      "answers": [2.60, 2.55, 2.65, 2.70]
+    },
+    {
+      "coins": ["loonie", "loonie", "quarter", "quarter", "quarter", "quarter"],
+      "correctAnswer": 3.00,
+      "answers": [3.00, 2.95, 3.05, 3.10]
+    },
+    {
+      "coins": ["loonie", "loonie", "dime", "dime", "dime", "dime"],
+      "correctAnswer": 2.40,
+      "answers": [2.40, 2.35, 2.45, 2.50]
+    },
+    {
+      "coins": ["toonie", "loonie", "quarter", "quarter", "quarter"],
+      "correctAnswer": 3.75,
+      "answers": [3.75, 3.70, 3.80, 3.85]
+    },
+    {
+      "coins": ["toonie", "loonie", "dime", "dime", "dime"],
+      "correctAnswer": 3.30,
+      "answers": [3.30, 3.25, 3.35, 3.40]
+    }
+  ]
+} 

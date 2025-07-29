@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="manifest" href="manifest.json">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="theme-color" content="#000000">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baeren-Ed</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="commonCode.js" defer></script>
+
+</head>
+</head>
+<body>
+    <div>
+        <button id="home" class="button" onclick="location.href='index.html'">⌂ Home</button>
+        <button id="gr3Button" class="button" onclick="location.href='homework/BM.html'">BM</button>
+        <button id="skButton" class="button" onclick="location.href='homework/AM.html'">AM</button>
+    </div>
+    <h1>Welcome to Baeren-Ed!</h1>
+    Your little homework helper.
+    
+    <br>
+    <img src="./images/Baeren-Ed.jpeg" alt="Baeren-Ed logo" width="400" height="400">
+    <div>
+  <!--       
+  <a href="intent://#Intent;package=com.netflix.mediaclient;end">Test Netflix</a>
+        <a href="intent://#Intent;package=com.talq2me.netflixreward;end">kiosk test</a>
+
+        <button class="button" onclick="rewardNetflixWeb(1)">new 1 min</button>
+        <button class="button" onclick="rewardFully(1)">(FullyLaunchTaskerapp)</button>
+
+<script>
+    function awardReward(minutes) {
+        if (typeof fully !== "undefined" ) {
+            fully.writeFile('/storage/emulated/0/Download/reward_minutes.txt', minutes.toString());
+            alert(`Awarded ${minutes} minute(s) of reward time.`);
+        } else {
+            alert('Fully Kiosk file access not available');
+        }
+    }
+</script>
+<button onclick="launchNetflix(5)"> Netflix Task</button>
+<p id="status"></p>
+<script>
+    function launchNetflix(minutes) {
+        try {
+            const intentUrl = 'intent://#Intent;action=net.dinglisch.android.tasker.ACTION_TASK;package=net.dinglisch.android.tasker;component=net.dinglisch.android.tasker/.Tasker;S.taskName=NetflixReward;end';
+            window.location.href = intentUrl;
+            document.getElementById('status').innerText = 'Launching NetflixReward...';
+        } catch (error) {
+            document.getElementById('status').innerText = 'Error: ' + error.message;
+            alert('Error launching NetflixReward: ' + error.message);
+        }
+    }
+</script> -->
+<!--     <a href="intent://launch?pkg=com.netflix.mediaclient&minutes=1#Intent;scheme=http;end">
+  Launch NF for 1 minutes
+</a> -->
+<!-- <button onclick="launchApp('com.google.android.youtube', 1)">Launch youtube</button> -->
+    </div>
+</body>
+</html>

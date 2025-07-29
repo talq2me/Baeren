@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Game</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../common.js" defer></script>
+</head>
+<body>
+    <button class="button" onclick="closeModalAndGoBack()">&lt; Back</button>
+    <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
+    <h1>Reading Game</h1>
+    Read the following out loud:
+    <br>
+    <button id="text" class="game-text">The cat sat on the mat.</button>
+    <br>
+    <div id="buttons-container" class="buttons-container">
+        <button id="speakButton" class="button">🎤 Start Reading</button>
+        <button id="playAgain" class="button" style="display: none;" onclick="startGame()">Play Again</button>
+    </div>
+
+    <div id="feedback"></div>
+    <div id="stars"></div>
+
+    <script>
+        let lines = [];
+        let currentLine = "";
+        let correctCount = 0;
+        let attempts = 0;
+        let maxAttempts = 5;
+        let isRecognizing = false;
+
+        // Read lines from the text file
+        async function loadLines() {
+            try {
+                const response = await fetch('readingGame-en.txt');
+                const data = await response.text();
+                lines = data.split('\n').map(line => line.trim()).filter(line => line !== "");
+                startGame();
+            } catch (error) {
+                console.error('Error loading text file:', error);
+            }
+        }
+
+        // Function to start or reset the game
+        function startGame() {
+            correctCount = 0;
+            attempts = 0;
+            document.getElementById("stars").innerHTML = "";
+            document.getElementById("feedback").innerHTML = "";
+            document.getElementById("playAgain").style.display = "none"; // Hide "Play Again" button
+            document.getElementById("speakButton").style.display = "block"; // Show "Start Reading" button
+            pickRandomLine();
+        }
+
+        // Function to pick a random line from the text file
+        function pickRandomLine() {
+            currentLine = lines[Math.floor(Math.random() * lines.length)];
+            document.getElementById("text").innerText = currentLine;
+            document.getElementById("feedback").innerHTML = "";
+        }
+
+        // Function for fuzzy matching
+        function fuzzyMatch(input, target) {
+            const threshold = 0.8; // 80% similarity
+            let score = (input.toLowerCase().split(' ').filter(word => target.toLowerCase().includes(word)).length) / target.split(' ').length;
+            return score >= threshold;
+        }
+
+        // Speech recognition function
+        let recognition;
+        document.getElementById("speakButton").addEventListener("click", function() {
+            if (isRecognizing) {
+                recognition.stop();
+                this.innerText = "🎤 Start Reading"; // Change to start
+                isRecognizing = false;
+            } else {
+                recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+                recognition.lang = "en-US";
+                recognition.continuous = false;
+                recognition.interimResults = false;
+                recognition.maxAlternatives = 1;
+
+                isRecognizing = true;
+                this.innerText = "🛑 Stop Listening"; // Change to stop
+
+                recognition.start();
+
+                recognition.onresult = function(event) {
+                    let spokenText = event.results[event.results.length - 1][0].transcript.toLowerCase();
+                    let correctText = currentLine.toLowerCase();
+
+                    let feedback = document.getElementById("feedback");
+
+                    // Check if the spoken text matches the line with fuzzy matching
+                    if (fuzzyMatch(spokenText, correctText)) {
+                        correctCount++;
+                        document.getElementById("stars").innerHTML += "⭐";
+                        feedback.innerText = "✅ Correct! Well done!";
+                        feedback.style.color = "green";
+                        if (correctCount >= 5) {
+                            feedback.innerText = "🎉 Game Over! You did great!";
+                            document.getElementById("speakButton").style.display = "none"; // Hide "Start Pronouncing" button
+                            document.getElementById("playAgain").style.display = "block"; // Show "Play Again" button
+                            document.getElementById("text").innerText = ""; // Remove the last text line
+                        } else {
+                            pickRandomLine(); // Move to next round
+                        }
+                    } else {
+                        attempts++;
+                        feedback.innerText = `❌ Incorrect! You have ${maxAttempts - attempts} attempts left.`;
+                        feedback.style.color = "red";
+                        if (attempts >= maxAttempts) {
+                            feedback.innerText = `Try saying: "${currentLine}"`;
+                            setTimeout(() => {
+                                pickRandomLine(); // Switch to next line
+                            }, 2000);
+                        }
+                    }
+                };
+
+                recognition.onerror = function(event) {
+                    console.error("Speech recognition error:", event.error);
+                    alert("Sorry, something went wrong with speech recognition.");
+                    recognition.stop();
+                    isRecognizing = false;
+                    document.getElementById("speakButton").innerText = "🎤 Start Reading";
+                };
+
+                recognition.onspeechend = function() {
+                    isRecognizing = false;
+                    document.getElementById("speakButton").innerText = "🎤 Start Reading";
+                };
+
+                recognition.onend = function() {
+                    isRecognizing = false;
+                    document.getElementById("speakButton").innerText = "🎤 Start Reading";
+                };
+            }
+        });
+
+        // Load lines when the page loads
+        window.onload = loadLines;
+
+        
+        function closeModalAndGoBack() {
+            window.parent.postMessage({ type: "gameCompleted" }, "*")
+        }
+    </script>
+</body>
+</html>

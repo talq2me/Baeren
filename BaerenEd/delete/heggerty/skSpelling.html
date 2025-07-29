@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SK Spelling Game</title>
+    
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="skSpelling.css">
+    
+    
+</head>
+<body>
+    <h1>Spell the Word!</h1>
+    <div id="kid" data-kid="kid1"></div>
+    <div id="starCount">⭐ 0 / 10</div>
+    <div id="promptContainer">
+        <button id="replayBtn" class="big-button" style="display:none;">&#9654; Play</button>
+    </div>
+    <div id="wordBank"></div>
+    <div id="spelledWord"></div>
+    <button id="submitBtn" class="big-button">Submit</button>
+    <button id="delete-btn" class="button" >⌫ Delete</button>
+    <div id="messageContainer"></div>
+
+    
+    <!-- This need to be here to ensure html fully loads before we try to run scripts that access the html elements -->
+    <script src="../codeGenerator/unlockCodePiece.js"></script>
+    <script src="skSpelling.js"></script>
+    <script src="../common.js"></script>
+</body>
+</html>

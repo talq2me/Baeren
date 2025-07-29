@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Spelling</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../common.js" defer></script>
+</head>
+<body>
+    <button class="button" onclick="goBack()">&lt; Back</button>
+    <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
+    <h1>English Spelling</h1>
+    <div id="buttonContainer"></div>
+
+    <script>
+        async function loadWords() {
+            try {
+                let response = await fetch('words-en-selfcheck.txt');
+                let text = await response.text();
+
+                let lines = text.split(';').map(line => line.trim()).filter(line => line !== "");
+
+                let container = document.getElementById('buttonContainer');
+
+                lines.forEach((line, index) => {
+                    let parts = line.split(',');
+                    if (parts.length < 2) return; // Skip invalid lines
+                    
+                    let wordToSpeak = parts[0].trim();
+                    let correctWord = parts[1].trim();
+
+                    let div = document.createElement('div');
+                    div.classList.add('audioTextSubmitContainer');
+
+                    let button = document.createElement('button');
+                    button.textContent = index + 1; // Numbered buttons
+                    button.classList.add('button');
+                    button.addEventListener('click', () => {
+                        let utterance = new SpeechSynthesisUtterance(wordToSpeak);
+                        utterance.lang = 'en-US';
+                        
+    
+                        // Adjust the rate (speed) of the speech (1 is normal speed, 0.5 is slower)
+                        utterance.rate = 0.6;  // Set it to a value less than 1 for slower speech
+
+                        // Optionally, you can adjust the pitch and volume as well
+                        utterance.pitch = 1;   // Normal pitch, range from 0 to 2
+                        utterance.volume = 1;  // Volume, range from 0 to 1
+                        window.speechSynthesis.speak(utterance);
+                    });
+
+                    let input = document.createElement('input');
+                    input.type = 'text';
+                    input.classList.add('textinput');
+
+                    let submitBtn = document.createElement('button');
+                    submitBtn.textContent = '✔';
+                    submitBtn.classList.add('button');
+
+                    let resultSpan = document.createElement('span');
+
+                    submitBtn.addEventListener('click', () => {
+                        if (input.value.trim().toLowerCase() === correctWord.toLowerCase()) {
+                            submitBtn.textContent = '✔';
+                            submitBtn.classList.add('correct');
+                            submitBtn.disabled = true; // Disable button when correct
+                            resultSpan.textContent = ''; // Clear incorrect message
+                        } else {
+                            submitBtn.textContent = '✖'; // Alternative "X" for better visibility
+                            submitBtn.classList.add('incorrect');
+                            submitBtn.disabled = true;  // Disable the button after wrong answer
+                            resultSpan.textContent = ` Correct: ${correctWord}`;
+                            resultSpan.classList.add('incorrect');
+                        }
+                    });
+
+                    div.appendChild(button);
+                    div.appendChild(input);
+                    div.appendChild(submitBtn);
+                    div.appendChild(resultSpan);
+                    container.appendChild(div);
+                });
+
+            } catch (error) {
+                console.error('Error loading words:', error);
+                alert('Error loading words. Ensure "words-en-selfcheck.txt" exists and is formatted correctly.');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadWords);
+    </script>
+</body>
+</html>

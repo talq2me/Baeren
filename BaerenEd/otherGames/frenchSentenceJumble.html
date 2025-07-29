@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French Sentence Jumble</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .game-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .sentence-display {
+            font-size: 24px;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f0f8ff;
+            border-radius: 10px;
+            min-height: 60px;
+        }
+        
+        .word-bank {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            min-height: 80px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+        
+        .word {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            cursor: grab;
+            user-select: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .word:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .word.dragging {
+            opacity: 0.5;
+            transform: rotate(5deg);
+        }
+        
+        .word.used {
+            background: #ccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        
+        .controls {
+            margin: 20px 0;
+        }
+        
+        .button {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 0 10px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: background 0.3s ease;
+        }
+        
+        .button:hover {
+            background: #1976D2;
+        }
+        
+        .button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .score {
+            font-size: 20px;
+            margin: 20px 0;
+            color: #333;
+        }
+        
+        .feedback {
+            font-size: 18px;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .feedback.correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .feedback.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .empty-slot {
+            display: inline-block;
+            width: 80px;
+            height: 40px;
+            border: 2px dashed #ccc;
+            border-radius: 20px;
+            margin: 0 5px;
+            vertical-align: middle;
+        }
+        
+        .empty-slot.highlight {
+            border-color: #2196F3;
+            background: #e3f2fd;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>French Sentence Jumble</h1>
+        <div class="score">Score: <span id="score">0</span></div>
+        
+        <div class="sentence-display" id="sentenceDisplay">
+            <div id="currentSentence"></div>
+        </div>
+        
+        <div class="controls">
+            <button class="button" id="playSentence">🔊 Play Sentence</button>
+            <button class="button" id="checkAnswer">Check Answer</button>
+            <button class="button" id="nextSentence">Next Sentence</button>
+        </div>
+        
+        <div class="feedback" id="feedback" style="display: none;"></div>
+        
+        <div class="word-bank" id="wordBank"></div>
+    </div>
+
+    <script src="../commonCode.js"></script>
+    <script>
+        let gameData = [];
+        let currentSentenceIndex = 0;
+        let currentSentence = null;
+        let score = 0;
+        let selectedWords = [];
+        let isDragging = false;
+        let draggedElement = null;
+        let currentIndex = 0; // Track progress through the JSON file
+
+        // Load game data
+        async function loadGameData() {
+            try {
+                const response = await fetch('../gameData/duologicalGame.json');
+                const data = await response.json();
+                gameData = data.sentences;
+                
+                // Load progress from localStorage
+                const storageKey = 'frenchsentencejumble_index';
+                currentIndex = parseInt(localStorage.getItem(storageKey) || "0", 10);
+                if (currentIndex >= gameData.length) currentIndex = 0;
+                
+                startGame();
+            } catch (error) {
+                console.error('Error loading game data:', error);
+                document.getElementById('sentenceDisplay').innerHTML = 'Error loading game data';
+            }
+        }
+
+        function startGame() {
+            if (gameData.length === 0) return;
+            currentSentenceIndex = currentIndex;
+            score = 0;
+            updateScore();
+            loadSentence();
+        }
+
+        function loadSentence() {
+            if (currentIndex >= gameData.length) {
+                // Game completed
+                document.getElementById('sentenceDisplay').innerHTML = 
+                    `<h2>Game Complete!</h2><p>Final Score: ${score}/${gameData.length}⭐</p>`;
+                document.getElementById('wordBank').innerHTML = '';
+                document.getElementById('feedback').style.display = 'none';
+                
+                // Reset progress for next time
+                currentIndex = 0;
+                saveProgress();
+                
+                // Send game completed message to parent window
+                if (window.parent && window.parent !== window) {
+                    window.parent.postMessage({ type: 'gameCompleted' }, '*');
+                }
+                
+                // Close modal and return to launching page after a delay
+                setTimeout(() => {
+                    if (window.parent && window.parent !== window) {
+                        // We're in an iframe, close the modal
+                        window.parent.postMessage({ type: 'closeModal' }, '*');
+                    } else {
+                        // We're not in an iframe, go back
+                        history.back();
+                    }
+                }, 3000);
+                
+                return;
+            }
+
+            currentSentence = gameData[currentIndex];
+            selectedWords = [];
+            
+            // Display the sentence
+            document.getElementById('currentSentence').textContent = currentSentence.english;
+            
+            // Create word bank with scrambled words
+            createWordBank();
+            
+            // Hide feedback
+            document.getElementById('feedback').style.display = 'none';
+        }
+
+        function createWordBank() {
+            const wordBank = document.getElementById('wordBank');
+            wordBank.innerHTML = '';
+            
+            // Combine correct words and some extra words for variety
+            const allWords = [...currentSentence.correctWords];
+            if (currentSentence.extraWords) {
+                // Add 2-3 extra words to make it more challenging
+                const extraWords = currentSentence.extraWords.slice(0, 3);
+                allWords.push(...extraWords);
+            }
+            
+            // Shuffle the words
+            const shuffledWords = shuffleArray([...allWords]);
+            
+            shuffledWords.forEach((word, index) => {
+                const wordElement = document.createElement('div');
+                wordElement.className = 'word';
+                wordElement.textContent = word;
+                wordElement.dataset.word = word;
+                wordElement.dataset.index = index;
+                
+                // Add drag and drop functionality
+                wordElement.draggable = true;
+                wordElement.addEventListener('dragstart', handleDragStart);
+                wordElement.addEventListener('dragend', handleDragEnd);
+                wordElement.addEventListener('click', handleWordClick);
+                
+                wordBank.appendChild(wordElement);
+            });
+        }
+
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        function handleWordClick(event) {
+            const wordElement = event.target;
+            const word = wordElement.dataset.word;
+            
+            if (wordElement.classList.contains('used')) {
+                // Remove from selected words
+                const index = selectedWords.indexOf(word);
+                if (index > -1) {
+                    selectedWords.splice(index, 1);
+                    wordElement.classList.remove('used');
+                }
+            } else {
+                // Add to selected words
+                selectedWords.push(word);
+                wordElement.classList.add('used');
+            }
+            
+            updateSentenceDisplay();
+        }
+
+        function handleDragStart(event) {
+            if (event.target.classList.contains('used')) return;
+            
+            isDragging = true;
+            draggedElement = event.target;
+            event.target.classList.add('dragging');
+            event.dataTransfer.effectAllowed = 'move';
+            event.dataTransfer.setData('text/html', event.target.outerHTML);
+        }
+
+        function handleDragEnd(event) {
+            isDragging = false;
+            event.target.classList.remove('dragging');
+            draggedElement = null;
+        }
+
+        function updateSentenceDisplay() {
+            const display = document.getElementById('currentSentence');
+            let html = currentSentence.english + '<br><br>';
+            
+            // Show selected words in order
+            if (selectedWords.length > 0) {
+                html += selectedWords.map(word => 
+                    `<span class="word" style="background: #2196F3; margin: 5px; padding: 8px 12px; border-radius: 15px; color: white;">${word}</span>`
+                ).join(' ');
+            }
+            
+            // Show empty slots for remaining words
+            const remainingSlots = currentSentence.correctWords.length - selectedWords.length;
+            for (let i = 0; i < remainingSlots; i++) {
+                html += '<span class="empty-slot"></span>';
+            }
+            
+            display.innerHTML = html;
+        }
+
+        function checkAnswer() {
+            const correctWords = currentSentence.correctWords;
+            const isCorrect = selectedWords.length === correctWords.length && 
+                             selectedWords.every((word, index) => word === correctWords[index]);
+            
+            const feedback = document.getElementById('feedback');
+            feedback.style.display = 'block';
+            
+            if (isCorrect) {
+                feedback.textContent = 'Correct! Well done!';
+                feedback.className = 'feedback correct';
+                score++;
+                updateScore();
+            } else {
+                feedback.textContent = `Incorrect. The correct sentence is: "${correctWords.join(' ')}"`;
+                feedback.className = 'feedback incorrect';
+            }
+        }
+
+        function updateScore() {
+            document.getElementById('score').textContent = score;
+        }
+
+        function nextSentence() {
+            currentIndex++;
+            saveProgress();
+            loadSentence();
+        }
+        
+        // Save progress to localStorage
+        function saveProgress() {
+            const storageKey = 'frenchsentencejumble_index';
+            localStorage.setItem(storageKey, currentIndex.toString());
+        }
+
+        function playSentence() {
+            if (currentSentence && window.speakText) {
+                // Use the Android TTS if available
+                window.speakText(currentSentence.english, 'en');
+            } else if (currentSentence && 'speechSynthesis' in window) {
+                // Fallback to browser TTS
+                const utterance = new SpeechSynthesisUtterance(currentSentence.english);
+                utterance.lang = 'en-US';
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        // Event listeners
+        document.getElementById('playSentence').addEventListener('click', playSentence);
+        document.getElementById('checkAnswer').addEventListener('click', checkAnswer);
+        document.getElementById('nextSentence').addEventListener('click', nextSentence);
+
+        // Initialize game
+        loadGameData();
+    </script>
+</body>
+</html> 
