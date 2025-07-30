@@ -49,7 +49,7 @@ function highlightWord(container, charIndex) {
             spans[i].classList.add('tts-highlight');
             break;
         }
-        total += len;
+        total += len;I
     }
 }
 
@@ -729,7 +729,12 @@ function submitStoryAnswer() {
         feedback.innerHTML = "⭐ Correct!";
         correctCount++;
         updateStarCount();
-        setTimeout(nextStoryQuestion, 1200);
+        // Check if we've reached the maximum number of questions
+        if (correctCount >= maxQuestions) {
+            setTimeout(endGame, 1200);
+        } else {
+            setTimeout(nextStoryQuestion, 1200);
+        }
     } else {
         feedback.innerHTML = `☹️ Incorrect!<br>Correct answer: <b>${questionObj.answer}</b>`;
         // Highlight correct answer

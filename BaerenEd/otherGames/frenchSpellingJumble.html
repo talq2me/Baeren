@@ -8,7 +8,7 @@
     <script src="../commonCode.js"></script>
     <style>
         .game-container {
-            max-width: 800px;
+            width: 100%;
             margin: 0 auto;
             padding: 20px;
             text-align: center;
@@ -191,8 +191,6 @@
     </style>
 </head>
 <body>
-    <button class="button" onclick="history.back()">&lt; Back</button>
-    <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
     
     <div class="game-container">
         <h1>French Spelling Jumble</h1>
@@ -552,14 +550,16 @@
             if (isInPracticeMode) return;
             
             if (selectedLetters.length > 0) {
-                // Remove the last letter
-                selectedLetters.pop();
+                // Remove the last letter from the display
+                const lastLetter = selectedLetters.pop();
                 
-                // Update the letter bank - find the last used letter and make it available again
-                const letterElements = document.querySelectorAll('.letter.used');
-                if (letterElements.length > 0) {
-                    const lastUsedLetter = letterElements[letterElements.length - 1];
-                    lastUsedLetter.classList.remove('used');
+                // Find ANY used button with this letter and re-enable it
+                const letterButtons = document.querySelectorAll('.letter.used');
+                for (let button of letterButtons) {
+                    if (button.dataset.letter === lastLetter) {
+                        button.classList.remove('used');
+                        break;
+                    }
                 }
                 
                 updateSpelledWord();

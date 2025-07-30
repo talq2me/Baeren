@@ -5,9 +5,19 @@ let lastTaskButtonKid = null;
 let lastTaskButtonStartTime = null;
 
 if ('serviceWorker' in navigator && !navigator.serviceWorker.controller) {
-    navigator.serviceWorker.register('/Baeren/sw.js', { updateViaCache: 'none', scope: '/Baeren/' })
+    // Try to register with relative path first, then fallback to absolute path
+    const swPath = '../sw.js';
+    const scope = '../';
+    
+    navigator.serviceWorker.register(swPath, { updateViaCache: 'none', scope: scope })
         .then(reg => console.log('Service Worker registered'))
-        .catch(err => console.log('Service Worker error:', err.message));
+        .catch(err => {
+            console.log('Service Worker registration failed with relative path, trying absolute path');
+            // Fallback to absolute path
+            navigator.serviceWorker.register('/Baeren/sw.js', { updateViaCache: 'none', scope: '/Baeren/' })
+                .then(reg => console.log('Service Worker registered with absolute path'))
+                .catch(err2 => console.log('Service Worker error:', err2.message));
+        });
 }
 
 function rewardold(timeInMins) {
@@ -61,9 +71,21 @@ function wait(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function insertCommonHeader() {
+    const headerDiv = document.createElement('div');
+    headerDiv.className = 'common-header';
+    headerDiv.innerHTML = `
+        <button class="button" onclick="history.back()">&lt; Back</button>
+        <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
+    `;
+    document.body.insertAdjacentElement('afterbegin', headerDiv);
+}
 
 
 document.addEventListener("DOMContentLoaded", function () {
+    // Load header.html
+    insertCommonHeader();
+
     // Hide Back and Home buttons if running in Android WebView or Fully Kiosk Browser
     function isAndroidWebView() {
         // Check for Fully Kiosk Browser

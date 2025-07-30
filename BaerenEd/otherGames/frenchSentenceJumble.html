@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../styles.css">
     <style>
         .game-container {
-            max-width: 800px;
+            width: 100%;
             margin: 0 auto;
             padding: 20px;
             text-align: center;
@@ -19,7 +19,8 @@
             padding: 15px;
             background: #f0f8ff;
             border-radius: 10px;
-            min-height: 60px;
+            height: 120px;
+            overflow-y: auto;
         }
         
         .word-bank {
@@ -41,9 +42,14 @@
             border-radius: 25px;
             cursor: grab;
             user-select: none;
-            font-size: 18px;
+            font-size: 24px !important;
             transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            line-height: 1.2;
         }
         
         .word:hover {
@@ -67,26 +73,7 @@
             margin: 20px 0;
         }
         
-        .button {
-            background: #2196F3;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            margin: 0 10px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 20px;
-            transition: background 0.3s ease;
-        }
-        
-        .button:hover {
-            background: #1976D2;
-        }
-        
-        .button:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
+        /* Remove custom button styling - use main styles.css instead */
         
         .score {
             font-size: 20px;
@@ -99,6 +86,11 @@
             margin: 10px 0;
             padding: 10px;
             border-radius: 5px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
         }
         
         .feedback.correct {
@@ -130,21 +122,25 @@
     </style>
 </head>
 <body>
+
+    
+    
     <div class="game-container">
         <h1>French Sentence Jumble</h1>
-        <div class="score">Score: <span id="score">0</span></div>
+        <div class="score"><span id="starCount">⭐ 0 / 10</span></div>
         
         <div class="sentence-display" id="sentenceDisplay">
             <div id="currentSentence"></div>
         </div>
         
         <div class="controls">
-            <button class="button" id="playSentence">🔊 Play Sentence</button>
-            <button class="button" id="checkAnswer">Check Answer</button>
-            <button class="button" id="nextSentence">Next Sentence</button>
+            <button class="button" id="playSentence">&#9654; Play Sentence</button>
+            <button class="big-button" id="checkAnswer">Submit</button>
+            <button class="button" id="deleteWord">⌫ Delete</button>
+            <button class="button" id="nextSentence">Skip</button>
         </div>
         
-        <div class="feedback" id="feedback" style="display: none;"></div>
+        <div class="feedback" id="feedback" style="visibility: hidden;"></div>
         
         <div class="word-bank" id="wordBank"></div>
     </div>
@@ -163,8 +159,20 @@
         // Load game data
         async function loadGameData() {
             try {
+                console.log('Attempting to load game data...');
                 const response = await fetch('../gameData/duologicalGame.json');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
                 const data = await response.json();
+                console.log('Game data loaded successfully:', data);
+                
+                if (!data.sentences) {
+                    throw new Error('Game data does not contain "sentences" array');
+                }
+                
                 gameData = data.sentences;
                 
                 // Load progress from localStorage
@@ -175,7 +183,13 @@
                 startGame();
             } catch (error) {
                 console.error('Error loading game data:', error);
-                document.getElementById('sentenceDisplay').innerHTML = 'Error loading game data';
+                document.getElementById('sentenceDisplay').innerHTML = 
+                    `<div style="color: red; padding: 20px; text-align: center;">
+                        <h3>Error loading game data</h3>
+                        <p>Please make sure you are running this through a local server.</p>
+                        <p>Error: ${error.message}</p>
+                        <p>Try running: python -m http.server 8000 in the BaerenEd directory</p>
+                    </div>`;
             }
         }
 
@@ -193,7 +207,7 @@
                 document.getElementById('sentenceDisplay').innerHTML = 
                     `<h2>Game Complete!</h2><p>Final Score: ${score}/${gameData.length}⭐</p>`;
                 document.getElementById('wordBank').innerHTML = '';
-                document.getElementById('feedback').style.display = 'none';
+                document.getElementById('feedback').style.visibility = 'hidden';
                 
                 // Reset progress for next time
                 currentIndex = 0;
@@ -228,7 +242,7 @@
             createWordBank();
             
             // Hide feedback
-            document.getElementById('feedback').style.display = 'none';
+            document.getElementById('feedback').style.visibility = 'hidden';
         }
 
         function createWordBank() {
@@ -315,7 +329,7 @@
             // Show selected words in order
             if (selectedWords.length > 0) {
                 html += selectedWords.map(word => 
-                    `<span class="word" style="background: #2196F3; margin: 5px; padding: 8px 12px; border-radius: 15px; color: white;">${word}</span>`
+                    `<span style="background: #2196F3; margin: 5px; padding: 8px 12px; border-radius: 15px; color: white; display: inline-block; font-size: 20px;">${word}</span>`
                 ).join(' ');
             }
             
@@ -328,14 +342,34 @@
             display.innerHTML = html;
         }
 
+        function updateStarCount() {
+            const starCount = document.getElementById('starCount');
+            const maxQuestions = 10;
+            starCount.textContent = `⭐ ${score} / ${maxQuestions}`;
+        }
+
+        function handleDeleteWord() {
+            if (selectedWords.length > 0) {
+                // Remove the last word from the selectedWords array
+                const lastWord = selectedWords.pop();
+                // Re-enable the corresponding word button
+                const wordButtons = document.querySelectorAll('.word.used');
+                for (let button of wordButtons) {
+                    if (button.textContent === lastWord) {
+                        button.classList.remove('used');
+                        break;
+                    }
+                }
+                updateSentenceDisplay();
+            }
+        }
+
         function checkAnswer() {
             const correctWords = currentSentence.correctWords;
             const isCorrect = selectedWords.length === correctWords.length && 
                              selectedWords.every((word, index) => word === correctWords[index]);
-            
             const feedback = document.getElementById('feedback');
-            feedback.style.display = 'block';
-            
+            feedback.style.visibility = 'visible';
             if (isCorrect) {
                 feedback.textContent = 'Correct! Well done!';
                 feedback.className = 'feedback correct';
@@ -345,10 +379,18 @@
                 feedback.textContent = `Incorrect. The correct sentence is: "${correctWords.join(' ')}"`;
                 feedback.className = 'feedback incorrect';
             }
+            // Disable controls and add delay before next round
+            document.getElementById('checkAnswer').disabled = true;
+            document.getElementById('deleteWord').disabled = true;
+            setTimeout(() => {
+                document.getElementById('checkAnswer').disabled = false;
+                document.getElementById('deleteWord').disabled = false;
+                nextSentence();
+            }, 1200);
         }
 
         function updateScore() {
-            document.getElementById('score').textContent = score;
+            updateStarCount();
         }
 
         function nextSentence() {
@@ -378,6 +420,7 @@
         // Event listeners
         document.getElementById('playSentence').addEventListener('click', playSentence);
         document.getElementById('checkAnswer').addEventListener('click', checkAnswer);
+        document.getElementById('deleteWord').addEventListener('click', handleDeleteWord);
         document.getElementById('nextSentence').addEventListener('click', nextSentence);
 
         // Initialize game
