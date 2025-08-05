@@ -112,9 +112,13 @@ function insertCommonHeader() {
         homeButton = `<button class="button" onclick="location.href='../index.html'">⌂ Home</button>`;
     }
 
+    // Always show Refresh button
+    let refreshButton = `<button class="button" onclick="location.reload(true)">⟳ Refresh</button>`;
+
     headerDiv.innerHTML = `
         <button class="button" onclick="location.href='${backPage}'">&lt; Back</button>
         ${homeButton}
+        ${refreshButton}
     `;
     document.body.insertAdjacentElement('afterbegin', headerDiv);
 }
