@@ -417,7 +417,17 @@
                 if (window.parent && window.parent !== window) {
                     window.parent.postMessage({ type: 'gameCompleted' }, '*');
                 }
-                
+
+                // If currentIndex >= maxQuestions, reset progress
+                if (currentIndex >= maxQuestions) {
+                    
+                    const storageKey = `timetelling_index_${gameMode}`;
+                    currentIndex = parseInt(localStorage.getItem(storageKey) || "0", 10);
+
+                    currentIndex = 0;
+                    localStorage.setItem(storageKey, "0");
+                }          
+
                 // Close modal and return to launching page after a delay
                 setTimeout(() => {
                     if (window.parent && window.parent !== window) {
