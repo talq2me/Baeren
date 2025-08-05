@@ -387,9 +387,13 @@
         function playInstruction() {
             const instruction = `Spell the word: ${currentWord}`;
             
-            if (window.speakText) {
-                // Use the Android TTS if available
-                window.speakText(instruction, 'en');
+            if (typeof AndroidTTS !== 'undefined') {
+                        try {
+                            readText(instruction, 'en');
+                        } catch (error) {
+                            console.error("Error in TTS sequence:", error);
+                        }
+        
             } else if ('speechSynthesis' in window) {
                 // Fallback to browser TTS
                 const utterance = new SpeechSynthesisUtterance(instruction);

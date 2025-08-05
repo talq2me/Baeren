@@ -420,9 +420,12 @@
         function playInstruction() {
             const instruction = `Épelez le mot: ${currentWord}`;
             
-            if (window.speakText) {
-                // Use the Android TTS if available
-                window.speakText(instruction, 'fr');
+            if (typeof AndroidTTS !== 'undefined') {
+                        try {
+                            readText(instruction, 'fr');
+                        } catch (error) {
+                            console.error("Error in TTS sequence:", error);
+                        }
             } else if ('speechSynthesis' in window) {
                 // Fallback to browser TTS
                 const utterance = new SpeechSynthesisUtterance(instruction);

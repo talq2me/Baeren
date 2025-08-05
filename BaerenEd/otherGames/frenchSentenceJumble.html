@@ -406,9 +406,12 @@
         }
 
         function playSentence() {
-            if (currentSentence && window.speakText) {
-                // Use the Android TTS if available
-                window.speakText(currentSentence.english, 'en');
+            if (currentSentence && typeof AndroidTTS !== 'undefined') {
+                        try {
+                            readText(currentSentence.english, 'en');
+                        } catch (error) {
+                            console.error("Error in TTS sequence:", error);
+                        }
             } else if (currentSentence && 'speechSynthesis' in window) {
                 // Fallback to browser TTS
                 const utterance = new SpeechSynthesisUtterance(currentSentence.english);
