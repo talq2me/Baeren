@@ -103,8 +103,8 @@ function insertCommonHeader() {
     // Determine back page based on kid
     let backPage = '/Baeren/index.html';
     const kid = getKid();
-    if (kid === 'am') backPage = '/Baeren/BaerenEd/AM.html';
-    else if (kid === 'bm') backPage = '/Baeren/BaerenEd/BM.html';
+    if (kid === 'am') backPage = '/Baeren/BaerenEd/homework/AM.html';
+    else if (kid === 'bm') backPage = '/Baeren/BaerenEd/homework/BM.html';
 
     // Only show Home button if NOT in Android WebView
     let homeButton = '';
