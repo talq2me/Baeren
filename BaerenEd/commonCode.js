@@ -101,15 +101,15 @@ function insertCommonHeader() {
     const headerDiv = document.createElement('div');
     headerDiv.className = 'common-header';
     // Determine back page based on kid
-    let backPage = '../index.html';
+    let backPage = '/Baeren/index.html';
     const kid = getKid();
-    if (kid === 'am') backPage = 'AM.html';
-    else if (kid === 'bm') backPage = 'BM.html';
+    if (kid === 'am') backPage = '/Baeren/BaerenEd/AM.html';
+    else if (kid === 'bm') backPage = '/Baeren/BaerenEd/BM.html';
 
     // Only show Home button if NOT in Android WebView
     let homeButton = '';
     if (!isAndroidWebView()) {
-        homeButton = `<button class="button" onclick="location.href='../index.html'">⌂ Home</button>`;
+        homeButton = `<button class="button" onclick="location.href='/Baeren/index.html'">⌂ Home</button>`;
     }
 
     // Always show Refresh button
