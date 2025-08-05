@@ -185,9 +185,9 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private fun loadWebForChild(child: String) {
         val url = when (child) {
-            "A" -> "https://talq2me.github.io/BaerenEd/homework/AM.html"
-            "B" -> "https://talq2me.github.io/BaerenEd/homework/BM.html"
-            else -> "https://talq2me.github.io/BaerenEd/index.html"
+            "A" -> "https://talq2me.github.io/Baeren/BaerenEd/homework/AM.html"
+            "B" -> "https://talq2me.github.io/Baeren/BaerenEd/homework/BM.html"
+            else -> "https://talq2me.github.io/Baeren/BaerenEd/index.html"
         }
         webView.loadUrl(url)
         webView.evaluateJavascript(
