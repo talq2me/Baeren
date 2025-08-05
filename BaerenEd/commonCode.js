@@ -20,6 +20,28 @@ if ('serviceWorker' in navigator && !navigator.serviceWorker.controller) {
         });
 }
 
+// Place this near the top, before insertCommonHeader()
+function isAndroidWebView() {
+    // Check for Fully Kiosk Browser
+    if (typeof fully !== "undefined") {
+        return true;
+    }
+    // Check for Android WebView user agent
+    const userAgent = navigator.userAgent.toLowerCase();
+    if (userAgent.includes('android') && userAgent.includes('wv')) {
+        return true;
+    }
+    // Check for Android WebView specific features
+    if (window.Android && typeof window.Android !== 'undefined') {
+        return true;
+    }
+    // Check for Android intent support
+    if (typeof window.AndroidInterface !== 'undefined') {
+        return true;
+    }
+    return false;
+}
+
 function rewardold(timeInMins) {
     const rewardTime = timeInMins * 60 * 1000;
     if (typeof fully !== "undefined") {
@@ -71,12 +93,28 @@ function wait(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function getKid() {
+    return localStorage.getItem('kid');
+}
+
 function insertCommonHeader() {
     const headerDiv = document.createElement('div');
     headerDiv.className = 'common-header';
+    // Determine back page based on kid
+    let backPage = '../index.html';
+    const kid = getKid();
+    if (kid === 'am') backPage = 'AM.html';
+    else if (kid === 'bm') backPage = 'BM.html';
+
+    // Only show Home button if NOT in Android WebView
+    let homeButton = '';
+    if (!isAndroidWebView()) {
+        homeButton = `<button class="button" onclick="location.href='../index.html'">⌂ Home</button>`;
+    }
+
     headerDiv.innerHTML = `
-        <button class="button" onclick="history.back()">&lt; Back</button>
-        <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
+        <button class="button" onclick="location.href='${backPage}'">&lt; Back</button>
+        ${homeButton}
     `;
     document.body.insertAdjacentElement('afterbegin', headerDiv);
 }
@@ -87,31 +125,6 @@ document.addEventListener("DOMContentLoaded", function () {
     insertCommonHeader();
 
     // Hide Back and Home buttons if running in Android WebView or Fully Kiosk Browser
-    function isAndroidWebView() {
-        // Check for Fully Kiosk Browser
-        if (typeof fully !== "undefined") {
-            return true;
-        }
-        
-        // Check for Android WebView user agent
-        const userAgent = navigator.userAgent.toLowerCase();
-        if (userAgent.includes('android') && userAgent.includes('wv')) {
-            return true;
-        }
-        
-        // Check for Android WebView specific features
-        if (window.Android && typeof window.Android !== 'undefined') {
-            return true;
-        }
-        
-        // Check for Android intent support
-        if (typeof window.AndroidInterface !== 'undefined') {
-            return true;
-        }
-        
-        return false;
-    }
-    
     if (isAndroidWebView()) {
         document.querySelectorAll("button[onclick*='goBack()'], button[onclick*='history.back()'], button[onclick*=\"location.href='../index.html'\"]").forEach(btn => {
             btn.style.display = "none";

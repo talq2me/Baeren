@@ -23,10 +23,12 @@
     
     <script src="../commonCode.js"></script>
     <script src="../codeGenerator/unlockCodePiece.js"></script>
+    <script>
+        // Set the kid value in localStorage for this page
+        localStorage.setItem('kid', 'bm');
+    </script>
 </head>
 <body>
-    <button class="button" onclick="goBack()">&lt; Back</button>
-    <button class="button" onclick="location.href='../index.html'">⌂ Home</button>
     <h1>Welcome to BM!</h1>
     <div id="codeDisplay" data-kid="kid2" style="font-size: 24px; margin-top: 20px; color: #333;">Progress: </div>
         <h1>Your homework:</h1>
