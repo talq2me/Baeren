@@ -40,7 +40,25 @@
             width: 100vw;
             height: 100%;
             background: 
-                linear-gradient(to bottom, transparent 0%, transparent 9px, #1e90ff 9px, #1e90ff 11px, transparent 11px, transparent 28px, #87ceeb 28px, #87ceeb 30px, transparent 30px, transparent 47px, #87ceeb 47px, #87ceeb 49px, transparent 49px, transparent 64px, #1e90ff 64px, #1e90ff 66px, transparent 66px);
+                /* Top blue line */
+                linear-gradient(to bottom, 
+                    transparent 0%, 
+                    transparent 12px, 
+                    #1e90ff 12px, #1e90ff 14px, 
+                    transparent 14px, 
+                    /* First inner blue line */
+                    transparent 38px, 
+                    #87ceeb 38px, #87ceeb 40px, 
+                    transparent 40px, 
+                    /* Second inner blue line (further apart from first inner) */
+                    transparent 78px, 
+                    #87ceeb 78px, #87ceeb 80px, 
+                    transparent 80px, 
+                    /* Bottom blue line (closer to center) */
+                    transparent 104px, 
+                    #1e90ff 104px, #1e90ff 106px, 
+                    transparent 106px
+                );
             pointer-events: none;
             z-index: 0;
         }
@@ -62,7 +80,7 @@
             text-align: center;
             position: relative;
             z-index: 1;
-            margin-top: -3px; /* Adjust to align with lines */
+            margin-top: -2px; /* Adjust to align with lines */
             width: 100vw;
             min-width: 100vw;
             white-space: nowrap;
