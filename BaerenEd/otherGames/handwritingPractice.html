@@ -8,9 +8,9 @@
     <script src="../commonCode.js"></script>
     <style>
         .game-container {
-            width: 100%;
+            width: 100vw;
             margin: 0 auto;
-            padding: 20px;
+            padding: 20px 0;
             text-align: center;
         }
         
@@ -18,17 +18,18 @@
             background: white;
             border: 2px solid #333;
             border-radius: 10px;
-            padding: 20px;
+            padding: 20px 0;
             margin: 20px 0;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             position: relative;
-            width: 100%;
-            min-width: 100%;
+            width: 100vw;
+            overflow-x: auto;
         }
         
         .paper-lines {
             position: relative;
             min-height: 120px;
+            width: 100vw;
         }
         
         .paper-lines::before {
@@ -36,7 +37,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
+            width: 100vw;
             height: 100%;
             background: 
                 linear-gradient(to bottom, transparent 0%, transparent 9px, #1e90ff 9px, #1e90ff 11px, transparent 11px, transparent 28px, #87ceeb 28px, #87ceeb 30px, transparent 30px, transparent 47px, #87ceeb 47px, #87ceeb 49px, transparent 49px, transparent 64px, #1e90ff 64px, #1e90ff 66px, transparent 66px);
@@ -47,28 +48,29 @@
         .sentence-container {
             position: relative;
             z-index: 1;
-            padding: 0 10px;
-            width: 100%;
-            min-width: 100%;
+            padding: 0;
+            width: 100vw;
+            min-width: 100vw;
+            overflow-x: auto;
         }
         
         .sentence-text {
             font-family: 'Comic Sans MS', 'Chalkboard', 'Arial Rounded MT Bold', sans-serif;
-            font-size: 40px;
+            font-size: 30px;
             line-height: 60px;
             color: #333;
             text-align: center;
-            padding: 0 10px;
             position: relative;
             z-index: 1;
-            margin-top: 0; /* Reset margin */
-            width: 100%;
-            min-width: 100%;
+            margin-top: 0;
+            width: 100vw;
+            min-width: 100vw;
             white-space: nowrap;
+            overflow-x: auto;
         }
         
         .sentence-text .tall-letter {
-            font-size: 40px;
+            font-size: 30px;
             line-height: 60px;
             color: #333;
             font-weight: normal;
@@ -78,7 +80,7 @@
         }
         
         .sentence-text .descender {
-            font-size: 40px;
+            font-size: 30px;
             line-height: 60px;
             color: #333;
             font-weight: normal;
@@ -87,7 +89,7 @@
         }
         
         .sentence-text .normal {
-            font-size: 40px;
+            font-size: 30px;
             line-height: 60px;
             color: #333;
             font-weight: normal;
@@ -251,4 +253,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
