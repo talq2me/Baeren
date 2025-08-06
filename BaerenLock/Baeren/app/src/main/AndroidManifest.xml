@@ -53,6 +53,7 @@
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:taskAffinity=""
+            android:hardwareAccelerated="true"
             android:excludeFromRecents="true">
         </activity>
         <activity

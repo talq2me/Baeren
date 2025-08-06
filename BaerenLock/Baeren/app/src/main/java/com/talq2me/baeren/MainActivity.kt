@@ -20,6 +20,8 @@ import android.widget.TextView
 import android.widget.ScrollView
 import android.widget.EditText
 import android.widget.Button
+import androidx.core.view.ViewCompat.setLayerType
+import android.view.View
 
 class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
@@ -93,6 +95,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             cacheMode = WebSettings.LOAD_NO_CACHE
             userAgentString = "Mozilla/5.0 (Linux; Android 10; Pixel 3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36"
         }
+        webView.setLayerType(View.LAYER_TYPE_HARDWARE, null)
         webView.clearCache(true)
         webView.clearHistory()
         webView.webChromeClient = WebChromeClient()
@@ -134,6 +137,8 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
         }
     }
+
+    private fun setLayerType(layerTypeHardware: Any, nothing: Nothing?) {}
 
     private fun openPlayStore(pkg: String) {
         try {
