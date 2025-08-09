@@ -9,17 +9,8 @@
     <title>BM</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../ytplayer/ytplayer.css">
-    <!--script src="../videoModal.js" defer></script-->
     <script src="../ytplayer/youTubePlayer.js" defer></script>
-    <!--script>
-        // Get today's date in YYYY-MM-DD format
-        const today = new Date().toISOString().slice(0, 10);
-        // Create the script element
-        const script = document.createElement('script');
-        script.src = `../commonCode.js?v=${today}`;
-        script.defer = true;
-        document.head.appendChild(script);
-    </script-->
+    <script src="../ytplayer/videoPlaylistModal.js" defer></script>
     
     <script src="../commonCode.js"></script>
     <script src="../codeGenerator/unlockCodePiece.js"></script>
@@ -61,7 +52,8 @@
         <button data-key="required11" class="button required non-task" data-reveal-code="true" onclick="openNewWindow('https://www.duolingo.com/learn')">Duo Lingo</button>
     </div>
     
-    
+ 
+
     <div class="div-container">
         <button data-key="required12" class="button task-button" data-reveal-code="true" data-target-page="../translate/translate.html">Translate & French Reading</button>
         <button data-key="required13" class="button" data-target-page="../duological/duologicalGame.html">Duo Game</button>
@@ -73,7 +65,20 @@
          <button data-key="required14" class="button required video-button" data-show-days="sun,mon,tue,thu,fri" data-reveal-code="true" data-json-file="../intermediateKungFuVideos.json" data-selection-mode="sequential">KungFu Video</button>
          <button data-key="required15" class="button required video-button" data-show-days="sun,mon,tue,thu,fri" data-reveal-code="true" data-json-file="../intermediateKungFuVideos.json" data-selection-mode="exact">StaffForm</button>
          <button data-key="required16" class="button video-button" data-json-file="../videoLinks.json" data-selection-mode="exact">AngleFish</button>
-    </div>
+        
+        <button data-key="required27" class="button required video-button" data-reveal-code="true" data-json-file="../alphaBlocks.json" data-selection-mode="sequential">AlphaBlocks</button>     
+        <button data-key="required28" class="button required video-button" data-reveal-code="true" data-json-file="../caillouVideos.json" data-selection-mode="sequential">Caillou</button>     
+        <button data-key="required29" class="button required video-button" data-reveal-code="true" data-json-file="../billNye.json" data-selection-mode="sequential">Bill Nye</button>    
+        <button data-key="required30" class="button required non-task" data-reveal-code="true" onclick="openNewWindow('https://gem.cbc.ca/zoomizoom')">ZoomiZoom</button>    
+        <button data-key="notrequired1" class="button non-task" onclick="openPlaylistModal('PL8QD6oFoDT8ZgR8vqV0LzSqWMD4HuZmnV')">Bluey</button>  
+        <button data-key="notrequired2" class="button non-task" onclick="openPlaylistModal('PLwQp67ldSPkTHZ64YTCCbsHjhfbUnimpU')">Peppa Pig</button>
+        <button data-key="notrequired3" class="button non-task" onclick="openPlaylistModal('PL32Hee-K_Qi9lT_5veXubI_FFJBDcvIP3')">Pj Mask</button>
+        <button data-key="notrequired4" class="button non-task" onclick="openPlaylistModal('PLW1D29VIaBLihdWAChnj6pHDsnqp-w_-J')">Caillou</button>
+        <button data-key="notrequired5" class="button non-task" onclick="openPlaylistModal('PLVXmcWvDTic8tklSxa-yjywytmHrRVwxj')">Pokemon</button>
+        <button data-key="notrequired6" class="button non-task" onclick="openPlaylistModal('PLEMKcYFLxBRCGy1HOTeh2z-4kHINkecy_')">Smurfs</button>
+        <button data-key="notrequired7" class="button non-task" onclick="openPlaylistModal('PL5Y2erQEGaocoKEoCkI5uvrS1bmuId2tx')">Simon</button>
+    
+        </div>
 
     
     
