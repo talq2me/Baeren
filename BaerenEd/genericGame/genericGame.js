@@ -65,7 +65,11 @@ function speakWithHighlight(text, lang, container, onend) {
     // AndroidTTS integration
     if (typeof AndroidTTS !== 'undefined' && typeof AndroidTTS.speak === 'function') {
         container.classList.add('tts-highlight');
-        AndroidTTS.speak(text, lang);
+        // Convert language code for AndroidTTS (same as readText function)
+        let androidLang = lang;
+        if (lang === "en-US") androidLang = "en";
+        if (lang === "fr-FR") androidLang = "fr";
+        AndroidTTS.speak(text, androidLang);
         // Use callback if available, fallback to timer if not called in time
         let finished = false;
         ttsFinishCallback = () => {
