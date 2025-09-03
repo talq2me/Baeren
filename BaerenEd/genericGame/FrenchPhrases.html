@@ -144,54 +144,68 @@
             return text.split(/(\s+)/).map((word, i) => `<span data-word-idx="${i}">${word}</span>`).join("");
         }
 
-        function highlightWord(container, charIndex) {
-            let total = 0;
-            const spans = Array.from(container.querySelectorAll('span[data-word-idx]'));
-            for (let i = 0; i < spans.length; i++) {
-                const len = spans[i].textContent.length;
-                if (charIndex < total + len) {
-                    spans.forEach(span => span.classList.remove('tts-highlight'));
+        // Timer-based word highlighting for AndroidTTS and fallback
+        function highlightWordsByTimer(text, container, wordDuration = 700, onend) {
+            let spans = Array.from(container.querySelectorAll('span[data-word-idx]'));
+            let words = text.trim().split(/\s+/);
+            let i = 0;
+            function highlightNext() {
+                spans.forEach(span => span.classList.remove('tts-highlight'));
+                if (i < spans.length) {
                     spans[i].classList.add('tts-highlight');
-                    break;
+                    i++;
+                    setTimeout(highlightNext, wordDuration);
+                } else {
+                    spans.forEach(span => span.classList.remove('tts-highlight'));
+                    if (onend) onend();
                 }
-                total += len;
             }
+            highlightNext();
         }
 
+        // Use AndroidTTS if available, otherwise use Web Speech API
         function speakWithHighlight(text, lang, container, onend) {
-            if (!window.speechSynthesis) return;
-            if (window.ttsUtterance) window.speechSynthesis.cancel();
             container.innerHTML = splitTextToSpans(text);
 
-            let spans = Array.from(container.querySelectorAll('span[data-word-idx]'));
-            let boundarySupported = false;
+            // Use AndroidTTS if available
+            if (typeof AndroidTTS !== 'undefined' && typeof AndroidTTS.speak === 'function') {
+                highlightWordsByTimer(text, container, 700, onend);
+                let androidLang = lang;
+                if (lang === "en-US") androidLang = "en";
+                if (lang === "fr-FR") androidLang = "fr";
+                AndroidTTS.speak(text, androidLang);
+                return;
+            }
 
+            // Web Speech API fallback
+            if (!window.speechSynthesis) return;
+            if (window.ttsUtterance) window.speechSynthesis.cancel();
+            let spans = Array.from(container.querySelectorAll('span[data-word-idx]'));
             window.ttsUtterance = new SpeechSynthesisUtterance(text);
             window.ttsUtterance.lang = lang;
             window.ttsUtterance.rate = 0.6; // Slower for young learners
-
+            let boundarySupported = false;
             window.ttsUtterance.onboundary = function(event) {
                 boundarySupported = true;
-                highlightWord(container, event.charIndex);
+                let charIndex = event.charIndex;
+                let total = 0;
+                for (let i = 0; i < spans.length; i++) {
+                    const len = spans[i].textContent.length;
+                    if (charIndex < total + len) {
+                        spans.forEach(span => span.classList.remove('tts-highlight'));
+                        spans[i].classList.add('tts-highlight');
+                        break;
+                    }
+                    total += len;
+                }
             };
             window.ttsUtterance.onstart = function() {
-                highlightWord(container, 0);
-                // If boundary not supported, fallback to timed highlighting
+                spans.forEach(span => span.classList.remove('tts-highlight'));
+                spans[0].classList.add('tts-highlight');
+                // Fallback to timer if boundary not supported
                 setTimeout(() => {
                     if (!boundarySupported) {
-                        let words = text.trim().split(/\s+/);
-                        // Slower word duration for young learners
-                        let wordDuration = 700; // milliseconds per word
-                        let i = 0;
-                        function highlightNext() {
-                            spans.forEach(span => span.classList.remove('tts-highlight'));
-                            if (i < spans.length) {
-                                spans[i].classList.add('tts-highlight');
-                                i++;
-                                setTimeout(highlightNext, wordDuration);
-                            }
-                        }
-                        highlightNext();
+                        highlightWordsByTimer(text, container, 700, onend);
                     }
                 }, 200);
             };
