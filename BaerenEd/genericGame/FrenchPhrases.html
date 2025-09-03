@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Picture Sentence Game</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+            background: #f6f8fa;
+            margin: 0;
+            padding: 0;
+        }
+        .game-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            padding: 32px 24px;
+            text-align: center;
+        }
+        .sentence-text {
+            font-size: 2em;
+            margin-bottom: 24px;
+        }
+        .sentence-text span {
+            transition: background 0.2s;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .tts-highlight {
+            background: #ffe066;
+        }
+        .picture-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+        }
+        .picture-btn {
+            border: 2px solid #eee;
+            border-radius: 12px;
+            background: #fafafa;
+            cursor: pointer;
+            transition: border 0.2s, box-shadow 0.2s;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            position: relative;
+        }
+        .picture-btn.selected {
+            border: 2px solid #51cf66;
+            box-shadow: 0 0 0 4px #b2f2bb;
+        }
+        .picture-btn img {
+            max-width: 80px;
+            max-height: 80px;
+        }
+        .feedback {
+            font-size: 1.3em;
+            margin-bottom: 16px;
+            min-height: 1.3em;
+        }
+        .play-btn {
+            font-size: 1.2em;
+            padding: 8px 24px;
+            border-radius: 8px;
+            border: none;
+            background: #228be6;
+            color: #fff;
+            cursor: pointer;
+            margin-bottom: 16px;
+            transition: background 0.2s;
+        }
+        .play-btn:hover {
+            background: #1864ab;
+        }
+        .star-count {
+            font-size: 1.2em;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="star-count" id="starCount">⭐ 0 / 5</div>
+        <div class="sentence-text" id="sentenceText"></div>
+        <button class="play-btn" id="playBtn">🔊 Play Again</button>
+        <div class="picture-buttons" id="pictureButtons"></div>
+        <div class="feedback" id="feedback"></div>
+    </div>
+    <script>
+        // Game data: Add your rounds here!
+        const rounds = [
+            {
+                sentence: "Puis-je aller aux toilettes ?",
+                correct: "toilet",
+                pictures: [
+                    { id: "toilet", img: "https://cdn-icons-png.flaticon.com/512/616/616554.png", alt: "Toilet" },
+                    { id: "playground", img: "https://cdn-icons-png.flaticon.com/512/235/235861.png", alt: "Playground" }
+                ]
+            },
+            {
+                sentence: "Je veux jouer dehors.",
+                correct: "playground",
+                pictures: [
+                    { id: "playground", img: "https://cdn-icons-png.flaticon.com/512/235/235861.png", alt: "Playground" },
+                    { id: "toilet", img: "https://cdn-icons-png.flaticon.com/512/616/616554.png", alt: "Toilet" }
+                ]
+            },
+            {
+                sentence: "Je veux boire de l'eau.",
+                correct: "water",
+                pictures: [
+                    { id: "water", img: "https://cdn-icons-png.flaticon.com/512/728/728093.png", alt: "Water" },
+                    { id: "book", img: "https://cdn-icons-png.flaticon.com/512/29/29302.png", alt: "Book" }
+                ]
+            },
+            {
+                sentence: "Je veux lire un livre.",
+                correct: "book",
+                pictures: [
+                    { id: "book", img: "https://cdn-icons-png.flaticon.com/512/29/29302.png", alt: "Book" },
+                    { id: "draw", img: "https://cdn-icons-png.flaticon.com/512/2922/2922016.png", alt: "Draw" }
+                ]
+            },
+            {
+                sentence: "Je veux dessiner.",
+                correct: "draw",
+                pictures: [
+                    { id: "draw", img: "https://cdn-icons-png.flaticon.com/512/2922/2922016.png", alt: "Draw" },
+                    { id: "book", img: "https://cdn-icons-png.flaticon.com/512/29/29302.png", alt: "Book" }
+                ]
+            }
+        ];
+
+        let currentRound = 0;
+        let correctCount = 0;
+
+        function splitTextToSpans(text) {
+            return text.split(/(\s+)/).map((word, i) => `<span data-word-idx="${i}">${word}</span>`).join("");
+        }
+
+        function highlightWord(container, charIndex) {
+            let total = 0;
+            const spans = Array.from(container.querySelectorAll('span[data-word-idx]'));
+            for (let i = 0; i < spans.length; i++) {
+                const len = spans[i].textContent.length;
+                if (charIndex < total + len) {
+                    spans.forEach(span => span.classList.remove('tts-highlight'));
+                    spans[i].classList.add('tts-highlight');
+                    break;
+                }
+                total += len;
+            }
+        }
+
+        function speakWithHighlight(text, lang, container, onend) {
+            if (!window.speechSynthesis) return;
+            if (window.ttsUtterance) window.speechSynthesis.cancel();
+            container.innerHTML = splitTextToSpans(text);
+
+            let spans = Array.from(container.querySelectorAll('span[data-word-idx]'));
+            let boundarySupported = false;
+
+            window.ttsUtterance = new SpeechSynthesisUtterance(text);
+            window.ttsUtterance.lang = lang;
+            window.ttsUtterance.rate = 0.6; // Slower for young learners
+
+            window.ttsUtterance.onboundary = function(event) {
+                boundarySupported = true;
+                highlightWord(container, event.charIndex);
+            };
+            window.ttsUtterance.onstart = function() {
+                highlightWord(container, 0);
+                // If boundary not supported, fallback to timed highlighting
+                setTimeout(() => {
+                    if (!boundarySupported) {
+                        let words = text.trim().split(/\s+/);
+                        // Slower word duration for young learners
+                        let wordDuration = 700; // milliseconds per word
+                        let i = 0;
+                        function highlightNext() {
+                            spans.forEach(span => span.classList.remove('tts-highlight'));
+                            if (i < spans.length) {
+                                spans[i].classList.add('tts-highlight');
+                                i++;
+                                setTimeout(highlightNext, wordDuration);
+                            }
+                        }
+                        highlightNext();
+                    }
+                }, 200);
+            };
+            window.ttsUtterance.onend = function() {
+                spans.forEach(span => span.classList.remove('tts-highlight'));
+                if (onend) onend();
+            };
+            window.speechSynthesis.speak(window.ttsUtterance);
+        }
+
+        function updateStarCount() {
+            document.getElementById("starCount").innerText = `⭐ ${correctCount} / ${rounds.length}`;
+        }
+
+        function showRound() {
+            const round = rounds[currentRound];
+            const sentenceDiv = document.getElementById("sentenceText");
+            sentenceDiv.innerHTML = splitTextToSpans(round.sentence);
+            document.getElementById("feedback").innerText = "";
+            document.getElementById("playBtn").disabled = false;
+
+            // Show picture buttons
+            const btnsDiv = document.getElementById("pictureButtons");
+            btnsDiv.innerHTML = "";
+            round.pictures.forEach(pic => {
+                const btn = document.createElement("button");
+                btn.className = "picture-btn";
+                btn.innerHTML = `<img src="${pic.img}" alt="${pic.alt}"><br><span>${pic.alt}</span>`;
+                btn.onclick = () => handleChoice(pic.id, btn);
+                btnsDiv.appendChild(btn);
+            });
+
+            // Auto play sentence with highlight
+            setTimeout(() => {
+                speakWithHighlight(round.sentence, "fr-FR", sentenceDiv);
+            }, 400);
+        }
+
+        function handleChoice(choiceId, btn) {
+            const round = rounds[currentRound];
+            const feedbackDiv = document.getElementById("feedback");
+            Array.from(document.getElementsByClassName("picture-btn")).forEach(b => b.classList.remove("selected"));
+            btn.classList.add("selected");
+            if (choiceId === round.correct) {
+                feedbackDiv.innerHTML = "⭐ Correct!";
+                correctCount++;
+                updateStarCount();
+                document.getElementById("playBtn").disabled = true;
+                setTimeout(() => {
+                    currentRound++;
+                    if (currentRound < rounds.length) {
+                        showRound();
+                    } else {
+                        feedbackDiv.innerHTML = "🎉 Game Over! Well done!";
+                        document.getElementById("pictureButtons").innerHTML = "";
+                        document.getElementById("playBtn").style.display = "none";
+                        document.getElementById("sentenceText").innerHTML = "";
+                    }
+                }, 1200);
+            } else {
+                feedbackDiv.innerHTML = "☹️ Try again!";
+            }
+        }
+
+        document.getElementById("playBtn").onclick = function() {
+            const round = rounds[currentRound];
+            speakWithHighlight(round.sentence, "fr-FR", document.getElementById("sentenceText"));
+        };
+
+        // Start game
+        updateStarCount();
+        showRound();
+    </script>
+</body>
+</html>
