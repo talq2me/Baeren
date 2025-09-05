@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Picture Sentence Game</title>
+    
+    <link rel="stylesheet" href="../styles.css">
     <style>
         body {
             font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
@@ -64,20 +66,7 @@
             margin-bottom: 16px;
             min-height: 1.3em;
         }
-        .play-btn {
-            font-size: 1.2em;
-            padding: 8px 24px;
-            border-radius: 8px;
-            border: none;
-            background: #228be6;
-            color: #fff;
-            cursor: pointer;
-            margin-bottom: 16px;
-            transition: background 0.2s;
-        }
-        .play-btn:hover {
-            background: #1864ab;
-        }
+        
         .star-count {
             font-size: 1.2em;
             margin-bottom: 12px;
@@ -88,7 +77,7 @@
     <div class="game-container">
         <div class="star-count" id="starCount">⭐ 0 / 5</div>
         <div class="sentence-text" id="sentenceText"></div>
-        <button class="play-btn" id="playBtn">🔊 Play Again</button>
+        <button class="button" id="playBtn">&#9654; Play Again</button>
         <div class="picture-buttons" id="pictureButtons"></div>
         <div class="feedback" id="feedback"></div>
     </div>
@@ -327,147 +316,202 @@
             }
         ];
 
-        let currentRound = 0;
-        let correctCount = 0;
+         // --- CONFIG ---
+    const QUESTIONS_PER_DAY = 12;
+    const STORAGE_KEY = "FrenchPhrasesGame_progress";
 
-        function splitTextToSpans(text) {
-            return text.split(/(\s+)/).map((word, i) => `<span data-word-idx="${i}">${word}</span>`).join("");
+    // --- Progress Tracking ---
+    let correctCount = 0;
+    let todayIndex = 0;
+    let todayQuestions = [];
+    let currentRound = 0;
+
+    function getTodayKey() {
+        const today = new Date().toISOString().slice(0, 10);
+        return `${STORAGE_KEY}_${today}`;
+    }
+
+    function loadProgress() {
+        const todayKey = getTodayKey();
+        let idx = parseInt(localStorage.getItem(todayKey) || "0", 10);
+        if (isNaN(idx) || idx < 0) idx = 0;
+        todayIndex = idx;
+    }
+
+    function saveProgress() {
+        const todayKey = getTodayKey();
+        localStorage.setItem(todayKey, todayIndex.toString());
+    }
+
+    function getTodayRounds() {
+        // Loop through rounds if needed
+        let start = todayIndex;
+        let result = [];
+        for (let i = 0; i < QUESTIONS_PER_DAY; i++) {
+            result.push(rounds[(start + i) % rounds.length]);
         }
+        return result;
+    }
 
-        // Timer-based word highlighting for AndroidTTS and fallback
-        function highlightWordsByTimer(text, container, wordDuration = 700, onend) {
-            let spans = Array.from(container.querySelectorAll('span[data-word-idx]'));
-            let words = text.trim().split(/\s+/);
-            let i = 0;
-            function highlightNext() {
-                spans.forEach(span => span.classList.remove('tts-highlight'));
-                if (i < spans.length) {
-                    spans[i].classList.add('tts-highlight');
-                    i++;
-                    setTimeout(highlightNext, wordDuration);
-                } else {
-                    spans.forEach(span => span.classList.remove('tts-highlight'));
-                    if (onend) onend();
-                }
-            }
-            highlightNext();
-        }
+    function advanceProgress() {
+        todayIndex = (todayIndex + QUESTIONS_PER_DAY) % rounds.length;
+        saveProgress();
+    }
 
-        // Use AndroidTTS if available, otherwise use Web Speech API
-        function speakWithHighlight(text, lang, container, onend) {
-            container.innerHTML = splitTextToSpans(text);
+    function splitTextToSpans(text) {
+        return text.split(/(\s+)/).map((word, i) => `<span data-word-idx="${i}">${word}</span>`).join("");
+    }
 
-            // Use AndroidTTS if available
-            if (typeof AndroidTTS !== 'undefined' && typeof AndroidTTS.speak === 'function') {
-                highlightWordsByTimer(text, container, 700, onend);
-                let androidLang = lang;
-                if (lang === "en-US") androidLang = "en";
-                if (lang === "fr-FR") androidLang = "fr";
-                AndroidTTS.speak(text, androidLang);
-                return;
-            }
-
-            // Web Speech API fallback
-            if (!window.speechSynthesis) return;
-            if (window.ttsUtterance) window.speechSynthesis.cancel();
-            let spans = Array.from(container.querySelectorAll('span[data-word-idx]'));
-            window.ttsUtterance = new SpeechSynthesisUtterance(text);
-            window.ttsUtterance.lang = lang;
-            window.ttsUtterance.rate = 0.6; // Slower for young learners
-            let boundarySupported = false;
-            window.ttsUtterance.onboundary = function(event) {
-                boundarySupported = true;
-                let charIndex = event.charIndex;
-                let total = 0;
-                for (let i = 0; i < spans.length; i++) {
-                    const len = spans[i].textContent.length;
-                    if (charIndex < total + len) {
-                        spans.forEach(span => span.classList.remove('tts-highlight'));
-                        spans[i].classList.add('tts-highlight');
-                        break;
-                    }
-                    total += len;
-                }
-            };
-            window.ttsUtterance.onstart = function() {
-                spans.forEach(span => span.classList.remove('tts-highlight'));
-                spans[0].classList.add('tts-highlight');
-                // Fallback to timer if boundary not supported
-                setTimeout(() => {
-                    if (!boundarySupported) {
-                        highlightWordsByTimer(text, container, 700, onend);
-                    }
-                }, 200);
-            };
-            window.ttsUtterance.onend = function() {
+    function highlightWordsByTimer(text, container, wordDuration = 700, onend) {
+        let spans = Array.from(container.querySelectorAll('span[data-word-idx]'));
+        let words = text.trim().split(/\s+/);
+        let i = 0;
+        function highlightNext() {
+            spans.forEach(span => span.classList.remove('tts-highlight'));
+            if (i < spans.length) {
+                spans[i].classList.add('tts-highlight');
+                i++;
+                setTimeout(highlightNext, wordDuration);
+            } else {
                 spans.forEach(span => span.classList.remove('tts-highlight'));
                 if (onend) onend();
-            };
-            window.speechSynthesis.speak(window.ttsUtterance);
-        }
-
-        function updateStarCount() {
-            document.getElementById("starCount").innerText = `⭐ ${correctCount} / ${rounds.length}`;
-        }
-
-        function showRound() {
-            const round = rounds[currentRound];
-            const sentenceDiv = document.getElementById("sentenceText");
-            sentenceDiv.innerHTML = splitTextToSpans(round.sentence);
-            document.getElementById("feedback").innerText = "";
-            document.getElementById("playBtn").disabled = false;
-
-            // Show picture buttons
-            const btnsDiv = document.getElementById("pictureButtons");
-            btnsDiv.innerHTML = "";
-            round.pictures.forEach(pic => {
-                const btn = document.createElement("button");
-                btn.className = "picture-btn";
-                btn.innerHTML = `<img src="${pic.img}" alt="${pic.alt}"><br><span>${pic.alt}</span>`;
-                btn.onclick = () => handleChoice(pic.id, btn);
-                btnsDiv.appendChild(btn);
-            });
-
-            // Auto play sentence with highlight
-            setTimeout(() => {
-                speakWithHighlight(round.sentence, "fr-FR", sentenceDiv);
-            }, 400);
-        }
-
-        function handleChoice(choiceId, btn) {
-            const round = rounds[currentRound];
-            const feedbackDiv = document.getElementById("feedback");
-            Array.from(document.getElementsByClassName("picture-btn")).forEach(b => b.classList.remove("selected"));
-            btn.classList.add("selected");
-            if (choiceId === round.correct) {
-                feedbackDiv.innerHTML = "⭐ Correct!";
-                correctCount++;
-                updateStarCount();
-                document.getElementById("playBtn").disabled = true;
-                setTimeout(() => {
-                    currentRound++;
-                    if (currentRound < rounds.length) {
-                        showRound();
-                    } else {
-                        feedbackDiv.innerHTML = "🎉 Game Over! Well done!";
-                        document.getElementById("pictureButtons").innerHTML = "";
-                        document.getElementById("playBtn").style.display = "none";
-                        document.getElementById("sentenceText").innerHTML = "";
-                    }
-                }, 1200);
-            } else {
-                feedbackDiv.innerHTML = "☹️ Try again!";
             }
         }
+        highlightNext();
+    }
 
-        document.getElementById("playBtn").onclick = function() {
-            const round = rounds[currentRound];
-            speakWithHighlight(round.sentence, "fr-FR", document.getElementById("sentenceText"));
+    function speakWithHighlight(text, lang, container, onend) {
+        container.innerHTML = splitTextToSpans(text);
+
+        // Use AndroidTTS if available
+        if (typeof AndroidTTS !== 'undefined' && typeof AndroidTTS.speak === 'function') {
+            highlightWordsByTimer(text, container, 700, onend);
+            AndroidTTS.speak(text, lang);
+            return;
+        }
+
+        // Web Speech API fallback
+        if (!window.speechSynthesis) return;
+        if (window.ttsUtterance) window.speechSynthesis.cancel();
+        let spans = Array.from(container.querySelectorAll('span[data-word-idx]'));
+        window.ttsUtterance = new SpeechSynthesisUtterance(text);
+        window.ttsUtterance.lang = lang;
+        window.ttsUtterance.rate = 0.4; // Slower for young learners
+        let boundarySupported = false;
+        window.ttsUtterance.onboundary = function(event) {
+            boundarySupported = true;
+            let charIndex = event.charIndex;
+            let total = 0;
+            for (let i = 0; i < spans.length; i++) {
+                const len = spans[i].textContent.length;
+                if (charIndex < total + len) {
+                    spans.forEach(span => span.classList.remove('tts-highlight'));
+                    spans[i].classList.add('tts-highlight');
+                    break;
+                }
+                total += len;
+            }
         };
+        window.ttsUtterance.onstart = function() {
+            spans.forEach(span => span.classList.remove('tts-highlight'));
+            spans[0].classList.add('tts-highlight');
+            setTimeout(() => {
+                if (!boundarySupported) {
+                    highlightWordsByTimer(text, container, 700, onend);
+                }
+            }, 200);
+        };
+        window.ttsUtterance.onend = function() {
+            spans.forEach(span => span.classList.remove('tts-highlight'));
+            if (onend) onend();
+        };
+        window.speechSynthesis.speak(window.ttsUtterance);
+    }
 
-        // Start game
+    function updateStarCount() {
+        document.getElementById("starCount").innerText = `⭐ ${correctCount} / ${QUESTIONS_PER_DAY}`;
+    }
+
+    function showRound() {
+        const round = todayQuestions[currentRound];
+        const sentenceDiv = document.getElementById("sentenceText");
+        sentenceDiv.innerHTML = splitTextToSpans(round.sentence);
+        document.getElementById("feedback").innerText = "";
+        document.getElementById("playBtn").disabled = false;
+
+        // Randomize correct/incorrect button position
+        const pics = [...round.pictures];
+        if (Math.random() < 0.5) {
+            // correct on left
+        } else {
+            pics.reverse();
+        }
+
+        // Show picture buttons
+        const btnsDiv = document.getElementById("pictureButtons");
+        btnsDiv.innerHTML = "";
+        pics.forEach(pic => {
+            const btn = document.createElement("button");
+            btn.className = "picture-btn";
+            btn.innerHTML = `<img src="${pic.img}" alt="${pic.alt}"><br><span>${pic.alt}</span>`;
+            btn.onclick = () => handleChoice(pic.id, btn);
+            btnsDiv.appendChild(btn);
+        });
+
+        // Auto play sentence with highlight
+        setTimeout(() => {
+            speakWithHighlight(round.sentence, "fr-FR", sentenceDiv);
+        }, 400);
+    }
+
+    function handleChoice(choiceId, btn) {
+        const round = todayQuestions[currentRound];
+        const feedbackDiv = document.getElementById("feedback");
+        Array.from(document.getElementsByClassName("picture-btn")).forEach(b => b.classList.remove("selected"));
+        btn.classList.add("selected");
+        if (choiceId === round.correct) {
+            feedbackDiv.innerHTML = "⭐ Correct!";
+            correctCount++;
+            updateStarCount();
+            document.getElementById("playBtn").disabled = true;
+            setTimeout(() => {
+                currentRound++;
+                if (currentRound < QUESTIONS_PER_DAY) {
+                    showRound();
+                } else {
+                    feedbackDiv.innerHTML = "🎉 Game Over! Well done!";
+                    document.getElementById("pictureButtons").innerHTML = "";
+                    document.getElementById("playBtn").style.display = "none";
+                    document.getElementById("sentenceText").innerHTML = "";
+                    advanceProgress();
+                    // Send game completed message to parent window/modal
+                    if (window.parent && window.parent !== window) {
+                        window.parent.postMessage({ type: "gameCompleted" }, "*");
+                    }
+                }
+            }, 1200);
+        } else {
+            feedbackDiv.innerHTML = "☹️ Try again!";
+        }
+    }
+
+    document.getElementById("playBtn").onclick = function() {
+        const round = todayQuestions[currentRound];
+        speakWithHighlight(round.sentence, "fr-FR", document.getElementById("sentenceText"));
+    };
+
+    // --- Start game ---
+    function startGame() {
+        loadProgress();
+        todayQuestions = getTodayRounds();
+        correctCount = 0;
+        currentRound = 0;
         updateStarCount();
         showRound();
+    }
+
+    document.addEventListener("DOMContentLoaded", startGame);
+
     </script>
 </body>
 </html>
