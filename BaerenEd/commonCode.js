@@ -533,3 +533,13 @@ function updateBonusWorkVisibility() {
         bonusSection.style.display = allCompleted ? 'block' : 'none';
     }
 }
+
+// Add this to your HTML or a common JS file
+function handleBackButton() {
+    // If inside a modal (iframe), ask parent to close the modal
+    if (window.parent && window.parent !== window) {
+        window.parent.postMessage({ type: "closeModal" }, "*");
+    }
+    // Also try to go back in history as a fallback
+    history.back();
+}

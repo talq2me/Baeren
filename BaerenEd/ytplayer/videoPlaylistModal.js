@@ -77,6 +77,14 @@
     }
 
     function setupCustomControls() {
+        // Make the controls 50% transparent
+        const controlsDiv = document.getElementById("ytCustomControls");
+        if (controlsDiv) {
+            controlsDiv.style.background = "rgba(34,34,34,0.5)";
+            controlsDiv.style.borderRadius = "16px";
+            controlsDiv.style.display = "inline-block";
+            controlsDiv.style.padding = "12px 0";
+        }
         document.getElementById("ytPrevBtn").onclick = function () {
             if (window.playlistYTPlayer) window.playlistYTPlayer.previousVideo();
         };
@@ -87,7 +95,21 @@
             if (window.playlistYTPlayer) window.playlistYTPlayer.pauseVideo();
         };
         document.getElementById("ytNextBtn").onclick = function () {
-            if (window.playlistYTPlayer) window.playlistYTPlayer.nextVideo();
+            if (window.playlistYTPlayer) {
+                // Try to skip ad if possible
+                try {
+                    // This only works if the YouTube player exposes the ad API (not always available)
+                    if (typeof window.playlistYTPlayer.getAdState === "function" && window.playlistYTPlayer.getAdState() === 1) {
+                        // Try to skip ad (not officially documented, may not work)
+                        if (typeof window.playlistYTPlayer.skipAd === "function") {
+                            window.playlistYTPlayer.skipAd();
+                        }
+                    }
+                } catch (e) {
+                    // Ignore errors if skipAd is not available
+                }
+                window.playlistYTPlayer.nextVideo();
+            }
         };
     }
 })();
