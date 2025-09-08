@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Pokédex</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .pokedex-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .poke-card {
+            text-align: center;
+            background: #fffbe6;
+            border-radius: 10px;
+            padding: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .poke-card img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            background: #f8f8f8;
+            border-radius: 8px;
+        }
+        #recentlyUnlocked {
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        #settingsIcon {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            font-size: 1.8em;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .center-title {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 0.5em;
+            position: relative;
+            z-index: 1;
+        }
+        #adminModal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        #adminModalContent {
+            background: #fff;
+            padding: 24px;
+            border-radius: 12px;
+            max-width: 320px;
+            margin: auto;
+            text-align: center;
+        }
+        #backToTopBtn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            background: #ffe066;
+            color: #333;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            font-size: 2em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            cursor: pointer;
+            display: none;
+            transition: background 0.2s;
+        }
+        #backToTopBtn:hover {
+            background: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <span id="settingsIcon" title="Admin Restore">&#9881;</span>
+    <h1 class="center-title">My Pokédex</h1>
+    <div id="adminModal">
+        <div id="adminModalContent">
+            <h3>Admin Restore</h3>
+            <input type="password" id="adminPin" placeholder="Enter PIN"><br><br>
+            <input type="number" id="unlockCount" min="1" placeholder="How many unlocked?"><br><br>
+            <button onclick="doAdminRestore()">Restore</button>
+            <button onclick="closeAdminModal()">Cancel</button>
+            <div id="adminMsg" style="color:red;margin-top:8px;"></div>
+        </div>
+    </div>
+    <div id="recentlyUnlocked"></div>
+    <div class="pokedex-grid" id="pokedexList"></div>
+    <button id="backToTopBtn" title="Back to Top">&#8679;</button>
+    <script>
+        // --- Config ---
+        const POKEDEX_PIN = "1981"; // Use your actual PIN here
+        const IMAGE_DIR = "images/pokeSprites/sprites/pokemon/";
+
+        // Helper: Get all unlocked filenames by prefix (1-*, 2-*, ... up to unlocked count)
+        function getUnlockedCount() {
+            return parseInt(localStorage.getItem('bm_pokedex_unlocked') || "0", 10);
+        }
+        function setUnlockedCount(val) {
+            localStorage.setItem('bm_pokedex_unlocked', val);
+        }
+
+        // Helper: Find all unlocked files in the directory
+        // For a static site, you need a manifest (JSON array) of all filenames in IMAGE_DIR
+        // For demo, let's assume you have a manifest file: pokedex_manifest.json
+
+        let allFilenames = []; // Will be loaded from manifest
+
+        function fetchManifestAndRender() {
+            fetch(IMAGE_DIR + "pokedex_manifest.json")
+                .then(res => res.json())
+                .then(files => {
+                    allFilenames = files;
+                    renderRecentlyUnlocked();
+                    renderPokedex();
+                });
+        }
+
+        // Parse filename: "prefix-pokenum.png" or "prefix-pokenum-s.png"
+        function parsePokeFilename(filename) {
+            // Example: 11-2-s.png or 1-2.png
+            const match = filename.match(/^(\d+)-(\d+)(-s)?\.png$/);
+            if (!match) return null;
+            return {
+                prefix: parseInt(match[1], 10),
+                pokenum: parseInt(match[2], 10),
+                shiny: !!match[3],
+                filename: filename
+            };
+        }
+
+        // Get unlocked Pokémon objects, sorted by pokenum, shinies after normal
+        function getUnlockedMons() {
+            const unlocked = getUnlockedCount();
+            // Only include Pokémon with prefix <= unlocked and that exist in the manifest
+            let unlockedFiles = allFilenames
+                .map(parsePokeFilename)
+                .filter(p => p && p.prefix <= unlocked);
+
+            // Sort: by pokenum, then shiny (false before true)
+            unlockedFiles.sort((a, b) => {
+                if (a.pokenum !== b.pokenum) return a.pokenum - b.pokenum;
+                return (a.shiny === b.shiny) ? 0 : (a.shiny ? 1 : -1);
+            });
+            return unlockedFiles;
+        }
+
+        function getLastUnlocked() {
+            const unlocked = getUnlockedCount();
+            // Find the unlocked Pokémon with the highest prefix ≤ unlocked
+            let unlockedFiles = allFilenames
+                .map(parsePokeFilename)
+                .filter(p => p && p.prefix <= unlocked);
+
+            if (unlockedFiles.length === 0) return null;
+
+            // Find the one with the highest prefix (and if multiple, prefer non-shiny)
+            let maxPrefix = Math.max(...unlockedFiles.map(p => p.prefix));
+            let lastMons = unlockedFiles.filter(p => p.prefix === maxPrefix);
+            // Prefer non-shiny if both exist
+            let last = lastMons.find(p => !p.shiny) || lastMons[0];
+            return last;
+        }
+
+        // --- Lazy load helper ---
+        function createPokeCard(p) {
+            const div = document.createElement('div');
+            div.className = 'poke-card';
+            div.innerHTML = `
+                <img loading="lazy" src="${IMAGE_DIR}${p.filename}" alt="Pokemon">
+                <div>${p.shiny ? "Shiny " : ""}#${p.pokenum}</div>
+            `;
+            return div;
+        }
+
+        // --- Display logic ---
+        function renderPokedex() {
+            const pokedexList = document.getElementById('pokedexList');
+            pokedexList.innerHTML = '';
+            let unlockedMons = getUnlockedMons();
+            unlockedMons.forEach(p => {
+                pokedexList.appendChild(createPokeCard(p));
+            });
+        }
+
+        function renderRecentlyUnlocked() {
+            const recentDiv = document.getElementById('recentlyUnlocked');
+            const last = getLastUnlocked();
+            if (!last) {
+                recentDiv.innerHTML = "<em>No Pokémon unlocked yet!</em>";
+                return;
+            }
+            recentDiv.innerHTML = `
+                <div style="display:inline-block;text-align:center;">
+                    <div style="font-weight:bold;font-size:1.1em;margin-bottom:4px;">Last Unlocked</div>
+                    <img src="${IMAGE_DIR}${last.filename}" style="width:120px;"><br>
+                    <b>${last.shiny ? "Shiny " : ""}#${last.pokenum}</b>
+                </div>
+            `;
+        }
+
+        // --- Admin Modal logic ---
+        document.getElementById('settingsIcon').onclick = function() {
+            document.getElementById('adminModal').style.display = 'flex';
+        };
+        function closeAdminModal() {
+            document.getElementById('adminModal').style.display = 'none';
+            document.getElementById('adminMsg').innerText = '';
+            document.getElementById('adminPin').value = '';
+            document.getElementById('unlockCount').value = '';
+        }
+        function doAdminRestore() {
+            const pin = document.getElementById('adminPin').value;
+            const count = parseInt(document.getElementById('unlockCount').value, 10);
+            if (pin !== POKEDEX_PIN) {
+                document.getElementById('adminMsg').innerText = "Incorrect PIN!";
+                return;
+            }
+            if (isNaN(count) || count < 1) {
+                document.getElementById('adminMsg').innerText = "Enter a valid number!";
+                return;
+            }
+            setUnlockedCount(count);
+            closeAdminModal();
+            renderRecentlyUnlocked();
+            renderPokedex();
+        }
+
+        // --- Back to Top button logic ---
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopBtn.style.display = "flex";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        };
+        backToTopBtn.onclick = function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        };
+
+        // Show/hide back to top button
+        window.addEventListener('scroll', function() {
+            document.getElementById('backToTopBtn').style.display =
+                (window.scrollY > 200) ? 'block' : 'none';
+        });
+        document.getElementById('backToTopBtn').onclick = function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        // --- On load ---
+        document.addEventListener('DOMContentLoaded', fetchManifestAndRender);
+        console.log("All filenames loaded:", allFilenames);
+        console.log("Unlocked count:", getUnlockedCount());
+        console.log("Unlocked mons:", getUnlockedMons());
+    </script>
+</body>
+</html>

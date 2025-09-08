@@ -72,6 +72,9 @@ function unlockNextPiece(kidId, buttonKey) {
     } else {
         if (progress >= totalTasks) return;
         localStorage.setItem(storageKey, (progress + 1).toString());
+        // --- Grant 10 coins for each required task completed ---
+        addCoins(10);
+        updateCoinDisplay();
     }
 
     localStorage.setItem(unlockKey, "1");

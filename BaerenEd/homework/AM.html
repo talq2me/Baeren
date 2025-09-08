@@ -13,6 +13,7 @@
     <script src="../ytplayer/videoPlaylistModal.js" defer></script>
     
     <script src="../commonCode.js"></script>
+    <script src="../pokeLogic.js"></script>
     <script src="../codeGenerator/unlockCodePiece.js"></script>
     <script>
         // Set the kid value in localStorage for this page
@@ -22,6 +23,13 @@
 <body>
     <h1>Welcome to AM!</h1>
     <div id="codeDisplay" data-kid="kid1" style="font-size: 24px; margin-top: 20px; color: #333;">Progress: </div>
+    <div id="coinZone" style="margin: 10px 0;">
+        <span id="coinDisplay" style="font-size:1.2em;vertical-align:middle;">🪙 x 0</span>
+    
+        <button id="unlockPokemonBtn" class="button" style="display:none;">Unlock Today's Pokémon!</button>
+        
+        <button id="viewPokedexBtn" class="button" data-target-page="../pokedex.html">My Pokédex</button>
+    </div>   
     <h1>Your homework:</h1>
 
     <!-- Modal Setup -->
