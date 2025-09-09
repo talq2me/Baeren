@@ -129,14 +129,29 @@
 
         // Parse filename: "prefix-pokenum.png" or "prefix-pokenum-s.png"
         function parsePokeFilename(filename) {
-            // Example: 11-2-s.png or 1-2.png
-            const match = filename.match(/^(\d+)-(\d+)(-s)?\.png$/);
-            if (!match) return null;
+            // Remove .png extension
+            const base = filename.replace(/\.png$/, '');
+            // Shiny if ends with -s
+            const shiny = base.endsWith('-s');
+            // Remove -s if present for parsing numbers
+            const baseNoShiny = shiny ? base.slice(0, -2) : base;
+            // Split by '-'
+            const parts = baseNoShiny.split('-');
+            if (parts.length < 2) {
+                console.warn("Filename not parsed (too few parts):", filename);
+                return null;
+            }
+            const prefix = parseInt(parts[0], 10);
+            const pokenum = parseInt(parts[1], 10);
+            if (isNaN(prefix) || isNaN(pokenum)) {
+                console.warn("Filename not parsed (NaN):", filename);
+                return null;
+            }
             return {
-                prefix: parseInt(match[1], 10),
-                pokenum: parseInt(match[2], 10),
-                shiny: !!match[3],
-                filename: filename
+                prefix,
+                pokenum,
+                shiny,
+                filename
             };
         }
 
@@ -261,9 +276,6 @@
 
         // --- On load ---
         document.addEventListener('DOMContentLoaded', fetchManifestAndRender);
-        console.log("All filenames loaded:", allFilenames);
-        console.log("Unlocked count:", getUnlockedCount());
-        console.log("Unlocked mons:", getUnlockedMons());
     </script>
 </body>
 </html>

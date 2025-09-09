@@ -1,4 +1,22 @@
 # To Do
+-french game at round 8 clicking the correct choice does nothing, clicking the other choices does nothing, it seems stuck and the kid can't proceed. 
+
+-french syllables says /10 at beginning then it is really out of 5 and says 5/5 at end.
+
+-french sentence jumble goes past 10 11/10 and doesn't end the game.
+
+
+-add random index number to start of the filename. 3-1 is bulbasaur and 3rd day revealed. So if kid ever loses local data, I can add them back.
+
+need to display each in pokedex order with spot for most recent at top.
+ 
+-can the page easily display hundres to 2000 images at once? could it lazy load?
+
+keep track of how many images it should show based on the local storage of how many their achieved.
+
+allow easter egg of setting the local storage last unlocked.
+
+
 -remove home button from BM and AM.html and other pages
 - 
 

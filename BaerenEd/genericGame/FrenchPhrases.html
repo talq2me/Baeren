@@ -395,7 +395,17 @@
         if (window.ttsUtterance) window.speechSynthesis.cancel();
         let spans = Array.from(container.querySelectorAll('span[data-word-idx]'));
         window.ttsUtterance = new SpeechSynthesisUtterance(text);
-        window.ttsUtterance.lang = lang;
+
+        // --- Try to select a French voice ---
+        let voices = window.speechSynthesis.getVoices();
+        let frenchVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('fr'));
+        if (frenchVoice) {
+            window.ttsUtterance.voice = frenchVoice;
+            window.ttsUtterance.lang = frenchVoice.lang;
+        } else {
+            window.ttsUtterance.lang = "fr-FR";
+        }
+
         window.ttsUtterance.rate = 0.4; // Slower for young learners
         let boundarySupported = false;
         window.ttsUtterance.onboundary = function(event) {

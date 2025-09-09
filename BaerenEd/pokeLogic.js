@@ -37,10 +37,11 @@ function onTaskCompleted() {
 }
 
 function allRequiredTasksComplete() {
-    // Adjust selector as needed for your required tasks
-    return Array.from(document.querySelectorAll('.task-button.required, .chore-checkbox')).every(
-        el => el.checked || el.classList.contains('completed')
-    );
+    const requiredTasks = Array.from(document.querySelectorAll('.task-button.required'));
+    const requiredChecks = Array.from(document.querySelectorAll('.chore-checkbox'));
+    const allTasksDone = requiredTasks.every(el => el.classList.contains('completed'));
+    const allChecksDone = requiredChecks.every(cb => cb.checked);
+    return allTasksDone && allChecksDone;
 }
 
 function updateCoinDisplay() {
@@ -51,7 +52,23 @@ function updateCoinDisplay() {
 
 document.addEventListener('DOMContentLoaded', function () {
     updateCoinDisplay();
-    
+
+    // Attach to checkboxes
+    document.querySelectorAll('.chore-checkbox').forEach(cb => {
+        cb.addEventListener('change', onTaskCompleted);
+    });
+
+    // Attach to required task buttons
+    document.querySelectorAll('.task-button.required').forEach(btn => {
+        btn.addEventListener('click', function() {
+            // If your logic marks as completed, call onTaskCompleted after completion
+            setTimeout(onTaskCompleted, 200); // Delay if needed for async completion
+        });
+    });
+
+    // Call on page load in case all tasks are already done
+    onTaskCompleted();
+
     document.getElementById('viewPokedexBtn').onclick = function() {
         window.open(this.getAttribute('data-target-page'), '_blank');
     };
