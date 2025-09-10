@@ -536,10 +536,14 @@ function updateBonusWorkVisibility() {
 
 // Add this to your HTML or a common JS file
 function handleBackButton() {
-    // If inside a modal (iframe), ask parent to close the modal
     if (window.parent && window.parent !== window) {
         window.parent.postMessage({ type: "closeModal" }, "*");
+        return;
     }
-    // Also try to go back in history as a fallback
-    history.back();
+    if (window.history.length > 1) {
+        history.back();
+    } else {
+        // Fallback: go to main page if no history
+        window.location.href = "/Baeren/BaerenEd/index.html";
+    }
 }
