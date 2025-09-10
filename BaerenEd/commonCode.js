@@ -14,7 +14,7 @@ if ('serviceWorker' in navigator && !navigator.serviceWorker.controller) {
         .catch(err => {
             console.log('Service Worker registration failed with relative path, trying absolute path');
             // Fallback to absolute path
-            navigator.serviceWorker.register('/Baeren/sw.js', { updateViaCache: 'none', scope: '/Baeren/' })
+            navigator.serviceWorker.register('/BaerenEd/sw.js', { updateViaCache: 'none', scope: '/BaerenEd/' })
                 .then(reg => console.log('Service Worker registered with absolute path'))
                 .catch(err2 => console.log('Service Worker error:', err2.message));
         });
