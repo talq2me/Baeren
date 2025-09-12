@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Attach event listeners to all task buttons
     document.querySelectorAll(".task-button[data-target-page]").forEach((button) => {
-        const kidId = button.getAttribute("data-kid") || (document.getElementById("codeDisplay")?.getAttribute("data-kid") || "kid1");
+        const kidId = button.getAttribute("data-kid") || (document.getElementById("codeDisplay")?.getAttribute("data-kid") || "am");
         const key = button.getAttribute("data-key");
         button.addEventListener("click", function () {
             console.log("Task button clicked:", kidId, key);
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Override button logic
     const overrideBtn = document.getElementById('overrideBtn');
-    const kid = document.getElementById("codeDisplay")?.getAttribute("data-kid") || "kid1";
+    const kid = document.getElementById("codeDisplay")?.getAttribute("data-kid") || "am";
     if (overrideBtn) {
         overrideBtn.addEventListener('click', function () {
             requestParentPin(function(userPIN) {
@@ -215,16 +215,65 @@ document.addEventListener("DOMContentLoaded", function () {
     const revealButtons = Array.from(document.querySelectorAll('.button.required[data-reveal-code="true"]'));
     revealButtons.forEach((button) => {
         if (button.classList.contains('non-task')) {
-            const kidId = button.getAttribute("data-kid") || (document.getElementById("codeDisplay")?.getAttribute("data-kid") || "kid1");
+            const kidId = button.getAttribute("data-kid") || (document.getElementById("codeDisplay")?.getAttribute("data-kid") || "am");
             const key = button.getAttribute("data-key");
-            button.addEventListener("click", function () {
-                if (typeof unlockNextPiece === "function" && key) {
-                    unlockNextPiece(kidId, key);
-                    updateBonusWorkVisibility();
-                }
-            });
+
+            // Detect external learning apps (Read Along, DuoLingo) by onclick content
+            const onclickAttr = button.getAttribute('onclick') || '';
+            const launchesReadAlong = onclickAttr.includes('readalong.google.com') || onclickAttr.includes('com.google.android.apps.seekh');
+            const launchesDuo = onclickAttr.includes('duolingo.com') || onclickAttr.includes('duolingo');
+
+            if (launchesReadAlong || launchesDuo) {
+                // Defer unlock until user returns and time threshold met
+                button.addEventListener('click', function () {
+                    if (!key) return;
+                    const today = new Date().toISOString().slice(0, 10);
+                    const startKey = `external_start_${kidId}_${key}_${today}`;
+                    const pendingKey = `external_pending_${kidId}_${key}_${today}`;
+                    localStorage.setItem(startKey, Date.now().toString());
+                    localStorage.setItem(pendingKey, '1');
+                }, { capture: true });
+            } else {
+                // Immediate unlock for other non-task buttons
+                button.addEventListener("click", function () {
+                    if (typeof unlockNextPiece === "function" && key) {
+                        unlockNextPiece(kidId, key);
+                        updateBonusWorkVisibility();
+                    }
+                });
+            }
         }
     });
+
+    // When returning to page, confirm external app usage time before unlocking
+    function processExternalPending(minSeconds = 30) {
+        const codeDisplay = document.getElementById('codeDisplay');
+        const kidId = codeDisplay ? codeDisplay.getAttribute('data-kid') : 'am';
+        const today = new Date().toISOString().slice(0, 10);
+        Object.keys(localStorage).forEach(k => {
+            if (k.startsWith(`external_pending_${kidId}_`) && k.endsWith(`_${today}`) && localStorage.getItem(k) === '1') {
+                const keyPart = k.replace(`external_pending_${kidId}_`, '').replace(`_${today}`, '');
+                const startKey = `external_start_${kidId}_${keyPart}_${today}`;
+                const startedAt = parseInt(localStorage.getItem(startKey) || '0', 10);
+                const elapsed = Date.now() - startedAt;
+                if (startedAt > 0 && elapsed >= minSeconds * 1000) {
+                    if (typeof unlockNextPiece === 'function') {
+                        unlockNextPiece(kidId, keyPart);
+                        updateBonusWorkVisibility();
+                    }
+                    localStorage.removeItem(k);
+                    localStorage.removeItem(startKey);
+                }
+            }
+        });
+    }
+
+    document.addEventListener('visibilitychange', function() {
+        if (document.visibilityState === 'visible') {
+            processExternalPending(30);
+        }
+    });
+    window.addEventListener('pageshow', function() { processExternalPending(30); });
 
 
 });
@@ -299,7 +348,10 @@ function processTTSQueue() {
             console.log('Falling back to Web Speech API');
             const utter = new SpeechSynthesisUtterance(text);
             utter.lang = lang;
-            utter.rate = 0.8;
+            utter.rate = 0.6;
+            const utter = new SpeechSynthesisUtterance(text);
+            utter.lang = lang;
+            utter.rate = 0.6;
             utter.pitch = 1;
             utter.volume = 1;
             utter.onend = () => {
@@ -357,20 +409,52 @@ function readText(text, lang = "en-US", onEnd = null) {
 
 
 // Function to launch the game in the modal
+let modalHistoryPushed = false;
+
 function launchGameInModal(gameUrl) {
     const iframe = document.getElementById("iframeContent");
     const modal = document.getElementById("iframeModal");
     iframe.src = gameUrl;
     modal.style.display = "block";
+
+    // Push a history state so device/browser back closes the modal
+    if (!modalHistoryPushed) {
+        try {
+            history.pushState({ modalOpen: true }, "");
+            modalHistoryPushed = true;
+        } catch (e) {
+            console.warn('Failed to push history state for modal:', e);
+        }
+    }
 }
 
 // Function to handle modal close
 function handleModalClose() {
     const modal = document.getElementById("iframeModal");
-    modal.style.display = "none";
+    if (modal) modal.style.display = "none";
     lastTaskButtonStartTime = null;
-    // Optionally unlock on close if needed (already handled by gameCompleted)
+    // Remove the dummy history state if we added one
+    if (modalHistoryPushed) {
+        try {
+            // Go back one step to remove the modal state
+            history.back();
+        } catch (e) {
+            console.warn('Failed to pop history state after modal close:', e);
+        } finally {
+            modalHistoryPushed = false;
+        }
+    }
 }
+
+// Close modal on browser/device back (popstate)
+window.addEventListener('popstate', function (event) {
+    const modal = document.getElementById('iframeModal');
+    if (modal && modal.style.display === 'block') {
+        // Prevent navigating away; just close the modal
+        modalHistoryPushed = false; // we're already on the popped state
+        setTimeout(handleModalClose, 0);
+    }
+});
 
 // Listen for game completion messages
 window.addEventListener("message", function (event) {

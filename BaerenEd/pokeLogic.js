@@ -1,10 +1,3 @@
-function getTodayPokemonIndex() {
-    // Rotate through POKEDEX by day
-    const today = new Date().toISOString().slice(0, 10);
-    const dayNum = Math.floor(new Date(today).getTime() / (1000*60*60*24));
-    return dayNum % POKEDEX.length;
-}
-
 function getCoins() {
     return parseInt(localStorage.getItem('bm_coins') || "0", 10);
 }
@@ -17,23 +10,9 @@ function addCoins(val) {
     setCoins(getCoins() + val);
 }
 
-function getUnlockedPokemon() {
-    return JSON.parse(localStorage.getItem('bm_pokedex') || "[]");
-}
-
-function unlockPokemon(pokemon) {
-    let pokedex = getUnlockedPokemon();
-    if (!pokedex.find(p => p.id === pokemon.id)) {
-        pokedex.push(pokemon);
-        localStorage.setItem('bm_pokedex', JSON.stringify(pokedex));
-    }
-}
 function onTaskCompleted() {
     addCoins(1);
     updateCoinDisplay();
-    if (allRequiredTasksComplete()) {
-        document.getElementById('unlockPokemonBtn').style.display = 'inline-block';
-    }
 }
 
 function allRequiredTasksComplete() {
@@ -66,20 +45,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Call on page load in case all tasks are already done
-    onTaskCompleted();
-
     document.getElementById('viewPokedexBtn').onclick = function() {
         window.open(this.getAttribute('data-target-page'), '_blank');
     };
 
-    // Now the button exists, so this is safe:
-    document.getElementById('unlockPokemonBtn').onclick = function() {
-        const idx = getTodayPokemonIndex();
-        const pokemon = POKEDEX[idx];
-        unlockPokemon(pokemon);
-        alert(`You unlocked ${pokemon.name}!`);
-        this.style.display = 'none';
-        updateCoinDisplay();
-    };
+    // Refresh coin display on load
+    onTaskCompleted();
 });

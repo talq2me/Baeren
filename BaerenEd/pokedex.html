@@ -105,11 +105,16 @@
         const IMAGE_DIR = "images/pokeSprites/sprites/pokemon/";
 
         // Helper: Get all unlocked filenames by prefix (1-*, 2-*, ... up to unlocked count)
+        function getCurrentKid() {
+            return localStorage.getItem('kid') || 'am';
+        }
         function getUnlockedCount() {
-            return parseInt(localStorage.getItem('bm_pokedex_unlocked') || "0", 10);
+            const kid = getCurrentKid();
+            return parseInt(localStorage.getItem(kid + '_pokedex_unlocked') || "0", 10);
         }
         function setUnlockedCount(val) {
-            localStorage.setItem('bm_pokedex_unlocked', val);
+            const kid = getCurrentKid();
+            localStorage.setItem(kid + '_pokedex_unlocked', val);
         }
 
         // Helper: Find all unlocked files in the directory

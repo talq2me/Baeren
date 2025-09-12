@@ -137,6 +137,18 @@ function updateCodeDisplay() {
     codeDisplay.textContent =
         `Progress: ${progress}/${totalTasks}  ~  Rewards: ${Math.max(rewardMinutes,0)} mins`;
 
+    // Show unlock button exactly when required progress completes and not already unlocked today
+    const unlockBtn = document.getElementById('unlockPokemonBtn');
+    if (unlockBtn) {
+        const unlockedTodayKey = `pokedex_unlocked_today_${kid}_${today}`;
+        const alreadyUnlockedToday = localStorage.getItem(unlockedTodayKey) === '1';
+        if (progress >= totalTasks && totalTasks > 0 && !alreadyUnlockedToday) {
+            unlockBtn.style.display = '';
+        } else {
+            unlockBtn.style.display = 'none';
+        }
+    }
+
     // Remove previous click handlers to avoid stacking
     if (rewardBtn15) rewardBtn15.onclick = null;
     if (rewardBtn30) rewardBtn30.onclick = null;
@@ -178,8 +190,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
     updateCodeDisplay();
 
+    // Attach unlock button handler to increment kid-specific unlocked count
+    const unlockBtn = document.getElementById('unlockPokemonBtn');
+    if (unlockBtn) {
+        unlockBtn.onclick = function() {
+            const codeDisplay = document.getElementById('codeDisplay');
+            const kid = codeDisplay ? codeDisplay.getAttribute('data-kid') : (localStorage.getItem('kid') || 'am');
+            const today = new Date().toISOString().slice(0, 10);
+            const unlockedTodayKey = `pokedex_unlocked_today_${kid}_${today}`;
+            if (localStorage.getItem(unlockedTodayKey) === '1') {
+                this.style.display = 'none';
+                return;
+            }
+            const countKey = `${kid}_pokedex_unlocked`;
+            const current = parseInt(localStorage.getItem(countKey) || '0', 10);
+            localStorage.setItem(countKey, String(current + 1));
+            localStorage.setItem(unlockedTodayKey, '1');
+            this.style.display = 'none';
+            alert("You unlocked a new Pokémon!");
+        };
+    }
+
     const codeDisplay = document.getElementById("codeDisplay");
-    const kid = codeDisplay ? codeDisplay.getAttribute("data-kid") : "kid1";
+    const kid = codeDisplay ? codeDisplay.getAttribute("data-kid") : "am";
     const today = new Date().toISOString().slice(0, 10);
 
     // Mark ALL buttons with data-key as completed if unlocked

@@ -430,6 +430,7 @@
                 // Fallback to browser TTS
                 const utterance = new SpeechSynthesisUtterance(instruction);
                 utterance.lang = 'fr-FR';
+                utterance.rate = 0.6;
                 speechSynthesis.speak(utterance);
             }
         }

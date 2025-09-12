@@ -406,28 +406,22 @@
         }
 
         function createQuestion() {
-            if (currentIndex >= maxQuestions) {
-                // Game completed
+            if (correctCount >= maxQuestions) {
+                // Game completed when enough correct answers achieved
                 document.getElementById('question').textContent = `Game Complete! Final Score: ${correctCount}/${maxQuestions}⭐`;
                 document.getElementById('choices').innerHTML = '';
                 document.getElementById('timeInput').style.display = 'none';
                 document.getElementById('messageContainer').innerHTML = '';
-                
-                // If currentIndex >= maxQuestions, reset progress
-                if (currentIndex >= maxQuestions) {
-                    
-                    const storageKey = `timetelling_index_${gameMode}`;
-                    currentIndex = parseInt(localStorage.getItem(storageKey) || "0", 10);
 
-                    currentIndex = 0;
-                    localStorage.setItem(storageKey, "0");
-                }    
+                // Optional: reset progress index for next session
+                const storageKey = `timetelling_index_${gameMode}`;
+                currentIndex = 0;
+                localStorage.setItem(storageKey, "0");
 
-                // Send game completed message to parent window
+                // Notify parent window
                 if (window.parent && window.parent !== window) {
                     window.parent.postMessage({ type: 'gameCompleted' }, '*');
                 }
-                
                 return;
             }
 
