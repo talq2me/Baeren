@@ -22,7 +22,7 @@
 </head>
 <body>
     <h1>Welcome to AM!</h1>
-    <div id="codeDisplay" data-kid="kid1" style="font-size: 24px; margin-top: 20px; color: #333;">Progress: </div>
+    <div id="codeDisplay" data-kid="am" style="font-size: 24px; margin-top: 20px; color: #333;">Progress: </div>
     <div id="coinZone" style="margin: 10px 0;">
         <span id="coinDisplay" style="font-size:1.2em;vertical-align:middle;">🪙 x 0</span>
     
@@ -44,9 +44,9 @@
         <button data-key="required3" class="button task-button" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/frenchWordGame.json&title=French Word Game&useAudioFiles=true&useTTS=false">French Word Game</button>
 
         <button data-key="required4" class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/frenchData.json&title=French Game&useAudioFiles=true&useTTS=false">French Game</button>
-        <button data-key="required5" class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/skSpellingData.json&title=Spelling Game&useAudioFiles=true&useTTS=true">Spelling Game</button>
-        <button data-key="notrequired1.0" class="button task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/skLetterSounds.json&title=Letter Sound Game&useAudioFiles=true&useTTS=false">Letter Sound Game</button>
-        <button data-key="required7" class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/skSpellingData.json&title=Sound Parts Game&useAudioFiles=true&useTTS=true">Sound Parts Game</button>
+        <button data-key="notrequired5.0" class="button task-button" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/skSpellingData.json&title=Spelling Game&useAudioFiles=true&useTTS=true">Spelling Game</button>
+        <button data-key="notrequired1.0" class="button task-button" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/skLetterSounds.json&title=Letter Sound Game&useAudioFiles=true&useTTS=false">Letter Sound Game</button>
+        <button data-key="notrequired7.0" class="button task-button" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/skSpellingData.json&title=Sound Parts Game&useAudioFiles=true&useTTS=true">Sound Parts Game</button>
         <button data-key="required8" class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/sightWord.json&title=Sight Word Game&useAudioFiles=false&useTTS=true">Sight Word Game</button>
         <button data-key="required8.1" class="button required task-button" data-reveal-code="true" data-target-page="../genericGame/FrenchPhrases.html">French Phrases</button>
 
@@ -61,21 +61,23 @@
 
     <div class="video div-container">
         <!-- Video Modal -->
-        <button data-key="required12" class="button required video-button" data-reveal-code="true" data-json-file="../heggertyVideos.json" data-selection-mode="sequential">Heggerty Video</button>
+        <button data-key="notrequired12.0" class="button video-button" data-json-file="../heggertyVideos.json" data-selection-mode="sequential">Heggerty Video</button>
         <button data-key="required13" class="button required video-button" data-reveal-code="true" data-json-file="../frenchBookVideoLinks.json" data-selection-mode="sequential">Random French Book</button>
         <button data-key="required14" class="button required video-button" data-reveal-code="true" data-json-file="../noviceKungFuVideos.json" data-selection-mode="exact">TieBelt</button> 
         <button data-key="required15" class="button required video-button" data-reveal-code="true" data-json-file="../noviceKungFuVideos.json" data-selection-mode="sequential">Random Novice Kungfu</button>     
         <button data-key="required16" class="button required video-button" data-reveal-code="true" data-json-file="../noviceKungFuVideos.json" data-selection-mode="exact">SingleStepForm</button>
-        <button data-key="required17" class="button task-button" data-reveal-code="true" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/french_stories.json&title=French Story&useAudioFiles=false&useTTS=true">French Story</button>
+        <!----
+        <button data-key="notrequired17.0" class="button task-button" data-target-page="../genericGame/genericGame.html?jsonFile=../gameData/french_stories.json&title=French Story&useAudioFiles=false&useTTS=true">French Story</button>
         <button data-key="required18" class="button required task-button" data-reveal-code="true" data-target-page="../otherGames/timeTellingGame.html?mode=easy">Time Game</button>
-        <button data-key="required19" class="button required task-button" data-reveal-code="true" data-show-days="wed,thu,fri" data-target-page="../otherGames/frenchSpellingJumble.html?words=../otherGames/frenchWordsGr1-Week1.json&mode=hard">French Spelling Jumble</button>
+        <button data-key="notrequired19.0" class="button task-button" data-show-days="wed,thu,fri" data-target-page="../otherGames/frenchSpellingJumble.html?words=../otherGames/frenchWordsGr1-Week1.json&mode=hard">French Spelling Jumble</button>
         <button data-key="required20" class="button required task-button" data-reveal-code="true" data-show-days="wed,thu,fri"data-target-page="../otherGames/englishSpellingJumble.html?words=../otherGames/englishWordsGr1-Week1.json&mode=hard">English Spelling Jumble</button>
-        <button data-key="required21" class="button required task-button" data-reveal-code="true" data-show-days="mon,tue" data-target-page="../otherGames/frenchSpellingJumble.html?words=../otherGames/frenchWordsGr1-Week1.json&mode=easy">French Spelling Jumble (Easy)</button>
+        <button data-key="notrequired21.0" class="button task-button" data-show-days="mon,tue" data-target-page="../otherGames/frenchSpellingJumble.html?words=../otherGames/frenchWordsGr1-Week1.json&mode=easy">French Spelling Jumble (Easy)</button>
         <button data-key="required22" class="button required task-button" data-reveal-code="true" data-show-days="mon,tue" data-target-page="../otherGames/englishSpellingJumble.html?words=../otherGames/englishWordsGr1-Week1.json&mode=easy">English Spelling Jumble (Easy)</button>
-        <button data-key="required23" class="button required task-button" data-reveal-code="true" data-show-days="sat,sun" data-target-page="../otherGames/frenchSpellingJumble.html?words=../otherGames/frenchWordsGr1-Week1.json&mode=extreme">French Spelling Jumble (Extreme)</button>
+        <button data-key="notrequired23.0" class="button task-button" data-show-days="sat,sun" data-target-page="../otherGames/frenchSpellingJumble.html?words=../otherGames/frenchWordsGr1-Week1.json&mode=extreme">French Spelling Jumble (Extreme)</button>
         <button data-key="required24" class="button required task-button" data-reveal-code="true" data-show-days="sat,sun" data-target-page="../otherGames/englishSpellingJumble.html?words=../otherGames/englishWordsGr1-Week1.json&mode=extreme">English Spelling Jumble (Extreme)</button>
         <button data-key="required25" class="button required task-button" data-reveal-code="true" data-target-page="../otherGames/handwritingPractice.html">Handwriting Practice</button>
         <button data-key="required26" class="button task-button" data-reveal-code="true" data-target-page="../otherGames/frenchSentenceJumble.html">French Sentence Jumble</button>
+    -->
         <button data-key="required27" class="button required task-button" data-reveal-code="true" data-target-page="../otherGames/canadianMoneyGame.html?mode=easy">Canadian Money Game</button>
         
         <button data-key="required31.1" class="button required non-task" data-reveal-code="true" onclick="openPlaylistModal('PLA-1yctXuZRSiQAaUc_rirROTWiQKQDSw')">French Sounds 1</button>
@@ -95,7 +97,7 @@
             </li>
             <li data-show-days="mon,tue,wed,thu,fri">
                 <input data-key="17" type="checkbox" class="chore-checkbox" data-reveal-code="true"id="item2">
-                <span class="chore-text" onclick="readText('Ten pushups')" data-kid="kid1">Pushups 🔊</span>
+                <span class="chore-text" onclick="readText('Ten pushups')" data-kid="am">Pushups 🔊</span>
                 <br>
                 <img src="https://media.giphy.com/media/mGWBjz74fn404BWUl4/giphy.gif?cid=ecf05e476pxqqc6cbon5ir86ggdqlsxc76d3ms0nhqklyspt&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Funny Cat GIF"> X 15
             </li>            

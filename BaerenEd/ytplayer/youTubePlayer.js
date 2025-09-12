@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Initialize video buttons
     document.querySelectorAll(".video-button").forEach((button) => {
-        const kid = button.getAttribute("data-kid") || (document.getElementById("codeDisplay")?.getAttribute("data-kid") || "kid1");
+        const kid = button.getAttribute("data-kid") || (document.getElementById("codeDisplay")?.getAttribute("data-kid") || "am");
         const jsonFile = button.getAttribute("data-json-file");
         const selectionMode = button.getAttribute("data-selection-mode");
         const dataKey = button.getAttribute("data-key"); // Use data-key

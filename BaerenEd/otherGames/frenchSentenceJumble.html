@@ -391,6 +391,13 @@
 
         function updateScore() {
             updateStarCount();
+            // End the game as soon as 5 stars are reached
+            const maxQuestions = 5;
+            if (score >= maxQuestions) {
+                // Trigger completion sequence immediately
+                currentIndex = gameData.length; // force completion branch
+                loadSentence();
+            }
         }
 
         function nextSentence() {
@@ -416,6 +423,7 @@
                 // Fallback to browser TTS
                 const utterance = new SpeechSynthesisUtterance(currentSentence.english);
                 utterance.lang = 'en-US';
+                utterance.rate = 0.7;
                 speechSynthesis.speak(utterance);
             }
         }

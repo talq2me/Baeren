@@ -49,7 +49,7 @@ function highlightWord(container, charIndex) {
             spans[i].classList.add('tts-highlight');
             break;
         }
-        total += len;I
+        total += len;
     }
 }
 
@@ -96,7 +96,7 @@ function speakWithHighlight(text, lang, container, onend) {
     container.innerHTML = splitTextToSpans(text);
     ttsUtterance = new SpeechSynthesisUtterance(text);
     ttsUtterance.lang = lang;
-    ttsUtterance.rate = (lang === 'fr-FR') ? 0.8 : 0.95;
+    ttsUtterance.rate = (lang && lang.toLowerCase().startsWith('fr')) ? 0.6 : 0.75;
     let boundaryFired = false;
     ttsUtterance.onboundary = function(event) {
         boundaryFired = true;
@@ -137,10 +137,9 @@ async function loadGame() {
     currentStoryIndex = 0;
     currentQuestionIndex = 0;
     document.getElementById("gameTitle").innerText = gameTitle || '';
-    updateStarCount();
 
-    //update maxQuestions based on the game title
-    if (gameTitle === "French Word Game" || gameTitle === "French Syllable Game"){
+    // Set maxQuestions before first star render
+    if (gameTitle === "French Word Game" || gameTitle === "French Syllable Game") {
         maxQuestions = 5; // French Games have fewer questions
     } else {
         maxQuestions = 10; // Default for other games
@@ -164,6 +163,7 @@ async function loadGame() {
             storyData = data;
             // Always use 10 for maxQuestions in story mode for consistency
             maxQuestions = 10;
+            updateStarCount();
             showStoryQuestion();
         } else {
             isStoryMode = false;
@@ -172,6 +172,7 @@ async function loadGame() {
             const storageKey = `genericgame_index_${jsonFile}`;
             currentIndex = parseInt(localStorage.getItem(storageKey) || "0", 10);
             if (currentIndex >= gameData.length) currentIndex = 0;
+            updateStarCount();
             nextRound();
         }
     } catch (error) {
@@ -475,8 +476,8 @@ async function nextRound() {
             });
         }
     } else {
-        // For other games, play the instructions using playSound
-        playSound();
+        // For other games, play the instructions using playSound after DOM paints
+        requestAnimationFrame(() => setTimeout(playSound, 50));
     }
 
     updateChoices(currentItem.choices); // Display the randomized choices
@@ -601,8 +602,8 @@ function endGame() {
     document.getElementById("playButton").innerText = "Play Again";
     document.getElementById("messageContainer").innerHTML = "Congratulations! You've completed the game!";
     
-    // Reset progress for next time
-    currentIndex = 0;
+    // Advance progress so next session resumes at the next item rather than restarting
+    // Keep currentIndex as-is (it already points to the next item) and persist
     saveProgress();
     
     // Notify parent window that the game is completed
