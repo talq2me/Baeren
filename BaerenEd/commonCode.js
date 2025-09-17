@@ -349,8 +349,6 @@ function processTTSQueue() {
             const utter = new SpeechSynthesisUtterance(text);
             utter.lang = lang;
             utter.rate = 0.6;
-            utter.lang = lang;
-            utter.rate = 0.6;
             utter.pitch = 1;
             utter.volume = 1;
             utter.onend = () => {

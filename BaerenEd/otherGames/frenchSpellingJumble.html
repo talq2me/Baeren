@@ -290,7 +290,7 @@
         let correctCount = 0;
         let maxQuestions = 10;
         let currentWordIndex = 0;
-        let currentWord = "";
+        let currentWord = {}; // Changed to an object
         let gameMode = 'hard'; // Default mode: easy, hard, extreme
 
         // Get mode from URL parameters
@@ -329,29 +329,39 @@
                 fetch(jsonFile)
                     .then(response => response.json())
                     .then(data => {
-                        if (Array.isArray(data)) {
-                            frenchWords = data;
+                        // Handle new JSON format: array of { word: "", sentence: "" }
+                        if (Array.isArray(data) && data.length > 0 && data[0].word && data[0].sentence) {
+                            frenchWords = data; // Store full objects
                             maxQuestions = frenchWords.length;
-                            console.log(`Loaded ${frenchWords.length} words from ${jsonFile}`);
+                            console.log(`Loaded ${frenchWords.length} words with sentences from ${jsonFile}`);
+                        } else if (Array.isArray(data)) {
+                            // Original format: array of strings
+                            frenchWords = data.map(word => ({ word: word, sentence: "" })); // Convert to new format
+                            maxQuestions = frenchWords.length;
+                            console.log(`Loaded ${frenchWords.length} words from ${jsonFile} (converted to objects)`);
                         } else if (data.words && Array.isArray(data.words)) {
-                            frenchWords = data.words;
+                            // If the JSON contains a 'words' array (old format from genericGame.js)
+                            // Assume data.words contains strings and convert them
+                            frenchWords = data.words.map(word => ({ word: word, sentence: "" }));
                             maxQuestions = frenchWords.length;
-                            console.log(`Loaded ${frenchWords.length} words from ${jsonFile}`);
+                            console.log(`Loaded ${frenchWords.length} words from ${jsonFile} (converted to objects)`);
                         }
                         startGame();
                     })
                     .catch(error => {
                         console.error('Error loading words file:', error);
+                        frenchWords = frenchWords.map(word => ({ word: word, sentence: "" })); // Ensure default words are in new format
                         startGame(); // Use default words if loading fails
                     });
             } else {
+                frenchWords = frenchWords.map(word => ({ word: word, sentence: "" })); // Ensure default words are in new format
                 startGame();
             }
         }
 
         function startGame() {
             currentWordIndex = 0;
-            correctCount = 0;
+            
             updateStarCount();
             loadWord();
         }
@@ -385,7 +395,7 @@
                 return;
             }
 
-            currentWord = frenchWords[currentWordIndex];
+            currentWord = frenchWords[currentWordIndex]; // currentWord is now an object
             selectedLetters = [];
             isInPracticeMode = false;
             practiceAttempts = 0;
@@ -418,20 +428,35 @@
         }
 
         function playInstruction() {
-            const instruction = `Épelez le mot: ${currentWord}`;
-            
+            const wordToSpell = currentWord.word; // Get the word from the object
+            const sentenceToRead = currentWord.sentence;
+            const instructionWord = `Épelez le mot: ${wordToSpell}`;
+
             if (typeof AndroidTTS !== 'undefined') {
-                        try {
-                            readText(instruction, 'fr');
-                        } catch (error) {
-                            console.error("Error in TTS sequence:", error);
+                try {
+                    readText(instructionWord, 'fr', () => {
+                        if (sentenceToRead) {
+                            setTimeout(() => readText(sentenceToRead, 'fr'), 500); // Short pause
                         }
+                    });
+                } catch (error) {
+                    console.error("Error in TTS sequence:", error);
+                }
             } else if ('speechSynthesis' in window) {
-                // Fallback to browser TTS
-                const utterance = new SpeechSynthesisUtterance(instruction);
-                utterance.lang = 'fr-FR';
-                utterance.rate = 0.6;
-                speechSynthesis.speak(utterance);
+                const utteranceWord = new SpeechSynthesisUtterance(instructionWord);
+                utteranceWord.lang = 'fr-FR';
+                utteranceWord.rate = 0.6;
+                utteranceWord.onend = () => {
+                    if (sentenceToRead) {
+                        setTimeout(() => {
+                            const utteranceSentence = new SpeechSynthesisUtterance(sentenceToRead);
+                            utteranceSentence.lang = 'fr-FR';
+                            utteranceSentence.rate = 0.6;
+                            speechSynthesis.speak(utteranceSentence);
+                        }, 500); // Short pause
+                    }
+                };
+                speechSynthesis.speak(utteranceWord);
             }
         }
 
@@ -439,8 +464,8 @@
             const letterBank = document.getElementById('letterBank');
             letterBank.innerHTML = '';
             
-            // Get all letters from the word
-            const letters = currentWord.split('');
+            // Get all letters from the word (from the object)
+            const letters = currentWord.word.split('');
             
             if (gameMode === 'easy') {
                 // Easy mode: only the letters needed for the word
@@ -574,7 +599,7 @@
             if (isInPracticeMode) return;
             
             const spelledWord = selectedLetters.join('');
-            const isCorrect = spelledWord === currentWord;
+            const isCorrect = spelledWord === currentWord.word; // Compare with currentWord.word
             
             if (isCorrect) {
                 // Show "Correct!" beside the spelled word
@@ -607,7 +632,7 @@
             
             // Display correct word
             document.getElementById('correctWordDisplay').innerHTML = 
-                `<h4>Correct spelling: <strong>${currentWord.toUpperCase()}</strong></h4>`;
+                `<h4>Correct spelling: <strong>${currentWord.word.toUpperCase()}</strong></h4>`; // Use currentWord.word
             
             // Clear practice attempts
             document.getElementById('practiceAttempts').innerHTML = '';
@@ -632,6 +657,7 @@
                 // Fallback to browser TTS
                 const utterance = new SpeechSynthesisUtterance(instruction);
                 utterance.lang = 'en-US';
+                utterance.rate = 0.6; // Keep consistent rate
                 speechSynthesis.speak(utterance);
             }
         }
@@ -640,8 +666,8 @@
             const practiceLetterBank = document.getElementById('practiceLetterBank');
             practiceLetterBank.innerHTML = '';
             
-            // Get all letters from the word
-            const letters = currentWord.split('');
+            // Get all letters from the word (from the object)
+            const letters = currentWord.word.split('');
             
             // Add some extra letters to make it more challenging
             const extraLetters = ['a', 'e', 'i', 'o', 'u', 't', 'n', 's', 'r', 'h', 'l', 'd', 'c', 'm', 'f', 'p', 'g', 'b', 'v', 'k', 'j', 'x', 'q', 'z', 'w', 'y', 'é', 'è', 'à', 'ù', 'ç'];
@@ -710,7 +736,7 @@
 
         function handlePracticeSubmit() {
             const practiceInput = practiceSelectedLetters.join('');
-            const isCorrect = practiceInput === currentWord;
+            const isCorrect = practiceInput === currentWord.word; // Compare with currentWord.word
             
             practiceAttempts++;
             practiceResults.push({ attempt: practiceAttempts, input: practiceInput, correct: isCorrect });

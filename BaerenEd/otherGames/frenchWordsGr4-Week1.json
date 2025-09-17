@@ -1,17 +1,62 @@
 [
-    "bol",
-    "défi",
-    "or",
-    "parmi",
-    "partir",
-    "sol",
-    "sud",
-    "bon",
-    "dragon",
-    "pardon",
-    "retour",
-    "salon",
-    "selon",
-    "sinon",
-    "tour"
-]
+    {
+    "word": "boule",
+    "sentence": "Elle a lancé la boule de neige avec force."
+    },
+    {
+    "word": "bulle",
+    "sentence": "Une bulle de savon a flotté dans l'air."
+    },
+    {
+    "word": "envie",
+    "sentence": "J'ai une grande envie de chocolat ce soir."
+    },
+    {
+    "word": "forme",
+    "sentence": "Après une bonne nuit de sommeil, elle est en pleine forme."
+    },
+    {
+    "word": "foule",
+    "sentence": "La foule s'est rassemblée devant le théâtre."
+    },
+    {
+    "word": "mode",
+    "sentence": "Ce logiciel fonctionne en mode silencieux."
+    },
+    {
+    "word": "mode",
+    "sentence": "La mode change chaque saison."
+    },
+    {
+    "word": "nu",
+    "sentence": "Il est sorti nu de la salle de bain par erreur."
+    },
+    {
+    "word": "nue",
+    "sentence": "La statue représente une femme nue."
+    },
+    {
+    "word": "pire",
+    "sentence": "C'était le pire jour de sa vie."
+    },
+    {
+    "word": "roue",
+    "sentence": "La roue du vélo est crevée."
+    },
+    {
+    "word": "sortie",
+    "sentence": "La sortie du film est prévue pour vendredi."
+    },
+    {
+    "word": "soupe",
+    "sentence": "Elle prépare une soupe aux légumes chaque soir."
+    },
+    {
+    "word": "vide",
+    "sentence": "Le frigo est complètement vide."
+    },
+    {
+    "word": "vide",
+    "sentence": "Il ressent un grand vide après son départ."
+    }
+    ]
