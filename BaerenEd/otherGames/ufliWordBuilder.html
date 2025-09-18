@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UFLI Word Builder</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../commonCode.js"></script>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;
+        }
+        .game-container {
+            width: 95%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 15px;
+            text-align: center;
+        }
+        .word-slots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            min-height: 70px;
+        }
+        .slot {
+            width: 60px;
+            height: 60px;
+            background: #e0e0e0;
+            border: 2px dashed #a0a0a0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+        }
+        .grapheme-bank-container {
+            margin-top: 20px;
+        }
+        #grapheme-bank-all {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 10px 0;
+            padding: 10px;
+            align-items: center;
+            background: #f0f8ff;
+            border-radius: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+        .practice-container {
+            margin: 20px 0;
+            padding: 20px;
+            background: #fff3cd;
+            border-radius: 10px;
+            border: 2px solid #ffeaa7;
+        }
+        .grapheme-btn {
+            background: #ffc107;
+            color: #333;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            user-select: none;
+            font-size: 24px;
+            font-weight: bold;
+            min-width: 50px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: all 0.2s ease;
+        }
+        .grapheme-btn:hover {
+            background: #ffca28;
+            transform: translateY(-2px);
+        }
+        .grapheme-btn.used {
+            background: #ccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        #messageContainer {
+            margin-top: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            min-height: 30px;
+        }
+        .correct { color: #4CAF50; }
+        .incorrect { color: #f44336; }
+
+        .button-container {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-container">
+        <h1>UFLI Word Builder</h1>
+        <div id="starCount">⭐ 0 / 5</div>
+
+        <div class="button-container">
+            <button class="button" id="soundOutButton">Hear the Word 🔊</button>
+        </div>
+
+        <div class="word-slots" id="wordSlots"></div>
+
+        <div id="messageContainer"></div>
+
+        <div class="grapheme-bank-container">
+            <!-- Grapheme buttons will be dynamically inserted here -->
+            <div id="grapheme-bank-all">
+                <!-- JS will populate this -->
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button id="deleteBtn" class="button" onclick="handleDelete()">⌫ Delete</button>
+            <button id="submitBtn" class="button green-button" onclick="handleSubmit()">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        let wordData = [];
+        let currentWordIndex = 0;
+        let currentWord = {};
+        let correctCount = 0;
+        let maxQuestions = 5;
+        let userInput = [];
+        const STORAGE_KEY = 'ufliWordBuilder_currentIndex';
+
+        const graphemeBanks = {
+            consonantBlends: ['bl', 'br', 'cl', 'cr', 'dr', 'fl', 'fr', 'gr', 'pl', 'pr', 'sc', 'sk', 'sl', 'sm', 'sn', 'sp', 'st', 'sw', 'tr', 'tw'],
+            consonantDigraphs: ['ch', 'sh', 'th', 'ck', 'ph', 'wh', 'ng', 'nk', 'qu'],
+            vowelTeams: ['ai', 'au', 'aw', 'ay', 'ea', 'ee', 'igh', 'oa', 'oo', 'oi', 'ou', 'ow', 'oy'],
+            rControlledVowels: ['ar', 'er', 'ir', 'or', 'ur'],
+            vowels: ['a', 'e', 'i', 'o', 'u'],
+            consonants: ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z']
+        };
+
+        // To easily find which bank a grapheme belongs to
+        const graphemeToBankMap = {};
+        Object.entries(graphemeBanks).forEach(([bankName, graphemes]) => graphemes.forEach(g => graphemeToBankMap[g] = bankName));
+
+        document.addEventListener('DOMContentLoaded', loadGame);
+
+        async function loadGame() {
+            try {
+                const response = await fetch('ufli-lesson-data.json');
+                wordData = await response.json();
+                maxQuestions = wordData.length > 5 ? 5 : wordData.length; // Set max questions, capped at 5 for a session
+                startGame();
+            } catch (error) {
+                console.error("Error loading word data:", error);
+                document.getElementById('game-container').innerHTML = '<h2>Could not load game data.</h2>';
+            }
+        }
+
+        function startGame() {
+            let savedIndex = parseInt(localStorage.getItem(STORAGE_KEY), 10);
+            currentWordIndex = !isNaN(savedIndex) ? savedIndex : 0;
+
+            correctCount = 0;
+            updateStarCount();
+            loadWord();
+        }
+
+        function loadWord() {
+            if (currentWordIndex >= wordData.length) {
+                currentWordIndex = 0; // Loop back to the beginning
+            }
+            
+            if (correctCount >= maxQuestions) {
+                endGame();
+                return;
+            }
+
+            currentWord = wordData[currentWordIndex];
+            userInput = [];
+
+            document.getElementById('messageContainer').innerHTML = '';
+
+            setupWordSlots();
+            populateGraphemeBanks();
+
+            document.getElementById('soundOutButton').onclick = () => readText(currentWord.word, 'en-US');
+
+            // Auto-play the instruction
+            setTimeout(() => {
+                readText(`Make the word: ${currentWord.word}`, 'en-US');
+            }, 500);
+        }
+
+        function setupWordSlots() {
+            const slotsContainer = document.getElementById('wordSlots');
+            slotsContainer.innerHTML = '';
+            currentWord.graphemes.forEach(() => {
+                const slot = document.createElement('div');
+                slot.className = 'slot';
+                slotsContainer.appendChild(slot);
+            });
+        }
+
+        function populateGraphemeBanks() {
+            const mainBank = document.getElementById('grapheme-bank-all');
+            mainBank.innerHTML = ''; // Clear the main bank
+
+            const requiredGraphemes = new Set(currentWord.graphemes);
+            const displayedGraphemes = new Set(currentWord.graphemes);
+
+            // Add a few extra random graphemes to make it a bit challenging
+            for (let i = 0; i < 3; i++) {
+                const randomBankKey = Object.keys(graphemeBanks)[Math.floor(Math.random() * Object.keys(graphemeBanks).length)];
+                const randomBank = graphemeBanks[randomBankKey];
+                const randomGrapheme = randomBank[Math.floor(Math.random() * randomBank.length)];
+                if (!displayedGraphemes.has(randomGrapheme)) {
+                    displayedGraphemes.add(randomGrapheme); 
+                }
+            }
+
+            // Create buttons and add them to the main bank
+            const allButtons = Array.from(displayedGraphemes).map(grapheme => {
+                const btn = document.createElement('div');
+                btn.className = 'grapheme-btn';
+                btn.textContent = grapheme;
+                btn.dataset.grapheme = grapheme;
+                btn.onclick = handleGraphemeClick;
+                return btn;
+            });
+
+            // Shuffle all buttons together
+            const shuffledButtons = allButtons.sort(() => Math.random() - 0.5);
+
+            // Append shuffled buttons to the main bank
+            shuffledButtons.forEach(btn => mainBank.appendChild(btn));
+        }
+
+        
+        function handleGraphemeClick(event) {
+            const btn = event.target;
+            if (btn.classList.contains('used') || userInput.length >= currentWord.graphemes.length) {
+                return;
+            }
+
+            const grapheme = btn.dataset.grapheme;
+            userInput.push(grapheme);
+            btn.classList.add('used');
+
+            updateWordSlots();
+        }
+
+        function handleDelete() {
+            if (userInput.length > 0) {
+                const lastGrapheme = userInput.pop();
+                const btn = document.querySelector(`.grapheme-btn[data-grapheme="${lastGrapheme}"].used`);
+                if (btn) {
+                    btn.classList.remove('used');
+                }
+                updateWordSlots();
+            }
+        }
+
+        function updateWordSlots() {
+            const slots = document.querySelectorAll('.slot');
+            slots.forEach((slot, index) => {
+                slot.textContent = userInput[index] || '';
+            });
+        }
+
+        function handleSubmit() {
+            const messageContainer = document.getElementById('messageContainer');
+            const isCorrect = JSON.stringify(userInput) === JSON.stringify(currentWord.graphemes);
+
+            if (isCorrect) {
+                messageContainer.textContent = 'Correct! 🎉';
+                messageContainer.className = 'correct';
+                correctCount++;
+                updateStarCount();
+
+                // Start the TTS, but don't wait for it
+                readText(`You spelled ${currentWord.word}!`, 'en-US');
+                setTimeout(nextWord, 2000); // Move to the next word after 2 seconds
+            } else {
+                messageContainer.textContent = 'Not quite, try again!';
+                messageContainer.className = 'incorrect';
+                // Reset for another try immediately
+                userInput = [];
+                updateWordSlots();
+                document.querySelectorAll('.grapheme-btn.used').forEach(btn => btn.classList.remove('used'));
+                readText(`Let's try that again. Make the word: ${currentWord.word}`, 'en-US', () => {
+                    setTimeout(() => { messageContainer.textContent = ''; }, 500); // Clear message shortly after TTS finishes
+                });
+            }
+        }
+
+        function nextWord() {
+            currentWordIndex++;
+            if (currentWordIndex >= wordData.length) currentWordIndex = 0; // Loop back
+            localStorage.setItem(STORAGE_KEY, currentWordIndex.toString());
+            loadWord();
+        }
+
+        function updateStarCount() {
+            document.getElementById('starCount').innerText = `⭐ ${correctCount} / ${maxQuestions}`;
+        }
+
+        function endGame() {
+            document.getElementById('game-container').innerHTML = `
+                <h1>Game Complete!</h1>
+                <h2>Final Score: ${correctCount} / ${maxQuestions} ⭐</h2>
+            `;
+            if (window.parent) {
+                window.parent.postMessage({ type: 'gameCompleted' }, '*');
+            }
+        }
+
+    </script>
+</body>
+</html>

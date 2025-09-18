@@ -1,0 +1,962 @@
+[
+    {
+        "sentence": "The cat is on the mat.",
+        "correctWords": ["The", "cat", "is", "on", "the", "mat"],
+        "extraWords": ["dog", "under", "box", "hat"]
+    },
+    {
+        "sentence": "I see a big red bus.",
+        "correctWords": ["I", "see", "a", "big", "red", "bus"],
+        "extraWords": ["car", "blue", "go", "stop"]
+    },
+    {
+        "sentence": "We can run to the park.",
+        "correctWords": ["We", "can", "run", "to", "the", "park"],
+        "extraWords": ["walk", "tree", "play", "fast"]
+    },
+    {
+        "sentence": "My mom is in the car.",
+        "correctWords": ["My", "mom", "is", "in", "the", "car"],
+        "extraWords": ["dad", "truck", "house", "fun"]
+    },
+    {
+        "sentence": "The sun is hot and bright.",
+        "correctWords": ["The", "sun", "is", "hot", "and", "bright"],
+        "extraWords": ["dark", "moon", "cold", "run"]
+    },
+    {
+        "sentence": "I like to jump and hop.",
+        "correctWords": ["I", "like", "to", "jump", "and", "hop"],
+        "extraWords": ["run", "walk", "play", "fly"]
+    },
+    {
+        "sentence": "The dog can dig a hole.",
+        "correctWords": ["The", "dog", "can", "dig", "a", "hole"],
+        "extraWords": ["cat", "log", "run", "rock"]
+    },
+    {
+        "sentence": "Dad is at the shop now.",
+        "correctWords": ["Dad", "is", "at", "the", "shop", "now"],
+        "extraWords": ["mom", "bus", "later", "home"]
+    },
+    {
+        "sentence": "She has a red hat on.",
+        "correctWords": ["She", "has", "a", "red", "hat", "on"],
+        "extraWords": ["blue", "cap", "hair", "top"]
+    },
+    {
+        "sentence": "It is fun to swim fast.",
+        "correctWords": ["It", "is", "fun", "to", "swim", "fast"],
+        "extraWords": ["slow", "run", "walk", "play"]
+    },
+    {
+        "sentence": "Look at the big blue sky.",
+        "correctWords": ["Look", "at", "the", "big", "blue", "sky"],
+        "extraWords": ["cloud", "dark", "run", "moon"]
+    },
+    {
+        "sentence": "We will go to the zoo.",
+        "correctWords": ["We", "will", "go", "to", "the", "zoo"],
+        "extraWords": ["farm", "ride", "bus", "out"]
+    },
+    {
+        "sentence": "The fish swims in the pond.",
+        "correctWords": ["The", "fish", "swims", "in", "the", "pond"],
+        "extraWords": ["lake", "boat", "net", "big"]
+    },
+    {
+        "sentence": "A frog can jump far.",
+        "correctWords": ["A", "frog", "can", "jump", "far"],
+        "extraWords": ["hop", "close", "small", "pond"]
+    },
+    {
+        "sentence": "I sit on the red rug.",
+        "correctWords": ["I", "sit", "on", "the", "red", "rug"],
+        "extraWords": ["mat", "blue", "couch", "big"]
+    },
+    {
+        "sentence": "The bug is on the leaf.",
+        "correctWords": ["The", "bug", "is", "on", "the", "leaf"],
+        "extraWords": ["bee", "tree", "web", "dirt"]
+    },
+    {
+        "sentence": "We eat lunch at noon.",
+        "correctWords": ["We", "eat", "lunch", "at", "noon"],
+        "extraWords": ["snack", "morning", "later", "plate"]
+    },
+    {
+        "sentence": "The box is full of toys.",
+        "correctWords": ["The", "box", "is", "full", "of", "toys"],
+        "extraWords": ["bag", "play", "open", "lid"]
+    },
+    {
+        "sentence": "He can ride his bike.",
+        "correctWords": ["He", "can", "ride", "his", "bike"],
+        "extraWords": ["car", "run", "fast", "train"]
+    },
+    {
+        "sentence": "She will help her dad.",
+        "correctWords": ["She", "will", "help", "her", "dad"],
+        "extraWords": ["mom", "give", "ask", "fix"]
+    },
+    {
+        "sentence": "This is my best toy.",
+        "correctWords": ["This", "is", "my", "best", "toy"],
+        "extraWords": ["game", "your", "soft", "top"]
+    },
+    {
+        "sentence": "Can you see the duck?",
+        "correctWords": ["Can", "you", "see", "the", "duck"],
+        "extraWords": ["pond", "bird", "look", "swim"]
+    },
+    {
+        "sentence": "We like to play tag.",
+        "correctWords": ["We", "like", "to", "play", "tag"],
+        "extraWords": ["run", "toy", "hide", "seek"]
+    },
+    {
+        "sentence": "The jet is in the sky.",
+        "correctWords": ["The", "jet", "is", "in", "the", "sky"],
+        "extraWords": ["plane", "cloud", "sun", "bird"]
+    },
+    {
+        "sentence": "I can help my friend.",
+        "correctWords": ["I", "can", "help", "my", "friend"],
+        "extraWords": ["ask", "school", "good", "show"]
+    },
+    {
+        "sentence": "He has a new cap.",
+        "correctWords": ["He", "has", "a", "new", "cap"],
+        "extraWords": ["hat", "old", "top", "blue"]
+    },
+    {
+        "sentence": "The goat is on the hill.",
+        "correctWords": ["The", "goat", "is", "on", "the", "hill"],
+        "extraWords": ["cow", "farm", "grass", "top"]
+    },
+    {
+        "sentence": "We saw a fox in the woods.",
+        "correctWords": ["We", "saw", "a", "fox", "in", "the", "woods"],
+        "extraWords": ["wolf", "tree", "look", "walk"]
+    },
+    {
+        "sentence": "The bird is in the nest.",
+        "correctWords": ["The", "bird", "is", "in", "the", "nest"],
+        "extraWords": ["egg", "fly", "branch", "sky"]
+    },
+    {
+        "sentence": "I like to read my book.",
+        "correctWords": ["I", "like", "to", "read", "my", "book"],
+        "extraWords": ["write", "page", "pen", "look"]
+    },
+    {
+        "sentence": "She can sing a song.",
+        "correctWords": ["She", "can", "sing", "a", "song"],
+        "extraWords": ["note", "hum", "tune", "say"]
+    },
+    {
+        "sentence": "Mom made a hot meal.",
+        "correctWords": ["Mom", "made", "a", "hot", "meal"],
+        "extraWords": ["food", "cook", "yum", "plate"]
+    },
+    {
+        "sentence": "He will get a gift.",
+        "correctWords": ["He", "will", "get", "a", "gift"],
+        "extraWords": ["box", "wrap", "bag", "fun"]
+    },
+    {
+        "sentence": "I can kick the ball.",
+        "correctWords": ["I", "can", "kick", "the", "ball"],
+        "extraWords": ["hit", "throw", "toy", "net"]
+    },
+    {
+        "sentence": "The frog is green.",
+        "correctWords": ["The", "frog", "is", "green"],
+        "extraWords": ["jump", "log", "wet", "pond"]
+    },
+    {
+        "sentence": "We had fun at the pool.",
+        "correctWords": ["We", "had", "fun", "at", "the", "pool"],
+        "extraWords": ["swim", "wet", "cold", "towel"]
+    },
+    {
+        "sentence": "She can read this map.",
+        "correctWords": ["She", "can", "read", "this", "map"],
+        "extraWords": ["book", "look", "find", "line"]
+    },
+    {
+        "sentence": "The drum is loud.",
+        "correctWords": ["The", "drum", "is", "loud"],
+        "extraWords": ["soft", "song", "play", "beat"]
+    },
+    {
+        "sentence": "We had cake and milk.",
+        "correctWords": ["We", "had", "cake", "and", "milk"],
+        "extraWords": ["juice", "cup", "sweet", "yum"]
+    },
+    {
+        "sentence": "He will wash his hands.",
+        "correctWords": ["He", "will", "wash", "his", "hands"],
+        "extraWords": ["soap", "clean", "wet", "dry"]
+    },
+    {
+        "sentence": "The fox ran fast.",
+        "correctWords": ["The", "fox", "ran", "fast"],
+        "extraWords": ["hop", "slow", "hide", "tail"]
+    },
+    {
+        "sentence": "It is cold and wet.",
+        "correctWords": ["It", "is", "cold", "and", "wet"],
+        "extraWords": ["hot", "dry", "sun", "snow"]
+    },
+    {
+        "sentence": "I got a new pet.",
+        "correctWords": ["I", "got", "a", "new", "pet"],
+        "extraWords": ["cat", "dog", "fish", "name"]
+    },
+    {
+        "sentence": "She went to the shop.",
+        "correctWords": ["She", "went", "to", "the", "shop"],
+        "extraWords": ["buy", "store", "bag", "list"]
+    },
+    {
+        "sentence": "We see stars at night.",
+        "correctWords": ["We", "see", "stars", "at", "night"],
+        "extraWords": ["moon", "dark", "sky", "shine"]
+    },
+    {
+        "sentence": "The bear is big and brown.",
+        "correctWords": ["The", "bear", "is", "big", "and", "brown"],
+        "extraWords": ["cub", "fur", "growl", "run"]
+    },
+    {
+        "sentence": "My toy is under the bed.",
+        "correctWords": ["My", "toy", "is", "under", "the", "bed"],
+        "extraWords": ["top", "box", "play", "room"]
+    },
+    {
+        "sentence": "Dad will fix the bike.",
+        "correctWords": ["Dad", "will", "fix", "the", "bike"],
+        "extraWords": ["tool", "ride", "wheel", "help"]
+    },
+    {
+        "sentence": "He can zip his coat.",
+        "correctWords": ["He", "can", "zip", "his", "coat"],
+        "extraWords": ["hat", "cold", "jacket", "snap"]
+    },
+    {
+        "sentence": "The bell rings at ten.",
+        "correctWords": ["The", "bell", "rings", "at", "ten"],
+        "extraWords": ["clock", "loud", "ding", "twelve"]
+    },
+    {
+        "sentence": "I see a duck in the pond.",
+        "correctWords": ["I", "see", "a", "duck", "in", "the", "pond"],
+        "extraWords": ["lake", "fly", "wet", "cold"]
+    },
+    {
+        "sentence": "We made a snowman today.",
+        "correctWords": ["We", "made", "a", "snowman", "today"],
+        "extraWords": ["cold", "ice", "ball", "coat"]
+    },
+    {
+        "sentence": "She got a gift from Mom.",
+        "correctWords": ["She", "got", "a", "gift", "from", "Mom"],
+        "extraWords": ["box", "wrap", "bow", "dad"]
+    },
+    {
+        "sentence": "I like jam on my toast.",
+        "correctWords": ["I", "like", "jam", "on", "my", "toast"],
+        "extraWords": ["bread", "butter", "eat", "cup"]
+    },
+    {
+        "sentence": "The kite went up high.",
+        "correctWords": ["The", "kite", "went", "up", "high"],
+        "extraWords": ["fly", "wind", "string", "air"]
+    },
+    {
+        "sentence": "He can zip up his bag.",
+        "correctWords": ["He", "can", "zip", "up", "his", "bag"],
+        "extraWords": ["pack", "trip", "top", "open"]
+    },
+    {
+        "sentence": "We will bake a cake.",
+        "correctWords": ["We", "will", "bake", "a", "cake"],
+        "extraWords": ["mix", "sweet", "pan", "yum"]
+    },
+    {
+        "sentence": "The crab has two claws.",
+        "correctWords": ["The", "crab", "has", "two", "claws"],
+        "extraWords": ["sea", "shell", "pinch", "red"]
+    },
+    {
+        "sentence": "She took a long nap.",
+        "correctWords": ["She", "took", "a", "long", "nap"],
+        "extraWords": ["sleep", "bed", "tired", "rest"]
+    },
+    {
+        "sentence": "They can sing a song.",
+        "correctWords": ["They", "can", "sing", "a", "song"],
+        "extraWords": ["hum", "loud", "note", "music"]
+    },
+    {
+        "sentence": "He has a red cup.",
+        "correctWords": ["He", "has", "a", "red", "cup"],
+        "extraWords": ["drink", "blue", "mug", "lid"]
+    },
+    {
+        "sentence": "We like to play games.",
+        "correctWords": ["We", "like", "to", "play", "games"],
+        "extraWords": ["fun", "run", "win", "toy"]
+    },
+    {
+        "sentence": "The frog can hop far.",
+        "correctWords": ["The", "frog", "can", "hop", "far"],
+        "extraWords": ["pond", "jump", "green", "toad"]
+    },
+    {
+        "sentence": "I like milk and toast.",
+        "correctWords": ["I", "like", "milk", "and", "toast"],
+        "extraWords": ["butter", "cup", "jam", "drink"]
+    },
+    {
+        "sentence": "Mom put soup in a pot.",
+        "correctWords": ["Mom", "put", "soup", "in", "a", "pot"],
+        "extraWords": ["hot", "lid", "pan", "bowl"]
+    },
+    {
+        "sentence": "Dad will mop the floor.",
+        "correctWords": ["Dad", "will", "mop", "the", "floor"],
+        "extraWords": ["clean", "wet", "dust", "soap"]
+    },
+    {
+        "sentence": "The boat can float well.",
+        "correctWords": ["The", "boat", "can", "float", "well"],
+        "extraWords": ["water", "sail", "wet", "sea"]
+    },
+    {
+        "sentence": "He can make a bed.",
+        "correctWords": ["He", "can", "make", "a", "bed"],
+        "extraWords": ["nap", "sheet", "pillow", "room"]
+    },
+    {
+        "sentence": "The pig is in the pen.",
+        "correctWords": ["The", "pig", "is", "in", "the", "pen"],
+        "extraWords": ["mud", "farm", "hay", "oink"]
+    },
+    {
+        "sentence": "We saw stars in the sky.",
+        "correctWords": ["We", "saw", "stars", "in", "the", "sky"],
+        "extraWords": ["night", "shine", "moon", "dark"]
+    },
+    {
+        "sentence": "The hen sat on her egg.",
+        "correctWords": ["The", "hen", "sat", "on", "her", "egg"],
+        "extraWords": ["nest", "bird", "lay", "farm"]
+    },
+    {
+        "sentence": "My box is full of blocks.",
+        "correctWords": ["My", "box", "is", "full", "of", "blocks"],
+        "extraWords": ["toys", "build", "stack", "cube"]
+    },
+    {
+        "sentence": "She has a pink dress.",
+        "correctWords": ["She", "has", "a", "pink", "dress"],
+        "extraWords": ["shirt", "blue", "pretty", "bow"]
+    },
+    {
+        "sentence": "We eat eggs and toast.",
+        "correctWords": ["We", "eat", "eggs", "and", "toast"],
+        "extraWords": ["milk", "jam", "fork", "hot"]
+    },
+    {
+        "sentence": "He had a good day.",
+        "correctWords": ["He", "had", "a", "good", "day"],
+        "extraWords": ["fun", "play", "long", "bad"]
+    },
+    {
+        "sentence": "I will pet the dog.",
+        "correctWords": ["I", "will", "pet", "the", "dog"],
+        "extraWords": ["cat", "bark", "tail", "fur"]
+    },
+    {
+        "sentence": "The bus is here now.",
+        "correctWords": ["The", "bus", "is", "here", "now"],
+        "extraWords": ["ride", "car", "stop", "go"]
+    },
+    {
+        "sentence": "She can write her name.",
+        "correctWords": ["She", "can", "write", "her", "name"],
+        "extraWords": ["read", "pen", "paper", "draw"]
+    },
+    {
+        "sentence": "I sit next to my pal.",
+        "correctWords": ["I", "sit", "next", "to", "my", "pal"],
+        "extraWords": ["friend", "chair", "class", "seat"]
+    },
+    {
+        "sentence": "We had fun at school.",
+        "correctWords": ["We", "had", "fun", "at", "school"],
+        "extraWords": ["learn", "read", "desk", "bell"]
+    },
+    {
+        "sentence": "The lid is on the jar.",
+        "correctWords": ["The", "lid", "is", "on", "the", "jar"],
+        "extraWords": ["box", "top", "can", "open"]
+    },
+    {
+        "sentence": "My bag is blue and red.",
+        "correctWords": ["My", "bag", "is", "blue", "and", "red"],
+        "extraWords": ["green", "zip", "big", "pack"]
+    },
+    {
+        "sentence": "We will play in the yard.",
+        "correctWords": ["We", "will", "play", "in", "the", "yard"],
+        "extraWords": ["grass", "run", "ball", "fun"]
+    },
+    {
+        "sentence": "She put on her shoes.",
+        "correctWords": ["She", "put", "on", "her", "shoes"],
+        "extraWords": ["feet", "socks", "tie", "walk"]
+    },
+    {
+        "sentence": "He can jump over the log.",
+        "correctWords": ["He", "can", "jump", "over", "the", "log"],
+        "extraWords": ["hop", "tree", "run", "stick"]
+    },
+    {
+        "sentence": "The pan is hot now.",
+        "correctWords": ["The", "pan", "is", "hot", "now"],
+        "extraWords": ["pot", "cook", "lid", "stove"]
+    },
+    {
+        "sentence": "We eat lunch at noon.",
+        "correctWords": ["We", "eat", "lunch", "at", "noon"],
+        "extraWords": ["food", "plate", "fork", "time"]
+    },
+    {
+        "sentence": "She sat in the big chair.",
+        "correctWords": ["She", "sat", "in", "the", "big", "chair"],
+        "extraWords": ["seat", "table", "room", "soft"]
+    },
+    {
+        "sentence": "The web is in the tree.",
+        "correctWords": ["The", "web", "is", "in", "the", "tree"],
+        "extraWords": ["net", "spider", "leaf", "branch"]
+    },
+    {
+        "sentence": "I will pack my bag.",
+        "correctWords": ["I", "will", "pack", "my", "bag"],
+        "extraWords": ["zip", "trip", "open", "box"]
+    },
+    {
+        "sentence": "Dad has a black hat.",
+        "correctWords": ["Dad", "has", "a", "black", "hat"],
+        "extraWords": ["cap", "blue", "top", "hair"]
+    },
+    {
+        "sentence": "She can pick up the pen.",
+        "correctWords": ["She", "can", "pick", "up", "the", "pen"],
+        "extraWords": ["write", "desk", "paper", "note"]
+    },
+    {
+        "sentence": "We go to bed at nine.",
+        "correctWords": ["We", "go", "to", "bed", "at", "nine"],
+        "extraWords": ["sleep", "night", "clock", "late"]
+    },
+    {
+        "sentence": "The flag is red and blue.",
+        "correctWords": ["The", "flag", "is", "red", "and", "blue"],
+        "extraWords": ["green", "pole", "wave", "cloth"]
+    },
+    {
+        "sentence": "He is the best at math.",
+        "correctWords": ["He", "is", "the", "best", "at", "math"],
+        "extraWords": ["class", "count", "test", "fun"]
+    },
+    {
+        "sentence": "She can climb the hill.",
+        "correctWords": ["She", "can", "climb", "the", "hill"],
+        "extraWords": ["run", "up", "down", "grass"]
+    },
+    {
+        "sentence": "We can help clean up.",
+        "correctWords": ["We", "can", "help", "clean", "up"],
+        "extraWords": ["soap", "wash", "mop", "dust"]
+    },
+    {
+        "sentence": "I see a bird in the tree.",
+        "correctWords": ["I", "see", "a", "bird", "in", "the", "tree"],
+        "extraWords": ["nest", "sky", "fly", "leaf"]
+    },
+    {
+        "sentence": "She has a soft toy bear.",
+        "correctWords": ["She", "has", "a", "soft", "toy", "bear"],
+        "extraWords": ["cub", "hug", "brown", "fur"]
+    },
+    {
+        "sentence": "We made a big sand hill.",
+        "correctWords": ["We", "made", "a", "big", "sand", "hill"],
+        "extraWords": ["beach", "dig", "pail", "rock"]
+    },
+    {
+        "sentence": "The duck swam in the pond.",
+        "correctWords": ["The", "duck", "swam", "in", "the", "pond"],
+        "extraWords": ["water", "quack", "splash", "mud"]
+    },
+    {
+        "sentence": "He can see the red barn.",
+        "correctWords": ["He", "can", "see", "the", "red", "barn"],
+        "extraWords": ["farm", "cow", "hay", "big"]
+    },
+    {
+        "sentence": "Mom gave me a big hug.",
+        "correctWords": ["Mom", "gave", "me", "a", "big", "hug"],
+        "extraWords": ["kiss", "love", "arm", "warm"]
+    },
+    {
+        "sentence": "I can zip up my coat.",
+        "correctWords": ["I", "can", "zip", "up", "my", "coat"],
+        "extraWords": ["jacket", "cold", "hood", "wear"]
+    },
+    {
+        "sentence": "The cat ran up the steps.",
+        "correctWords": ["The", "cat", "ran", "up", "the", "steps"],
+        "extraWords": ["stairs", "fast", "house", "jump"]
+    },
+    {
+        "sentence": "We will sit on the rug.",
+        "correctWords": ["We", "will", "sit", "on", "the", "rug"],
+        "extraWords": ["mat", "floor", "soft", "rest"]
+    },
+    {
+        "sentence": "He put jam on the toast.",
+        "correctWords": ["He", "put", "jam", "on", "the", "toast"],
+        "extraWords": ["bread", "butter", "knife", "plate"]
+    },
+    {
+        "sentence": "The bug is on the leaf.",
+        "correctWords": ["The", "bug", "is", "on", "the", "leaf"],
+        "extraWords": ["tree", "crawl", "plant", "green"]
+    },
+    {
+        "sentence": "I can help set the table.",
+        "correctWords": ["I", "can", "help", "set", "the", "table"],
+        "extraWords": ["fork", "plate", "meal", "sit"]
+    },
+    {
+        "sentence": "She has a blue cap.",
+        "correctWords": ["She", "has", "a", "blue", "cap"],
+        "extraWords": ["hat", "top", "hair", "cold"]
+    },
+    {
+        "sentence": "We can look at the moon.",
+        "correctWords": ["We", "can", "look", "at", "the", "moon"],
+        "extraWords": ["stars", "night", "sky", "light"]
+    },
+    {
+        "sentence": "Dad will read the map.",
+        "correctWords": ["Dad", "will", "read", "the", "map"],
+        "extraWords": ["book", "road", "trip", "car"]
+    },
+    {
+        "sentence": "He is in the red car.",
+        "correctWords": ["He", "is", "in", "the", "red", "car"],
+        "extraWords": ["drive", "fast", "horn", "seat"]
+    },
+    {
+        "sentence": "We like to play ball.",
+        "correctWords": ["We", "like", "to", "play", "ball"],
+        "extraWords": ["throw", "kick", "catch", "fun"]
+    },
+    {
+        "sentence": "I got a gift from her.",
+        "correctWords": ["I", "got", "a", "gift", "from", "her"],
+        "extraWords": ["bag", "wrap", "card", "box"]
+    },
+    {
+        "sentence": "The dog dug a hole.",
+        "correctWords": ["The", "dog", "dug", "a", "hole"],
+        "extraWords": ["bone", "mud", "bark", "yard"]
+    },
+    {
+        "sentence": "She will help the kids.",
+        "correctWords": ["She", "will", "help", "the", "kids"],
+        "extraWords": ["teach", "school", "play", "work"]
+    },
+    {
+        "sentence": "The fish is in the tank.",
+        "correctWords": ["The", "fish", "is", "in", "the", "tank"],
+        "extraWords": ["bowl", "water", "swim", "glass"]
+    },
+    {
+        "sentence": "We can clap our hands.",
+        "correctWords": ["We", "can", "clap", "our", "hands"],
+        "extraWords": ["song", "loud", "fun", "dance"]
+    },
+    {
+        "sentence": "The box is full of toys.",
+        "correctWords": ["The", "box", "is", "full", "of", "toys"],
+        "extraWords": ["games", "top", "fun", "lid"]
+    },
+    {
+        "sentence": "She likes to run fast.",
+        "correctWords": ["She", "likes", "to", "run", "fast"],
+        "extraWords": ["race", "track", "go", "win"]
+    },
+    {
+        "sentence": "He made a big jump.",
+        "correctWords": ["He", "made", "a", "big", "jump"],
+        "extraWords": ["hop", "fall", "run", "land"]
+    },
+    {
+        "sentence": "We will go to the park.",
+        "correctWords": ["We", "will", "go", "to", "the", "park"],
+        "extraWords": ["play", "slide", "walk", "fun"]
+    },
+    {
+        "sentence": "I see a red bird.",
+        "correctWords": ["I", "see", "a", "red", "bird"],
+        "extraWords": ["blue", "wing", "fly", "tree"]
+    },
+    {
+        "sentence": "The bell will ring soon.",
+        "correctWords": ["The", "bell", "will", "ring", "soon"],
+        "extraWords": ["sound", "school", "class", "time"]
+    },
+    {
+        "sentence": "She has a pet cat.",
+        "correctWords": ["She", "has", "a", "pet", "cat"],
+        "extraWords": ["dog", "home", "meow", "box"]
+    },
+    {
+        "sentence": "We can pack a bag.",
+        "correctWords": ["We", "can", "pack", "a", "bag"],
+        "extraWords": ["zip", "trip", "fill", "bag"]
+    },
+    {
+        "sentence": "The drum is loud.",
+        "correctWords": ["The", "drum", "is", "loud"],
+        "extraWords": ["bang", "beat", "stick", "play"]
+    },
+    {
+        "sentence": "She will win the race.",
+        "correctWords": ["She", "will", "win", "the", "race"],
+        "extraWords": ["run", "fast", "track", "go"]
+    },
+    {
+        "sentence": "He has a toy robot.",
+        "correctWords": ["He", "has", "a", "toy", "robot"],
+        "extraWords": ["play", "move", "red", "metal"]
+    },
+    {
+        "sentence": "We can bake a pie.",
+        "correctWords": ["We", "can", "bake", "a", "pie"],
+        "extraWords": ["cake", "pan", "fruit", "sweet"]
+    },
+    {
+        "sentence": "The van is big and red.",
+        "correctWords": ["The", "van", "is", "big", "and", "red"],
+        "extraWords": ["car", "drive", "seat", "fast"]
+    },
+    {
+        "sentence": "Mom will wash the dish.",
+        "correctWords": ["Mom", "will", "wash", "the", "dish"],
+        "extraWords": ["soap", "sink", "dry", "plate"]
+    },
+    {
+        "sentence": "We saw a fox in snow.",
+        "correctWords": ["We", "saw", "a", "fox", "in", "snow"],
+        "extraWords": ["cold", "white", "tail", "fast"]
+    },
+    {
+        "sentence": "He can draw a star.",
+        "correctWords": ["He", "can", "draw", "a", "star"],
+        "extraWords": ["pen", "sky", "night", "shine"]
+    },
+    {
+        "sentence": "The hen lays an egg.",
+        "correctWords": ["The", "hen", "lays", "an", "egg"],
+        "extraWords": ["nest", "farm", "bird", "roost"]
+    },
+    {
+        "sentence": "I got a toy truck.",
+        "correctWords": ["I", "got", "a", "toy", "truck"],
+        "extraWords": ["car", "wheel", "drive", "play"]
+    },
+    {
+        "sentence": "We eat lunch at noon.",
+        "correctWords": ["We", "eat", "lunch", "at", "noon"],
+        "extraWords": ["meal", "food", "fork", "tray"]
+    },
+    {
+        "sentence": "She went to the zoo.",
+        "correctWords": ["She", "went", "to", "the", "zoo"],
+        "extraWords": ["lion", "fun", "pet", "roar"]
+    },
+    {
+        "sentence": "The rug is soft and red.",
+        "correctWords": ["The", "rug", "is", "soft", "and", "red"],
+        "extraWords": ["mat", "floor", "warm", "big"]
+    },
+    {
+        "sentence": "He can spin the top.",
+        "correctWords": ["He", "can", "spin", "the", "top"],
+        "extraWords": ["toy", "round", "fast", "fun"]
+    },
+    {
+        "sentence": "We read books at home.",
+        "correctWords": ["We", "read", "books", "at", "home"],
+        "extraWords": ["pages", "chair", "quiet", "rest"]
+    },
+    {
+        "sentence": "The crab is on the sand.",
+        "correctWords": ["The", "crab", "is", "on", "the", "sand"],
+        "extraWords": ["pinch", "shell", "wet", "red"]
+    },
+    {
+        "sentence": "I can see the stars.",
+        "correctWords": ["I", "can", "see", "the", "stars"],
+        "extraWords": ["moon", "sky", "light", "night"]
+    },
+    {
+        "sentence": "He put the box on top.",
+        "correctWords": ["He", "put", "the", "box", "on", "top"],
+        "extraWords": ["lift", "big", "move", "flat"]
+    },
+    {
+        "sentence": "The sun is big and hot.",
+        "correctWords": ["The", "sun", "is", "big", "and", "hot"],
+        "extraWords": ["sky", "light", "warm", "day"]
+    },
+    {
+        "sentence": "We sat on the soft mat.",
+        "correctWords": ["We", "sat", "on", "the", "soft", "mat"],
+        "extraWords": ["rug", "floor", "seat", "room"]
+    },
+    {
+        "sentence": "She will get a new pen.",
+        "correctWords": ["She", "will", "get", "a", "new", "pen"],
+        "extraWords": ["write", "ink", "paper", "blue"]
+    },
+    {
+        "sentence": "He can toss the ball.",
+        "correctWords": ["He", "can", "toss", "the", "ball"],
+        "extraWords": ["catch", "play", "game", "toy"]
+    },
+    {
+        "sentence": "The red bug can jump.",
+        "correctWords": ["The", "red", "bug", "can", "jump"],
+        "extraWords": ["hop", "fly", "crawl", "move"]
+    },
+    {
+        "sentence": "We went on a bus ride.",
+        "correctWords": ["We", "went", "on", "a", "bus", "ride"],
+        "extraWords": ["stop", "car", "seat", "fast"]
+    },
+    {
+        "sentence": "Dad can lift the box.",
+        "correctWords": ["Dad", "can", "lift", "the", "box"],
+        "extraWords": ["heavy", "big", "move", "top"]
+    },
+    {
+        "sentence": "She sang a fun song.",
+        "correctWords": ["She", "sang", "a", "fun", "song"],
+        "extraWords": ["music", "note", "loud", "dance"]
+    },
+    {
+        "sentence": "We saw a brown bear.",
+        "correctWords": ["We", "saw", "a", "brown", "bear"],
+        "extraWords": ["fur", "wild", "roar", "cub"]
+    },
+    {
+        "sentence": "The lid is on the pot.",
+        "correctWords": ["The", "lid", "is", "on", "the", "pot"],
+        "extraWords": ["pan", "cook", "top", "boil"]
+    },
+    {
+        "sentence": "My hat fell on the rug.",
+        "correctWords": ["My", "hat", "fell", "on", "the", "rug"],
+        "extraWords": ["cap", "floor", "drop", "pick"]
+    },
+    {
+        "sentence": "We eat fish and rice.",
+        "correctWords": ["We", "eat", "fish", "and", "rice"],
+        "extraWords": ["meal", "plate", "fork", "yum"]
+    },
+    {
+        "sentence": "She has a pink bag.",
+        "correctWords": ["She", "has", "a", "pink", "bag"],
+        "extraWords": ["pack", "zip", "strap", "top"]
+    },
+    {
+        "sentence": "He can run very fast.",
+        "correctWords": ["He", "can", "run", "very", "fast"],
+        "extraWords": ["race", "go", "track", "win"]
+    },
+    {
+        "sentence": "The goat is in the pen.",
+        "correctWords": ["The", "goat", "is", "in", "the", "pen"],
+        "extraWords": ["farm", "grass", "fence", "bleat"]
+    },
+    {
+        "sentence": "We saw the tall tree.",
+        "correctWords": ["We", "saw", "the", "tall", "tree"],
+        "extraWords": ["leaf", "bark", "grow", "shade"]
+    },
+    {
+        "sentence": "She will wash the cup.",
+        "correctWords": ["She", "will", "wash", "the", "cup"],
+        "extraWords": ["sink", "soap", "dry", "plate"]
+    },
+    {
+        "sentence": "The fox hid in the log.",
+        "correctWords": ["The", "fox", "hid", "in", "the", "log"],
+        "extraWords": ["hole", "bush", "run", "tail"]
+    },
+    {
+        "sentence": "He gave her a big hug.",
+        "correctWords": ["He", "gave", "her", "a", "big", "hug"],
+        "extraWords": ["warm", "arms", "love", "kiss"]
+    },
+    {
+        "sentence": "I like to draw a fish.",
+        "correctWords": ["I", "like", "to", "draw", "a", "fish"],
+        "extraWords": ["pen", "paper", "swim", "tail"]
+    },
+    {
+        "sentence": "We will go to the farm.",
+        "correctWords": ["We", "will", "go", "to", "the", "farm"],
+        "extraWords": ["cow", "barn", "hay", "pig"]
+    },
+    {
+        "sentence": "The dog is on the bed.",
+        "correctWords": ["The", "dog", "is", "on", "the", "bed"],
+        "extraWords": ["nap", "rest", "sleep", "mat"]
+    },
+    {
+        "sentence": "She put on her boots.",
+        "correctWords": ["She", "put", "on", "her", "boots"],
+        "extraWords": ["shoes", "rain", "feet", "walk"]
+    },
+    {
+        "sentence": "He has a red toy car.",
+        "correctWords": ["He", "has", "a", "red", "toy", "car"],
+        "extraWords": ["drive", "wheel", "fast", "small"]
+    },
+    {
+        "sentence": "The hen is on the nest.",
+        "correctWords": ["The", "hen", "is", "on", "the", "nest"],
+        "extraWords": ["egg", "farm", "roost", "bird"]
+    },
+    {
+        "sentence": "We saw snow on the hill.",
+        "correctWords": ["We", "saw", "snow", "on", "the", "hill"],
+        "extraWords": ["cold", "sled", "ice", "run"]
+    },
+    {
+        "sentence": "He made a fast jump.",
+        "correctWords": ["He", "made", "a", "fast", "jump"],
+        "extraWords": ["hop", "land", "go", "high"]
+    },
+    {
+        "sentence": "The bell rang at noon.",
+        "correctWords": ["The", "bell", "rang", "at", "noon"],
+        "extraWords": ["sound", "time", "lunch", "school"]
+    },
+    {
+        "sentence": "She got a gift bag.",
+        "correctWords": ["She", "got", "a", "gift", "bag"],
+        "extraWords": ["wrap", "box", "bow", "new"]
+    },
+    {
+        "sentence": "We will help clean up.",
+        "correctWords": ["We", "will", "help", "clean", "up"],
+        "extraWords": ["mop", "dust", "soap", "wipe"]
+    },
+    {
+        "sentence": "The box is full now.",
+        "correctWords": ["The", "box", "is", "full", "now"],
+        "extraWords": ["big", "shut", "top", "close"]
+    },
+    {
+        "sentence": "He has a black belt.",
+        "correctWords": ["He", "has", "a", "black", "belt"],
+        "extraWords": ["pants", "shirt", "loop", "waist"]
+    },
+    {
+        "sentence": "She sat on the bench.",
+        "correctWords": ["She", "sat", "on", "the", "bench"],
+        "extraWords": ["chair", "seat", "wood", "rest"]
+    },
+    {
+        "sentence": "We saw a red truck.",
+        "correctWords": ["We", "saw", "a", "red", "truck"],
+        "extraWords": ["drive", "fast", "load", "big"]
+    },
+    {
+        "sentence": "The cat is on the rug.",
+        "correctWords": ["The", "cat", "is", "on", "the", "rug"],
+        "extraWords": ["floor", "rest", "soft", "mat"]
+    },
+    {
+        "sentence": "He likes to run fast.",
+        "correctWords": ["He", "likes", "to", "run", "fast"],
+        "extraWords": ["go", "win", "race", "track"]
+    },
+    {
+        "sentence": "We can sit and talk.",
+        "correctWords": ["We", "can", "sit", "and", "talk"],
+        "extraWords": ["chat", "rest", "fun", "laugh"]
+    },
+    {
+        "sentence": "She has a pet fish.",
+        "correctWords": ["She", "has", "a", "pet", "fish"],
+        "extraWords": ["bowl", "swim", "tail", "wet"]
+    },
+    {
+        "sentence": "The pig is in the mud.",
+        "correctWords": ["The", "pig", "is", "in", "the", "mud"],
+        "extraWords": ["farm", "oink", "wet", "pen"]
+    },
+    {
+        "sentence": "We made a big cake.",
+        "correctWords": ["We", "made", "a", "big", "cake"],
+        "extraWords": ["bake", "pan", "sweet", "yum"]
+    },
+    {
+        "sentence": "He can hop on one leg.",
+        "correctWords": ["He", "can", "hop", "on", "one", "leg"],
+        "extraWords": ["jump", "skip", "step", "foot"]
+    },
+    {
+        "sentence": "The bug is in the jar.",
+        "correctWords": ["The", "bug", "is", "in", "the", "jar"],
+        "extraWords": ["glass", "top", "lid", "trap"]
+    },
+    {
+        "sentence": "She put jam on toast.",
+        "correctWords": ["She", "put", "jam", "on", "toast"],
+        "extraWords": ["bread", "sweet", "knife", "eat"]
+    },
+    {
+        "sentence": "We can sing and clap.",
+        "correctWords": ["We", "can", "sing", "and", "clap"],
+        "extraWords": ["song", "fun", "play", "loud"]
+    },
+    {
+        "sentence": "The frog is in the pond.",
+        "correctWords": ["The", "frog", "is", "in", "the", "pond"],
+        "extraWords": ["jump", "green", "wet", "ribbit"]
+    },
+    {
+        "sentence": "He sat in the red chair.",
+        "correctWords": ["He", "sat", "in", "the", "red", "chair"],
+        "extraWords": ["seat", "room", "rest", "cushion"]
+    },
+    {
+        "sentence": "She will fix the toy.",
+        "correctWords": ["She", "will", "fix", "the", "toy"],
+        "extraWords": ["tool", "glue", "help", "part"]
+    }
+]

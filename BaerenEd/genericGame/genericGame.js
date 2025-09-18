@@ -273,25 +273,29 @@ function handleChoice(choice) {
             } else if (currentItem.selectedPart === "ending") {
                 correctChoice = currentItem.originalChoices[2];
             }
+        } else if (gameTitle === "French Game") {
+            // French Game uses 'correctWord'
+            correctChoice = currentItem.correctWord;
         } else {
             correctChoice = currentItem.word; // For other games, the correct choice is the word itself
         }
 
         // Compare the user's choice to the correct choice
         if (choice === correctChoice) {
+            console.log("Correct choice!");
             feedback.innerHTML = "⭐ Correct!";
             correctCount++;
+            currentIndex++; // Advance progress on correct answer
+            saveProgress();
             updateStarCount();
             if (correctCount < maxQuestions) {
                 // Move to the next question
-                currentIndex++;
-                saveProgress();
                 
                 // For Spelling Game, Sound Parts Game, and French Syllable Game, proceed immediately without delay
                 if (gameTitle === "Spelling Game" || gameTitle === "Sound Parts Game" || gameTitle === "French Syllable Game") {
                     nextRound();
                 } else {
-                    setTimeout(nextRound, 1000); // Proceed to the next round after 1 second
+                    setTimeout(nextRound, 1200); // Proceed to the next round after a short delay
                 }
             } else {
                 endGame();
@@ -302,8 +306,8 @@ function handleChoice(choice) {
             setTimeout(() => {
                 feedback.innerHTML = "";
                 // Move to the next question even for incorrect answers
-                currentIndex++;
-                saveProgress();
+                currentIndex++; // Advance progress on incorrect answer
+                saveProgress(); 
                 nextRound();
             }, 2000); // Proceed to the next round after 2 seconds
         }
@@ -368,12 +372,16 @@ function highlightCorrectAnswer() {
 
     // Determine the correct choice
     let correctChoice;
-    if (currentItem.selectedPart === "beginning") {
-        correctChoice = currentItem.originalChoices[0];
-    } else if (currentItem.selectedPart === "middle") {
-        correctChoice = currentItem.originalChoices[1];
-    } else if (currentItem.selectedPart === "ending") {
-        correctChoice = currentItem.originalChoices[2];
+    const urlParams = new URLSearchParams(window.location.search);
+    const gameTitle = urlParams.get("title");
+
+    if (gameTitle === "Sound Parts Game" && currentItem.selectedPart) {
+        const partIndex = ["beginning", "middle", "ending"].indexOf(currentItem.selectedPart);
+        if (partIndex !== -1) {
+            correctChoice = currentItem.originalChoices[partIndex];
+        }
+    } else if (gameTitle === "French Game") {
+        correctChoice = currentItem.correctWord;
     } else {
         correctChoice = currentItem.word; // For games without word parts, the correct choice is the word itself
     }
@@ -382,6 +390,12 @@ function highlightCorrectAnswer() {
 }
 
 async function nextRound() {
+    // Check if we've gone past the available questions
+    if (currentIndex >= gameData.length) {
+        endGame();
+        return; // Stop further execution
+    }
+
     // Get the current item based on the current index
     currentItem = gameData[currentIndex];
     
