@@ -430,48 +430,24 @@ function handleModalClose() {
     const modal = document.getElementById("iframeModal");
     if (modal) modal.style.display = "none";
     lastTaskButtonStartTime = null;
-    // Remove the dummy history state if we added one
-    if (modalHistoryPushed) {
-        try {
-            // Go back one step to remove the modal state
-            history.back();
-        } catch (e) {
-            console.warn('Failed to pop history state after modal close:', e);
-        } finally {
-            modalHistoryPushed = false;
-        }
-    }
 }
-
-// Close modal on browser/device back (popstate)
-window.addEventListener('popstate', function (event) {
-    const modal = document.getElementById('iframeModal');
-    if (modal && modal.style.display === 'block') {
-        // Prevent navigating away; just close the modal
-        modalHistoryPushed = false; // we're already on the popped state
-        setTimeout(handleModalClose, 0);
-    }
-});
 
 // Listen for game completion messages
 window.addEventListener("message", function (event) {
     if (event.data && event.data.type === "gameCompleted") {
         const modal = document.getElementById("iframeModal");
-        console.log("Game completed message received");
-        if (modal.style.display === "block") {
-            console.log("modal is open, unlocking next piece");
+        if (modal && modal.style.display === "block") {
+            console.log("Game completed message received, closing modal and unlocking piece.");
+            
+            // Directly unlock the next piece if applicable
             if (typeof unlockNextPiece === "function" && lastTaskButtonKid !== null && lastTaskButtonIdx !== null) {
                 unlockNextPiece(lastTaskButtonKid, lastTaskButtonIdx);
                 console.log(`Unlocking next piece for kid: ${lastTaskButtonKid}, key: ${lastTaskButtonIdx}`);
             }
-            setTimeout(handleModalClose, 2000);
-        }
-    }
-    if (event.data && event.data.type === "closeModal") {
-        const modal = document.getElementById("iframeModal");
-        if (modal.style.display === "block") {
-            console.log("Closing Modal Fast");
-            setTimeout(handleModalClose, 0);
+            // Directly close the modal after a short delay
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 1500); 
         }
     }
 });

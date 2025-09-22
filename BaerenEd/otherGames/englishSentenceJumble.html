@@ -133,7 +133,7 @@
             try {
                 const response = await fetch('english-sentences.json');
                 gameData = await response.json();
-                maxQuestions = gameData.length;
+                // maxQuestions is already set to 3, so we don't overwrite it.
                 startGame();
             } catch (error) {
                 console.error("Error loading sentence data:", error);
@@ -150,10 +150,7 @@
         }
 
         function loadSentence() {
-            if (currentSentenceIndex >= gameData.length) {
-                currentSentenceIndex = 0; // Loop back
-            }
-            if (correctCount >= maxQuestions) {
+            if (correctCount >= maxQuestions || currentSentenceIndex >= gameData.length) {
                 endGame();
                 return;
             }
@@ -273,13 +270,9 @@
         }
 
         function endGame() {
-            document.querySelector('.game-container').innerHTML = `
-                <h1>Game Complete!</h1>
-                <h2>Final Score: ${correctCount} / ${maxQuestions} ⭐</h2>
-            `;
-            if (window.parent) {
-                window.parent.postMessage({ type: 'gameCompleted' }, '*');
-            }
+            
+            // Notify parent window that the game is completed
+            window.parent.postMessage({ type: "gameCompleted" }, "*");
         }
     </script>
 </body>

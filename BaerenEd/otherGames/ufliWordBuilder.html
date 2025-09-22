@@ -175,13 +175,13 @@
         }
 
         function loadWord() {
-            if (currentWordIndex >= wordData.length) {
-                currentWordIndex = 0; // Loop back to the beginning
-            }
-            
             if (correctCount >= maxQuestions) {
                 endGame();
                 return;
+            }
+
+            if (currentWordIndex >= wordData.length) {
+                currentWordIndex = 0; // Loop back to the beginning
             }
 
             currentWord = wordData[currentWordIndex];
@@ -285,10 +285,13 @@
                 messageContainer.className = 'correct';
                 correctCount++;
                 updateStarCount();
-
-                // Start the TTS, but don't wait for it
-                readText(`You spelled ${currentWord.word}!`, 'en-US');
-                setTimeout(nextWord, 2000); // Move to the next word after 2 seconds
+                
+                if (correctCount >= maxQuestions) {
+                    endGame();
+                } else {
+                    readText(`Awesome!`, 'en-US');
+                    setTimeout(nextWord, 2000); // Move to the next word after 2 seconds
+                }
             } else {
                 messageContainer.textContent = 'Not quite, try again!';
                 messageContainer.className = 'incorrect';
@@ -296,7 +299,7 @@
                 userInput = [];
                 updateWordSlots();
                 document.querySelectorAll('.grapheme-btn.used').forEach(btn => btn.classList.remove('used'));
-                readText(`Let's try that again. Make the word: ${currentWord.word}`, 'en-US', () => {
+                readText(`Oops. Make the word: ${currentWord.word}`, 'en-US', () => {
                     setTimeout(() => { messageContainer.textContent = ''; }, 500); // Clear message shortly after TTS finishes
                 });
             }
@@ -314,13 +317,15 @@
         }
 
         function endGame() {
-            document.getElementById('game-container').innerHTML = `
-                <h1>Game Complete!</h1>
-                <h2>Final Score: ${correctCount} / ${maxQuestions} ⭐</h2>
-            `;
-            if (window.parent) {
-                window.parent.postMessage({ type: 'gameCompleted' }, '*');
-            }
+            console.log("Game completed. Notifying parent window.");
+           
+
+            // Reset progress for next time
+            currentWordIndex = 0;
+            localStorage.setItem(STORAGE_KEY, "0");
+
+            // Notify parent window that the game is completed
+            window.parent.postMessage({ type: "gameCompleted" }, "*");
         }
 
     </script>

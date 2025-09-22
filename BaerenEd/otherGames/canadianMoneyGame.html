@@ -342,11 +342,6 @@
             if (window.parent && window.parent !== window) {
                 window.parent.postMessage({ type: 'gameCompleted' }, '*');
             }
-            
-            // Auto-close modal after 3 seconds
-            setTimeout(() => {
-                closeGame();
-            }, 3000);
         }
 
         function updateScore() {
@@ -354,14 +349,6 @@
         }
 
 
-
-        function closeGame() {
-            if (window.parent && window.parent !== window) {
-                window.parent.postMessage({ type: 'closeModal' }, '*');
-            } else {
-                history.back();
-            }
-        }
 
         // Fallback function for generated questions
         function generateQuestions() {

@@ -221,8 +221,13 @@ async function playSound() {
     } else if (gameTitle === "French Syllable Game") {
         const word = currentItem.word;
 
-        // Use French TTS to speak the word
-        readText(word, 'fr-FR');
+        // Use speakWithHighlight to get the slower French rate. To avoid showing the word,
+        // we create a temporary, invisible element for the highlighting to occur on.
+        const invisibleContainer = document.createElement('div');
+        invisibleContainer.style.position = 'absolute';
+        invisibleContainer.style.opacity = '0';
+        document.body.appendChild(invisibleContainer);
+        speakWithHighlight(word, 'fr-FR', invisibleContainer, () => document.body.removeChild(invisibleContainer));
 
     } else if (gameTitle === "Spelling Game") {
         const word = currentItem.word;
@@ -404,6 +409,8 @@ async function nextRound() {
 
     // Ensure the word is included in the choices array for Sight Word Game and French Syllable Game
     if ((gameTitle === "Sight Word Game" || gameTitle === "French Syllable Game") && !currentItem.choices.includes(currentItem.word)) {
+    // Ensure the word is included in the choices array for Sight Word Game
+    if (gameTitle === "Sight Word Game" && !currentItem.choices.includes(currentItem.word)) {
         currentItem.choices.push(currentItem.word);
     }
 
