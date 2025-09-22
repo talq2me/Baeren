@@ -409,8 +409,6 @@ async function nextRound() {
 
     // Ensure the word is included in the choices array for Sight Word Game and French Syllable Game
     if ((gameTitle === "Sight Word Game" || gameTitle === "French Syllable Game") && !currentItem.choices.includes(currentItem.word)) {
-    // Ensure the word is included in the choices array for Sight Word Game
-    if (gameTitle === "Sight Word Game" && !currentItem.choices.includes(currentItem.word)) {
         currentItem.choices.push(currentItem.word);
     }
 
