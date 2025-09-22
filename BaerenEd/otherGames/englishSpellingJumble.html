@@ -401,29 +401,22 @@
             
             if (typeof AndroidTTS !== 'undefined') {
                 try {
-                    readText(instructionWord, 'en', () => {
+                    enqueueTTS(instructionWord, 'en', () => {
                         if (sentenceToRead) {
-                            setTimeout(() => readText(sentenceToRead, 'en'), 500); // Short pause
+                            setTimeout(() => enqueueTTS(sentenceToRead, 'en'), 500); // Short pause
                         }
                     });
                 } catch (error) {
                     console.error("Error in TTS sequence:", error);
                 }
             } else if ('speechSynthesis' in window) {
-                const utteranceWord = new SpeechSynthesisUtterance(instructionWord);
-                utteranceWord.lang = 'en-US';
-                utteranceWord.rate = 0.7; // Keep consistent rate
-                utteranceWord.onend = () => {
+                enqueueTTS(instructionWord, 'en-US', () => {
                     if (sentenceToRead) {
                         setTimeout(() => {
-                            const utteranceSentence = new SpeechSynthesisUtterance(sentenceToRead);
-                            utteranceSentence.lang = 'en-US';
-                            utteranceSentence.rate = 0.7; // Keep consistent rate
-                            speechSynthesis.speak(utteranceSentence);
+                            enqueueTTS(sentenceToRead, 'en-US');
                         }, 500); // Short pause
                     }
-                };
-                speechSynthesis.speak(utteranceWord);
+                });
             }
         }
 
@@ -617,16 +610,7 @@
         function playPracticeInstruction() {
             const instruction = "Please spell that word correctly 3 times";
             
-            if (window.speakText) {
-                // Use the Android TTS if available
-                window.speakText(instruction, 'en');
-            } else if ('speechSynthesis' in window) {
-                // Fallback to browser TTS
-                const utterance = new SpeechSynthesisUtterance(instruction);
-                utterance.lang = 'en-US';
-                utterance.rate = 0.7; // Keep consistent rate
-                speechSynthesis.speak(utterance);
-            }
+            enqueueTTS(instruction, 'en-US'); // Use enqueueTTS for practice instruction
         }
 
         function createPracticeLetterBank() {

@@ -101,7 +101,7 @@ function insertCommonHeader() {
     const headerDiv = document.createElement('div');
     headerDiv.className = 'common-header';
     // Determine back page based on kid
-    let backPage = '/Baeren/index.html';
+    let backPage = '/Baeren/BaerenEd/index.html';
     const kid = getKid();
     if (kid === 'am') backPage = '/Baeren/BaerenEd/homework/AM.html';
     else if (kid === 'bm') backPage = '/Baeren/BaerenEd/homework/BM.html';
@@ -109,7 +109,7 @@ function insertCommonHeader() {
     // Only show Home button if NOT in Android WebView
     let homeButton = '';
     if (!isAndroidWebView()) {
-        homeButton = `<button class="button" onclick="location.href='/Baeren/index.html'">⌂ Home</button>`;
+        homeButton = `<button class="button" onclick="location.href='/Baeren/BaerenEd/index.html'">⌂ Home</button>`;
     }
 
     // Always show Refresh button
@@ -378,32 +378,7 @@ function processTTSQueue() {
 
 
 // Update readText to store callback like before
-function readText(text, lang = "en-US", onEnd = null) {
-  if (typeof fully !== "undefined" && typeof fully.textToSpeech === "function") {
-    if (lang === "en-US") lang = "en";
-    if (lang === "fr-FR") lang = "fr";
-    fully.textToSpeech(text, lang);
-    if (typeof onEnd === "function") {
-      const duration = Math.min(Math.max(text.length * 60, 1000), 6000);
-      setTimeout(onEnd, duration);
-    }
-  } else if (typeof AndroidTTS !== 'undefined') {
-    if (lang === "en-US") lang = "en";
-    if (lang === "fr-FR") lang = "fr";
-    
-    AndroidTTS.speak(text, lang);
-  } else {
-    window.speechSynthesis.cancel();
-    let utter = new SpeechSynthesisUtterance(text);
-    utter.lang = lang;
-    utter.rate = 0.8;
-    utter.pitch = 1;
-    utter.volume = 1;
-    if (typeof onEnd === "function") utter.onend = onEnd;
-    window.speechSynthesis.speak(utter);
-  }
-}
-
+// Removing the old readText function as enqueueTTS will handle both AndroidTTS and Web Speech API.
 
 // Function to launch the game in the modal
 let modalHistoryPushed = false;

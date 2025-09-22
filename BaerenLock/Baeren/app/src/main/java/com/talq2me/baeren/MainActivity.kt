@@ -22,6 +22,7 @@ import android.widget.EditText
 import android.widget.Button
 import androidx.core.view.ViewCompat.setLayerType
 import android.view.View
+import android.speech.tts.TextToSpeech.Engine // Import Engine for speech rate constants
 
 class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
@@ -39,6 +40,9 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         webView = WebView(this)
         setContentView(webView)
         initWebView()
+        // Redundant with initWebView's clearCache and cacheMode = LOAD_NO_CACHE
+        // webView.clearCache(true);
+        // webView.clearFormData();
 
         // ✅ Now safe to call loadWebForChild()
         val prefs = getSharedPreferences("child_profile", MODE_PRIVATE)
@@ -96,8 +100,9 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             userAgentString = "Mozilla/5.0 (Linux; Android 10; Pixel 3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36"
         }
         webView.setLayerType(View.LAYER_TYPE_HARDWARE, null)
-        webView.clearCache(true)
-        webView.clearHistory()
+        webView.clearCache(true) // Clear cache on init
+        // Redundant with cacheMode = LOAD_NO_CACHE and clearCache(true) above
+        // webView.clearHistory()
         webView.webChromeClient = WebChromeClient()
         webView.settings.allowContentAccess = false
 
@@ -212,7 +217,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     inner class TTSBridge {
         @JavascriptInterface
-        fun speak(text: String, lang: String) {
+        fun speak(text: String, lang: String, rate: Float = 1.0f) {
             val locale = when (lang.lowercase()) {
                 "fr" -> Locale.FRENCH
                 "en" -> Locale.US
@@ -223,6 +228,9 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 webView.evaluateJavascript("if (typeof onTTSFinish === 'function') { onTTSFinish(); }", null)
                 return
             }
+
+            // Apply the speech rate
+            tts.setSpeechRate(rate);
 
             val params = Bundle()
             params.putFloat(TextToSpeech.Engine.KEY_PARAM_VOLUME, 1.0f)

@@ -434,29 +434,22 @@
 
             if (typeof AndroidTTS !== 'undefined') {
                 try {
-                    readText(instructionWord, 'fr', () => {
+                    enqueueTTS(instructionWord, 'fr', 0.6, () => {
                         if (sentenceToRead) {
-                            setTimeout(() => readText(sentenceToRead, 'fr'), 500); // Short pause
+                            setTimeout(() => enqueueTTS(sentenceToRead, 'fr', 0.6), 500); // Short pause
                         }
                     });
                 } catch (error) {
                     console.error("Error in TTS sequence:", error);
                 }
             } else if ('speechSynthesis' in window) {
-                const utteranceWord = new SpeechSynthesisUtterance(instructionWord);
-                utteranceWord.lang = 'fr-FR';
-                utteranceWord.rate = 0.6;
-                utteranceWord.onend = () => {
+                enqueueTTS(instructionWord, 'fr-FR', 0.6, () => {
                     if (sentenceToRead) {
                         setTimeout(() => {
-                            const utteranceSentence = new SpeechSynthesisUtterance(sentenceToRead);
-                            utteranceSentence.lang = 'fr-FR';
-                            utteranceSentence.rate = 0.6;
-                            speechSynthesis.speak(utteranceSentence);
+                            enqueueTTS(sentenceToRead, 'fr-FR', 0.6);
                         }, 500); // Short pause
                     }
-                };
-                speechSynthesis.speak(utteranceWord);
+                });
             }
         }
 
@@ -648,18 +641,9 @@
         }
 
         function playPracticeInstruction() {
-            const instruction = "Please spell that word correctly 3 times";
+            const instruction = "Veuillez épeler ce mot correctement 3 fois";
             
-            if (window.speakText) {
-                // Use the Android TTS if available
-                window.speakText(instruction, 'en');
-            } else if ('speechSynthesis' in window) {
-                // Fallback to browser TTS
-                const utterance = new SpeechSynthesisUtterance(instruction);
-                utterance.lang = 'en-US';
-                utterance.rate = 0.6; // Keep consistent rate
-                speechSynthesis.speak(utterance);
-            }
+            enqueueTTS(instruction, 'fr-FR', 0.6); // Use enqueueTTS for practice instruction
         }
 
         function createPracticeLetterBank() {
