@@ -254,7 +254,8 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 }
                 // Fallback: Schedule a delayed execution of onTTSFinish() in JS
                 // This ensures the JS queue is unblocked even if UtteranceProgressListener onDone/onError fails
-                val estimatedDurationMs = (text.length * (1000 / (rate * 15))).toLong() + 500; // ~15 chars/sec, plus buffer
+                // Adjust factor (e.g., 15 chars/sec) as needed for accuracy. Add a buffer (e.g., 500ms).
+                val estimatedDurationMs = (text.length * (1000 / (rate * 15.0f))).toLong() + 500;
                 Log.d("MainActivity", "TTS Fallback: Scheduling onTTSFinish() in ${estimatedDurationMs}ms");
                 Handler(Looper.getMainLooper()).postDelayed({
                     runOnUiThread { webView.evaluateJavascript("if (typeof onTTSFinish === 'function') { onTTSFinish(); }", null) }
