@@ -430,27 +430,8 @@
         function playInstruction() {
             const wordToSpell = currentWord.word; // Get the word from the object
             const sentenceToRead = currentWord.sentence;
-            const instructionWord = `Épelez le mot: ${wordToSpell}`;
-
-            if (typeof AndroidTTS !== 'undefined') {
-                try {
-                    enqueueTTS(instructionWord, 'fr', 0.6, () => {
-                        if (sentenceToRead) {
-                            setTimeout(() => enqueueTTS(sentenceToRead, 'fr', 0.6), 500); // Short pause
-                        }
-                    });
-                } catch (error) {
-                    console.error("Error in TTS sequence:", error);
-                }
-            } else if ('speechSynthesis' in window) {
-                enqueueTTS(instructionWord, 'fr-FR', 0.6, () => {
-                    if (sentenceToRead) {
-                        setTimeout(() => {
-                            enqueueTTS(sentenceToRead, 'fr-FR', 0.6);
-                        }, 500); // Short pause
-                    }
-                });
-            }
+            const fullText = sentenceToRead ? `Épelez le mot: ${wordToSpell}: ${sentenceToRead}` : `Épelez le mot: ${wordToSpell}`;
+            readText(fullText, 'fr', 0.6);
         }
 
         function createLetterBank() {
@@ -642,8 +623,7 @@
 
         function playPracticeInstruction() {
             const instruction = "Veuillez épeler ce mot correctement 3 fois";
-            
-            enqueueTTS(instruction, 'fr-FR', 0.6); // Use enqueueTTS for practice instruction
+            readText(instruction, 'fr', 0.6); // Use readText for practice instruction
         }
 
         function createPracticeLetterBank() {

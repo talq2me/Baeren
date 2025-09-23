@@ -16,8 +16,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import java.util.Calendar
-import android.provider.Settings // Import Settings
-import android.webkit.JavascriptInterface
 
 class LauncherActivity : AppCompatActivity() {
 
@@ -283,9 +281,4 @@ class LauncherActivity : AppCompatActivity() {
         val isEnabled = isAccessibilityServiceEnabled()
         accessibilityBanner?.visibility = if (isEnabled) View.GONE else View.VISIBLE
     }
-}
-
-interface JavascriptTTS {
-    @JavascriptInterface
-    fun speak(text: String, lang: String, rate: Float)
 }

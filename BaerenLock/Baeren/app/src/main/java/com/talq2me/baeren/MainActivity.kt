@@ -22,7 +22,6 @@ import android.widget.EditText
 import android.widget.Button
 import androidx.core.view.ViewCompat.setLayerType
 import android.view.View
-import android.speech.tts.TextToSpeech.Engine // Import Engine for speech rate constants
 
 class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
@@ -181,13 +180,11 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 override fun onStart(utteranceId: String?) {}
                 override fun onDone(utteranceId: String?) {
                     runOnUiThread {
-                        Log.d("MainActivity", "TTS onDone: Calling onTTSFinish() in JS");
                         webView.evaluateJavascript("if (typeof onTTSFinish === 'function') { onTTSFinish(); }", null)
                     }
                 }
                 override fun onError(utteranceId: String?) {
                     runOnUiThread {
-                        Log.e("MainActivity", "TTS onError: Calling onTTSFinish() in JS");
                         webView.evaluateJavascript("if (typeof onTTSFinish === 'function') { onTTSFinish(); }", null)
                     }
                 }
@@ -237,30 +234,8 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             val params = Bundle()
             params.putFloat(TextToSpeech.Engine.KEY_PARAM_VOLUME, 1.0f)
             val utteranceId = "utt_${System.currentTimeMillis()}"
-
-            // Log before calling speak to confirm it's reached this point
-            Log.d("MainActivity", "TTSBridge.speak: Calling tts.speak() for text: \"$text\" (lang: $lang, rate: $rate)");
-
-            // Stop any ongoing speech before queuing a new one to prevent conflicts
-            tts.stop();
-            
-            // Use a Handler to post the speak call and also a fallback for onTTSFinish
-            Handler(Looper.getMainLooper()).postDelayed({ 
-                val result = tts.speak(text, TextToSpeech.QUEUE_ADD, params, utteranceId)
-                if (result == TextToSpeech.ERROR) {
-                    Log.e("MainActivity", "TTS speak() returned ERROR for text: \"$text\"");
-                    // Immediately trigger JS onTTSFinish if speak() returned an error
-                    runOnUiThread { webView.evaluateJavascript("if (typeof onTTSFinish === 'function') { onTTSFinish(); }", null) }
-                }
-                // Fallback: Schedule a delayed execution of onTTSFinish() in JS
-                // This ensures the JS queue is unblocked even if UtteranceProgressListener onDone/onError fails
-                // Adjust factor (e.g., 15 chars/sec) as needed for accuracy. Add a buffer (e.g., 500ms).
-                val estimatedDurationMs = (text.length * (1000 / (rate * 15.0f))).toLong() + 500;
-                Log.d("MainActivity", "TTS Fallback: Scheduling onTTSFinish() in ${estimatedDurationMs}ms");
-                Handler(Looper.getMainLooper()).postDelayed({
-                    runOnUiThread { webView.evaluateJavascript("if (typeof onTTSFinish === 'function') { onTTSFinish(); }", null) }
-                }, estimatedDurationMs);
-            }, 50);
+            tts.stop()
+            tts.speak(text, TextToSpeech.QUEUE_FLUSH, params, utteranceId)
         }
     }
 

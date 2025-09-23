@@ -62,66 +62,12 @@ function estimateSpeechDuration(text, lang) {
 
 // Helper: Speak text with word highlighting (with slower French rate)
 function speakWithHighlight(text, lang, container, onend) {
-    // AndroidTTS integration
-    if (typeof AndroidTTS !== 'undefined' && typeof AndroidTTS.speak === 'function') {
-        container.classList.add('tts-highlight');
-        // Convert language code for AndroidTTS (same as readText function)
-        let androidLang = lang;
-        if (lang === "en-US") androidLang = "en";
-        if (lang === "fr-FR") androidLang = "fr";
-        AndroidTTS.speak(text, androidLang);
-        // Use callback if available, fallback to timer if not called in time
-        let finished = false;
-        ttsFinishCallback = () => {
-            if (!finished) {
-                finished = true;
-                container.classList.remove('tts-highlight');
-                if (onend) onend();
-            }
-        };
-        // Fallback: remove highlight after estimated duration if callback not called
-        setTimeout(() => {
-            if (!finished) {
-                finished = true;
-                container.classList.remove('tts-highlight');
-                if (onend) onend();
-                ttsFinishCallback = null;
-            }
-        }, estimateSpeechDuration(text, lang) + 500);
-        return;
-    }
-    // Web Speech API fallback
-    if (!window.speechSynthesis) return;
-    if (ttsUtterance) window.speechSynthesis.cancel();
-    container.innerHTML = splitTextToSpans(text);
-    ttsUtterance = new SpeechSynthesisUtterance(text);
-    ttsUtterance.lang = lang;
-    ttsUtterance.rate = (lang && lang.toLowerCase().startsWith('fr')) ? 0.6 : 0.75;
-    let boundaryFired = false;
-    ttsUtterance.onboundary = function(event) {
-        boundaryFired = true;
-        ttsWordBoundarySupported = true;
-        highlightWord(container, event.charIndex);
-    };
-    ttsUtterance.onstart = function() {
-        if (ttsWordBoundarySupported === false) {
-            container.classList.add('tts-highlight');
-        } else {
-            highlightWord(container, 0);
-        }
-    };
-    ttsUtterance.onend = function() {
-        Array.from(container.querySelectorAll('span[data-word-idx]')).forEach(span => {
-            span.classList.remove('tts-highlight');
-        });
+    const rate = (lang && lang.toLowerCase().startsWith('fr')) ? 0.6 : 0.75;
+    readText(text, lang, rate, () => {
         container.classList.remove('tts-highlight');
         if (onend) onend();
-        if (ttsWordBoundarySupported === null) {
-            ttsWordBoundarySupported = boundaryFired;
-            if (!boundaryFired) ttsWordBoundarySupported = false;
-        }
-    };
-    window.speechSynthesis.speak(ttsUtterance);
+    });
+    container.classList.add('tts-highlight');
 }
 
 // Load game data and initialize the game
@@ -191,7 +137,7 @@ async function playSound() {
          // Use TTS to say "Spell the word <word>"
         if (typeof AndroidTTS !== 'undefined') {
                         try {
-                            readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en');
+                            readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en', 0.6);
                             await wait(3000); // Adjust based on word duration
                             playWordSlowly(currentItem.pronunciation)
                         } catch (error) {
@@ -200,7 +146,7 @@ async function playSound() {
         } else { 
             //regular browser 
             // Use TTS to repeat the instruction
-            readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en-US', () => {
+            readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en', 0.6, () => {
                 setTimeout(() => playWordSlowly(currentItem.pronunciation), 250);
             });
         }
@@ -208,14 +154,14 @@ async function playSound() {
         const word = currentItem.word;
 
         // Use TTS to repeat the instruction
-        readText(`Find the word ${word}.`); // Use TTS to read the instruction
+        readText(`Find the word ${word}.`, 'en', 0.6); // Use TTS to read the instruction
 
     } else if (gameTitle === "French Word Game") {
         const word = currentItem.word;
 
         
         
-                readText(` ${word}.`, 'fr-FR');
+                readText(` ${word}.`, 'fr', 0.6);
            
 
     } else if (gameTitle === "French Syllable Game") {
@@ -227,7 +173,7 @@ async function playSound() {
         invisibleContainer.style.position = 'absolute';
         invisibleContainer.style.opacity = '0';
         document.body.appendChild(invisibleContainer);
-        speakWithHighlight(word, 'fr-FR', invisibleContainer, () => document.body.removeChild(invisibleContainer));
+        speakWithHighlight(word, 'fr', invisibleContainer, () => document.body.removeChild(invisibleContainer));
 
     } else if (gameTitle === "Spelling Game") {
         const word = currentItem.word;
@@ -235,7 +181,7 @@ async function playSound() {
         // Use TTS to say "Spell the word <word>"
         if (typeof AndroidTTS !== 'undefined') {
                         try {
-                            readText(`Spell the word ${word}.`, 'en');
+                            readText(`Spell the word ${word}.`, 'en', 0.6);
                             await wait(3000); // Adjust based on word duration
                             playWordSlowly(currentItem.pronunciation)
                         } catch (error) {
@@ -243,7 +189,7 @@ async function playSound() {
                         }
         } else { 
         //regular browser               
-        readText(`Spell the word ${word}.`, 'en-US', () => {
+        readText(`Spell the word ${word}.`, 'en', 0.6, () => {
             setTimeout(() => playWordSlowly(currentItem.pronunciation), 500);
         });
     }
@@ -252,7 +198,7 @@ async function playSound() {
         new Audio(currentItem.audio).play();
     } else if (useTTS && currentItem.word) {
         // Use TTS to speak the word
-        readText(currentItem.word);
+        readText(currentItem.word, 'en', 0.6); // Default to English and rate 0.6
     } else {
         console.error("No audio or TTS data available for the current item.");
     }
@@ -436,7 +382,7 @@ async function nextRound() {
          // Use TTS to say "Spell the word <word>"
         if (typeof AndroidTTS !== 'undefined') {
                         try {
-                            readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en');
+                            readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en', 0.6);
                             await wait(3000); // Adjust based on word duration
                             playWordSlowly(currentItem.pronunciation)
                         } catch (error) {
@@ -445,7 +391,7 @@ async function nextRound() {
         } else { 
             //regular browser 
             // Use TTS to say the instruction
-            readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en-US', () => {
+            readText(`Find the ${selectedPart} sound in the word ${word}.`, 'en', 0.6, () => {
                 setTimeout(() => playWordSlowly(currentItem.pronunciation), 250);
             });
         }
@@ -457,7 +403,7 @@ async function nextRound() {
         // Display the instruction
         //messageContainer.innerText = `Find the word "${word}".`;
 
-        readText(`Find the word ${word}.`); // Use TTS to read the instruction
+        readText(`Find the word ${word}.`, 'en', 0.6); // Use TTS to read the instruction
     } else if (gameTitle === "French Word Game") {
         // Special logic for French Word Game
         const messageContainer = document.getElementById("messageContainer");
@@ -466,9 +412,9 @@ async function nextRound() {
         // Display the instruction
         //messageContainer.innerText = `Find the word "${word}".`;
 
-        readText(`Find the word`, 'en-US', () => {
+        readText(`Find the word`, 'en', 0.6, () => {
             setTimeout(() => {
-                readText(` ${word}.`, 'fr-FR');
+                readText(` ${word}.`, 'fr', 0.6);
             }, 200); // 200ms pause
         });
     } else if (gameTitle === "Spelling Game") {
@@ -481,7 +427,7 @@ async function nextRound() {
 
         if (typeof AndroidTTS !== 'undefined') {
                         try {
-                            readText(`Spell the word ${word}.`, 'en');
+                            readText(`Spell the word ${word}.`, 'en', 0.6);
                             await wait(3000); // Adjust based on word duration
                             playWordSlowly(currentItem.pronunciation)
                         } catch (error) {
@@ -490,7 +436,7 @@ async function nextRound() {
         } else { 
             //regular browser  
             // Use TTS to say "Spell the word <word>"
-            readText(`Spell the word ${word}.`, 'en-US', () => {
+            readText(`Spell the word ${word}.`, 'en', 0.6, () => {
                 setTimeout(() => playWordSlowly(currentItem.pronunciation), 500);
             });
         }
@@ -708,8 +654,8 @@ function showStoryQuestion() {
     const playBtn = document.getElementById("playButton");
     if (useTTS && playBtn) {
         playBtn.onclick = function() {
-            speakStorySentences(storySentences, storyDiv, 'fr-FR', () => {
-                setTimeout(() => speakWithHighlight(questionObj.question, 'fr-FR', questionDiv), 400);
+            speakStorySentences(storySentences, storyDiv, 'fr', () => {
+                setTimeout(() => speakWithHighlight(questionObj.question, 'fr', questionDiv), 400);
             });
         };
     }
@@ -717,8 +663,8 @@ function showStoryQuestion() {
     document.getElementById("messageContainer").innerHTML = '';
     // TTS logic
     if (useTTS) {
-        speakStorySentences(storySentences, storyDiv, 'fr-FR', () => {
-            setTimeout(() => speakWithHighlight(questionObj.question, 'fr-FR', questionDiv), 400);
+        speakStorySentences(storySentences, storyDiv, 'fr', () => {
+            setTimeout(() => speakWithHighlight(questionObj.question, 'fr', questionDiv), 400);
         });
     }
     // Update stars
@@ -739,7 +685,7 @@ function selectStoryChoice(idx) {
     // Play TTS for the selected answer if TTS is enabled
     if (useTTS) {
         const btn = document.getElementById("choices").children[idx];
-        speakWithHighlight(btn.innerText, 'fr-FR', btn);
+        speakWithHighlight(btn.innerText, 'fr', btn);
     }
 }
 

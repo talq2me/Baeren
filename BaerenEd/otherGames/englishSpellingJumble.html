@@ -397,27 +397,8 @@
         function playInstruction() {
             const wordToSpell = currentWord.word; // Get the word from the object
             const sentenceToRead = currentWord.sentence;
-            const instructionWord = `Spell the word: ${wordToSpell}`;
-            
-            if (typeof AndroidTTS !== 'undefined') {
-                try {
-                    enqueueTTS(instructionWord, 'en', 0.6, () => {
-                        if (sentenceToRead) {
-                            setTimeout(() => enqueueTTS(sentenceToRead, 'en', 0.6), 500); // Short pause
-                        }
-                    });
-                } catch (error) {
-                    console.error("Error in TTS sequence:", error);
-                }
-            } else if ('speechSynthesis' in window) {
-                enqueueTTS(instructionWord, 'en-US', 0.7, () => { // Use 0.7 for English Web Speech
-                    if (sentenceToRead) {
-                        setTimeout(() => {
-                            enqueueTTS(sentenceToRead, 'en-US', 0.7);
-                        }, 500); // Short pause
-                    }
-                });
-            }
+            const fullText = sentenceToRead ? `Spell the word: ${wordToSpell}: ${sentenceToRead}` : `Spell the word: ${wordToSpell}`;
+            readText(fullText, 'en', 0.6);
         }
 
         function createLetterBank() {
@@ -609,8 +590,7 @@
 
         function playPracticeInstruction() {
             const instruction = "Please spell that word correctly 3 times";
-            
-            enqueueTTS(instruction, 'en-US'); // Use enqueueTTS for practice instruction
+            readText(instruction, 'en', 0.6); // Use readText for practice instruction
         }
 
         function createPracticeLetterBank() {

@@ -171,13 +171,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Attach the modal close handler
-    const closeModalButton = document.querySelector("#iframeModal button[onclick='closeModal()']");
-    if (closeModalButton) {
-        closeModalButton.removeEventListener("click", handleModalClose);
-        closeModalButton.addEventListener("click", handleModalClose);
-    }
-
     // Override button logic
     const overrideBtn = document.getElementById('overrideBtn');
     const kid = document.getElementById("codeDisplay")?.getAttribute("data-kid") || "am";
@@ -201,16 +194,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-/*     // Checkbox state logic
-    const checkboxes = document.querySelectorAll("input[type='checkbox']");
-    checkboxes.forEach(checkbox => {
-        const isChecked = localStorage.getItem(checkbox.id) === "true";
-        checkbox.checked = isChecked;
-        checkbox.addEventListener("change", () => {
-            localStorage.setItem(checkbox.id, checkbox.checked);
-        });
-    }); */
-
     // Non-task required buttons that reveal code
     const revealButtons = Array.from(document.querySelectorAll('.button.required[data-reveal-code="true"]'));
     revealButtons.forEach((button) => {
@@ -218,63 +201,14 @@ document.addEventListener("DOMContentLoaded", function () {
             const kidId = button.getAttribute("data-kid") || (document.getElementById("codeDisplay")?.getAttribute("data-kid") || "am");
             const key = button.getAttribute("data-key");
 
-            // Detect external learning apps (Read Along, DuoLingo) by onclick content
-            const onclickAttr = button.getAttribute('onclick') || '';
-            const launchesReadAlong = onclickAttr.includes('readalong.google.com') || onclickAttr.includes('com.google.android.apps.seekh');
-            const launchesDuo = onclickAttr.includes('duolingo.com') || onclickAttr.includes('duolingo');
-
-            if (launchesReadAlong || launchesDuo) {
-                // Defer unlock until user returns and time threshold met
-                button.addEventListener('click', function () {
-                    if (!key) return;
-                    const today = new Date().toISOString().slice(0, 10);
-                    const startKey = `external_start_${kidId}_${key}_${today}`;
-                    const pendingKey = `external_pending_${kidId}_${key}_${today}`;
-                    localStorage.setItem(startKey, Date.now().toString());
-                    localStorage.setItem(pendingKey, '1');
-                }, { capture: true });
-            } else {
-                // Immediate unlock for other non-task buttons
-                button.addEventListener("click", function () {
-                    if (typeof unlockNextPiece === "function" && key) {
-                        unlockNextPiece(kidId, key);
-                        updateBonusWorkVisibility();
-                    }
-                });
-            }
-        }
-    });
-
-    // When returning to page, confirm external app usage time before unlocking
-    function processExternalPending(minSeconds = 30) {
-        const codeDisplay = document.getElementById('codeDisplay');
-        const kidId = codeDisplay ? codeDisplay.getAttribute('data-kid') : 'am';
-        const today = new Date().toISOString().slice(0, 10);
-        Object.keys(localStorage).forEach(k => {
-            if (k.startsWith(`external_pending_${kidId}_`) && k.endsWith(`_${today}`) && localStorage.getItem(k) === '1') {
-                const keyPart = k.replace(`external_pending_${kidId}_`, '').replace(`_${today}`, '');
-                const startKey = `external_start_${kidId}_${keyPart}_${today}`;
-                const startedAt = parseInt(localStorage.getItem(startKey) || '0', 10);
-                const elapsed = Date.now() - startedAt;
-                if (startedAt > 0 && elapsed >= minSeconds * 1000) {
-                    if (typeof unlockNextPiece === 'function') {
-                        unlockNextPiece(kidId, keyPart);
-                        updateBonusWorkVisibility();
-                    }
-                    localStorage.removeItem(k);
-                    localStorage.removeItem(startKey);
+            button.addEventListener("click", function () {
+                if (typeof unlockNextPiece === "function" && key) {
+                    unlockNextPiece(kidId, key);
+                    updateBonusWorkVisibility();
                 }
-            }
-        });
-    }
-
-    document.addEventListener('visibilitychange', function() {
-        if (document.visibilityState === 'visible') {
-            processExternalPending(30);
+            });
         }
     });
-    window.addEventListener('pageshow', function() { processExternalPending(30); });
-
 
 });
 
@@ -304,99 +238,43 @@ function showControlsForDay() {
     });
 }
 
-
-let ttsQueue = [];
-let ttsInProgress = false;
-
-function enqueueTTS(text, lang, rate = 0.6, onEnd = null) {
+function readText(text, lang, rate = 0.6, onEndCallback = null) {
     if (lang === "en-US") lang = "en";
     if (lang === "fr-FR") lang = "fr";
-    console.log(`Enqueuing TTS: text="${text}", lang="${lang}", rate=${rate}`);
-    ttsQueue.push({ text, lang, rate, onEnd }); // Store rate and onEnd directly in the queue item
-    processTTSQueue();
-}
 
-function processTTSQueue() {
-    if (ttsInProgress || ttsQueue.length === 0) {
-        console.log(`Queue processing skipped: inProgress=${ttsInProgress}, queueLength=${ttsQueue.length}`);
-        return;
-    }
-
-    const { text, lang, rate, onEnd } = ttsQueue.shift(); // Destructure onEnd from the queued item
-    ttsInProgress = true;
-    console.log(`Processing TTS: text="${text}", lang="${lang}", rate=${rate}`);
-
-    // Assign the current onEnd callback to a temporary variable or the window scope for Android to call
-    window.currentTTSOnEnd = () => {
-        console.log(`TTS finished for text="${text}"`);
-        ttsInProgress = false;
-        if (typeof onEnd === 'function') {
-            console.log('Calling onEnd callback');
-            try {
-                onEnd();
-            } catch (e) {
-                console.error('Error in onEnd callback:', e);
+    if (typeof AndroidTTS !== "undefined") {
+        // Android TTS bridge
+        window.onTTSFinish = function () {
+            if (onEndCallback) {
+                onEndCallback();
             }
+        };
+        AndroidTTS.speak(text, lang);
+    } else if ('speechSynthesis' in window) {
+        // Web Speech API fallback
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = lang;
+        utter.rate = rate; // Apply the specified rate
+        utter.pitch = 1;
+        utter.volume = 1;
+        if (onEndCallback) {
+            utter.onend = onEndCallback;
         }
-        console.log('Advancing TTS queue');
-        processTTSQueue();
-    };
-
-    try {
-        if (typeof AndroidTTS !== 'undefined') {
-            console.log('Using AndroidTTS bridge');
-            // AndroidTTS.speak will trigger window.currentTTSOnEnd via onTTSFinish() from Android
-            AndroidTTS.speak(text, lang, rate); // Use the rate from the queued item
-        } else {
-            console.log('Falling back to Web Speech API');
-            const utter = new SpeechSynthesisUtterance(text);
-            utter.lang = lang;
-            utter.rate = rate; // Use the rate from the queued item
-            utter.pitch = 1;
-            utter.volume = 1;
-            utter.onend = () => {
-                console.log(`Web Speech finished for text="${text}"`);
-                window.currentTTSOnEnd(); // Call the unified end handler
-            };
-            speechSynthesis.speak(utter);
+        speechSynthesis.speak(utter);
+    } else {
+        console.warn("Text-to-speech not supported in this browser.");
+        if (onEndCallback) {
+            onEndCallback(); // Call callback even if TTS not supported
         }
-    } catch (e) {
-        console.error('Error in processTTSQueue:', e);
-        ttsInProgress = false;
-        processTTSQueue(); // Attempt to recover
     }
 }
-
-// The global onTTSFinish from Android will now call window.currentTTSOnEnd
-window.onTTSFinish = function() {
-    if (typeof window.currentTTSOnEnd === 'function') {
-        window.currentTTSOnEnd();
-        window.currentTTSOnEnd = null; // Clear it after use
-    }
-};
-
-
-// Update readText to store callback like before
-// Removing the old readText function as enqueueTTS will handle both AndroidTTS and Web Speech API.
 
 // Function to launch the game in the modal
-let modalHistoryPushed = false;
-
 function launchGameInModal(gameUrl) {
     const iframe = document.getElementById("iframeContent");
     const modal = document.getElementById("iframeModal");
     iframe.src = gameUrl;
     modal.style.display = "block";
-
-    // Push a history state so device/browser back closes the modal
-    if (!modalHistoryPushed) {
-        try {
-            history.pushState({ modalOpen: true }, "");
-            modalHistoryPushed = true;
-        } catch (e) {
-            console.warn('Failed to push history state for modal:', e);
-        }
-    }
 }
 
 // Function to handle modal close
@@ -456,7 +334,6 @@ function showNumberPadPrompt({ title, maxLength = 3, onSubmit, allowZero = false
           <button id="pinPadDelete" style="padding:8px 16px;font-size:1.3em;">⌫</button>
           <button id="pinPadEnter" style="padding:8px 16px;font-size:1.3em;">⏎</button>
         </div>
-      </div>
     `;
     document.body.appendChild(modal);
 
