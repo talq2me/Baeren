@@ -308,11 +308,11 @@ function showControlsForDay() {
 let ttsQueue = [];
 let ttsInProgress = false;
 
-function enqueueTTS(text, lang, onEnd = null) {
+function enqueueTTS(text, lang, rate = 0.6, onEnd = null) {
     if (lang === "en-US") lang = "en";
     if (lang === "fr-FR") lang = "fr";
-    console.log(`Enqueuing TTS: text="${text}", lang="${lang}"`);
-    ttsQueue.push({ text, lang, onEnd });
+    console.log(`Enqueuing TTS: text="${text}", lang="${lang}", rate=${rate}`);
+    ttsQueue.push({ text, lang, rate, onEnd }); // Store rate and onEnd directly in the queue item
     processTTSQueue();
 }
 
@@ -322,49 +322,41 @@ function processTTSQueue() {
         return;
     }
 
-    const { text, lang, onEnd } = ttsQueue.shift();
+    const { text, lang, rate, onEnd } = ttsQueue.shift(); // Destructure onEnd from the queued item
     ttsInProgress = true;
-    console.log(`Processing TTS: text="${text}", lang="${lang}"`);
+    console.log(`Processing TTS: text="${text}", lang="${lang}", rate=${rate}`);
+
+    // Assign the current onEnd callback to a temporary variable or the window scope for Android to call
+    window.currentTTSOnEnd = () => {
+        console.log(`TTS finished for text="${text}"`);
+        ttsInProgress = false;
+        if (typeof onEnd === 'function') {
+            console.log('Calling onEnd callback');
+            try {
+                onEnd();
+            } catch (e) {
+                console.error('Error in onEnd callback:', e);
+            }
+        }
+        console.log('Advancing TTS queue');
+        processTTSQueue();
+    };
 
     try {
         if (typeof AndroidTTS !== 'undefined') {
             console.log('Using AndroidTTS bridge');
-            window.onTTSFinish = () => {
-                console.log(`TTS finished for text="${text}"`);
-                ttsInProgress = false;
-                if (typeof onEnd === 'function') {
-                    console.log('Calling onEnd callback');
-                    try {
-                        onEnd();
-                    } catch (e) {
-                        console.error('Error in onEnd callback:', e);
-                    }
-                }
-                console.log('Advancing TTS queue');
-                processTTSQueue();
-            };
-            // Pass the rate argument to AndroidTTS.speak
-            AndroidTTS.speak(text, lang, 0.6); // Assuming 0.6 is the desired default rate for Android TTS
+            // AndroidTTS.speak will trigger window.currentTTSOnEnd via onTTSFinish() from Android
+            AndroidTTS.speak(text, lang, rate); // Use the rate from the queued item
         } else {
             console.log('Falling back to Web Speech API');
             const utter = new SpeechSynthesisUtterance(text);
             utter.lang = lang;
-            utter.rate = 0.6;
+            utter.rate = rate; // Use the rate from the queued item
             utter.pitch = 1;
             utter.volume = 1;
             utter.onend = () => {
                 console.log(`Web Speech finished for text="${text}"`);
-                ttsInProgress = false;
-                if (typeof onEnd === 'function') {
-                    console.log('Calling onEnd callback');
-                    try {
-                        onEnd();
-                    } catch (e) {
-                        console.error('Error in onEnd callback:', e);
-                    }
-                }
-                console.log('Advancing TTS queue');
-                processTTSQueue();
+                window.currentTTSOnEnd(); // Call the unified end handler
             };
             speechSynthesis.speak(utter);
         }
@@ -375,7 +367,13 @@ function processTTSQueue() {
     }
 }
 
-
+// The global onTTSFinish from Android will now call window.currentTTSOnEnd
+window.onTTSFinish = function() {
+    if (typeof window.currentTTSOnEnd === 'function') {
+        window.currentTTSOnEnd();
+        window.currentTTSOnEnd = null; // Clear it after use
+    }
+};
 
 
 // Update readText to store callback like before
