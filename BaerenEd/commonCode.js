@@ -249,7 +249,7 @@ function readText(text, lang, rate = 0.6, onEndCallback = null) {
                 onEndCallback();
             }
         };
-        AndroidTTS.speak(text, lang);
+        AndroidTTS.speak(text, lang, rate);
     } else if ('speechSynthesis' in window) {
         // Web Speech API fallback
         const utter = new SpeechSynthesisUtterance(text);
