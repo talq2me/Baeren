@@ -16,6 +16,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import java.util.Calendar
+import android.provider.Settings // Import Settings
+import android.webkit.JavascriptInterface
 
 class LauncherActivity : AppCompatActivity() {
 
@@ -29,9 +31,9 @@ class LauncherActivity : AppCompatActivity() {
 
         RewardManager.loadAllowedApps(this)
         
-        // Check if accessibility service is enabled
-        val isEnabled = isAccessibilityServiceEnabled()
-        Log.d("LauncherActivity", "Accessibility service enabled: $isEnabled")
+        // Check if accessibility service is enabled (will be updated by onResume anyway)
+        // val isEnabled = isAccessibilityServiceEnabled()
+        // Log.d("LauncherActivity", "Accessibility service enabled: $isEnabled")
 
         val background = createDailyBackgroundImageView()
 
@@ -91,8 +93,11 @@ class LauncherActivity : AppCompatActivity() {
 
         val webAppButton = Button(this).apply {
             text = "Baeren"
+            setOnClickListener { 
+                startActivity(Intent(this@LauncherActivity, MainActivity::class.java))
+            }
         }
-
+        
         appGrid = GridLayout(this).apply {
             // Adaptive grid based on orientation
             val displayMetrics = resources.displayMetrics
@@ -108,7 +113,8 @@ class LauncherActivity : AppCompatActivity() {
 
         setContentView(root)
 
-        updateAccessibilityBanner(contentLayout)
+        // Accessibility banner update will happen in onResume
+        // updateAccessibilityBanner(contentLayout)
         refreshIcons(appGrid)
     }
 
@@ -262,8 +268,7 @@ class LauncherActivity : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed() /* ignore */ }
+    override fun onBackPressed() { /* no-op in launcher activity */ }
 
     override fun onResume() {
         super.onResume()
@@ -278,4 +283,9 @@ class LauncherActivity : AppCompatActivity() {
         val isEnabled = isAccessibilityServiceEnabled()
         accessibilityBanner?.visibility = if (isEnabled) View.GONE else View.VISIBLE
     }
+}
+
+interface JavascriptTTS {
+    @JavascriptInterface
+    fun speak(text: String, lang: String, rate: Float)
 }

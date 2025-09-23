@@ -343,7 +343,8 @@ function processTTSQueue() {
                 console.log('Advancing TTS queue');
                 processTTSQueue();
             };
-            AndroidTTS.speak(text, lang);
+            // Pass the rate argument to AndroidTTS.speak
+            AndroidTTS.speak(text, lang, 0.6); // Assuming 0.6 is the desired default rate for Android TTS
         } else {
             console.log('Falling back to Web Speech API');
             const utter = new SpeechSynthesisUtterance(text);
