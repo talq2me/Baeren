@@ -1,62 +1,70 @@
 [
     {
-    "word": "boule",
-    "sentence": "Elle a lancé la boule de neige avec force."
+    "word": "aide",
+    "sentence": "Aide-moi s'il te plaît."
     },
     {
-    "word": "bulle",
-    "sentence": "Une bulle de savon a flotté dans l'air."
+    "word": "aucun",
+    "sentence": "Je n'ai aucun jouet."
     },
     {
-    "word": "envie",
-    "sentence": "J'ai une grande envie de chocolat ce soir."
+    "word": "aucuns",
+    "sentence": "Il n'y a aucuns bonbons."
     },
     {
-    "word": "forme",
-    "sentence": "Après une bonne nuit de sommeil, elle est en pleine forme."
+    "word": "aucune",
+    "sentence": "Je n'ai aucune soeur."
     },
     {
-    "word": "foule",
-    "sentence": "La foule s'est rassemblée devant le théâtre."
+    "word": "aucunes",
+    "sentence": "Nous n'avons aucunes idées."
     },
     {
-    "word": "mode",
-    "sentence": "Ce logiciel fonctionne en mode silencieux."
+    "word": "double (adj.)",
+    "sentence": "C'est une double portion de frites."
     },
     {
-    "word": "mode",
-    "sentence": "La mode change chaque saison."
+    "word": "double (n.m.)",
+    "sentence": "Il a un double de la clé."
     },
     {
-    "word": "nu",
-    "sentence": "Il est sorti nu de la salle de bain par erreur."
+    "word": "doute",
+    "sentence": "Je n'ai aucun doute."
     },
     {
-    "word": "nue",
-    "sentence": "La statue représente une femme nue."
+    "word": "garde",
+    "sentence": "Le chien fait la garde."
     },
     {
-    "word": "pire",
-    "sentence": "C'était le pire jour de sa vie."
+    "word": "grave",
+    "sentence": "Ce n'est pas grave."
     },
     {
-    "word": "roue",
-    "sentence": "La roue du vélo est crevée."
+    "word": "grotte",
+    "sentence": "L'ours vit dans une grotte."
     },
     {
-    "word": "sortie",
-    "sentence": "La sortie du film est prévue pour vendredi."
+    "word": "larme",
+    "sentence": "Il y a une larme sur sa joue."
     },
     {
-    "word": "soupe",
-    "sentence": "Elle prépare une soupe aux légumes chaque soir."
+    "word": "meuble",
+    "sentence": "Ce meuble est en bois."
     },
     {
-    "word": "vide",
-    "sentence": "Le frigo est complètement vide."
+    "word": "plume",
+    "sentence": "J'ai trouvé une jolie plume."
     },
     {
-    "word": "vide",
-    "sentence": "Il ressent un grand vide après son départ."
+    "word": "proche",
+    "sentence": "Je suis proche de chez moi."
+    },
+    {
+    "word": "sable",
+    "sentence": "On joue dans le sable."
+    },
+    {
+    "word": "utile",
+    "sentence": "C'est un livre très utile."
     }
     ]
