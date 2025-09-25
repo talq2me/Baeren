@@ -406,6 +406,10 @@
             
             // Hide practice container
             document.getElementById('practiceContainer').classList.add('hidden');
+            // Ensure keyboard is hidden when not in extreme mode or practice mode
+            if (gameMode !== 'extreme') {
+                document.getElementById('keyboardContainer').classList.add('hidden');
+            }
             
             // Show/hide letter bank based on mode
             if (gameMode === 'extreme') {
@@ -547,6 +551,13 @@
             
             selectedLetters.push(letter);
             updateSpelledWord();
+            if (isInPracticeMode) {
+                practiceSelectedLetters.push(letter);
+                updatePracticeSpelledWord();
+            } else {
+                selectedLetters.push(letter);
+                updateSpelledWord();
+            }
         }
 
         function handleDelete() {
@@ -609,10 +620,14 @@
                 `<h4>Correct spelling: <strong>${currentWord.word.toUpperCase()}</strong></h4>`; // Use currentWord.word
             
             // Clear practice attempts
+            // Show keyboard and clear practice attempts
+            document.getElementById('keyboardContainer').classList.remove('hidden');
             document.getElementById('practiceAttempts').innerHTML = '';
             
             // Create practice letter bank
             createPracticeLetterBank();
+            // Hide the practice letter bank as we are using the keyboard
+            document.getElementById('practiceLetterBank').style.display = 'none';
             
             // Clear message
             document.getElementById('messageContainer').innerHTML = '';
@@ -685,6 +700,7 @@
         function handlePracticeDelete() {
             if (practiceSelectedLetters.length > 0) {
                 // Remove the last letter
+                // Just remove the last letter from our array
                 practiceSelectedLetters.pop();
                 
                 // Update the letter bank - find the last used letter and make it available again
