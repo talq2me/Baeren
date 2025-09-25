@@ -334,10 +334,6 @@
                 <p>Great job! You completed the game!</p>
             `;
             
-            // Reset progress for next time
-            currentIndex = 0;
-            saveProgress();
-            
             // Send game completed message to parent window
             if (window.parent && window.parent !== window) {
                 window.parent.postMessage({ type: 'gameCompleted' }, '*');

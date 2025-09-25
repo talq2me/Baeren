@@ -179,10 +179,6 @@ function endGame() {
       messageContainer.innerHTML = "Congratulations! You've completed the game!";
   }
 
-  // Reset progress for next time
-  currentIndex = 0;
-  saveProgress();
-
   // Notify parent window that the game is completed
   window.parent.postMessage({ type: "gameCompleted" }, "*");
 }
