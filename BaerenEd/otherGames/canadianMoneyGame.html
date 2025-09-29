@@ -296,6 +296,7 @@
             // Auto-advance after 2 seconds
             setTimeout(() => {
                 if (score < 10) {
+                if (currentQuestion < totalQuestions) {
                     nextQuestion();
                 } else {
                     endGame();
@@ -305,8 +306,10 @@
 
         function nextQuestion() {
             currentIndex++;
+            currentQuestion++;
             saveProgress();
             if (score < 10) {
+            if (currentQuestion < totalQuestions) {
                 displayQuestion();
             } else {
                 endGame();

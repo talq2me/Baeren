@@ -25,6 +25,16 @@
         "choices": ["be", "bé", "ba", "bè"]
     },
     {
+        "word": "o",
+        "audio": "../sounds/o.mp3",
+        "choices": ["o", "u", "a", "i"]
+    },
+    {
+        "word": "u",
+        "audio": "../sounds/ew.mp3",
+        "choices": ["o", "u", "a", "i"]
+    },
+    {
         "word": "je",
         "audio": "../sounds/je.mp3",
         "choices": ["ja", "je", "gé", "jè"]
@@ -38,6 +48,16 @@
         "word": "ly",
         "audio": "../sounds/ly.mp3",
         "choices": ["le", "lé", "ly", "lè"]
+    },
+    {
+        "word": "i",
+        "audio": "../sounds/ee.mp3",
+        "choices": ["e", "i", "é", "è"]
+    },
+    {
+        "word": "y",
+        "audio": "../sounds/ee.mp3",
+        "choices": ["e", "y", "é", "è"]
     },
     {
         "word": "pi",

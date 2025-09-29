@@ -548,10 +548,6 @@
         
         // Function to add letter from keyboard (extreme mode)
         function addLetter(letter) {
-            if (isInPracticeMode) return;
-            
-            selectedLetters.push(letter);
-            updateSpelledWord();
             if (isInPracticeMode) {
                 practiceSelectedLetters.push(letter);
                 updatePracticeSpelledWord();
@@ -757,7 +753,8 @@
             });
             
             // Clear spelled word display
-            updatePracticeSpelledWord();
+            const practiceSpelledWordElement = document.getElementById('spelledWord');
+            practiceSpelledWordElement.textContent = '';
         }
 
         function updateStarCount() {
