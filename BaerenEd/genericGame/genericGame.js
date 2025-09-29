@@ -224,9 +224,6 @@ function handleChoice(choice) {
             } else if (currentItem.selectedPart === "ending") {
                 correctChoice = currentItem.originalChoices[2];
             }
-        } else if (gameTitle === "French Game") {
-            // French Game uses 'correctWord'
-            correctChoice = currentItem.correctWord;
         } else {
             correctChoice = currentItem.word; // For other games, the correct choice is the word itself
         }
@@ -331,8 +328,6 @@ function highlightCorrectAnswer() {
         if (partIndex !== -1) {
             correctChoice = currentItem.originalChoices[partIndex];
         }
-    } else if (gameTitle === "French Game") {
-        correctChoice = currentItem.word;
     } else {
         correctChoice = currentItem.word; // For games without word parts, the correct choice is the word itself
     }
@@ -342,8 +337,8 @@ function highlightCorrectAnswer() {
 
 async function nextRound() {
     // Check if we've gone past the available questions
-    if (currentIndex >= gameData.length) {
-        endGame();
+    if (currentIndex >= gameData.length && gameData.length > 0) {
+        currentIndex = 0; // Loop back to the start if we run out of questions
         return; // Stop further execution
     }
 
