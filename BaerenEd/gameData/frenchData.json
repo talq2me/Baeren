@@ -26,12 +26,12 @@
     },
     {
         "word": "o",
-        "audio": "../sounds/en/o.mp3",
+        "audio": "../sounds/en/o.wav",
         "choices": ["o", "u", "a", "i"]
     },
     {
         "word": "u",
-        "audio": "../sounds/en/ew.mp3",
+        "audio": "../sounds/en/ew.wav",
         "choices": ["o", "u", "a", "i"]
     },
     {
@@ -51,12 +51,12 @@
     },
     {
         "word": "i",
-        "audio": "../sounds/en/ee.mp3",
+        "audio": "../sounds/en/ee.wav",
         "choices": ["e", "i", "é", "è"]
     },
     {
         "word": "y",
-        "audio": "../sounds/en/ee.mp3",
+        "audio": "../sounds/en/ee.wav",
         "choices": ["e", "y", "é", "è"]
     },
     {
