@@ -1,90 +1,24 @@
 [
-    {
-    "word": "frightened",
-    "sentence": "The cat was frightened by the loud noise."
-    },
-    {
-    "word": "suffer",
-    "sentence": "He will suffer the consequences of his actions."
-    },
-    {
-    "word": "paragraph",
-    "sentence": "Please read the first paragraph of the text."
-    },
-    {
-    "word": "effort",
-    "sentence": "It took a lot of effort to lift the heavy box."
-    },
-    {
-    "word": "autographs",
-    "sentence": "He stood in line for hours to get autographs from his favorite band."
-    },
-    {
-    "word": "telephone",
-    "sentence": "She made a call on her new telephone."
-    },
-    {
-    "word": "dolphins",
-    "sentence": "We saw a pod of dolphins swimming in the ocean."
-    },
-    {
-    "word": "enough",
-    "sentence": "Do you have enough money for the movie ticket?"
-    },
-    {
-    "word": "laughter",
-    "sentence": "The sound of laughter filled the room."
-    },
-    {
-    "word": "symphony",
-    "sentence": "The orchestra performed a beautiful symphony."
-    },
-    {
-    "word": "physical",
-    "sentence": "He gets a lot of physical exercise from playing sports."
-    },
-    {
-    "word": "photography",
-    "sentence": "She is taking a class on digital photography."
-    },
-    {
-    "word": "atmosphere",
-    "sentence": "The earth's atmosphere protects us from the sun's rays."
-    },
-    {
-    "word": "flawless",
-    "sentence": "Her performance was absolutely flawless."
-    },
-    {
-    "word": "geography",
-    "sentence": "We learned about the geography of North America in class."
-    },
-    {
-    "word": "triumph",
-    "sentence": "Winning the championship was a great triumph for the team."
-    },
-    {
-    "word": "typhoid",
-    "sentence": "The doctor tested for typhoid after the patient showed symptoms."
-    },
-    {
-    "word": "hyphen",
-    "sentence": "You need to add a hyphen to the compound word."
-    },
-    {
-    "word": "typhoon",
-    "sentence": "A powerful typhoon hit the coast, causing widespread damage."
-    },
-    {
-    "word": "tough",
-    "sentence": "The steak was so tough it was hard to chew."
-    },
-    {
-    "word": "festival",
-    "sentence": "They are going to a music festival this weekend."
-    },
-    {
-    "word": "cough",
-    "sentence": "He tried to hide his cough during the quiet lecture."
-    }
-    ]
+    {"word": "wreath", "sentence": "She placed a beautiful wreath on the door for Christmas."},
+    {"word": "known", "sentence": "The doctor was not known to the patient."},
+    {"word": "knowledge", "sentence": "Her knowledge of ancient history was impressive."},
+    {"word": "written", "sentence": "The instructions were written clearly on the board."},
+    {"word": "wrapper", "sentence": "He carefully removed the wrapper from the chocolate."},
+    {"word": "arrow", "sentence": "The arrow flew straight to the target."},
+    {"word": "correct", "sentence": "You need to correct the mistakes in your paper."},
+    {"word": "mirror", "sentence": "She looked at herself in the mirror before leaving."},
+    {"word": "surround", "sentence": "The house was surrounded by beautiful trees."},
+    {"word": "knead", "sentence": "She began to knead the dough for the bread."},
+    {"word": "knotted", "sentence": "The rope was knotted tightly, making it hard to untie."},
+    {"word": "resign", "sentence": "He had to resign from his position due to health issues."},
+    {"word": "designed", "sentence": "The new phone was designed with the latest technology."},
+    {"word": "assign", "sentence": "The teacher will assign the homework at the end of the class."},
+    {"word": "wrinkled", "sentence": "His shirt was wrinkled after being in the suitcase for so long."},
+    {"word": "foreign", "sentence": "She felt nervous speaking in a foreign language."},
+    {"word": "wrestler", "sentence": "The wrestler won the championship match by pinning his opponent."},
+    {"word": "campaign", "sentence": "The political campaign was gaining momentum as election day approached."},
+    {"word": "cologne", "sentence": "He wore a fresh, floral cologne that lingered in the air."},
+    {"word": "knuckles", "sentence": "He cracked his knuckles before getting ready to work."},
+    {"word": "align", "sentence": "The shelves were not properly aligned with the wall."},
+    {"word": "errand", "sentence": "I need to run a quick errand before we meet for lunch."}
+]

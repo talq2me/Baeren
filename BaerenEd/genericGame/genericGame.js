@@ -332,7 +332,7 @@ function highlightCorrectAnswer() {
             correctChoice = currentItem.originalChoices[partIndex];
         }
     } else if (gameTitle === "French Game") {
-        correctChoice = currentItem.correctWord;
+        correctChoice = currentItem.word;
     } else {
         correctChoice = currentItem.word; // For games without word parts, the correct choice is the word itself
     }

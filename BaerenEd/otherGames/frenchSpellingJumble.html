@@ -318,6 +318,7 @@
             } else {
                 keyboardContainer.classList.add('hidden');
             }
+
         }
 
         // Load JSON file if provided in URL parameters
@@ -693,23 +694,14 @@
         }
 
         function updatePracticeSpelledWord() {
-            const spelledWordElement = document.getElementById('spelledWord');
+            const spelledWordElement = document.getElementById('spelledWord'); // Changed to target main spelledWord
             spelledWordElement.textContent = practiceSelectedLetters.join('').toUpperCase();
         }
 
         function handlePracticeDelete() {
             if (practiceSelectedLetters.length > 0) {
-                // Remove the last letter
                 // Just remove the last letter from our array
                 practiceSelectedLetters.pop();
-                
-                // Update the letter bank - find the last used letter and make it available again
-                const letterElements = document.querySelectorAll('#practiceLetterBank .letter.used');
-                if (letterElements.length > 0) {
-                    const lastUsedLetter = letterElements[letterElements.length - 1];
-                    lastUsedLetter.classList.remove('used');
-                }
-                
                 updatePracticeSpelledWord();
             }
         }
@@ -731,7 +723,9 @@
             if (isCorrect) {
                 practiceCorrectAttempts++;
                 if (practiceCorrectAttempts >= 3) {
-                    // Practice complete, move to next word
+                    // Practice complete, increment correctCount and update stars
+                    correctCount++;
+                    updateStarCount();
                     setTimeout(() => {
                         nextWord();
                     }, 1500);

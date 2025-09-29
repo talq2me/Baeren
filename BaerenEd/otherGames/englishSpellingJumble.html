@@ -285,6 +285,7 @@
             } else {
                 keyboardContainer.classList.add('hidden');
             }
+
         }
 
         // Load JSON file if provided in URL parameters
@@ -653,7 +654,7 @@
         }
 
         function updatePracticeSpelledWord() {
-            const spelledWordElement = document.getElementById('spelledWord');
+            const spelledWordElement = document.getElementById('spelledWord'); // Changed to target main spelledWord
             spelledWordElement.textContent = practiceSelectedLetters.join('').toUpperCase();
         }
 
@@ -682,7 +683,9 @@
             if (isCorrect) {
                 practiceCorrectAttempts++;
                 if (practiceCorrectAttempts >= 3) {
-                    // Practice complete, move to next word
+                    // Practice complete, increment correctCount and update stars
+                    correctCount++;
+                    updateStarCount();
                     setTimeout(() => {
                         nextWord();
                     }, 1500);
