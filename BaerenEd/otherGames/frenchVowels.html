@@ -261,13 +261,13 @@
 
 
         function endGame() {
-            promptText.textContent = "Félicitations! Vous avez trouvé toutes les voyelles!";
+            promptText.textContent = "Félicitations!";
             gridContainer.innerHTML = `
                 <div class="tile correct" style="grid-column: 1 / -1; font-size: 2rem; aspect-ratio: auto; height: 200px;">
                     🎉 Bien joué! 🎉
                 </div>
             `;
-            readText("Félicitations! Vous avez trouvé toutes les voyelles!", "fr-FR", 0.6, () => {
+            readText("Félicitations!", "fr-FR", 0.6, () => {
                 setTimeout(() => {
                     window.parent.postMessage({ type: "gameCompleted" }, "*");
                 }, 500);
