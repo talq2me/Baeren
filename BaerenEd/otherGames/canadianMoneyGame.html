@@ -294,36 +294,32 @@
             updateScore();
             
             // Auto-advance after 2 seconds
-            setTimeout(() => {
-                if (score < 10) {
-                if (currentQuestion < totalQuestions) {
-                    nextQuestion();
-                } else {
-                    endGame();
-                }
-            }, 2000);
+            setTimeout(nextQuestion, 2000);
         }
 
         function nextQuestion() {
             currentIndex++;
             currentQuestion++;
+            // If we run out of unique questions, loop back to the start
+            if (currentIndex >= questions.length) {
+                currentIndex = 0;
+            }
             saveProgress();
-            if (score < 10) {
-            if (currentQuestion < totalQuestions) {
+            if (score < 10) { // The game ends when 10 correct answers are given
                 displayQuestion();
             } else {
                 endGame();
             }
         }
-        
-        // Save progress to localStorage
-        function saveProgress() {
-            const urlParams = new URLSearchParams(window.location.search);
-            gameMode = urlParams.get('mode') || 'easy';
-            const jsonFile = gameMode === 'hard' ? '../otherGames/canadianMoneyHard.json' : '../otherGames/canadianMoneyEasy.json';
-            const storageKey = `canadianmoney_index_${jsonFile}`;
-            localStorage.setItem(storageKey, currentIndex.toString());
-        }
+            
+            // Save progress to localStorage
+            function saveProgress() {
+                const urlParams = new URLSearchParams(window.location.search);
+                gameMode = urlParams.get('mode') || 'easy';
+                const jsonFile = gameMode === 'hard' ? '../otherGames/canadianMoneyHard.json' : '../otherGames/canadianMoneyEasy.json';
+                const storageKey = `canadianmoney_index_${jsonFile}`;
+                localStorage.setItem(storageKey, currentIndex.toString());
+            }
 
         function endGame() {
             gameCompleted = true;
