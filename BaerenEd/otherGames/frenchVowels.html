@@ -217,6 +217,11 @@
                     (activeAudioVowel.word === 'ê' && clickedVowelData.word === 'è')) {
                     isCorrect = true;
                 }
+                // Handle i and y equivalence
+                if ((activeAudioVowel.word === 'i' && clickedVowelData.word === 'y') ||
+                    (activeAudioVowel.word === 'y' && clickedVowelData.word === 'i')) {
+                    isCorrect = true;
+                }
 
                 if (isCorrect) {
                     // If equivalent, treat as correct
@@ -267,9 +272,22 @@
                     🎉 Bien joué! 🎉
                 </div>
             `;
-            readText("Félicitations!", "fr-FR", 0.6, () => {
-                window.parent.postMessage({ type: "gameCompleted" }, "*");
-            });
+            readText("Félicitations!", "fr-FR", 0.6);
+            // Send game completed message to parent window
+            if (window.parent && window.parent !== window) {
+                    window.parent.postMessage({ type: 'gameCompleted' }, '*');
+                }
+                
+                // Close modal and return to launching page after a delay
+                setTimeout(() => {
+                    if (window.parent && window.parent !== window) {
+                        // We're in an iframe, close the modal
+                        window.parent.postMessage({ type: 'closeModal' }, '*');
+                    } else {
+                        // We're not in an iframe, go back
+                        history.back();
+                    }
+                }, 3000);
         }
 
         document.addEventListener('DOMContentLoaded', loadGameData);

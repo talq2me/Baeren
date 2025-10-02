@@ -302,9 +302,22 @@
                     🎉 Well Done! 🎉
                 </div>
             `;
-            readText("Great job! You're a multiplying master'!", "en-US", 0.6, () => {
-                window.parent.postMessage({ type: "gameCompleted" }, "*");
-            });
+            readText("Great job! You're a multiplying master'!", "en-US");
+             // Send game completed message to parent window
+             if (window.parent && window.parent !== window) {
+                    window.parent.postMessage({ type: 'gameCompleted' }, '*');
+                }
+                
+                // Close modal and return to launching page after a delay
+                setTimeout(() => {
+                    if (window.parent && window.parent !== window) {
+                        // We're in an iframe, close the modal
+                        window.parent.postMessage({ type: 'closeModal' }, '*');
+                    } else {
+                        // We're not in an iframe, go back
+                        history.back();
+                    }
+                }, 3000);
         }
 
         // --- Number Pad Modal from commonCode.js (adapted for local use) ---
