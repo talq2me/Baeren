@@ -268,9 +268,7 @@
                 </div>
             `;
             readText("Félicitations!", "fr-FR", 0.6, () => {
-                setTimeout(() => {
-                    window.parent.postMessage({ type: "gameCompleted" }, "*");
-                }, 500);
+                window.parent.postMessage({ type: "gameCompleted" }, "*");
             });
         }
 

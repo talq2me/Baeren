@@ -302,11 +302,8 @@
                     🎉 Well Done! 🎉
                 </div>
             `;
-             // Read the text and only send the completion message after the speech is done.
             readText("Great job! You're a multiplying master'!", "en-US", 0.6, () => {
-                setTimeout(() => {
-                    window.parent.postMessage({ type: "gameCompleted" }, "*");
-                }, 500); // A small delay to let the user see the "Well Done" message.
+                window.parent.postMessage({ type: "gameCompleted" }, "*");
             });
         }
 
