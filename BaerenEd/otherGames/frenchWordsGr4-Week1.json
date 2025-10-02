@@ -1,70 +1,66 @@
 [
-    {
-    "word": "aide",
-    "sentence": "Aide-moi s'il te plaît."
-    },
-    {
-    "word": "aucun",
-    "sentence": "Je n'ai aucun jouet."
-    },
-    {
-    "word": "aucuns",
-    "sentence": "Il n'y a aucuns bonbons."
-    },
-    {
-    "word": "aucune",
-    "sentence": "Je n'ai aucune soeur."
-    },
-    {
-    "word": "aucunes",
-    "sentence": "Nous n'avons aucunes idées."
-    },
-    {
-    "word": "double",
-    "sentence": "C'est une double portion de frites."
-    },
-    {
-    "word": "double",
-    "sentence": "Il a un double de la clé."
-    },
-    {
-    "word": "doute",
-    "sentence": "Je n'ai aucun doute."
-    },
-    {
-    "word": "garde",
-    "sentence": "Le chien fait la garde."
-    },
-    {
-    "word": "grave",
-    "sentence": "Ce n'est pas grave."
-    },
-    {
-    "word": "grotte",
-    "sentence": "L'ours vit dans une grotte."
-    },
-    {
-    "word": "larme",
-    "sentence": "Il y a une larme sur sa joue."
-    },
-    {
-    "word": "meuble",
-    "sentence": "Ce meuble est en bois."
-    },
-    {
-    "word": "plume",
-    "sentence": "J'ai trouvé une jolie plume."
-    },
-    {
-    "word": "proche",
-    "sentence": "Je suis proche de chez moi."
-    },
-    {
-    "word": "sable",
-    "sentence": "On joue dans le sable."
-    },
-    {
-    "word": "utile",
-    "sentence": "C'est un livre très utile."
-    }
-    ]
+  {
+    "word": "chapitre",
+    "sentence": "Le chapitre final du livre était très émouvant."
+  },
+  {
+    "word": "colère",
+    "sentence": "Sa colère a surpris tout le monde."
+  },
+  {
+    "word": "corde",
+    "sentence": "La corde est trop courte pour atteindre le sol."
+  },
+  {
+    "word": "élire",
+    "sentence": "Les citoyens vont élire un nouveau maire cette semaine."
+  },
+  {
+    "word": "laine",
+    "sentence": "Ce pull en laine est parfait pour l’hiver."
+  },
+  {
+    "word": "magnifique",
+    "sentence": "Le château était absolument magnifique sous le soleil."
+  },
+  {
+    "word": "promenade",
+    "sentence": "Nous avons fait une longue promenade en forêt."
+  },
+  {
+    "word": "pupitre",
+    "sentence": "Chaque élève a décoré son pupitre avec des autocollants."
+  },
+  {
+    "word": "pur",
+    "sentence": "L’eau de cette source est incroyablement pure."
+  },
+  {
+    "word": "pure",
+    "sentence": "Elle a une voix pure et cristalline."
+  },
+  {
+    "word": "ramener",
+    "sentence": "Peux-tu ramener les livres à la bibliothèque demain ?"
+  },
+  {
+    "word": "refaire",
+    "sentence": "Je dois refaire le gâteau, il a brûlé."
+  },
+  {
+    "word": "sourire",
+    "sentence": "Son sourire était plein de gentillesse."
+  },
+  {
+    "word": "sourire",
+    "sentence": "Il aime sourire quand il voit ses amis."
+  },
+  {
+    "word": "statue",
+    "sentence": "La statue en pierre se trouve devant le musée."
+  },
+  {
+    "word": "unique",
+    "sentence": "Chaque enfant a une personnalité unique."
+  }
+]
