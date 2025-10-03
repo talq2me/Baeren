@@ -154,6 +154,7 @@
         let questions = [];
         let solvedCount = 0;
         let activeTile = null;
+        let incorrectCount = 0; // New variable to track incorrect answers
 
         function initializeGame() {
             setupSelectorModal();
@@ -266,6 +267,7 @@
         }
 
         function handleIncorrectAnswer(tile, question) {
+            incorrectCount++; // Increment incorrect count
             question.revealed = false;
             tile.classList.add('flipped'); // Flip back
             readText("Oops, try another one.", "en-US");
@@ -305,7 +307,7 @@
             readText("Great job! You're a multiplying master'!", "en-US");
              // Send game completed message to parent window
              if (window.parent && window.parent !== window) {
-                    window.parent.postMessage({ type: 'gameCompleted' }, '*');
+                    window.parent.postMessage({ type: 'gameCompleted', incorrect: incorrectCount }, '*');
                 }
                 
                 // Close modal and return to launching page after a delay

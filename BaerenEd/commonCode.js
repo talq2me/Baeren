@@ -3,6 +3,8 @@ let pin = "1981"; // Parent PIN for unlocking features
 let lastTaskButtonIdx = null;
 let lastTaskButtonKid = null;
 let lastTaskButtonStartTime = null;
+let lastGameIncorrectCount = 0; // New variable to store incorrect count for the last completed game
+let lastGamePageIdentifier = null; // New variable to store the identifier of the last completed game
 
 if ('serviceWorker' in navigator && !navigator.serviceWorker.controller) {
     // Try to register with relative path first, then fallback to absolute path
@@ -287,10 +289,20 @@ function handleModalClose() {
 // Listen for game completion messages
 window.addEventListener("message", function (event) {
     if (event.data && event.data.type === "gameCompleted") {
+        const incorrectCount = event.data.incorrect || 0;
         const modal = document.getElementById("iframeModal");
         if (modal && modal.style.display === "block") {
-            console.log("Game completed message received, closing modal and unlocking piece.");
+            console.log("Game completed message received, closing modal and unlocking piece. Incorrect answers:", incorrectCount);
             
+            const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+            const gameId = `${lastTaskButtonKid}-${lastTaskButtonIdx}`;
+            const storageKey = `gameReport_${today}_${gameId}`;
+            localStorage.setItem(storageKey, JSON.stringify({ gameId: gameId, incorrectCount: incorrectCount, timestamp: Date.now() }));
+            console.log(`Stored game report for ${gameId}: incorrectCount = ${incorrectCount}`);
+
+            lastGameIncorrectCount = incorrectCount;
+            lastGamePageIdentifier = gameId;
+
             // Directly unlock the next piece if applicable
             if (typeof unlockNextPiece === "function" && lastTaskButtonKid !== null && lastTaskButtonIdx !== null) {
                 unlockNextPiece(lastTaskButtonKid, lastTaskButtonIdx);
@@ -309,7 +321,11 @@ let startTime = Date.now();
 window.addEventListener("beforeunload", () => {
     const duration = Math.round((Date.now() - startTime) / 1000); // in seconds
     const page = window.location.pathname.split("/").pop();
-    if (window.AndroidUsageTracker) {
+    if (window.AndroidUsageTracker && lastGamePageIdentifier) {
+        window.AndroidUsageTracker.logVisit(lastGamePageIdentifier, duration, lastGameIncorrectCount);
+        lastGameIncorrectCount = 0; // Reset for next game
+        lastGamePageIdentifier = null; // Reset for next game
+    } else if (window.AndroidUsageTracker) { // Fallback for pages not reporting incorrectCount
         window.AndroidUsageTracker.logVisit(page, duration);
     }
 });

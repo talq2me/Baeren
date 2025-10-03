@@ -118,6 +118,7 @@
         let currentVowelCards = []; // The 3x3 cards for the current game
         let activeAudioVowel = null;
         let solvedCardIds = new Set();
+        let incorrectCount = 0;
 
         const VOWELS_TO_INCLUDE = ['a', 'e', 'é', 'è', 'ê', 'i', 'o', 'u', 'y'];
 
@@ -208,7 +209,7 @@
                     setTimeout(playRandomVowelSound, 1000);
                 }
             } else {
-                // Incorrect answer
+                incorrectCount++; // Increment incorrect count
                 // Removed TTS prompt: await readText("Try again.", "fr-FR");
 
                 let isCorrect = false;
@@ -275,8 +276,8 @@
             readText("Félicitations!", "fr-FR", 0.6);
             // Send game completed message to parent window
             if (window.parent && window.parent !== window) {
-                    window.parent.postMessage({ type: 'gameCompleted' }, '*');
-                }
+                window.parent.postMessage({ type: 'gameCompleted', incorrect: incorrectCount }, '*');
+            }
                 
                 // Close modal and return to launching page after a delay
                 setTimeout(() => {

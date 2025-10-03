@@ -247,10 +247,12 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     inner class UsageTrackerBridge {
         @JavascriptInterface
-        fun logVisit(page: String, durationSeconds: Int) {
+        fun logVisit(page: String, durationSeconds: Int, incorrectCount: Int = 0) {
             val prefs = getSharedPreferences("usage_data", MODE_PRIVATE)
-            val current = prefs.getString(page, "0")?.toIntOrNull() ?: 0
-            prefs.edit().putString(page, (current + durationSeconds).toString()).apply()
+            val currentDuration = prefs.getString(page, "0")?.toIntOrNull() ?: 0
+            prefs.edit().putString(page, (currentDuration + durationSeconds).toString()).apply()
+            val currentIncorrect = prefs.getInt("${page}_incorrect", 0)
+            prefs.edit().putInt("${page}_incorrect", currentIncorrect + incorrectCount).apply()
         }
     }
 
@@ -275,7 +277,8 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             for ((key, value) in allData) {
                 val minutes = (value.toString().toIntOrNull() ?: 0) / 60
                 val seconds = (value.toString().toIntOrNull() ?: 0) % 60
-                report.append("  • $key: ${minutes}m ${seconds}s\n")
+                val incorrect = prefs.getInt("${key}_incorrect", 0)
+                report.append("  • $key: ${minutes}m ${seconds}s (Incorrect: $incorrect)\n")
             }
             report.append("\n")
         }
