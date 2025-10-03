@@ -108,9 +108,10 @@ async function loadGame() {
             isStoryMode = true;
             storyData = data;
             // Always use 10 for maxQuestions in story mode for consistency
-            maxQuestions = 10;
+            maxQuestions = 5; // French Story Games should have 5 questions
             updateStarCount();
             showStoryQuestion();
+            loadStoryProgress(); // Load saved progress for story mode
         } else {
             isStoryMode = false;
             gameData = data;
@@ -546,6 +547,29 @@ function saveProgress() {
     localStorage.setItem(storageKey, currentIndex.toString());
 }
 
+function saveStoryProgress() {
+    const storyProgressKey = "frenchStoryGame_progress";
+    const progress = {
+        currentStoryIndex: currentStoryIndex,
+        currentQuestionIndex: currentQuestionIndex
+    };
+    localStorage.setItem(storyProgressKey, JSON.stringify(progress));
+}
+
+function loadStoryProgress() {
+    const storyProgressKey = "frenchStoryGame_progress";
+    const savedProgress = localStorage.getItem(storyProgressKey);
+    if (savedProgress) {
+        const progress = JSON.parse(savedProgress);
+        currentStoryIndex = progress.currentStoryIndex;
+        currentQuestionIndex = progress.currentQuestionIndex;
+    } else {
+        // If no progress saved, start from the beginning
+        currentStoryIndex = 0;
+        currentQuestionIndex = 0;
+    }
+}
+
 function resetGame() {
     correctCount = 0;
     currentIndex = 0; // Reset to the beginning
@@ -685,6 +709,7 @@ function selectStoryChoice(idx) {
 }
 
 function submitStoryAnswer() {
+    stopAllTTS(); // Stop any ongoing TTS when submit is clicked
     if (selectedStoryChoice === null) return;
     const choices = showStoryQuestion._choices;
     const correctIdx = showStoryQuestion._correctIdx;
@@ -693,7 +718,8 @@ function submitStoryAnswer() {
     if (selectedStoryChoice === correctIdx) {
         feedback.innerHTML = "⭐ Correct!";
         correctCount++;
-        updateStarCount();
+        updateStarCount(); // Ensure stars are updated immediately after increment
+        saveStoryProgress(); // Save progress after a correct answer
         // Check if we've reached the maximum number of questions
         if (correctCount >= maxQuestions) {
             setTimeout(endGame, 1200);
@@ -719,7 +745,11 @@ function nextStoryQuestion() {
         currentQuestionIndex = 0;
     }
     if (currentStoryIndex >= storyData.length) {
-        endGame();
+        // Loop back to the beginning if all stories have been played
+        currentStoryIndex = 0;
+        currentQuestionIndex = 0; // Also reset question index for the new loop
+        saveStoryProgress(); // Save the looped progress
+        showStoryQuestion();
     } else {
         showStoryQuestion();
     }

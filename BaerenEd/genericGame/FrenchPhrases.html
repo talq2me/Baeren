@@ -5,6 +5,8 @@
     <title>Picture Sentence Game</title>
     
     <link rel="stylesheet" href="../styles.css">
+    <script src="../commonCode.js"></script>
+    <script src="genericGame.js"></script>
     <style>
         body {
             font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
@@ -358,99 +360,6 @@
         saveProgress();
     }
 
-    function splitTextToSpans(text) {
-        return text.split(/(\s+)/).map((word, i) => `<span data-word-idx="${i}">${word}</span>`).join("");
-    }
-
-    function highlightWordsByTimer(text, container, wordDuration = 700, onend) {
-        let spans = Array.from(container.querySelectorAll('span[data-word-idx]'));
-        let words = text.trim().split(/\s+/);
-        let i = 0;
-        function highlightNext() {
-            spans.forEach(span => span.classList.remove('tts-highlight'));
-            if (i < spans.length) {
-                spans[i].classList.add('tts-highlight');
-                i++;
-                setTimeout(highlightNext, wordDuration);
-            } else {
-                spans.forEach(span => span.classList.remove('tts-highlight'));
-                if (onend) onend();
-            }
-        }
-        highlightNext();
-    }
-
-    function speakWithHighlight(text, lang, container, onend) {
-        container.innerHTML = splitTextToSpans(text);
-
-        // Use AndroidTTS if available
-        if (typeof AndroidTTS !== 'undefined' && typeof AndroidTTS.speak === 'function') {
-            highlightWordsByTimer(text, container, 700, onend);
-            // Normalize language code for Android bridge (expects 'fr' not 'fr-FR')
-            const langNormalized = (lang && lang.toLowerCase().startsWith('fr')) ? 'fr' : lang;
-            AndroidTTS.speak(text, langNormalized);
-            return;
-        }
-
-        // Web Speech API fallback
-        if (!window.speechSynthesis) return;
-        if (window.ttsUtterance) window.speechSynthesis.cancel();
-        let spans = Array.from(container.querySelectorAll('span[data-word-idx]'));
-        window.ttsUtterance = new SpeechSynthesisUtterance(text);
-
-        // --- Robust French voice selection (handles async voice loading) ---
-        function applyFrenchVoice() {
-            const voices = window.speechSynthesis.getVoices();
-            const frenchVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('fr'));
-            if (frenchVoice) {
-                window.ttsUtterance.voice = frenchVoice;
-                window.ttsUtterance.lang = frenchVoice.lang;
-            } else {
-                window.ttsUtterance.lang = 'fr-FR';
-            }
-        }
-        // If voices list is empty initially, wait for it
-        if (window.speechSynthesis.getVoices().length === 0) {
-            window.speechSynthesis.onvoiceschanged = function() {
-                applyFrenchVoice();
-                // Clear handler to avoid repeated calls
-                window.speechSynthesis.onvoiceschanged = null;
-            };
-        }
-        applyFrenchVoice();
-
-        window.ttsUtterance.rate = 0.4; // Slower for young learners
-        let boundarySupported = false;
-        window.ttsUtterance.onboundary = function(event) {
-            boundarySupported = true;
-            let charIndex = event.charIndex;
-            let total = 0;
-            for (let i = 0; i < spans.length; i++) {
-                const len = spans[i].textContent.length;
-                if (charIndex < total + len) {
-                    spans.forEach(span => span.classList.remove('tts-highlight'));
-                    spans[i].classList.add('tts-highlight');
-                    break;
-                }
-                total += len;
-            }
-        };
-        window.ttsUtterance.onstart = function() {
-            spans.forEach(span => span.classList.remove('tts-highlight'));
-            spans[0].classList.add('tts-highlight');
-            setTimeout(() => {
-                if (!boundarySupported) {
-                    highlightWordsByTimer(text, container, 700, onend);
-                }
-            }, 200);
-        };
-        window.ttsUtterance.onend = function() {
-            spans.forEach(span => span.classList.remove('tts-highlight'));
-            if (onend) onend();
-        };
-        window.speechSynthesis.speak(window.ttsUtterance);
-    }
-
     function updateStarCount() {
         document.getElementById("starCount").innerText = `⭐ ${correctCount} / ${QUESTIONS_PER_DAY}`;
     }
@@ -458,7 +367,7 @@
     function showRound() {
         const round = todayQuestions[currentRound];
         const sentenceDiv = document.getElementById("sentenceText");
-        sentenceDiv.innerHTML = splitTextToSpans(round.sentence);
+        // sentenceDiv.innerHTML = splitTextToSpans(round.sentence); // Handled by speakWithHighlight
         document.getElementById("feedback").innerText = "";
         document.getElementById("playBtn").disabled = false;
 
@@ -483,7 +392,7 @@
 
         // Auto play sentence with highlight
         setTimeout(() => {
-            speakWithHighlight(round.sentence, "fr-FR", sentenceDiv);
+            speakWithHighlight(round.sentence, "fr", sentenceDiv);
         }, 400);
     }
 
@@ -520,7 +429,7 @@
 
     document.getElementById("playBtn").onclick = function() {
         const round = todayQuestions[currentRound];
-        speakWithHighlight(round.sentence, "fr-FR", document.getElementById("sentenceText"));
+        speakWithHighlight(round.sentence, "fr", document.getElementById("sentenceText"));
     };
 
     // --- Start game ---

@@ -13,32 +13,27 @@
     {
       "coins": ["dime"],
       "correctAnswer": 0.10,
-      "answers": [0.10, 0.05, 0.01, 0.25]
+      "answers": [0.10, 0.05, 0.15, 0.20]
     },
     {
       "coins": ["quarter"],
       "correctAnswer": 0.25,
-      "answers": [0.25, 0.10, 0.05, 0.01]
+      "answers": [0.25, 0.10, 0.20, 0.30]
     },
     {
       "coins": ["penny", "penny"],
       "correctAnswer": 0.02,
-      "answers": [0.02, 0.01, 0.05, 0.10]
+      "answers": [0.02, 0.01, 0.03, 0.05]
     },
     {
       "coins": ["nickel", "penny"],
       "correctAnswer": 0.06,
-      "answers": [0.06, 0.05, 0.07, 0.11]
+      "answers": [0.06, 0.05, 0.07, 0.10]
     },
     {
       "coins": ["dime", "penny"],
       "correctAnswer": 0.11,
       "answers": [0.11, 0.10, 0.12, 0.15]
-    },
-    {
-      "coins": ["quarter", "penny"],
-      "correctAnswer": 0.26,
-      "answers": [0.26, 0.25, 0.27, 0.30]
     },
     {
       "coins": ["nickel", "nickel"],
@@ -51,14 +46,19 @@
       "answers": [0.15, 0.10, 0.20, 0.25]
     },
     {
-      "coins": ["quarter", "nickel"],
-      "correctAnswer": 0.30,
-      "answers": [0.30, 0.25, 0.35, 0.40]
-    },
-    {
       "coins": ["dime", "dime"],
       "correctAnswer": 0.20,
       "answers": [0.20, 0.15, 0.25, 0.30]
+    },
+    {
+      "coins": ["quarter", "penny"],
+      "correctAnswer": 0.26,
+      "answers": [0.26, 0.25, 0.27, 0.30]
+    },
+    {
+      "coins": ["quarter", "nickel"],
+      "correctAnswer": 0.30,
+      "answers": [0.30, 0.25, 0.35, 0.40]
     },
     {
       "coins": ["quarter", "dime"],
@@ -73,17 +73,12 @@
     {
       "coins": ["nickel", "penny", "penny"],
       "correctAnswer": 0.07,
-      "answers": [0.07, 0.06, 0.08, 0.11]
+      "answers": [0.07, 0.06, 0.08, 0.10]
     },
     {
       "coins": ["dime", "penny", "penny"],
       "correctAnswer": 0.12,
       "answers": [0.12, 0.11, 0.13, 0.15]
-    },
-    {
-      "coins": ["quarter", "penny", "penny"],
-      "correctAnswer": 0.27,
-      "answers": [0.27, 0.26, 0.28, 0.30]
     },
     {
       "coins": ["nickel", "nickel", "penny"],
@@ -96,19 +91,9 @@
       "answers": [0.16, 0.15, 0.17, 0.20]
     },
     {
-      "coins": ["quarter", "nickel", "penny"],
-      "correctAnswer": 0.31,
-      "answers": [0.31, 0.30, 0.32, 0.35]
-    },
-    {
       "coins": ["dime", "dime", "penny"],
       "correctAnswer": 0.21,
       "answers": [0.21, 0.20, 0.22, 0.25]
-    },
-    {
-      "coins": ["quarter", "dime", "penny"],
-      "correctAnswer": 0.36,
-      "answers": [0.36, 0.35, 0.37, 0.40]
     },
     {
       "coins": ["nickel", "nickel", "nickel"],
@@ -121,19 +106,9 @@
       "answers": [0.20, 0.15, 0.25, 0.30]
     },
     {
-      "coins": ["quarter", "nickel", "nickel"],
-      "correctAnswer": 0.35,
-      "answers": [0.35, 0.30, 0.40, 0.45]
-    },
-    {
       "coins": ["dime", "dime", "nickel"],
       "correctAnswer": 0.25,
       "answers": [0.25, 0.20, 0.30, 0.35]
-    },
-    {
-      "coins": ["quarter", "dime", "nickel"],
-      "correctAnswer": 0.40,
-      "answers": [0.40, 0.35, 0.45, 0.50]
     },
     {
       "coins": ["dime", "dime", "dime"],
@@ -141,9 +116,214 @@
       "answers": [0.30, 0.25, 0.35, 0.40]
     },
     {
-      "coins": ["quarter", "dime", "dime"],
-      "correctAnswer": 0.45,
-      "answers": [0.45, 0.40, 0.50, 0.55]
+      "coins": ["quarter", "dime"],
+      "correctAnswer": 0.35,
+      "answers": [0.35, 0.30, 0.40, 0.45]
+    },
+    {
+      "coins": ["quarter", "nickel"],
+      "correctAnswer": 0.30,
+      "answers": [0.30, 0.25, 0.35, 0.40]
+    },
+    {
+      "coins": ["quarter", "penny"],
+      "correctAnswer": 0.26,
+      "answers": [0.26, 0.25, 0.27, 0.28]
+    },
+    {
+      "coins": ["quarter", "dime"],
+      "correctAnswer": 0.35,
+      "answers": [0.35, 0.30, 0.40, 0.45]
+    },
+    {
+      "coins": ["quarter", "nickel"],
+      "correctAnswer": 0.30,
+      "answers": [0.30, 0.25, 0.35, 0.40]
+    },
+    {
+      "coins": ["quarter", "dime"],
+      "correctAnswer": 0.35,
+      "answers": [0.35, 0.30, 0.40, 0.45]
+    },
+    {
+      "coins": ["quarter", "penny"],
+      "correctAnswer": 0.26,
+      "answers": [0.26, 0.25, 0.27, 0.30]
+    },
+    {
+      "coins": ["penny", "nickel", "nickel"],
+      "correctAnswer": 0.11,
+      "answers": [0.11, 0.10, 0.12, 0.15]
+    },
+    {
+      "coins": ["nickel", "nickel", "penny", "penny"],
+      "correctAnswer": 0.12,
+      "answers": [0.12, 0.10, 0.13, 0.15]
+    },
+    {
+      "coins": ["dime", "nickel", "nickel"],
+      "correctAnswer": 0.20,
+      "answers": [0.20, 0.15, 0.25, 0.30]
+    },
+    {
+      "coins": ["penny", "penny", "penny", "nickel"],
+      "correctAnswer": 0.08,
+      "answers": [0.08, 0.07, 0.09, 0.10]
+    },
+    {
+      "coins": ["nickel", "nickel", "nickel", "penny"],
+      "correctAnswer": 0.16,
+      "answers": [0.16, 0.15, 0.17, 0.20]
+    },
+    {
+      "coins": ["quarter", "dime"],
+      "correctAnswer": 0.35,
+      "answers": [0.35, 0.30, 0.40, 0.45]
+    },
+    {
+      "coins": ["quarter", "nickel"],
+      "correctAnswer": 0.30,
+      "answers": [0.30, 0.25, 0.35, 0.40]
+    },
+    {
+      "coins": ["quarter", "dime"],
+      "correctAnswer": 0.35,
+      "answers": [0.35, 0.30, 0.40, 0.45]
+    },
+    {
+      "coins": ["quarter", "nickel"],
+      "correctAnswer": 0.30,
+      "answers": [0.30, 0.25, 0.35, 0.40]
+    },
+    {
+      "coins": ["penny", "penny", "penny", "penny", "penny"],
+      "correctAnswer": 0.05,
+      "answers": [0.05, 0.04, 0.06, 0.10]
+    },
+    {
+      "coins": ["nickel", "penny", "penny", "penny"],
+      "correctAnswer": 0.08,
+      "answers": [0.08, 0.07, 0.09, 0.10]
+    },
+    {
+      "coins": ["dime", "penny", "penny", "penny"],
+      "correctAnswer": 0.13,
+      "answers": [0.13, 0.12, 0.14, 0.15]
+    },
+    {
+      "coins": ["nickel", "nickel", "penny", "penny", "penny"],
+      "correctAnswer": 0.13,
+      "answers": [0.13, 0.12, 0.14, 0.15]
+    },
+    {
+      "coins": ["dime", "nickel", "penny", "penny"],
+      "correctAnswer": 0.17,
+      "answers": [0.17, 0.16, 0.18, 0.20]
+    },
+    {
+      "coins": ["quarter", "nickel"],
+      "correctAnswer": 0.30,
+      "answers": [0.30, 0.25, 0.35, 0.40]
+    },
+    {
+      "coins": ["quarter", "dime"],
+      "correctAnswer": 0.35,
+      "answers": [0.35, 0.30, 0.40, 0.45]
+    },
+    {
+      "coins": ["quarter", "penny"],
+      "correctAnswer": 0.26,
+      "answers": [0.26, 0.25, 0.27, 0.30]
+    },
+    {
+      "coins": ["quarter", "nickel"],
+      "correctAnswer": 0.30,
+      "answers": [0.30, 0.25, 0.35, 0.40]
+    },
+    {
+      "coins": ["quarter", "dime"],
+      "correctAnswer": 0.35,
+      "answers": [0.35, 0.30, 0.40, 0.45]
+    },
+    {
+      "coins": ["quarter", "penny"],
+      "correctAnswer": 0.26,
+      "answers": [0.26, 0.25, 0.27, 0.30]
+    },
+    {
+      "coins": ["dime", "nickel", "nickel", "penny"],
+      "correctAnswer": 0.21,
+      "answers": [0.21, 0.20, 0.22, 0.25]
+    },
+    {
+      "coins": ["nickel", "nickel", "nickel", "penny", "penny"],
+      "correctAnswer": 0.17,
+      "answers": [0.17, 0.16, 0.18, 0.20]
+    },
+    {
+      "coins": ["dime", "dime", "penny", "penny"],
+      "correctAnswer": 0.22,
+      "answers": [0.22, 0.21, 0.23, 0.25]
+    },
+    {
+      "coins": ["nickel", "nickel", "dime", "penny"],
+      "correctAnswer": 0.21,
+      "answers": [0.21, 0.20, 0.22, 0.25]
+    },
+    {
+      "coins": ["quarter", "dime"],
+      "correctAnswer": 0.35,
+      "answers": [0.35, 0.30, 0.40, 0.45]
+    },
+    {
+      "coins": ["quarter", "nickel"],
+      "correctAnswer": 0.30,
+      "answers": [0.30, 0.25, 0.35, 0.40]
+    },
+    {
+      "coins": ["quarter", "dime"],
+      "correctAnswer": 0.35,
+      "answers": [0.35, 0.30, 0.40, 0.45]
+    },
+    {
+      "coins": ["quarter", "nickel"],
+      "correctAnswer": 0.30,
+      "answers": [0.30, 0.25, 0.35, 0.40]
+    },
+    {
+      "coins": ["nickel", "nickel", "nickel", "penny", "penny", "penny"],
+      "correctAnswer": 0.18,
+      "answers": [0.18, 0.17, 0.19, 0.20]
+    },
+    {
+      "coins": ["dime", "nickel", "penny", "penny", "penny"],
+      "correctAnswer": 0.18,
+      "answers": [0.18, 0.17, 0.19, 0.20]
+    },
+    {
+      "coins": ["penny", "penny", "penny", "penny"],
+      "correctAnswer": 0.04,
+      "answers": [0.04, 0.03, 0.05, 0.06]
+    },
+    {
+      "coins": ["nickel", "penny", "penny", "penny", "penny"],
+      "correctAnswer": 0.09,
+      "answers": [0.09, 0.08, 0.10, 0.11]
+    },
+    {
+      "coins": ["dime", "penny", "penny", "penny", "penny"],
+      "correctAnswer": 0.14,
+      "answers": [0.14, 0.13, 0.15, 0.16]
+    },
+    {
+      "coins": ["dime", "nickel", "nickel", "penny"],
+      "correctAnswer": 0.21,
+      "answers": [0.21, 0.20, 0.22, 0.25]
+    },
+    {
+      "coins": ["dime", "dime", "penny", "penny", "penny"],
+      "correctAnswer": 0.23,
+      "answers": [0.23, 0.22, 0.24, 0.25]
     }
   ]
-} 
+}

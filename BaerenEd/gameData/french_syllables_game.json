@@ -1,0 +1,1492 @@
+[
+  {
+    "word": "sa",
+    "pronunciation": "sa",
+    "choices": [
+      "sè",
+      "su",
+      "se",
+      "sa"
+    ]
+  },
+  {
+    "word": "ke",
+    "pronunciation": "ke",
+    "choices": [
+      "ke",
+      "kè",
+      "ko",
+      "kê"
+    ]
+  },
+  {
+    "word": "we",
+    "pronunciation": "we",
+    "choices": [
+      "wa",
+      "wê",
+      "wè",
+      "we"
+    ]
+  },
+  {
+    "word": "pè",
+    "pronunciation": "pè",
+    "choices": [
+      "pi",
+      "pu",
+      "pè",
+      "pe"
+    ]
+  },
+  {
+    "word": "re",
+    "pronunciation": "re",
+    "choices": [
+      "ro",
+      "ré",
+      "ru",
+      "re"
+    ]
+  },
+  {
+    "word": "ve",
+    "pronunciation": "ve",
+    "choices": [
+      "ve",
+      "vé",
+      "vê",
+      "va"
+    ]
+  },
+  {
+    "word": "ju",
+    "pronunciation": "ju",
+    "choices": [
+      "ju",
+      "jê",
+      "ji",
+      "jè"
+    ]
+  },
+  {
+    "word": "qé",
+    "pronunciation": "qé",
+    "choices": [
+      "qo",
+      "qè",
+      "qé",
+      "qy"
+    ]
+  },
+  {
+    "word": "te",
+    "pronunciation": "te",
+    "choices": [
+      "tê",
+      "ta",
+      "te",
+      "tu"
+    ]
+  },
+  {
+    "word": "mé",
+    "pronunciation": "mé",
+    "choices": [
+      "mè",
+      "mé",
+      "mi",
+      "my"
+    ]
+  },
+  {
+    "word": "ca",
+    "pronunciation": "ca",
+    "choices": [
+      "cè",
+      "ca",
+      "cy",
+      "cê"
+    ]
+  },
+  {
+    "word": "gè",
+    "pronunciation": "gè",
+    "choices": [
+      "gè",
+      "gu",
+      "ga",
+      "gé"
+    ]
+  },
+  {
+    "word": "li",
+    "pronunciation": "li",
+    "choices": [
+      "lo",
+      "lu",
+      "ly",
+      "li"
+    ]
+  },
+  {
+    "word": "no",
+    "pronunciation": "no",
+    "choices": [
+      "ni",
+      "ny",
+      "no",
+      "na"
+    ]
+  },
+  {
+    "word": "dê",
+    "pronunciation": "d-ê",
+    "choices": [
+      "du",
+      "da",
+      "dê",
+      "de"
+    ]
+  },
+  {
+    "word": "bè",
+    "pronunciation": "b-è",
+    "choices": [
+      "bè",
+      "bê",
+      "bé",
+      "be"
+    ]
+  },
+  {
+    "word": "xê",
+    "pronunciation": "xê",
+    "choices": [
+      "xu",
+      "xè",
+      "xê",
+      "xé"
+    ]
+  },
+  {
+    "word": "za",
+    "pronunciation": "za",
+    "choices": [
+      "za",
+      "zê",
+      "zi",
+      "ze"
+    ]
+  },
+  {
+    "word": "fi",
+    "pronunciation": "fi",
+    "choices": [
+      "fé",
+      "fè",
+      "fi",
+      "fy"
+    ]
+  },
+  {
+    "word": "hu",
+    "pronunciation": "hu",
+    "choices": [
+      "hê",
+      "hu",
+      "hy",
+      "hè"
+    ]
+  },
+  {
+    "word": "ma",
+    "pronunciation": "ma",
+    "choices": [
+      "ma",
+      "my",
+      "me",
+      "mi"
+    ]
+  },
+  {
+    "word": "ré",
+    "pronunciation": "ré",
+    "choices": [
+      "ry",
+      "ré",
+      "rê",
+      "ru"
+    ]
+  },
+  {
+    "word": "ge",
+    "pronunciation": "ge",
+    "choices": [
+      "gy",
+      "gê",
+      "ge",
+      "gu"
+    ]
+  },
+  {
+    "word": "ny",
+    "pronunciation": "ny",
+    "choices": [
+      "ny",
+      "ne",
+      "nè",
+      "no"
+    ]
+  },
+  {
+    "word": "zo",
+    "pronunciation": "zo",
+    "choices": [
+      "zo",
+      "ze",
+      "za",
+      "zê"
+    ]
+  },
+  {
+    "word": "sy",
+    "pronunciation": "sy",
+    "choices": [
+      "sé",
+      "sy",
+      "su",
+      "sa"
+    ]
+  },
+  {
+    "word": "pe",
+    "pronunciation": "pe",
+    "choices": [
+      "pê",
+      "pé",
+      "pu",
+      "pe"
+    ]
+  },
+  {
+    "word": "ce",
+    "pronunciation": "ce",
+    "choices": [
+      "cy",
+      "cè",
+      "ca",
+      "ce"
+    ]
+  },
+  {
+    "word": "sè",
+    "pronunciation": "sè",
+    "choices": [
+      "si",
+      "su",
+      "sa",
+      "sè"
+    ]
+  },
+  {
+    "word": "jy",
+    "pronunciation": "jy",
+    "choices": [
+      "jê",
+      "jy",
+      "jè",
+      "je"
+    ]
+  },
+  {
+    "word": "to",
+    "pronunciation": "to",
+    "choices": [
+      "ta",
+      "tê",
+      "to",
+      "ty"
+    ]
+  },
+  {
+    "word": "qè",
+    "pronunciation": "qè",
+    "choices": [
+      "qè",
+      "qo",
+      "qé",
+      "qa"
+    ]
+  },
+  {
+    "word": "qê",
+    "pronunciation": "qê",
+    "choices": [
+      "qi",
+      "qè",
+      "qu",
+      "qê"
+    ]
+  },
+  {
+    "word": "ly",
+    "pronunciation": "ly",
+    "choices": [
+      "le",
+      "li",
+      "lè",
+      "ly"
+    ]
+  },
+  {
+    "word": "fé",
+    "pronunciation": "fé",
+    "choices": [
+      "fê",
+      "fy",
+      "fi",
+      "fé"
+    ]
+  },
+  {
+    "word": "fè",
+    "pronunciation": "fè",
+    "choices": [
+      "fu",
+      "fe",
+      "fè",
+      "fo"
+    ]
+  },
+  {
+    "word": "pé",
+    "pronunciation": "pé",
+    "choices": [
+      "po",
+      "pu",
+      "pe",
+      "pé"
+    ]
+  },
+  {
+    "word": "ni",
+    "pronunciation": "ni",
+    "choices": [
+      "ne",
+      "nè",
+      "ni",
+      "né"
+    ]
+  },
+  {
+    "word": "pu",
+    "pronunciation": "pu",
+    "choices": [
+      "pè",
+      "pé",
+      "py",
+      "pu"
+    ]
+  },
+  {
+    "word": "vè",
+    "pronunciation": "vè",
+    "choices": [
+      "vè",
+      "vo",
+      "ve",
+      "vê"
+    ]
+  },
+  {
+    "word": "zy",
+    "pronunciation": "zy",
+    "choices": [
+      "zê",
+      "zu",
+      "zi",
+      "zy"
+    ]
+  },
+  {
+    "word": "jo",
+    "pronunciation": "jo",
+    "choices": [
+      "je",
+      "jo",
+      "jy",
+      "jê"
+    ]
+  },
+  {
+    "word": "wi",
+    "pronunciation": "wi",
+    "choices": [
+      "wa",
+      "wi",
+      "wè",
+      "wé"
+    ]
+  },
+  {
+    "word": "nè",
+    "pronunciation": "nè",
+    "choices": [
+      "ni",
+      "nu",
+      "nè",
+      "nê"
+    ]
+  },
+  {
+    "word": "sê",
+    "pronunciation": "sê",
+    "choices": [
+      "sê",
+      "so",
+      "si",
+      "sé"
+    ]
+  },
+  {
+    "word": "qy",
+    "pronunciation": "qy",
+    "choices": [
+      "qé",
+      "qy",
+      "qa",
+      "qe"
+    ]
+  },
+  {
+    "word": "qo",
+    "pronunciation": "qo",
+    "choices": [
+      "qo",
+      "qa",
+      "qê",
+      "qi"
+    ]
+  },
+  {
+    "word": "na",
+    "pronunciation": "na",
+    "choices": [
+      "ni",
+      "nu",
+      "na",
+      "ny"
+    ]
+  },
+  {
+    "word": "ku",
+    "pronunciation": "ku",
+    "choices": [
+      "ki",
+      "ké",
+      "kè",
+      "ku"
+    ]
+  },
+  {
+    "word": "wu",
+    "pronunciation": "wu",
+    "choices": [
+      "wu",
+      "wi",
+      "we",
+      "wa"
+    ]
+  },
+  {
+    "word": "xé",
+    "pronunciation": "xé",
+    "choices": [
+      "xé",
+      "xa",
+      "xy",
+      "xè"
+    ]
+  },
+  {
+    "word": "da",
+    "pronunciation": "da",
+    "choices": [
+      "du",
+      "da",
+      "dé",
+      "dy"
+    ]
+  },
+  {
+    "word": "mê",
+    "pronunciation": "mê",
+    "choices": [
+      "mo",
+      "mê",
+      "me",
+      "my"
+    ]
+  },
+  {
+    "word": "zi",
+    "pronunciation": "zi",
+    "choices": [
+      "zi",
+      "zê",
+      "zu",
+      "zo"
+    ]
+  },
+  {
+    "word": "mo",
+    "pronunciation": "mo",
+    "choices": [
+      "ma",
+      "mé",
+      "mo",
+      "my"
+    ]
+  },
+  {
+    "word": "va",
+    "pronunciation": "va",
+    "choices": [
+      "va",
+      "vé",
+      "vy",
+      "vè"
+    ]
+  },
+  {
+    "word": "bi",
+    "pronunciation": "bi",
+    "choices": [
+      "bé",
+      "be",
+      "ba",
+      "bi"
+    ]
+  },
+  {
+    "word": "kê",
+    "pronunciation": "kê",
+    "choices": [
+      "ké",
+      "ka",
+      "ki",
+      "kê"
+    ]
+  },
+  {
+    "word": "zu",
+    "pronunciation": "zu",
+    "choices": [
+      "za",
+      "zu",
+      "zê",
+      "zo"
+    ]
+  },
+  {
+    "word": "qa",
+    "pronunciation": "qa",
+    "choices": [
+      "qo",
+      "qé",
+      "qi",
+      "qa"
+    ]
+  },
+  {
+    "word": "rê",
+    "pronunciation": "rê",
+    "choices": [
+      "ré",
+      "ra",
+      "rê",
+      "ry"
+    ]
+  },
+  {
+    "word": "la",
+    "pronunciation": "la",
+    "choices": [
+      "lè",
+      "ly",
+      "la",
+      "li"
+    ]
+  },
+  {
+    "word": "kè",
+    "pronunciation": "kè",
+    "choices": [
+      "ki",
+      "ka",
+      "kê",
+      "kè"
+    ]
+  },
+  {
+    "word": "nê",
+    "pronunciation": "nê",
+    "choices": [
+      "nê",
+      "na",
+      "ny",
+      "nè"
+    ]
+  },
+  {
+    "word": "py",
+    "pronunciation": "py",
+    "choices": [
+      "pu",
+      "py",
+      "pe",
+      "pè"
+    ]
+  },
+  {
+    "word": "fo",
+    "pronunciation": "fo",
+    "choices": [
+      "fé",
+      "fa",
+      "fo",
+      "fe"
+    ]
+  },
+  {
+    "word": "si",
+    "pronunciation": "si",
+    "choices": [
+      "sé",
+      "sè",
+      "so",
+      "si"
+    ]
+  },
+  {
+    "word": "gu",
+    "pronunciation": "gu",
+    "choices": [
+      "ga",
+      "gy",
+      "gu",
+      "gé"
+    ]
+  },
+  {
+    "word": "fy",
+    "pronunciation": "fy",
+    "choices": [
+      "fy",
+      "fi",
+      "fa",
+      "fo"
+    ]
+  },
+  {
+    "word": "cê",
+    "pronunciation": "cê",
+    "choices": [
+      "co",
+      "ce",
+      "cè",
+      "cê"
+    ]
+  },
+  {
+    "word": "lo",
+    "pronunciation": "lo",
+    "choices": [
+      "le",
+      "lu",
+      "lo",
+      "lé"
+    ]
+  },
+  {
+    "word": "té",
+    "pronunciation": "té",
+    "choices": [
+      "té",
+      "to",
+      "te",
+      "tu"
+    ]
+  },
+  {
+    "word": "zè",
+    "pronunciation": "zè",
+    "choices": [
+      "zi",
+      "zè",
+      "zy",
+      "zo"
+    ]
+  },
+  {
+    "word": "cy",
+    "pronunciation": "cy",
+    "choices": [
+      "co",
+      "cê",
+      "cy",
+      "ca"
+    ]
+  },
+  {
+    "word": "dè",
+    "pronunciation": "dè",
+    "choices": [
+      "dè",
+      "di",
+      "da",
+      "de"
+    ]
+  },
+  {
+    "word": "ze",
+    "pronunciation": "ze",
+    "choices": [
+      "zé",
+      "ze",
+      "zi",
+      "zè"
+    ]
+  },
+  {
+    "word": "qe",
+    "pronunciation": "qe",
+    "choices": [
+      "qi",
+      "qo",
+      "qê",
+      "qe"
+    ]
+  },
+  {
+    "word": "zê",
+    "pronunciation": "zê",
+    "choices": [
+      "zy",
+      "zè",
+      "zê",
+      "za"
+    ]
+  },
+  {
+    "word": "fu",
+    "pronunciation": "fu",
+    "choices": [
+      "fu",
+      "fa",
+      "fo",
+      "fe"
+    ]
+  },
+  {
+    "word": "sé",
+    "pronunciation": "sé",
+    "choices": [
+      "sy",
+      "se",
+      "si",
+      "sé"
+    ]
+  },
+  {
+    "word": "fe",
+    "pronunciation": "fe",
+    "choices": [
+      "fe",
+      "fo",
+      "fi",
+      "fy"
+    ]
+  },
+  {
+    "word": "yè",
+    "pronunciation": "yè",
+    "choices": [
+      "ya",
+      "yè",
+      "yi",
+      "yê"
+    ]
+  },
+  {
+    "word": "vu",
+    "pronunciation": "vu",
+    "choices": [
+      "vu",
+      "va",
+      "vy",
+      "vi"
+    ]
+  },
+  {
+    "word": "mu",
+    "pronunciation": "mu",
+    "choices": [
+      "my",
+      "mu",
+      "mi",
+      "mo"
+    ]
+  },
+  {
+    "word": "he",
+    "pronunciation": "he",
+    "choices": [
+      "ho",
+      "ha",
+      "hé",
+      "he"
+    ]
+  },
+  {
+    "word": "wo",
+    "pronunciation": "wo",
+    "choices": [
+      "wo",
+      "wé",
+      "wi",
+      "wy"
+    ]
+  },
+  {
+    "word": "ru",
+    "pronunciation": "ru",
+    "choices": [
+      "ro",
+      "ri",
+      "rè",
+      "ru"
+    ]
+  },
+  {
+    "word": "my",
+    "pronunciation": "my",
+    "choices": [
+      "mu",
+      "me",
+      "my",
+      "ma"
+    ]
+  },
+  {
+    "word": "mè",
+    "pronunciation": "mè",
+    "choices": [
+      "mo",
+      "mê",
+      "mi",
+      "mè"
+    ]
+  },
+  {
+    "word": "yi",
+    "pronunciation": "yi",
+    "choices": [
+      "yu",
+      "yi",
+      "yy",
+      "yê"
+    ]
+  },
+  {
+    "word": "lê",
+    "pronunciation": "lê",
+    "choices": [
+      "lé",
+      "le",
+      "lê",
+      "lo"
+    ]
+  },
+  {
+    "word": "lè",
+    "pronunciation": "lè",
+    "choices": [
+      "la",
+      "lè",
+      "lu",
+      "le"
+    ]
+  },
+  {
+    "word": "ne",
+    "pronunciation": "ne",
+    "choices": [
+      "nê",
+      "ne",
+      "nè",
+      "nu"
+    ]
+  },
+  {
+    "word": "gy",
+    "pronunciation": "gy",
+    "choices": [
+      "go",
+      "gê",
+      "gy",
+      "ge"
+    ]
+  },
+  {
+    "word": "vê",
+    "pronunciation": "vê",
+    "choices": [
+      "vê",
+      "va",
+      "vi",
+      "vu"
+    ]
+  },
+  {
+    "word": "yy",
+    "pronunciation": "yy",
+    "choices": [
+      "yu",
+      "yy",
+      "yo",
+      "ya"
+    ]
+  },
+  {
+    "word": "né",
+    "pronunciation": "né",
+    "choices": [
+      "ny",
+      "ne",
+      "né",
+      "na"
+    ]
+  },
+  {
+    "word": "xè",
+    "pronunciation": "xè",
+    "choices": [
+      "xy",
+      "xa",
+      "xo",
+      "xè"
+    ]
+  },
+  {
+    "word": "hè",
+    "pronunciation": "hè",
+    "choices": [
+      "hè",
+      "hi",
+      "he",
+      "hy"
+    ]
+  },
+  {
+    "word": "me",
+    "pronunciation": "me",
+    "choices": [
+      "mu",
+      "me",
+      "mè",
+      "ma"
+    ]
+  },
+  {
+    "word": "hi",
+    "pronunciation": "hi",
+    "choices": [
+      "hè",
+      "hi",
+      "ha",
+      "hê"
+    ]
+  },
+  {
+    "word": "du",
+    "pronunciation": "du",
+    "choices": [
+      "du",
+      "di",
+      "de",
+      "dy"
+    ]
+  },
+  {
+    "word": "tè",
+    "pronunciation": "tè",
+    "choices": [
+      "te",
+      "tè",
+      "té",
+      "tu"
+    ]
+  },
+  {
+    "word": "ki",
+    "pronunciation": "ki",
+    "choices": [
+      "ke",
+      "ki",
+      "ky",
+      "ko"
+    ]
+  },
+  {
+    "word": "fê",
+    "pronunciation": "fê",
+    "choices": [
+      "fê",
+      "fu",
+      "fa",
+      "fé"
+    ]
+  },
+  {
+    "word": "xo",
+    "pronunciation": "xo",
+    "choices": [
+      "xè",
+      "xo",
+      "xu",
+      "xê"
+    ]
+  },
+  {
+    "word": "yé",
+    "pronunciation": "yé",
+    "choices": [
+      "yu",
+      "yy",
+      "yé",
+      "ye"
+    ]
+  },
+  {
+    "word": "bé",
+    "pronunciation": "bé",
+    "choices": [
+      "ba",
+      "bé",
+      "bu",
+      "be"
+    ]
+  },
+  {
+    "word": "rè",
+    "pronunciation": "rè",
+    "choices": [
+      "ry",
+      "rê",
+      "ro",
+      "rè"
+    ]
+  },
+  {
+    "word": "po",
+    "pronunciation": "po",
+    "choices": [
+      "po",
+      "pi",
+      "pé",
+      "pu"
+    ]
+  },
+  {
+    "word": "jê",
+    "pronunciation": "jê",
+    "choices": [
+      "jè",
+      "jê",
+      "ja",
+      "je"
+    ]
+  },
+  {
+    "word": "wy",
+    "pronunciation": "wy",
+    "choices": [
+      "wo",
+      "wy",
+      "wi",
+      "wu"
+    ]
+  },
+  {
+    "word": "je",
+    "pronunciation": "je",
+    "choices": [
+      "ji",
+      "jo",
+      "je",
+      "jé"
+    ]
+  },
+  {
+    "word": "by",
+    "pronunciation": "by",
+    "choices": [
+      "be",
+      "bé",
+      "bè",
+      "by"
+    ]
+  },
+  {
+    "word": "wa",
+    "pronunciation": "wa",
+    "choices": [
+      "wè",
+      "wu",
+      "wo",
+      "wa"
+    ]
+  },
+  {
+    "word": "cé",
+    "pronunciation": "cé",
+    "choices": [
+      "cé",
+      "ce",
+      "cy",
+      "ci"
+    ]
+  },
+  {
+    "word": "se",
+    "pronunciation": "se",
+    "choices": [
+      "su",
+      "sé",
+      "se",
+      "sy"
+    ]
+  },
+  {
+    "word": "so",
+    "pronunciation": "so",
+    "choices": [
+      "so",
+      "sé",
+      "sa",
+      "sê"
+    ]
+  },
+  {
+    "word": "le",
+    "pronunciation": "le",
+    "choices": [
+      "lè",
+      "le",
+      "lé",
+      "li"
+    ]
+  },
+  {
+    "word": "ha",
+    "pronunciation": "ha",
+    "choices": [
+      "hi",
+      "hu",
+      "he",
+      "ha"
+    ]
+  },
+  {
+    "word": "wé",
+    "pronunciation": "wé",
+    "choices": [
+      "wy",
+      "we",
+      "wo",
+      "wé"
+    ]
+  },
+  {
+    "word": "ty",
+    "pronunciation": "ty",
+    "choices": [
+      "to",
+      "tè",
+      "ti",
+      "ty"
+    ]
+  },
+  {
+    "word": "ky",
+    "pronunciation": "ky",
+    "choices": [
+      "ko",
+      "kê",
+      "ky",
+      "ku"
+    ]
+  },
+  {
+    "word": "ja",
+    "pronunciation": "ja",
+    "choices": [
+      "ji",
+      "ja",
+      "je",
+      "jé"
+    ]
+  },
+  {
+    "word": "ti",
+    "pronunciation": "ti",
+    "choices": [
+      "ty",
+      "tê",
+      "té",
+      "ti"
+    ]
+  },
+  {
+    "word": "cu",
+    "pronunciation": "cu",
+    "choices": [
+      "co",
+      "cy",
+      "cé",
+      "cu"
+    ]
+  },
+  {
+    "word": "lu",
+    "pronunciation": "lu",
+    "choices": [
+      "ly",
+      "lu",
+      "li",
+      "lo"
+    ]
+  },
+  {
+    "word": "wê",
+    "pronunciation": "wê",
+    "choices": [
+      "wo",
+      "wy",
+      "wê",
+      "wi"
+    ]
+  },
+  {
+    "word": "co",
+    "pronunciation": "co",
+    "choices": [
+      "ce",
+      "co",
+      "cè",
+      "cy"
+    ]
+  },
+  {
+    "word": "vy",
+    "pronunciation": "vy",
+    "choices": [
+      "vè",
+      "vy",
+      "va",
+      "vé"
+    ]
+  },
+  {
+    "word": "vi",
+    "pronunciation": "vi",
+    "choices": [
+      "vé",
+      "vu",
+      "vi",
+      "vê"
+    ]
+  },
+  {
+    "word": "pi",
+    "pronunciation": "pi",
+    "choices": [
+      "po",
+      "py",
+      "pi",
+      "pe"
+    ]
+  },
+  {
+    "word": "cè",
+    "pronunciation": "cè",
+    "choices": [
+      "ca",
+      "ce",
+      "cu",
+      "cè"
+    ]
+  },
+  {
+    "word": "ké",
+    "pronunciation": "ké",
+    "choices": [
+      "ky",
+      "kè",
+      "ké",
+      "ko"
+    ]
+  },
+  {
+    "word": "be",
+    "pronunciation": "be",
+    "choices": [
+      "be",
+      "ba",
+      "bé",
+      "bo"
+    ]
+  },
+  {
+    "word": "ya",
+    "pronunciation": "ya",
+    "choices": [
+      "ya",
+      "ye",
+      "yu",
+      "yé"
+    ]
+  },
+  {
+    "word": "di",
+    "pronunciation": "di",
+    "choices": [
+      "dy",
+      "di",
+      "dè",
+      "dé"
+    ]
+  },
+  {
+    "word": "ri",
+    "pronunciation": "ri",
+    "choices": [
+      "ru",
+      "rè",
+      "ri",
+      "re"
+    ]
+  },
+  {
+    "word": "dy",
+    "pronunciation": "dy",
+    "choices": [
+      "dy",
+      "dé",
+      "du",
+      "do"
+    ]
+  },
+  {
+    "word": "xy",
+    "pronunciation": "xy",
+    "choices": [
+      "xè",
+      "xy",
+      "xa",
+      "xé"
+    ]
+  },
+  {
+    "word": "ga",
+    "pronunciation": "ga",
+    "choices": [
+      "gé",
+      "ga",
+      "gê",
+      "go"
+    ]
+  },
+  {
+    "word": "de",
+    "pronunciation": "de",
+    "choices": [
+      "du",
+      "dé",
+      "dê",
+      "de"
+    ]
+  },
+  {
+    "word": "lé",
+    "pronunciation": "lé",
+    "choices": [
+      "li",
+      "le",
+      "lê",
+      "lé"
+    ]
+  },
+  {
+    "word": "ta",
+    "pronunciation": "ta",
+    "choices": [
+      "ta",
+      "tè",
+      "tê",
+      "té"
+    ]
+  },
+  {
+    "word": "dé",
+    "pronunciation": "dé",
+    "choices": [
+      "dê",
+      "da",
+      "du",
+      "dé"
+    ]
+  },
+  {
+    "word": "bu",
+    "pronunciation": "bu",
+    "choices": [
+      "bè",
+      "bu",
+      "ba",
+      "bi"
+    ]
+  },
+  {
+    "word": "gê",
+    "pronunciation": "gê",
+    "choices": [
+      "gê",
+      "go",
+      "gé",
+      "gi"
+    ]
+  },
+  {
+    "word": "yo",
+    "pronunciation": "yo",
+    "choices": [
+      "yo",
+      "ya",
+      "yê",
+      "ye"
+    ]
+  },
+  {
+    "word": "mi",
+    "pronunciation": "mi",
+    "choices": [
+      "ma",
+      "me",
+      "mê",
+      "mi"
+    ]
+  }
+]

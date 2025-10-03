@@ -238,9 +238,12 @@ function showControlsForDay() {
     });
 }
 
+// Global variable to hold the current SpeechSynthesisUtterance object
+window.currentTTSUtterance = null;
+
 function readText(text, lang, rate = 0.6, onEndCallback = null) {
     if (lang === "en-US") lang = "en";
-    if (lang === "fr-FR") lang = "fr";
+    if (lang === "fr-FR") lang = "fr"; // Ensure 'fr-FR' is normalized to 'fr' for AndroidTTS
 
     if (typeof AndroidTTS !== "undefined") {
         // Android TTS bridge
@@ -249,23 +252,42 @@ function readText(text, lang, rate = 0.6, onEndCallback = null) {
                 onEndCallback();
             }
         };
+        // If AndroidTTS has a stop method, call it before speaking
+        if (typeof AndroidTTS.stop === 'function') {
+            AndroidTTS.stop();
+        }
         AndroidTTS.speak(text, lang, rate);
     } else if ('speechSynthesis' in window) {
         // Web Speech API fallback
-        const utter = new SpeechSynthesisUtterance(text);
-        utter.lang = lang;
-        utter.rate = rate; // Apply the specified rate
-        utter.pitch = 1;
-        utter.volume = 1;
-        if (onEndCallback) {
-            utter.onend = onEndCallback;
+        if (window.currentTTSUtterance) {
+            window.speechSynthesis.cancel(); // Cancel any existing speech
         }
-        speechSynthesis.speak(utter);
+        window.currentTTSUtterance = new SpeechSynthesisUtterance(text);
+        window.currentTTSUtterance.lang = lang;
+        window.currentTTSUtterance.rate = rate; // Apply the specified rate
+        window.currentTTSUtterance.pitch = 1;
+        window.currentTTSUtterance.volume = 1;
+        window.currentTTSUtterance.onend = function() {
+            if (onEndCallback) {
+                onEndCallback();
+            }
+            window.currentTTSUtterance = null; // Clear reference after speech ends
+        };
+        window.speechSynthesis.speak(window.currentTTSUtterance);
     } else {
         console.warn("Text-to-speech not supported in this browser.");
         if (onEndCallback) {
             onEndCallback(); // Call callback even if TTS not supported
         }
+    }
+}
+
+function stopAllTTS() {
+    if (typeof AndroidTTS !== "undefined" && typeof AndroidTTS.stop === 'function') {
+        AndroidTTS.stop();
+    } else if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+        window.currentTTSUtterance = null; // Clear reference
     }
 }
 
