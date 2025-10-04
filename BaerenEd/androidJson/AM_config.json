@@ -1,5 +1,12 @@
 {
   "version": "2025-10-04",
+  "header": {
+    "buttons": [
+      {"label": "Back", "action": "goBack"},
+      {"label": "Home", "action": "goHome"},
+      {"label": "Refresh", "action": "refreshPage"}
+    ]
+  },
   "title": "Weekly Homework Dashboard",
 
   "progress": {
