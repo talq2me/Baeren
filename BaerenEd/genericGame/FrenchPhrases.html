@@ -6,7 +6,6 @@
     
     <link rel="stylesheet" href="../styles.css">
     <script src="../commonCode.js"></script>
-    <script src="genericGame.js"></script>
     <style>
         body {
             font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
@@ -318,6 +317,20 @@
             }
         ];
 
+        // --- Helper functions copied from genericGame.js ---
+
+        function splitTextToSpans(text) {
+            return text.split(/(\s+)/).map((word, i) => `<span data-word-idx="${i}">${word}</span>`).join("");
+        }
+
+        function speakWithHighlight(text, lang, container, onend) {
+            const rate = (lang && lang.toLowerCase().startsWith('fr')) ? 0.6 : 0.75;
+            readText(text, lang, rate, () => {
+                container.classList.remove('tts-highlight');
+                if (onend) onend();
+            });
+            container.classList.add('tts-highlight');
+        }
          // --- CONFIG ---
     const QUESTIONS_PER_DAY = 12;
     const STORAGE_KEY = "FrenchPhrasesGame_progress";
@@ -367,7 +380,7 @@
     function showRound() {
         const round = todayQuestions[currentRound];
         const sentenceDiv = document.getElementById("sentenceText");
-        // sentenceDiv.innerHTML = splitTextToSpans(round.sentence); // Handled by speakWithHighlight
+        sentenceDiv.innerHTML = splitTextToSpans(round.sentence);
         document.getElementById("feedback").innerText = "";
         document.getElementById("playBtn").disabled = false;
 
