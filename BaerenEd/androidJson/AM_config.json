@@ -12,7 +12,7 @@
   "progress": {
     "starsEarned": 6,
     "starsGoal": 10,
-    "message": "Earn 10 stars to unlock your reward!"
+    "message": "Earn stars to unlock your pokemon!"
   },
 
   "sections": [
@@ -24,12 +24,14 @@
         {
           "title": "Spelling Game",
           "launch": "spelling",
-          "stars": 2
+          "stars": 2,
+          "totalQuestions": 10
         },
         {
           "title": "Reading Practice",
           "launch": "reading",
-          "stars": 3
+          "stars": 3,
+          "totalQuestions": 5
         }
       ]
     },
@@ -41,12 +43,14 @@
         {
           "title": "Math Challenge",
           "launch": "math",
-          "stars": 1
+          "stars": 1,
+          "totalQuestions": 10
         },
         {
           "title": "Sentence Builder",
           "launch": "sentences",
-          "stars": 1
+          "stars": 1,
+          "totalQuestions": 10
         }
       ]
     },
