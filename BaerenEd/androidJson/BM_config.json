@@ -7,7 +7,7 @@
       {"label": "Refresh", "action": "refreshPage"}
     ]
   },
-  "title": "Weekly Homework Dashboard",
+  "title": "Daily Homework Dashboard",
 
   "progress": {
     "starsEarned": 6,
