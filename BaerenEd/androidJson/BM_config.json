@@ -28,8 +28,8 @@
           "totalQuestions": 10
         },
         {
-          "title": "Reading Practice",
-          "launch": "reading",
+          "title": "Sight Words",
+          "launch": "sightWords",
           "stars": 3,
           "totalQuestions": 5
         }
@@ -50,7 +50,7 @@
           "title": "Sentence Builder",
           "launch": "sentences",
           "stars": 1,
-          "totalQuestions": 10
+          "totalQuestions": 5
         }
       ]
     },
