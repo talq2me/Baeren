@@ -437,7 +437,7 @@
         function playInstruction() {
             const wordToSpell = currentWord.word; // Get the word from the object
             const sentenceToRead = currentWord.sentence;
-            const fullText = sentenceToRead ? `Épelez le mot: ${wordToSpell}: ${sentenceToRead}` : `Épelez le mot: ${wordToSpell}`;
+            const fullText = sentenceToRead ? `Épelez le mot: ${wordToSpell}: ${sentenceToRead}: ${wordToSpell}` : `Épelez le mot: ${wordToSpell}`;
             readText(fullText, 'fr', 0.6);
         }
 

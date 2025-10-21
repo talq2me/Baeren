@@ -402,7 +402,7 @@
         function playInstruction() {
             const wordToSpell = currentWord.word; // Get the word from the object
             const sentenceToRead = currentWord.sentence;
-            const fullText = sentenceToRead ? `Spell the word: ${wordToSpell}: ${sentenceToRead}` : `Spell the word: ${wordToSpell}`;
+            const fullText = sentenceToRead ? `Spell the word: ${wordToSpell}: ${sentenceToRead}: ${wordToSpell}` : `Spell the word: ${wordToSpell}`;
             readText(fullText, 'en', 0.6);
         }
 
