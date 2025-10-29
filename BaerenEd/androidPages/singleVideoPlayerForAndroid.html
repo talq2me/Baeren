@@ -119,7 +119,13 @@
 
         function onPlayerStateChange(event) {
             if (event.data == YT.PlayerState.ENDED) {
-                window.parent.postMessage({ type: "videoEnded" }, "*");
+                // Call the Android interface to signal video completion and grant rewards
+                if (window.Android && typeof window.Android.finishVideo === 'function') {
+                    window.Android.finishVideo();
+                } else {
+                    // Fallback for non-Android environments or if interface is not ready
+                    window.parent.postMessage({ type: "videoEnded" }, "*");
+                }
             }
         }
 
