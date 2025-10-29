@@ -1,0 +1,18 @@
+[
+  {"prompt": {"text": "Find the sound", "lang": "eng"}, "question": {"text": "é", "media": {"audioclips": ["../sounds/en/ay.wav"]}}, "correctChoices": [{"text": "é"}], "extraChoices": [{"text": "e"}, {"text": "a"}, {"text": "è"}]},
+  {"prompt": {"text": "Find the sound", "lang": "eng"}, "question": {"text": "e", "media": {"audioclips": ["../sounds/en/e.wav"]}}, "correctChoices": [{"text": "e"}], "extraChoices": [{"text": "u"}, {"text": "é"}, {"text": "è"}]},
+  {"prompt": {"text": "Find the sound", "lang": "eng"}, "question": {"text": "è", "media": {"audioclips": ["../sounds/en/eh.wav"]}}, "correctChoices": [{"text": "è"}], "extraChoices": [{"text": "y"}, {"text": "é"}, {"text": "e"}]},
+  {"prompt": {"text": "Find the sound", "lang": "eng"}, "question": {"text": "ê", "media": {"audioclips": ["../sounds/en/eh.wav"]}}, "correctChoices": [{"text": "ê"}], "extraChoices": [{"text": "é"}, {"text": "e"}, {"text": "y"}]},
+  {"prompt": {"text": "Find the sound", "lang": "eng"}, "question": {"text": "bè", "media": {"audioclips": ["../sounds/be.mp3"]}}, "correctChoices": [{"text": "bè"}], "extraChoices": [{"text": "be"}, {"text": "bé"}, {"text": "ba"}]},
+  {"prompt": {"text": "Find the sound", "lang": "eng"}, "question": {"text": "o", "media": {"audioclips": ["../sounds/en/o.wav"]}}, "correctChoices": [{"text": "o"}], "extraChoices": [{"text": "u"}, {"text": "a"}, {"text": "i"}]},
+  {"prompt": {"text": "Find the sound", "lang": "eng"}, "question": {"text": "u", "media": {"audioclips": ["../sounds/en/ew.wav"]}}, "correctChoices": [{"text": "u"}], "extraChoices": [{"text": "o"}, {"text": "a"}, {"text": "i"}]},
+  {"prompt": {"text": "Find the sound", "lang": "eng"}, "question": {"text": "je", "media": {"audioclips": ["../sounds/je.mp3"]}}, "correctChoices": [{"text": "je"}], "extraChoices": [{"text": "ja"}, {"text": "gé"}, {"text": "jè"}]},
+  {"prompt": {"text": "Find the sound", "lang": "eng"}, "question": {"text": "a", "media": {"audioclips": ["../sounds/en/a.wav"]}}, "correctChoices": [{"text": "a"}], "extraChoices": [{"text": "é"}, {"text": "e"}, {"text": "è"}]},
+  {"prompt": {"text": "Find the sound", "lang": "eng"}, "question": {"text": "ly", "media": {"audioclips": ["../sounds/ly.mp3"]}}, "correctChoices": [{"text": "ly"}], "extraChoices": [{"text": "le"}, {"text": "lé"}, {"text": "lè"}]},
+  {"prompt": {"text": "Find the sound", "lang": "eng"}, "question": {"text": "i", "media": {"audioclips": ["../sounds/en/ee.wav"]}}, "correctChoices": [{"text": "i"}], "extraChoices": [{"text": "e"}, {"text": "é"}, {"text": "è"}]},
+  {"prompt": {"text": "Find the sound", "lang": "eng"}, "question": {"text": "y", "media": {"audioclips": ["../sounds/en/ee.wav"]}}, "correctChoices": [{"text": "y"}], "extraChoices": [{"text": "e"}, {"text": "é"}, {"text": "è"}]},
+  {"prompt": {"text": "Find the sound", "lang": "eng"}, "question": {"text": "pi", "media": {"audioclips": ["../sounds/pi.mp3"]}}, "correctChoices": [{"text": "pi"}], "extraChoices": [{"text": "pe"}, {"text": "pa"}, {"text": "pé"}]},
+  {"prompt": {"text": "Find the sound", "lang": "eng"}, "question": {"text": "rè", "media": {"audioclips": ["../sounds/re.mp3"]}}, "correctChoices": [{"text": "rè"}], "extraChoices": [{"text": "re"}, {"text": "ré"}, {"text": "ra"}]},
+  {"prompt": {"text": "Find the sound", "lang": "eng"}, "question": {"text": "wo", "media": {"audioclips": ["../sounds/wo.mp3"]}}, "correctChoices": [{"text": "wo"}], "extraChoices": [{"text": "wu"}, {"text": "wa"}, {"text": "we"}]},
+  {"prompt": {"text": "Find the sound", "lang": "eng"}, "question": {"text": "té", "media": {"audioclips": ["../sounds/te.mp3"]}}, "correctChoices": [{"text": "té"}], "extraChoices": [{"text": "ta"}, {"text": "te"}, {"text": "tè"}]}
+]

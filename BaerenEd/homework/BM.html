@@ -181,6 +181,19 @@
         <button data-key="bonus23" class="button bonus-task task-button" data-reveal-code="true" onclick="openNewWindow('https://hourofcode.com/mchoc')">Code.Org</button>
     </div>
 
+<button data-key="required14b" class="button required" data-reveal-code="true" onclick="openSingleVideo('LUxazn4WbKo')">KungFu Video (New)</button>
+
+<script>
+function openSingleVideo(videoId) {
+  const videoUrl = '../singleVideoPlayerForAndroid.html?videoId=' + videoId;
+  const iframe = document.getElementById("iframeContent");
+  const modal = document.getElementById("iframeModal");
+  iframe.src = videoUrl;
+  modal.style.display = "block";
+}
+</script>
+
+
     <h1>My Rewards</h1>
     <div id="rewardsZone" class="div-container">
         <button id="rewardBtn15" class="button" style="display:none;">Reward 15</button>
