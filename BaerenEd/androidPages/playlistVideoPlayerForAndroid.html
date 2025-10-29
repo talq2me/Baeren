@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist Player</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+        }
+        #playlistPlayerContainer {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #playlistYTPlayer {
+            width: 100vw;
+            height: 100vh;
+        }
+        #ytOverlayBlocker {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 2;
+        }
+        #ytCustomControls {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto;
+            text-align: center;
+            z-index: 3;
+            background: rgba(34, 34, 34, 0.8);
+            border-radius: 16px;
+            padding: 12px;
+            display: inline-block;
+        }
+        #ytCustomControls button {
+            font-size: 2em;
+            margin: 0 1em;
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+        }
+        #closePlaylistBtn {
+            position: absolute;
+            top: 18px;
+            right: 28px;
+            z-index: 4;
+            font-size: 2em;
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="playlistPlayerContainer">
+        <div id="playlistYTPlayer"></div>
+        <div id="ytOverlayBlocker"></div>
+        <div id="ytCustomControls">
+            <button id="ytPrevBtn">⏮️</button>
+            <button id="ytPlayBtn">▶️</button>
+            <button id="ytPauseBtn">⏸️</button>
+            <button id="ytNextBtn">⏭️</button>
+        </div>
+        <button id="closePlaylistBtn">&times;</button>
+    </div>
+
+    <script>
+        let player;
+
+        function getPlaylistIdFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('playlistId');
+        }
+
+        function onYouTubeIframeAPIReady() {
+            const playlistId = getPlaylistIdFromUrl();
+            if (!playlistId) {
+                document.getElementById('playlistYTPlayer').innerHTML = '<h2 style="color:white; text-align: center;">No Playlist ID provided in the URL.</h2>';
+                return;
+            }
+
+            player = new YT.Player('playlistYTPlayer', {
+                height: '100%',
+                width: '100%',
+                playerVars: {
+                    autoplay: 1,
+                    rel: 0,
+                    controls: 0, // Hide YouTube controls
+                    modestbranding: 1,
+                    enablejsapi: 1,
+                    listType: 'playlist',
+                    list: playlistId
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            setupCustomControls();
+        }
+
+        function setupCustomControls() {
+            document.getElementById('ytPrevBtn').onclick = () => player.previousVideo();
+            document.getElementById('ytPlayBtn').onclick = () => player.playVideo();
+            document.getElementById('ytPauseBtn').onclick = () => player.pauseVideo();
+            document.getElementById('ytNextBtn').onclick = () => player.nextVideo();
+            document.getElementById('closePlaylistBtn').onclick = () => {
+                // For Android WebView, you might need a JavaScript interface to close the activity
+                if (window.Android && typeof window.Android.closeActivity === 'function') {
+                    window.Android.closeActivity();
+                } else {
+                    // Fallback for browsers
+                    window.close();
+                }
+            };
+        }
+
+        // Load the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    </script>
+</body>
+</html>
