@@ -122,13 +122,13 @@
             document.getElementById('ytPlayBtn').onclick = () => player.playVideo();
             document.getElementById('ytPauseBtn').onclick = () => player.pauseVideo();
             document.getElementById('ytNextBtn').onclick = () => player.nextVideo();
-            document.getElementById('closePlaylistBtn').onclick = () => {
-                // For Android WebView, you might need a JavaScript interface to close the activity
+            document.getElementById('closeBtn').onclick = () => {
                 if (window.Android && typeof window.Android.closeActivity === 'function') {
-                    window.Android.closeActivity();
+                    window.Android.closeActivity(); // This will now close the Android activity without rewards
                 } else {
-                    // Fallback for browsers
+                    // Fallback for non-Android environments
                     window.close();
+                    window.parent.postMessage({ type: "closeModal" }, "*");
                 }
             };
         }

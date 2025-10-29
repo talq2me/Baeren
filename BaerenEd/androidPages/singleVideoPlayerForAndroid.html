@@ -135,8 +135,9 @@
             document.getElementById('ytPauseBtn').onclick = () => player.pauseVideo();
             document.getElementById('closeBtn').onclick = () => {
                 if (window.Android && typeof window.Android.closeActivity === 'function') {
-                    window.Android.closeActivity();
+                    window.Android.closeActivity(); // This will now close the Android activity without rewards
                 } else {
+                    // Fallback for non-Android environments
                     window.close();
                     window.parent.postMessage({ type: "closeModal" }, "*");
                 }
