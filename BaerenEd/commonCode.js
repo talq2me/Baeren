@@ -477,3 +477,14 @@ function handleBackButton() {
         window.location.href = "/Baeren/BaerenEd/index.html";
     }
 }
+
+function openInChrome(url) {
+  if (typeof fully !== 'undefined') {
+    const scheme = url.split('://')[0];
+    const urlWithoutScheme = url.split('://')[1];
+    const intentUrl = `intent://${urlWithoutScheme}#Intent;scheme=${scheme};package=com.android.chrome;B.com.android.browser.headers=false;end`;
+    window.location.href = intentUrl;
+  } else {
+    openNewWindow(url);
+  }
+}
